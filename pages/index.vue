@@ -1,89 +1,71 @@
 <template>
-  <v-row justify="center" align="center">
-    <v-col cols="12" sm="8" md="6">
-      <div class="text-center">
-        <logo />
-        <vuetify-logo />
-      </div>
-      <v-card>
-        <v-card-title class="headline">
-          Welcome to the Vuetify + Nuxt.js template
-        </v-card-title>
-        <v-card-text>
-          <p>Vuetify is a progressive Material Design component framework for Vue.js. It was designed to empower developers to create amazing applications.</p>
-          <p>
-            For more information on Vuetify, check out the <a
-              href="https://vuetifyjs.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              documentation
-            </a>.
-          </p>
-          <p>
-            If you have questions, please join the official <a
-              href="https://chat.vuetifyjs.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="chat"
-            >
-              discord
-            </a>.
-          </p>
-          <p>
-            Find a bug? Report it on the github <a
-              href="https://github.com/vuetifyjs/vuetify/issues"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="contribute"
-            >
-              issue board
-            </a>.
-          </p>
-          <p>Thank you for developing with Vuetify and I look forward to bringing more exciting features in the future.</p>
-          <div class="text-xs-right">
-            <em><small>&mdash; John Leider</small></em>
-          </div>
-          <hr class="my-3">
-          <a
-            href="https://nuxtjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nuxt Documentation
-          </a>
-          <br>
-          <a
-            href="https://github.com/nuxt/nuxt.js"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nuxt GitHub
-          </a>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn
-            color="primary"
-            nuxt
-            to="/inspire"
-          >
-            Continue
+  <div id="hero" class="d-flex align-center">
+    <div class="mask" />
+    <v-row class="d-flex justify-center justify-lg-end justify-sm-center align-center">
+      <v-col
+        cols="12"
+        lg="4"
+        xl="4"
+        md="4"
+        sm="10"
+        class="px-2"
+      >
+        <v-card class="card text-center pa-2 mx-3">
+          <v-card-title class="pa-0 ma-3 col-10 mx-auto">
+            <h1 class="h1">
+              Formacion con alcance eterno
+            </h1>
+          </v-card-title>
+          <v-card-text class="my-1 col-12">
+            <p class="text">
+              Disfruta la maravillosa experiencia de la formación cristiana a
+              través de los cursos y programas de Teo Academy
+            </p>
+          </v-card-text>
+          <v-btn to="/courses" class="btn ">
+            Nuestros Cursos
           </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-col>
-  </v-row>
+          <v-btn to="/courses" class="btn ">
+            Contáctanos
+          </v-btn>
+        </v-card>
+      </v-col>
+    </v-row>
+  </div>
 </template>
-
 <script>
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
-
 export default {
-  components: {
-    Logo,
-    VuetifyLogo
-  }
+  components: {}
 }
 </script>
+<style lang="scss" scoped>
+#hero {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 25% 25%;
+  background-image: url(../assets/img/banner-index.webp);
+  .mask {
+    position: absolute;
+    background: rgba($color: #ffffff, $alpha: 0.45);
+    min-height: 100vh;
+    width: 100%;
+  }
+  .btn {
+    display: block;
+  }
+
+  @include telefono {
+      .card {
+        right: 18rem;
+      }
+      .btn {
+        display: inline-block;
+    }
+  }
+}
+</style>

@@ -2,14 +2,7 @@
   <v-app class="app">
     <NavBar />
     <v-main>
-      <v-container>
-        <nuxt />
-        <nuxt />
-        <nuxt />
-        <nuxt />
-        <nuxt />
-        <nuxt />
-      </v-container>
+      <nuxt />
     </v-main>
     <!-- Main -->
     <PageFooter />

@@ -6,7 +6,7 @@
       fixed
       app
       color="white"
-      class="appbar"
+      class="appbar py-2"
     >
       <v-container
         cols="12"
@@ -21,16 +21,12 @@
             <v-img
               :src="require('../assets/img/logo-red-full.webp')"
               contain
-              width="12.5rem"
+              width="13rem"
             />
           </v-toolbar-title>
           <v-list class="nav transparent hidden-md-and-down">
             <v-item-group class="d-flex align-center">
-              <v-list-item
-                v-for="(item, i) in items"
-                :key="i"
-                class="px-1"
-              >
+              <v-list-item v-for="(item, i) in items" :key="i" class="px-1">
                 <!-- <v-icon class="icon">
                   {{ item.icon }}
                 </v-icon> -->
@@ -38,10 +34,8 @@
                   <v-list-item-title class="link" v-text="item.title" />
                 </nuxt-link>
               </v-list-item>
-              <v-btn to="/login" class="btn text-capitalize">
-                <v-list-item-title class="title">
-                  Iniciar Sesión
-                </v-list-item-title>
+              <v-btn to="/login" class="btn text-capitalize text-center my-2">
+                Iniciar Sesión
               </v-btn>
             </v-item-group>
           </v-list>
@@ -64,11 +58,7 @@
     >
       <v-list nav dense>
         <v-list-item-group class="d-flex nav flex-column pa-1 mx-1">
-          <v-list-item
-            v-for="(item, i) in items"
-            :key="i"
-            class="pa-2"
-          >
+          <v-list-item v-for="(item, i) in items" :key="i" class="pa-2">
             <v-icon class="icon mr-1">
               {{ item.icon }}
             </v-icon>
@@ -77,9 +67,7 @@
             </nuxt-link>
           </v-list-item>
           <v-btn to="/login" class="btn text-capitalize text-center my-2">
-            <v-list-item-title class="title">
-              Iniciar Sesión
-            </v-list-item-title>
+            Iniciar Sesión
           </v-btn>
         </v-list-item-group>
       </v-list>
@@ -133,20 +121,23 @@ export default {
 
 <style lang="scss" scoped>
 #navbar {
+  .appbar {
+    height: 8rem !important;
+  }
   .appbar,
   .drawer {
     .nav {
-      .btn {
-        background-color: $blue !important;
-        color: #fff;
-        &:hover {
-          filter: brightness(0.95);
-        }
-        .title {
-          font-size: $link !important;
-          font-family: $title-font !important;
-        }
-      }
+      // .btn {
+      //   background-color: $blue !important;
+      //   color: #fff;
+      //   &:hover {
+      //     filter: brightness(0.95);
+      //   }
+      //   .title {
+      //     font-size: $link !important;
+      //     font-family: $title-font !important;
+      //   }
+      // }
       .link {
         font-size: $link;
         text-align: center !important;

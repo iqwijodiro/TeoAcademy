@@ -27,7 +27,9 @@
           lg="3"
           xl="3"
         >
-          <v-list class="d-flex flex-column align-center align-md-center align-lg-start align-xl-start pa-0">
+          <v-list
+            class="d-flex flex-column align-center align-md-center align-lg-start align-xl-start pa-0"
+          >
             <h4 class="pt-4 mb-3">
               Acceso Rápido
             </h4>
@@ -38,14 +40,7 @@
             </v-list-item>
           </v-list>
         </v-col>
-        <v-col
-          cols="12"
-          xs="10"
-          sm="10"
-          md="4"
-          lg="4"
-          xl="4"
-        >
+        <v-col cols="12" sm="10" md="4" lg="4" xl="4">
           <v-img
             :src="require('../assets/img/logo-red-full.webp')"
             contain
@@ -55,16 +50,24 @@
           <h4 class="pb-3 text-center">
             Sigue nuestras redes sociales
           </h4>
-          <v-list class="d-flex align-start">
-            <v-list-item v-for="(icon, i) in icons" :key="i" class="px-0">
-              <v-icon class="icon">
+          <div class="d-flex mx-auto">
+            <v-list
+              v-for="(icon, i) in icons"
+              :key="i"
+              class="d-inline-flex mx-auto"
+            >
+              <!-- <v-list-item  class=" px-0"> -->
+              <a
+                :href="icons[i].link"
+              ><v-icon class="icon mx-5">
                 {{ icon.brand }}
-              </v-icon>
-            </v-list-item>
-          </v-list>
+              </v-icon></a>
+              <!-- </v-list-item> -->
+            </v-list>
+          </div>
         </v-col>
       </v-row>
-      <v-container>
+      <v-container class="text-center mt-2">
         <v-row class="d-flex justify-center row-foot">
           <span>Created by SEGO Technology</span>
         </v-row>
@@ -126,10 +129,22 @@ export default {
         }
       ],
       icons: [
-        { brand: 'mdi-twitter' },
-        { brand: 'mdi-facebook' },
-        { brand: 'mdi-instagram' },
-        { brand: 'mdi-telegram' }
+        {
+          brand: 'mdi-twitter',
+          link: 'https://twitter.com'
+        },
+        {
+          brand: 'mdi-facebook',
+          link: 'https://facebook.com'
+        },
+        {
+          brand: 'mdi-instagram',
+          link: 'https://instagram.com'
+        },
+        {
+          brand: 'mdi-telegram',
+          link: 'https://telegram.com'
+        }
       ]
     }
   }
@@ -137,44 +152,28 @@ export default {
 </script>
 <style lang="scss" scoped>
 #footer {
-  .container {
-    .icon {
-      font-size: $btn + .5rem;
-    }
-    .text {
-      font-size: $body;
-      white-space: normal !important;
-      color: $gray-mid;
-      line-height: 1.8;
-    }
-    h4 {
-      font-size: $link + 0.5rem;
-      font-family: $title-font;
-      font-weight: 300;
-      color: $red;
-    }
-    .link {
-      font-size: $link + 0.2rem;
-      color: $gray-mid;
-      &:hover {
-        color: $blue;
-        border-bottom: 0.2rem solid $blue;
-        margin-top: 0;
-      }
-    }
-    .item {
-      min-height: 3.5rem !important;
-      padding: 0;
-    }
-    span {
-      font-family: $title-font;
-      font-size: $miniLink + .3rem;
-      color: $gray-mid;
-    }
+  .icon {
+    font-size: $link + 1.5rem !important;
   }
+  .text {
+    font-size: $body;
+    white-space: normal !important;
+    color: $gray-mid;
+    line-height: 1.8;
+  }
+  .item {
+    min-height: 3.5rem !important;
+    padding: 0;
+  }
+  span {
+    font-family: $title-font;
+    font-size: $miniLink + 0.5rem;
+    color: $gray-mid;
+  }
+
   .row-foot {
-    border-bottom: .2rem solid $gray-light;
-    padding-bottom: .5rem;
+    border-bottom: 0.2rem solid $gray-light;
+    padding-bottom: 0.5rem;
   }
 }
 </style>
