@@ -56,6 +56,12 @@
       temporary
       fixed
     >
+      <v-img
+        :src="require('../assets/img/logo-red-full.webp')"
+        contain
+        width="13rem"
+        class="mx-auto py-5"
+      />
       <v-list nav dense>
         <v-list-item-group class="d-flex nav flex-column pa-1 mx-1">
           <v-list-item v-for="(item, i) in items" :key="i" class="pa-2">

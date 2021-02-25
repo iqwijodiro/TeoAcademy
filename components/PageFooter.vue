@@ -56,13 +56,11 @@
               :key="i"
               class="d-inline-flex mx-auto"
             >
-              <!-- <v-list-item  class=" px-0"> -->
               <a
                 :href="icons[i].link"
               ><v-icon class="icon mx-5">
                 {{ icon.brand }}
               </v-icon></a>
-              <!-- </v-list-item> -->
             </v-list>
           </div>
         </v-col>

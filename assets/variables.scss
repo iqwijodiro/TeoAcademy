@@ -2,7 +2,11 @@
 //
 // The variables you want to modify
 // $font-size-root: 20px;
-
+html, body, * {
+  word-break: normal !important;
+  line-height: 1.25;
+  scroll-behavior: smooth;
+}
 /** Colores **/
 $red: #be1e2d;
 $blue: #2ec4b6;
@@ -15,7 +19,7 @@ $body-font: "Nunito", sans-serif;
 $title-font: "Prompt", sans-serif;
 /** Tamaños de Fuente **/
 $main-title: 3rem;
-$section-title: 2rem;
+$section-title: 2.5rem;
 $subtitle: 1.4rem;
 $link: 1.5rem;
 $miniLink: 1rem;
@@ -39,7 +43,12 @@ $body: 1.6rem;
     background: #ffffff !important;
   }
 }
-
+.centrar {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center!important;
+  margin: 0 auto !important;
+}
 .h1 {
   font-size: 3rem;
   color: $red;
