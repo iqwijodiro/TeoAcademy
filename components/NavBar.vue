@@ -24,7 +24,7 @@
               width="13rem"
             />
           </v-toolbar-title>
-          <v-list class="nav transparent hidden-md-and-down">
+          <v-list class="nav transparent hidden-sm-and-down">
             <v-item-group class="d-flex align-center">
               <v-list-item v-for="(item, i) in items" :key="i" class="px-1">
                 <!-- <v-icon class="icon">

@@ -13,6 +13,7 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.12.5",
     "core-js": "^3.8.3",
+    "mdbvue": "^6.7.2",
     "normalize.css": "^8.0.1",
     "nuxt": "^2.14.12",
     "nuxt-fontawesome": "^0.4.0"

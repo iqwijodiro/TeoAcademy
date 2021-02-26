@@ -2,20 +2,18 @@
   <div id="index">
     <div class="hero d-flex align-center">
       <div class="mask" />
-      <v-row
-        class="d-flex justify-center justify-lg-end justify-sm-center align-center mx-auto col-12 col-xs-12"
-      >
+      <v-row class="rail d-flex justify-end mx-auto">
         <v-col
           cols="12"
           lg="5"
           xl="5"
-          md="5"
-          sm="10"
+          md="6"
+          sm="8"
           xs="12"
           class="px-5"
         >
           <v-card class="card text-center pa-2 mx-3">
-            <v-card-title class="pa-0 ma-3 mx-auto">
+            <v-card-title class="pa-0 ma-3 mx-auto col-10">
               <h1 class="h1">
                 Formacion con alcance eterno
               </h1>
@@ -36,8 +34,8 @@
         </v-col>
       </v-row>
     </div>
+    <!--Seccion de Hero-->
     <section class="ebook">
-      <!--Seccion de Ebook-->
       <v-container>
         <v-row class="justify-space-around align-center py-5 my-5 mx-auto">
           <v-col
@@ -67,12 +65,57 @@
         </v-row>
       </v-container>
     </section>
+    <!--Seccion del Ebook-->
+    <section class="top-cursos">
+      <v-container>
+        <h2 class="d-flex align-start ml-5">
+          Nuestros cursos más populares
+        </h2>
+        <v-row />
+      </v-container>
+    </section>
+    <!--Seccion de los mejores cursos-->
   </div>
 </template>
 <script>
 export default {
   // components: {},
-  // data () {}
+  data () {
+    return {
+      courses: [
+        {
+          img: '../assets/img/IniciacionCristiana.webp',
+          title: 'El proceso de iniciacion Cristiana',
+          text:
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.'
+        },
+        {
+          img: 'IniciacionCristiana.webp',
+          title: 'El proceso de iniciacion Cristiana',
+          text:
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.'
+        },
+        {
+          img: 'IniciacionCristiana.webp',
+          title: 'El proceso de iniciacion Cristiana',
+          text:
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.'
+        },
+        {
+          img: 'IniciacionCristiana.webp',
+          title: 'El proceso de iniciacion Cristiana',
+          text:
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.'
+        },
+        {
+          img: 'IniciacionCristiana.webp',
+          title: 'El proceso de iniciacion Cristiana',
+          text:
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.'
+        }
+      ]
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>
@@ -93,11 +136,23 @@ export default {
     width: 100%;
   }
   .btn {
-   display: block;
+    display: block;
   }
-  @include telefono {
+  .rail {
+    max-width: 100% !important;
+    justify-content: center !important;
+  }
+  @include tablet {
     .btn {
       display: inline-block;
+    }
+  }
+
+  @include miniDesktop {
+    .rail {
+      max-width: 85% !important;
+      display: flex !important;
+      justify-content: flex-end !important;
     }
   }
 }
@@ -105,17 +160,10 @@ export default {
   background: no-repeat url(../assets/img/wave.svg);
   background-size: cover;
   min-height: 85vh;
-  h2 {
-    font-size: $section-title;
-    font-weight: 300;
-    color: $gray-mid;
-    text-align: center;
-    line-height: 1.7;
-    margin-bottom: 1rem;
-  }
   .rounded {
     max-width: 100%;
     // border-radius: 2.5rem!important;
   }
 }
+
 </style>

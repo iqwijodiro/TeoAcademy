@@ -44,8 +44,15 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    'nuxt-fontawesome'
+    'nuxt-fontawesome',
+    'mdbvue/nuxt'
   ],
+  mdbvue: {
+    icons: false, // FA5
+    roboto: false, // font Roboto
+    css: true, // MDB CSS
+    bootstrap: true // Bootstrap CSS
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
