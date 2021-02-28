@@ -71,10 +71,61 @@
         <h2 class="d-flex align-start ml-5">
           Nuestros cursos más populares
         </h2>
-        <v-row />
+        <v-row class="d-flex justify-center align-center">
+          <v-card v-for="(course, i) in courses" :key="i">
+            <v-img :src="course.img" />
+            <v-card-text v-text="course.text" />
+          </v-card>
+        </v-row>
       </v-container>
     </section>
     <!--Seccion de los mejores cursos-->
+    <section class="our-team py-5">
+      <v-container>
+        <v-sheet elevation="0" class="rounded col-12 col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-12 mx-auto py-5 ma-5 container">
+          <h2 class="mt-5">
+            Lo que dicen los Teo estudiantes
+          </h2>
+          <!-- <v-row>
+            <v-col
+              cols="12"
+              xl="8"
+              lg="8"
+              md="8"
+              sm="10"
+              xs="12"> -->
+          <v-sheet>
+            <v-slide-group multiple show-arrow class="quote-slider container">
+              <v-slide-item v-for="(quote, i) in quotes" :key="i" class="card-quote container">
+                <v-sheet class="d-flex flex-column align-center justify-space-between ">
+                  <p class="quote">
+                    {{ quote.text }}
+                  </p>
+                  <v-avatar size="95" class="mb-4">
+                    <v-img :src="require('../assets/img/' + quote.avatar)" />
+                  </v-avatar>
+                  <h3 class="name">
+                    {{ quote.name }}
+                  </h3>
+                  <h3 class="job">
+                    {{ quote.job }}
+                  </h3>
+                </v-sheet>
+              </v-slide-item>
+            </v-slide-group>
+          </v-sheet>
+          <!-- </v-col>
+          </v-row> -->
+        </v-sheet>
+      </v-container>
+    </section>
+    <section class="next-events py-5">
+      <v-container>
+        <h2 class="d-flex align-start ml-5">
+          Próximos Eventos
+        </h2>
+      </v-container>
+    </section>
   </div>
 </template>
 <script>
@@ -82,36 +133,83 @@ export default {
   // components: {},
   data () {
     return {
+      tinySliderOptions: {
+        mouseDrag: true,
+        loop: false,
+        items: 4,
+        swipeAngle: 45
+      },
       courses: [
         {
-          img: '../assets/img/IniciacionCristiana.webp',
+          img: 'https://unsplash.com/photos/SSh9O_-sTzg',
           title: 'El proceso de iniciacion Cristiana',
           text:
             'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.'
         },
         {
-          img: 'IniciacionCristiana.webp',
+          img: 'https://unsplash.com/photos/SSh9O_-sTzg',
           title: 'El proceso de iniciacion Cristiana',
           text:
             'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.'
         },
         {
-          img: 'IniciacionCristiana.webp',
+          img: 'https://unsplash.com/photos/SSh9O_-sTzg',
           title: 'El proceso de iniciacion Cristiana',
           text:
             'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.'
         },
         {
-          img: 'IniciacionCristiana.webp',
+          img: 'https://unsplash.com/photos/SSh9O_-sTzg',
           title: 'El proceso de iniciacion Cristiana',
           text:
             'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.'
         },
         {
-          img: 'IniciacionCristiana.webp',
+          img: 'https://unsplash.com/photos/SSh9O_-sTzg',
           title: 'El proceso de iniciacion Cristiana',
           text:
             'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.'
+        }
+      ],
+      quotes: [
+        {
+          avatar: 'adriana.jpg',
+          text:
+            '"Hacer el programa Teo 100 ha representado para mi vida una gran oportunidad de cambio. La experiencia ha sido super enriquecedora y amena. Agradezco mucho el acompañamiento que me dieron. Los recursos son de mucha calidad. Voy por mas."',
+          name: 'Adriana Campos',
+          job: 'Lic. Business Management'
+        },
+        {
+          avatar: 'gustavo.jpg',
+          text:
+            '"Hacer el programa Teo 100 ha representado para mi vida una gran oportunidad de cambio. La experiencia ha sido super enriquecedora y amena. Agradezco mucho el acompañamiento que me dieron. Los recursos son de mucha calidad. Voy por mas."',
+          name: 'Gustavo Campos',
+          job: 'Lic. Business Management'
+        },
+        {
+          avatar: 'winder.jpg',
+          text:
+            '"Hacer el programa Teo 100 ha representado para mi vida una gran oportunidad de cambio. La experiencia ha sido super enriquecedora y amena. Agradezco mucho el acompañamiento que me dieron. Los recursos son de mucha calidad. Voy por mas."',
+          name: 'Winder Díaz',
+          job: 'Frontend Developer'
+        },
+        {
+          avatar: 'aquiles.jpg',
+          text:
+            '"Hacer el programa Teo 100 ha representado para mi vida una gran oportunidad de cambio. La experiencia ha sido super enriquecedora y amena. Agradezco mucho el acompañamiento que me dieron. Los recursos son de mucha calidad. Voy por mas."',
+          name: 'Aquiles Campos',
+          job: 'Cardiologist M.D.'
+        }
+      ]
+    }
+  },
+  head () {
+    return {
+      link: [
+        {
+          rel: 'stylesheet',
+          href:
+            'https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.1/tiny-slider.css'
         }
       ]
     }
@@ -160,10 +258,37 @@ export default {
   background: no-repeat url(../assets/img/wave.svg);
   background-size: cover;
   min-height: 85vh;
+  h2 {
+    color: $gray-mid;
+  }
   .rounded {
     max-width: 100%;
     // border-radius: 2.5rem!important;
   }
 }
-
+.our-team{
+  background: rgb(149,149,149);
+  background: linear-gradient(0deg, rgba(149,149,149,1) 0%, rgba(193,193,193,1) 25%, rgba(211,211,211,1) 50%, rgba(231,231,231,1) 75%, rgba(250,250,250,1) 100%);
+  padding: 5rem 0;
+    .quote-slider {
+      min-height: 35vh !important;
+      .quote {
+        font-size: $link + .4rem;
+        text-align: center;
+        line-height: 1.8;
+        max-width: 80%;
+        margin-bottom: 1rem;
+      }
+      .name, .job {
+        font-family: $title-font;
+        font-size: $link +.5rem;
+        padding: 0 1rem !important;
+        color: $gray-mid;
+        font-weight: 300;
+        line-height: 1.4;
+      }
+    }
+}
+/*.next-events{
+}*/
 </style>
