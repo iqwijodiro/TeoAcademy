@@ -66,21 +66,63 @@
       </v-container>
     </section>
     <!--Seccion del Ebook-->
-    <section class="top-cursos">
+    <section class="top-cursos py-5">
       <v-container>
         <h2 class="d-flex align-start ml-5">
           Nuestros cursos más populares
         </h2>
-        <v-row class="d-flex justify-center align-center">
-          <v-card v-for="(course, i) in courses" :key="i">
-            <v-img :src="course.img" />
-            <v-card-text v-text="course.text" />
-          </v-card>
+        <v-row justify="center">
+          <v-slide-group class="my-3">
+            <v-slide-item v-for="(course, i) in courses" :key="i" class="slides ma-5">
+              <v-card elevation="5" max-width="320px" height="430px">
+                <v-img
+                  :src="course.img"
+                  height="47%"
+                />
+                <v-card-title class="card-title">
+                  {{ course.title }}
+                </v-card-title>
+                <v-card-text class="text-card">
+                  {{ course.text }}
+                </v-card-text>
+                <v-row class="minirow d-flex justify-content-center align-items-center py-1">
+                  <div class="my-2 mr-2">
+                    <p class="ma-0 px-3">
+                      {{ course.modules }} <br>
+                      Módulos
+                    </p>
+                  </div>
+                  <div class="my-2 mr-2">
+                    <p class="ma-0 px-3">
+                      {{ course.resources }} <br>
+                      Recursos
+                    </p>
+                  </div>
+                  <div>
+                    <span class="priceOld mr-2">
+                      ${{ course.priceOld }}
+                    </span>
+                    <span class="priceNew mr-2">
+                      ${{ course.priceNew }}
+                    </span>
+                  </div>
+                </v-row>
+                <div class="centrar my-2">
+                  <v-btn class="minibtn mt-3">
+                    Ver Curso
+                  </v-btn>
+                </div>
+              </v-card>
+            </v-slide-item>
+          </v-slide-group>
+          <v-btn to="/courses" class="btn">
+            Ver todos los cursos
+          </v-btn>
         </v-row>
       </v-container>
     </section>
     <!--Seccion de los mejores cursos-->
-    <section class="our-team py-5">
+    <section class="students py-5">
       <v-container>
         <v-sheet elevation="0" class="rounded col-12 col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-12 mx-auto py-5 ma-5 container">
           <h2 class="mt-5">
@@ -141,34 +183,54 @@ export default {
       },
       courses: [
         {
-          img: 'https://unsplash.com/photos/SSh9O_-sTzg',
+          img: require('../assets/img/IniciacionCristiana.webp'),
           title: 'El proceso de iniciacion Cristiana',
           text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.'
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+          modules: 9,
+          resources: 9,
+          priceOld: 19.99,
+          priceNew: 9.99
         },
         {
-          img: 'https://unsplash.com/photos/SSh9O_-sTzg',
+          img: require('../assets/img/IniciacionCristiana.webp'),
           title: 'El proceso de iniciacion Cristiana',
           text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.'
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+          modules: 9,
+          resources: 9,
+          priceOld: 19.99,
+          priceNew: 9.99
         },
         {
-          img: 'https://unsplash.com/photos/SSh9O_-sTzg',
+          img: require('../assets/img/IniciacionCristiana.webp'),
           title: 'El proceso de iniciacion Cristiana',
           text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.'
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+          modules: 9,
+          resources: 9,
+          priceOld: 19.99,
+          priceNew: 9.99
         },
         {
-          img: 'https://unsplash.com/photos/SSh9O_-sTzg',
+          img: require('../assets/img/IniciacionCristiana.webp'),
           title: 'El proceso de iniciacion Cristiana',
           text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.'
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+          modules: 9,
+          resources: 9,
+          priceOld: 19.99,
+          priceNew: 9.99
         },
         {
-          img: 'https://unsplash.com/photos/SSh9O_-sTzg',
+          img: require('../assets/img/IniciacionCristiana.webp'),
           title: 'El proceso de iniciacion Cristiana',
           text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.'
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+          modules: 9,
+          resources: 9,
+          priceOld: 19.99,
+          priceNew: 9.99
         }
       ],
       quotes: [
@@ -266,7 +328,39 @@ export default {
     // border-radius: 2.5rem!important;
   }
 }
-.our-team{
+.top-cursos {
+  .slides{
+    .text-card {
+      font-size: $body - .15rem;
+      color: $gray-mid;
+      font-weight: 300;
+      line-height: 1.3;
+      padding: 0 1.5rem !important;
+      margin: 1.2rem 0 !important;
+    }
+    .minirow div {
+      font-size: $miniLink + .3rem !important;
+      font-weight: 400;
+      color: $gray-mid;
+      &:nth-child(1) {
+        border-right: .2rem solid $gray-light;
+      }
+      .priceOld {
+        color: $red;
+        font-size: $link;
+        font-family: $title-font;
+        text-decoration: line-through;
+      }
+      .priceNew {
+        color: $gray-mid;
+        font-size: 2.5rem;
+        font-family: $title-font;
+        font-weight: 400;
+      }
+    }
+  }
+}
+.students{
   background: rgb(149,149,149);
   background: linear-gradient(0deg, rgba(149,149,149,1) 0%, rgba(193,193,193,1) 25%, rgba(211,211,211,1) 50%, rgba(231,231,231,1) 75%, rgba(250,250,250,1) 100%);
   padding: 5rem 0;
