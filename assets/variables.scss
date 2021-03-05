@@ -77,6 +77,13 @@ h2 {
     line-height: 1.7;
     margin-bottom: 1rem;
   }
+h3 {
+    font-size: $section-title - .3rem;
+    font-weight: 300;
+    color: $gray-mid;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
 h4 {
   font-size: $link + 0.5rem;
   font-family: $title-font;
@@ -109,14 +116,21 @@ h4 {
 }
 
 /** Breakpoints **/ 
-$telefono: 480px;
+$miniTelefono: 320px;
+$telefono: 425px;
 $tablet: 768px;
-$miniDesktop: 1100px;
+$miniDesktop: 1024px;
 $desktop: 1260px;
 $largeDesktop: 1440px;
+$xlDesktop: 1940px;
 
 
 /** Mixins **/ 
+@mixin miniTelefono {
+    @media (min-width: $miniTelefono) {
+        @content;
+    }
+}
 @mixin telefono {
     @media (min-width: $telefono) {
         @content;
@@ -143,6 +157,11 @@ $largeDesktop: 1440px;
 
 @mixin lgdesktop {
     @media (min-width: $largeDesktop) {
+        @content;
+    }
+}
+@mixin xlDesktop {
+    @media (min-width: $xlDesktop) {
         @content;
     }
 }
