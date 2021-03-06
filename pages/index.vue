@@ -12,24 +12,26 @@
           xs="12"
           class="px-5"
         >
-          <v-card class="card text-center pa-2 mx-3">
+          <v-card elevation="5" height="330px" width="420px" class="card rounded-lg text-center py-3 mx-3">
             <v-card-title class="pa-0 ma-3 mx-auto col-10">
-              <h1 class="h1">
+              <h1 class="fw-700">
                 Formacion con alcance eterno
               </h1>
             </v-card-title>
-            <v-card-text class="my-1 col-12">
+            <v-card-text class="my-3 col-9 mx-auto p-0">
               <p class="text">
                 Disfruta la maravillosa experiencia de la formación cristiana a
                 través de los cursos y programas de Teo Academy
               </p>
             </v-card-text>
-            <v-btn to="/courses" class="btn ">
-              Nuestros Cursos
-            </v-btn>
-            <v-btn to="/courses" class="btn ">
-              Contáctanos
-            </v-btn>
+            <div class="centrar">
+              <v-btn to="/courses" class="btn ">
+                Nuestros Cursos
+              </v-btn>
+              <v-btn to="/courses" class="btn ">
+                Contáctanos
+              </v-btn>
+            </div>
           </v-card>
         </v-col>
       </v-row>
@@ -46,7 +48,7 @@
             sm="10"
             class="mx-auto"
           >
-            <v-card class="pa-5 rounded mx-auto">
+            <v-card class="pa-5 rounded-xl mx-auto">
               <h2 class="text-capitalize mx-auto">
                 Descarga gratis nuestro ebook
               </h2>
@@ -74,7 +76,7 @@
         <v-row justify="center">
           <v-slide-group class="my-3">
             <v-slide-item v-for="(course, i) in courses" :key="i" class="slides ma-5">
-              <v-card elevation="5" max-width="315px" height="430px">
+              <v-card elevation="5" max-width="315px" height="430px" class="rounded-lg">
                 <v-img
                   :src="course.img"
                   height="47%"
@@ -283,52 +285,46 @@
         </h2>
         <v-row justify="center">
           <v-slide-group class="my-3">
-            <v-slide-item v-for="(course, i) in courses" :key="i" class="slides ma-5">
-              <v-card elevation="1" max-width="315px" height="315px">
+            <v-slide-item v-for="(entry, i) in entries" :key="i" class="slides ma-5">
+              <v-card elevation="5" max-width="315px" height="315px" class="blog-card">
                 <v-img
-                  :src="course.img"
+                  :src="require('../assets/img/' + entry.img)"
                   height="100%"
+                  class=""
                 />
-                <!-- <div class="overlay-card">
+                <div class="overlay-card">
                   <v-card-title class="card-title">
-                    {{ course.title }}
+                    {{ entry.title }}
                   </v-card-title>
-                  <v-card-text class="text-card">
-                    {{ course.text }}
-                  </v-card-text>
+                  <!-- <v-card-text class="text-card">
+                    {{ entry.text }}
+                  </v-card-text> -->
                   <v-row class="minirow d-flex justify-content-center align-items-center py-1">
+                    <v-avatar size="35" class="mb-4">
+                      <v-img :src="require('../assets/img/' + entry.avatar)" />
+                    </v-avatar>
                     <div class="my-2 mr-2">
-                      <p class="ma-0 px-3">
-                        {{ course.modules }} <br>
-                        Módulos
-                      </p>
-                    </div>
-                    <div class="my-2 mr-2">
-                      <p class="ma-0 px-3">
-                        {{ course.resources }} <br>
+                      <h4 class="ma-0 px-3">
+                        {{ entry.author }} <br>
                         Recursos
-                      </p>
+                      </h4>
+                      <span class="date">
+                        {{ entry.date }}
+                      </span>
                     </div>
                     <div>
-                      <span class="priceOld mr-2">
-                        ${{ course.priceOld }}
-                      </span>
-                      <span class="priceNew mr-2">
-                        ${{ course.priceNew }}
-                      </span>
+                      <v-btn>
+                        <v-icon>mdi-eye</v-icon>
+                        <br>Leer
+                      </v-btn>
                     </div>
                   </v-row>
-                  <div class="centrar my-2">
-                    <v-btn class="minibtn mt-3">
-                      Ver Curso
-                    </v-btn>
-                  </div>
-                </div> -->
+                </div>
               </v-card>
             </v-slide-item>
           </v-slide-group>
-          <v-btn to="/courses" class="btn">
-            Ver todos los cursos
+          <v-btn to="/blog" class="btn">
+            Ver todos los articulos
           </v-btn>
         </v-row>
       </v-container>
@@ -479,6 +475,44 @@ export default {
           role: 'CTO - Founder',
           text: 'Participar en la fundación y actividades de Teo Academy ha sido una experiencia única y enriquecedora para mi vida y la de mis allegados.'
         }
+      ],
+      entries: [
+        {
+          img: 'blog-1.webp',
+          title: 'Fundamentos de la fe cristiana',
+          avatar: 'gustavo.jpg',
+          author: 'Gustavo Campos Tabares'
+        },
+        {
+          img: 'blog-2.webp',
+          title: 'Fundamentos de la fe cristiana',
+          avatar: 'gustavo.jpg',
+          author: 'Adriana Campos Tabares'
+        },
+        {
+          img: 'blog-3.webp',
+          title: 'Fundamentos de la fe cristiana',
+          avatar: 'adriana.jpg',
+          author: 'Gustavo Campos Tabares'
+        },
+        {
+          img: 'event-1.webp',
+          title: 'Fundamentos de la Teología Biblica',
+          avatar: 'winder.jpg',
+          author: 'Winder Díaz'
+        },
+        {
+          img: 'IniciacionCristiana.webp',
+          title: 'Beneficios de la educación online',
+          avatar: 'vladimir.jpg',
+          author: 'Vladimir Rueda'
+        },
+        {
+          img: 'troubbles.webp',
+          title: 'Fundamentos de la fe cristiana',
+          avatar: 'gustavo.jpg',
+          author: 'Gustavo Campos Tabares'
+        }
       ]
     }
   },
@@ -518,6 +552,14 @@ export default {
   .rail {
     max-width: 100% !important;
     justify-content: center !important;
+    .text {
+      font-size: $body + .4rem;
+      color: $gray-mid;
+      font-weight: 400;
+      line-height: 1.55;
+      margin: 0;
+      padding: 0;
+    }
   }
   @include tablet {
     .btn {
@@ -542,7 +584,7 @@ export default {
   }
   .rounded {
     max-width: 100%;
-    // border-radius: 2.5rem!important;
+    border-radius: 2.5rem!important;
   }
 }
 .top-cursos {
@@ -758,6 +800,19 @@ export default {
           font-size: $link + .8rem;
         }
       }
+  }
+}
+.blog {
+  .slides {
+    .blog-card{
+      position: relative;
+    }
+    .overlay-card {
+      position: absolute;
+      z-index: 99;
+      margin-top: -6rem;
+      background-color: rgba($color: #000000, $alpha: 0.45);
+    }
   }
 }
 </style>

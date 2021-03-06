@@ -18,11 +18,13 @@
       >
         <v-row class="d-flex justify-space-between align-center">
           <v-toolbar-title>
-            <v-img
-              :src="require('../assets/img/logo-red-full.webp')"
-              contain
-              width="13rem"
-            />
+            <nuxt-link to="/">
+              <v-img
+                :src="require('../assets/img/logo-red-full.webp')"
+                contain
+                width="13rem"
+              />
+            </nuxt-link>
           </v-toolbar-title>
           <v-list class="nav transparent hidden-sm-and-down">
             <v-item-group class="d-flex align-center">
@@ -145,7 +147,8 @@ export default {
       //   }
       // }
       .link {
-        font-size: $link;
+        font-size: $link + .1rem;
+        font-weight: 400;
         text-align: center !important;
         margin: 0 1rem !important;
         color: $red;
@@ -154,6 +157,7 @@ export default {
           color: $blue;
           border-bottom: 0.2rem solid $blue;
           margin-top: 0;
+          font-weight: 400;
         }
       }
     }
