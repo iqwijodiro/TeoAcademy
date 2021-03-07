@@ -74,7 +74,7 @@
           Nuestros cursos más populares
         </h2>
         <v-row justify="center">
-          <v-slide-group class="my-3">
+          <v-slide-group multiple arrows class="my-3">
             <v-slide-item v-for="(course, i) in courses" :key="i" class="slides ma-5">
               <v-card elevation="5" max-width="315px" height="430px" class="rounded-lg">
                 <v-img
@@ -284,41 +284,42 @@
           Nuestros Blog
         </h2>
         <v-row justify="center">
-          <v-slide-group class="my-3">
+          <v-slide-group multiple arrows class="my-3">
             <v-slide-item v-for="(entry, i) in entries" :key="i" class="slides ma-5">
-              <v-card elevation="5" max-width="315px" height="315px" class="blog-card">
+              <v-card elevation="5" max-width="315px" height="315px" class="bg-dark blog-card d-flex justify-content-end align-items-end rounded-xl">
                 <v-img
                   :src="require('../assets/img/' + entry.img)"
                   height="100%"
-                  class=""
+                  class="rounded-xl"
                 />
-                <div class="overlay-card">
-                  <v-card-title class="card-title">
+                <div class="card-overlay">
+                  <v-card-title class="card-title text--white">
                     {{ entry.title }}
                   </v-card-title>
                   <!-- <v-card-text class="text-card">
                     {{ entry.text }}
                   </v-card-text> -->
-                  <v-row class="minirow d-flex justify-content-center align-items-center py-1">
-                    <v-avatar size="35" class="mb-4">
+                  <div class="d-flex justify-content-center align-items-start py-1">
+                    <v-avatar size="40" class="mb-4">
                       <v-img :src="require('../assets/img/' + entry.avatar)" />
                     </v-avatar>
-                    <div class="my-2 mr-2">
-                      <h4 class="ma-0 px-3">
-                        {{ entry.author }} <br>
-                        Recursos
+                    <div class="my-2 px-2">
+                      <h4 class="author">
+                        {{ entry.author }}
                       </h4>
                       <span class="date">
                         {{ entry.date }}
                       </span>
                     </div>
                     <div>
-                      <v-btn>
-                        <v-icon>mdi-eye</v-icon>
+                      <v-btn class="my-2">
+                        <v-icon class="d-block">
+                          mdi-eye
+                        </v-icon>
                         <br>Leer
                       </v-btn>
                     </div>
-                  </v-row>
+                  </div>
                 </div>
               </v-card>
             </v-slide-item>
@@ -481,37 +482,43 @@ export default {
           img: 'blog-1.webp',
           title: 'Fundamentos de la fe cristiana',
           avatar: 'gustavo.jpg',
-          author: 'Gustavo Campos Tabares'
+          author: 'Gustavo Campos Tabares',
+          date: '01/03/2021'
         },
         {
           img: 'blog-2.webp',
           title: 'Fundamentos de la fe cristiana',
-          avatar: 'gustavo.jpg',
-          author: 'Adriana Campos Tabares'
+          avatar: 'adriana.jpg',
+          author: 'Adriana Campos Tabares',
+          date: '01/03/2021'
         },
         {
           img: 'blog-3.webp',
           title: 'Fundamentos de la fe cristiana',
-          avatar: 'adriana.jpg',
-          author: 'Gustavo Campos Tabares'
+          avatar: 'gustavo.jpg',
+          author: 'Gustavo Campos Tabares',
+          date: '01/03/2021'
         },
         {
           img: 'event-1.webp',
           title: 'Fundamentos de la Teología Biblica',
           avatar: 'winder.jpg',
-          author: 'Winder Díaz'
+          author: 'Winder Díaz',
+          date: '01/03/2021'
         },
         {
           img: 'IniciacionCristiana.webp',
           title: 'Beneficios de la educación online',
           avatar: 'vladimir.jpg',
-          author: 'Vladimir Rueda'
+          author: 'Vladimir Rueda',
+          date: '01/03/2021'
         },
         {
           img: 'troubbles.webp',
-          title: 'Fundamentos de la fe cristiana',
-          avatar: 'gustavo.jpg',
-          author: 'Gustavo Campos Tabares'
+          title: 'Conflictos de la personalidad',
+          avatar: 'aquiles.jpg',
+          author: 'Aquiles Campos',
+          date: '01/03/2021'
         }
       ]
     }
@@ -807,11 +814,19 @@ export default {
     .blog-card{
       position: relative;
     }
-    .overlay-card {
+    .card-overlay{
+      background-color: rgba($gray-dark, $alpha: 0.70);
+      height: 50%;
       position: absolute;
-      z-index: 99;
-      margin-top: -6rem;
-      background-color: rgba($color: #000000, $alpha: 0.45);
+      width: 100%;
+      border-bottom-left-radius: 2.4rem;
+      .card-title, .date {
+        color: #fff !important;
+      }
+       .author {
+         font-size: 1.4rem;
+         color: #fff;
+       }
     }
   }
 }
