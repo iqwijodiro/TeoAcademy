@@ -27,7 +27,6 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~/plugins/vue-tiny-slider.js', mode: 'client' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -45,15 +44,8 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    'nuxt-fontawesome',
-    'mdbvue/nuxt'
+    'nuxt-fontawesome'
   ],
-  mdbvue: {
-    icons: false, // FA5
-    roboto: false, // font Roboto
-    css: true, // MDB CSS
-    bootstrap: true // Bootstrap CSS
-  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},

@@ -14,11 +14,10 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.12.5",
     "core-js": "^3.8.3",
-    "mdbvue": "^6.7.2",
+    "node-sass": "^5.0.0",
     "normalize.css": "^8.0.1",
     "nuxt": "^2.14.12",
-    "nuxt-fontawesome": "^0.4.0",
-    "vue-tiny-slider": "^0.1.39"
+    "nuxt-fontawesome": "^0.4.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^5.0.0",
