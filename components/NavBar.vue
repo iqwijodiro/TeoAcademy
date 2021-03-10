@@ -16,13 +16,13 @@
         sm="10"
         xs="12"
       >
-        <v-row class="d-flex justify-space-between align-center">
+        <v-row class="d-flex justify-space-between align-items-center mt-3">
           <v-toolbar-title>
             <nuxt-link to="/">
               <v-img
                 :src="require('../assets/img/logo-red-full.webp')"
                 contain
-                width="13rem"
+                width="15rem"
               />
             </nuxt-link>
           </v-toolbar-title>
@@ -36,7 +36,7 @@
                   <v-list-item-title class="link" v-text="item.title" />
                 </nuxt-link>
               </v-list-item>
-              <v-btn to="/login" class="btn text-capitalize text-center my-2">
+              <v-btn to="/login" class="btn text-capitalize text-center ml-5 my-2">
                 Iniciar Sesión
               </v-btn>
             </v-item-group>
@@ -130,7 +130,7 @@ export default {
 <style lang="scss" scoped>
 #navbar {
   .appbar {
-    height: 8rem !important;
+    height: 100px !important;
   }
   .appbar,
   .drawer {
@@ -147,7 +147,7 @@ export default {
       //   }
       // }
       .link {
-        font-size: $link + .1rem;
+        font-size: $link + .3rem;
         font-weight: 400;
         text-align: center !important;
         margin: 0 1rem !important;
@@ -157,7 +157,6 @@ export default {
           color: $blue;
           border-bottom: 0.2rem solid $blue;
           margin-top: 0;
-          font-weight: 400;
         }
       }
     }

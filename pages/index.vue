@@ -15,7 +15,7 @@
           <v-card elevation="5" height="330px" width="420px" class="card rounded-lg text-center py-3 mx-3">
             <v-card-title class="pa-0 ma-3 mx-auto col-10">
               <h1 class="fw-700">
-                Formacion con alcance eterno
+                Formación con alcance eterno
               </h1>
             </v-card-title>
             <v-card-text class="my-3 col-9 mx-auto p-0">
@@ -37,9 +37,9 @@
       </v-row>
     </div>
     <!--Seccion de Hero-->
-    <section class="ebook">
+    <section class="ebook gutter-p">
       <v-container>
-        <v-row class="justify-space-around align-center py-5 my-5 mx-auto">
+        <v-row class="justify-space-around align-center pt-5 mt-5 mx-auto">
           <v-col
             cols="12"
             xl="4"
@@ -49,7 +49,7 @@
             class="mx-auto"
           >
             <v-card class="pa-5 rounded-xl mx-auto">
-              <h2 class="text-capitalize mx-auto">
+              <h2 class="text-capitalize text-center">
                 Descarga gratis nuestro ebook
               </h2>
               <div class="centrar">
@@ -68,15 +68,15 @@
       </v-container>
     </section>
     <!--Seccion del Ebook-->
-    <section class="top-cursos py-5">
+    <section class="top-cursos gutter-p">
       <v-container>
-        <h2 class="d-flex align-start ml-5">
+        <h2 class="text-start">
           Nuestros cursos más populares
         </h2>
         <v-row justify="center">
-          <v-slide-group multiple arrows class="my-3">
+          <v-slide-group multiple arrows class="my-3 my-slider">
             <v-slide-item v-for="(course, i) in courses" :key="i" class="slides ma-5">
-              <v-card elevation="5" max-width="315px" height="430px" class="rounded-lg">
+              <v-card elevation="5" max-width="315px" height="450px" class="rounded-lg">
                 <v-img
                   :src="course.img"
                   height="47%"
@@ -109,7 +109,7 @@
                     </span>
                   </div>
                 </v-row>
-                <div class="centrar my-2">
+                <div class="centrar mt-2">
                   <v-btn class="minibtn mt-3">
                     Ver Curso
                   </v-btn>
@@ -117,16 +117,16 @@
               </v-card>
             </v-slide-item>
           </v-slide-group>
-          <v-btn to="/courses" class="btn">
+          <v-btn to="/courses" class="btn my-5">
             Ver todos los cursos
           </v-btn>
         </v-row>
       </v-container>
     </section>
     <!--Seccion de los mejores cursos-->
-    <section class="students">
-      <v-container>
-        <v-row>
+    <section class="students mt-5 py-5 d-flex justify-content-center align-items-center">
+      <v-container class="d-flex justify-content-center align-items-center">
+        <v-row align="center">
           <v-col
             cols="11"
             md="8"
@@ -135,10 +135,10 @@
             class="container"
           >
             <v-sheet elevation="5" rounded="xl" class="bg-sheet mx-auto py-5">
-              <h2 class="mt-5 col-11 mx-auto">
+              <h2 class="mt-5 text-center mb-2">
                 Lo que dicen los Teo estudiantes
               </h2>
-              <v-slide-group multiple show-arrow class="quote-slider">
+              <v-slide-group multiple show-arrow class="quote-slider my-slider">
                 <v-slide-item v-for="(quote, i) in quotes" :key="i" class="card-quote mx-auto">
                   <v-card class="text-center mx-auto shadow-none">
                     <v-row justify="center">
@@ -169,7 +169,7 @@
         </v-row>
       </v-container>
     </section>
-    <section class="next-events py-5">
+    <section class="next-events gutter-p pb-5 mb-5">
       <v-container>
         <h2 class="d-flex align-start ml-5">
           Próximos Eventos
@@ -226,7 +226,7 @@
               sm="12"
               class="order-1 order-lg-3"
             >
-              <v-img :src="require('../assets/img/' + evento.img)" class="rounded fill-height" />
+              <v-img :src="require('../assets/img/' + evento.img)" class="rounded fill-height" min-height="200px" />
             </v-col>
           </v-row>
         </v-container>
@@ -244,10 +244,10 @@
             class="container"
           >
             <v-sheet elevation="5" rounded="xl" min-height="45vh" class="bg-sheet mx-auto py-2">
-              <h2 class="mt-5 col-11 mx-auto">
+              <h2 class="mt-5 text-center">
                 Nuestro Equipo
               </h2>
-              <v-slide-group multiple show-arrow class="team-slider">
+              <v-slide-group multiple show-arrow class="team-slider my-slider">
                 <v-slide-item v-for="(partner, i) in partners" :key="i" class="card-member mx-auto">
                   <v-card class="text-center mx-auto shadow-none">
                     <v-row justify="center">
@@ -278,13 +278,13 @@
         </v-row>
       </v-container>
     </section>
-    <section class="blog py-5">
+    <section class="blog gutter-p mb-5 pb-5">
       <v-container>
         <h2 class="d-flex align-start ml-5">
-          Nuestros Blog
+          Nuestro Blog
         </h2>
-        <v-row justify="center">
-          <v-slide-group multiple arrows class="my-3">
+        <v-row justify="center" class="my-5">
+          <v-slide-group multiple arrows class="my-3 my-slider">
             <v-slide-item v-for="(entry, i) in entries" :key="i" class="slides ma-5">
               <v-card elevation="5" max-width="315px" height="315px" class="bg-dark blog-card d-flex justify-content-end align-items-end rounded-xl">
                 <v-img
@@ -293,17 +293,14 @@
                   class="rounded-xl"
                 />
                 <div class="card-overlay">
-                  <v-card-title class="card-title text--white">
+                  <v-card-title class="card-title text-center text--white">
                     {{ entry.title }}
                   </v-card-title>
-                  <!-- <v-card-text class="text-card">
-                    {{ entry.text }}
-                  </v-card-text> -->
-                  <div class="d-flex justify-content-center align-items-start py-1">
-                    <v-avatar size="40" class="mb-4">
+                  <div class="d-flex justify-content-start align-items-start p-2">
+                    <v-avatar size="45" class="mb-4 mx-3">
                       <v-img :src="require('../assets/img/' + entry.avatar)" />
                     </v-avatar>
-                    <div class="my-2 px-2">
+                    <div class="px-2 mr-4">
                       <h4 class="author">
                         {{ entry.author }}
                       </h4>
@@ -312,11 +309,11 @@
                       </span>
                     </div>
                     <div>
-                      <v-btn class="my-2">
-                        <v-icon class="d-block">
+                      <v-btn to="/" class="btn-leer">
+                        <v-icon class="">
                           mdi-eye
-                        </v-icon>
-                        <br>Leer
+                        </v-icon> <br>
+                        <span>Leer</span>
                       </v-btn>
                     </div>
                   </div>
@@ -324,9 +321,48 @@
               </v-card>
             </v-slide-item>
           </v-slide-group>
-          <v-btn to="/blog" class="btn">
+          <v-btn to="/blog" class="btn my-5">
             Ver todos los articulos
           </v-btn>
+        </v-row>
+      </v-container>
+    </section>
+    <section class="newsletter mt- pt-5">
+      <v-container>
+        <v-row align="center" class="d-flex justify-content-center">
+          <v-col
+            cols="12"
+            xl="4"
+            lg="4"
+            md="6"
+            sm="8"
+            class="mr-5"
+          >
+            <v-img
+              :src="require('../assets/img/logo-white-full.webp')"
+              contain
+            />
+          </v-col>
+          <v-col
+            cols="12"
+            xl="5"
+            lg="5"
+            md="6"
+            sm="6"
+            class="ml-5"
+          >
+            <div class="container mx-5">
+              <h3 class="mb-5">
+                Recibe información acerca de nuestros eventos y contenidos
+              </h3>
+              <form action="">
+                <input type="email" placeholder="Email" class="input-email rounded-lg px-3">
+                <button type="submit" class="btn-input rounded-lg">
+                  Enviar
+                </button>
+              </form>
+            </div>
+          </v-col>
         </v-row>
       </v-container>
     </section>
@@ -482,21 +518,21 @@ export default {
           img: 'blog-1.webp',
           title: 'Fundamentos de la fe cristiana',
           avatar: 'gustavo.jpg',
-          author: 'Gustavo Campos Tabares',
+          author: 'Gustavo Campos',
           date: '01/03/2021'
         },
         {
           img: 'blog-2.webp',
           title: 'Fundamentos de la fe cristiana',
           avatar: 'adriana.jpg',
-          author: 'Adriana Campos Tabares',
+          author: 'Adriana Campos',
           date: '01/03/2021'
         },
         {
           img: 'blog-3.webp',
           title: 'Fundamentos de la fe cristiana',
           avatar: 'gustavo.jpg',
-          author: 'Gustavo Campos Tabares',
+          author: 'Gustavo Campos',
           date: '01/03/2021'
         },
         {
@@ -585,7 +621,7 @@ export default {
 .ebook {
   background: no-repeat url(../assets/img/wave.svg);
   background-size: cover;
-  min-height: 85vh;
+  min-height: 80vh;
   h2 {
     color: $gray-mid;
   }
@@ -595,12 +631,15 @@ export default {
   }
 }
 .top-cursos {
+  h2 {
+    margin-left: 5.5rem !important;
+  }
   .slides{
     .text-card {
       font-size: $body - .15rem;
       color: $gray-mid;
       font-weight: 300;
-      line-height: 1.3;
+      line-height: 1.5;
       padding: 0 1.5rem !important;
       margin: 1.2rem 0 !important;
     }
@@ -629,7 +668,8 @@ export default {
 .students{
   background: rgb(149,149,149);
   background: linear-gradient(0deg, rgba(149,149,149,1) 0%, rgba(193,193,193,1) 25%, rgba(211,211,211,1) 50%, rgba(231,231,231,1) 75%, rgba(250,250,250,1) 100%);
-  padding: 5rem 0;
+  padding: 5rem 0 !important;
+  height: 70vh;
   max-height: 110vh !important;
   .bg-sheet {
     min-height: 450px;
@@ -732,8 +772,10 @@ export default {
       width: 100%;
       padding: .5rem;
       .evento-text.text {
-        font-size: $link - .1rem !important;
+        font-size: $link + .2rem !important;
         margin: 1rem 0 !important;
+        line-height: 1.5;
+        color: $gray-mid;
       }
     }
   }
@@ -744,13 +786,13 @@ export default {
   background-size: cover;
   background-attachment: fixed;
   background-position: center center;
-  min-height: 60vh;
+  min-height: 80vh;
   max-height: 110vh !important;
   .mask {
     position: absolute;
     background: rgba($color: #ffffff, $alpha: 0.45);
-    min-height: 60vh;
-    max-height: 110vh !important;
+    // min-height: 60vh;
+    height: 100% !important;
     width: 100%;
   }
   .team-slider {
@@ -815,19 +857,98 @@ export default {
       position: relative;
     }
     .card-overlay{
-      background-color: rgba($gray-dark, $alpha: 0.70);
-      height: 50%;
+      background-color: rgba($gray-dark, $alpha: 0.60);
+      height: 47.5%;
       position: absolute;
       width: 100%;
       border-bottom-left-radius: 2.4rem;
       .card-title, .date {
         color: #fff !important;
       }
+      .card-title {
+        font-size: 2rem !important;
+
+      }
        .author {
-         font-size: 1.4rem;
+         font-size: 1.5rem;
          color: #fff;
+       }
+       .date {
+          font-size: $subtitle;
+       }
+       .btn-leer {
+         width: 80px;
+         height: 60px;
+          color: white;
+          background-color: rgba($gray-dark, $alpha: 0.50);
+          text-transform: capitalize !important;
+          font-size: $link;
        }
     }
   }
 }
+.newsletter {
+  background: rgb(190,30,45);
+  background: linear-gradient(90deg, rgba(190,30,45,1) 0%, rgba(142,22,34,1) 50%, rgba(95,15,23,1) 100%);
+  h3 {
+    color: #ffffff;
+  }
+  .input-email {
+    background: rgba($color: #f0f0f0, $alpha: 1.0);
+    height: 45px;
+    font-size: $body;
+    font-family: $title-font;
+    border: none;
+    margin: 0 !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    width: 32rem;
+  }
+  .btn-input {
+    height: 4.5rem !important;
+    width: 12rem;
+    border-top-left-radius: 0rem !important;
+    border-bottom-left-radius: 0rem !important;
+    background-color: $blue !important;
+    color: #ffffff;
+    text-transform: capitalize !important;
+    font-size: $link + 0.1rem;
+    padding: 1.2rem 1.5rem !important;
+    font-family: $title-font !important;
+    margin-left: -.5rem !important;
+    &:hover {
+      color: $red;
+      font-weight: 700;
+      background: #ffffff !important;
+  }
+  }
+}
+</style>
+<style lang="scss">
+
+/* En línea #13 | http://localhost:3000/ */
+
+.my-slider {
+  .v-icon.v-icon {
+    /* font-size: 24px; */
+    font-size: 45px;
+  }
+}
+
+/* Elemento | http://localhost:3000/ */
+
+.my-slider > div:nth-child(3) > i:nth-child(1) {
+  border: 1px solid $gray-light;
+  color: $gray-mid;
+  border-radius: 50%;
+  background-color: rgba($color: $gray-light, $alpha: 0.45);
+}
+.mdi-chevron-left {
+  transform-origin: center top 0px;
+  border: 1px solid $gray-light;
+  color: $gray-mid;
+  border-radius: 50%;
+  background-color: rgba($color: $gray-light, $alpha: 0.45);
+}
+
 </style>
