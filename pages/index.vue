@@ -2,33 +2,32 @@
   <div id="index">
     <div class="hero d-flex align-center">
       <div class="mask" />
-      <v-row class="rail d-flex justify-end mx-auto">
+      <v-row class="rail d-flex justify-center mx-auto">
         <v-col
           cols="12"
-          lg="5"
-          xl="5"
+          lg="4"
+          xl="4"
           md="6"
           sm="8"
-          xs="12"
           class="px-5"
         >
-          <v-card elevation="5" height="330px" width="420px" class="card rounded-lg text-center py-3 mx-3">
-            <v-card-title class="pa-0 ma-3 mx-auto col-10">
+          <v-card elevation="5" class="hero-card rounded-lg text-center py-3">
+            <v-card-title class="p-0 m-3 mx-auto">
               <h1 class="fw-700">
                 Formación con alcance eterno
               </h1>
             </v-card-title>
-            <v-card-text class="my-3 col-9 mx-auto p-0">
+            <v-card-text class="my-3 mx-auto p-0">
               <p class="text">
                 Disfruta la maravillosa experiencia de la formación cristiana a
                 través de los cursos y programas de Teo Academy
               </p>
             </v-card-text>
             <div class="centrar">
-              <v-btn to="/courses" class="btn ">
+              <v-btn to="/courses" class="btn d-block">
                 Nuestros Cursos
               </v-btn>
-              <v-btn to="/courses" class="btn ">
+              <v-btn to="/courses" class="btn d-block ">
                 Contáctanos
               </v-btn>
             </div>
@@ -558,17 +557,6 @@ export default {
         }
       ]
     }
-  },
-  head () {
-    return {
-      link: [
-        {
-          rel: 'stylesheet',
-          href:
-            'https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.1/tiny-slider.css'
-        }
-      ]
-    }
   }
 }
 </script>
@@ -590,11 +578,14 @@ export default {
     width: 100%;
   }
   .btn {
-    display: block;
+    display: block !important;
   }
   .rail {
     max-width: 100% !important;
     justify-content: center !important;
+    .hero-card {
+      min-height: 450px !important;
+    }
     .text {
       font-size: $body + .4rem;
       color: $gray-mid;
@@ -607,6 +598,11 @@ export default {
   @include tablet {
     .btn {
       display: inline-block;
+    }
+    .rail {
+      .hero-card {
+        min-height: 330px !important;
+      }
     }
   }
 
@@ -651,7 +647,7 @@ export default {
         border-right: .2rem solid $gray-light;
       }
       .priceOld {
-        color: $red;
+        color: $wine;
         font-size: $link;
         font-family: $title-font;
         text-decoration: line-through;
@@ -753,7 +749,7 @@ export default {
     }
     span.date {
       font-family: $title-font;
-      color: $blue;
+      color: $ocean;
       font-size: 6rem;
       font-weight: 400;
     }
@@ -909,7 +905,7 @@ export default {
     width: 12rem;
     border-top-left-radius: 0rem !important;
     border-bottom-left-radius: 0rem !important;
-    background-color: $blue !important;
+    background-color: $ocean !important;
     color: #ffffff;
     text-transform: capitalize !important;
     font-size: $link + 0.1rem;
@@ -917,7 +913,7 @@ export default {
     font-family: $title-font !important;
     margin-left: -.5rem !important;
     &:hover {
-      color: $red;
+      color: $wine;
       font-weight: 700;
       background: #ffffff !important;
   }

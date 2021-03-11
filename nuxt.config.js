@@ -46,34 +46,35 @@ export default {
     '@nuxtjs/axios',
     'nuxt-fontawesome'
   ],
-  module: {
-    rules: [
-      {
-        test: /\.s(c|a)ss$/,
-        use: [
-          'vue-style-loader',
-          'css-loader',
-          {
-            loader: 'sass-loader',
-            // Requires sass-loader@^8.0.0
-            options: {
-              implementation: require('sass'),
-              sassOptions: {
-                indentedSyntax: true // optional
-              }
-            }
-          }
-        ]
-      }
-    ]
-  },
+  // module: {
+  //   rules: [
+  //     {
+  //       test: /\.s(c|a)ss$/,
+  //       use: [
+  //         'vue-style-loader',
+  //         'css-loader',
+  //         {
+  //           loader: 'sass-loader',
+  //           // Requires sass-loader@^8.0.0
+  //           options: {
+  //             implementation: require('sass'),
+  //             sassOptions: {
+  //               indentedSyntax: true // optional
+  //             }
+  //           }
+  //         }
+  //       ]
+  //     }
+  //   ]
+  // },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
-    // customVariables: ['~/assets/variables.scss'],
+    customVariables: ['~/assets/variables.scss'],
+    // treeShake: true,
     theme: {
       light: true,
       dark: false,
@@ -93,5 +94,20 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    /*
+      You can extend webpack config here
+    */
+  //   extend (config, ctx) {
+  //     // Run ESLint on save
+  //     if (ctx.isDev && ctx.isClient) {
+  //       config.module.rules.push({
+  //         enforce: 'pre',
+  //         test: /\.(js|vue|ts)$/,
+  //         loader: 'eslint-loader',
+  //         exclude: /(node_modules)/
+  //       })
+  //     }
+  //   }
+  // }
   }
 }

@@ -36,7 +36,7 @@
                   <v-list-item-title class="link" v-text="item.title" />
                 </nuxt-link>
               </v-list-item>
-              <v-btn to="/login" class="btn text-capitalize text-center ml-5 my-2">
+              <v-btn to="/login" class="btn ml-5 my-2">
                 Iniciar Sesión
               </v-btn>
             </v-item-group>
@@ -135,27 +135,16 @@ export default {
   .appbar,
   .drawer {
     .nav {
-      // .btn {
-      //   background-color: $blue !important;
-      //   color: #fff;
-      //   &:hover {
-      //     filter: brightness(0.95);
-      //   }
-      //   .title {
-      //     font-size: $link !important;
-      //     font-family: $title-font !important;
-      //   }
-      // }
       .link {
         font-size: $link + .3rem;
         font-weight: 400;
         text-align: center !important;
         margin: 0 1rem !important;
-        color: $red;
+        color: $wine;
         padding: 1rem 0 !important;
         &:hover {
-          color: $blue;
-          border-bottom: 0.2rem solid $blue;
+          color: $ocean;
+          border-bottom: 0.2rem solid $ocean;
           margin-top: 0;
         }
       }
