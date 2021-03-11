@@ -65,8 +65,7 @@ h1,
 h2,
 h3,
 h4,
-a,
-.btn {
+a {
   font-family: $title-font !important;
   text-decoration: none;
 }

@@ -73,7 +73,6 @@ h2 {
     font-size: $section-title + .5rem;
     font-weight: 400;
     color: $wine;
-    // text-align: center !important;
     line-height: 1.7;
     margin-bottom: 1rem;
   }
@@ -90,8 +89,9 @@ h4 {
   font-weight: 300;
 }
 .gutter-p {
-  padding-top: 12rem !important;
+    padding-top: 2rem !important;
 }
+
 section {
   padding: 2rem 0 !important;
   margin-bottom: 2rem !important;

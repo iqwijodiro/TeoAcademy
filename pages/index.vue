@@ -2,18 +2,18 @@
   <div id="index">
     <div class="hero d-flex align-center">
       <div class="mask" />
-      <v-row class="rail d-flex justify-center mx-auto">
+      <v-row class="rail">
         <v-col
           cols="12"
-          lg="4"
-          xl="4"
-          md="6"
+          lg="5"
+          xl="5"
+          md="8"
           sm="8"
           class="px-5"
         >
           <v-card elevation="5" class="hero-card rounded-lg text-center py-3">
-            <v-card-title class="p-0 m-3 mx-auto">
-              <h1 class="fw-700">
+            <v-card-title class="mx-auto">
+              <h1 class="fw-700 mx-4">
                 Formación con alcance eterno
               </h1>
             </v-card-title>
@@ -23,14 +23,12 @@
                 través de los cursos y programas de Teo Academy
               </p>
             </v-card-text>
-            <div class="centrar">
-              <v-btn to="/courses" class="btn d-block">
-                Nuestros Cursos
-              </v-btn>
-              <v-btn to="/courses" class="btn d-block ">
-                Contáctanos
-              </v-btn>
-            </div>
+            <v-btn to="/courses" class="btn">
+              Nuestros Cursos
+            </v-btn>
+            <v-btn to="/courses" class="btn">
+              Contáctanos
+            </v-btn>
           </v-card>
         </v-col>
       </v-row>
@@ -73,49 +71,53 @@
           Nuestros cursos más populares
         </h2>
         <v-row justify="center">
-          <v-slide-group multiple arrows class="my-3 my-slider">
-            <v-slide-item v-for="(course, i) in courses" :key="i" class="slides ma-5">
-              <v-card elevation="5" max-width="315px" height="450px" class="rounded-lg">
-                <v-img
-                  :src="course.img"
-                  height="47%"
-                />
-                <v-card-title class="card-title">
-                  {{ course.title }}
-                </v-card-title>
-                <v-card-text class="text-card">
-                  {{ course.text }}
-                </v-card-text>
-                <v-row class="minirow d-flex justify-content-center align-items-center py-1">
-                  <div class="my-2 mr-2">
-                    <p class="ma-0 px-3">
-                      {{ course.modules }} <br>
-                      Módulos
-                    </p>
+          <v-col
+            cols="12"
+          >
+            <v-slide-group multiple arrows class="my-3 my-slider">
+              <v-slide-item v-for="(course, i) in courses" :key="i" class="slides ma-5">
+                <v-card elevation="5" max-width="315px" class="rounded-lg">
+                  <v-img
+                    :src="course.img"
+                    height="47%"
+                  />
+                  <v-card-title class="card-title">
+                    {{ course.title }}
+                  </v-card-title>
+                  <v-card-text class="text-card">
+                    {{ course.text }}
+                  </v-card-text>
+                  <v-row class="minirow d-flex justify-center align-center py-1">
+                    <div class="my-2 mr-2">
+                      <p class="ma-0 px-3">
+                        {{ course.modules }} <br>
+                        Módulos
+                      </p>
+                    </div>
+                    <div class="my-2 mr-2">
+                      <p class="ma-0 px-3">
+                        {{ course.resources }} <br>
+                        Recursos
+                      </p>
+                    </div>
+                    <div>
+                      <span class="priceOld mr-2">
+                        ${{ course.priceOld }}
+                      </span>
+                      <span class="priceNew mr-2">
+                        ${{ course.priceNew }}
+                      </span>
+                    </div>
+                  </v-row>
+                  <div class="centrar mt-2">
+                    <v-btn class="minibtn mt-3">
+                      Ver Curso
+                    </v-btn>
                   </div>
-                  <div class="my-2 mr-2">
-                    <p class="ma-0 px-3">
-                      {{ course.resources }} <br>
-                      Recursos
-                    </p>
-                  </div>
-                  <div>
-                    <span class="priceOld mr-2">
-                      ${{ course.priceOld }}
-                    </span>
-                    <span class="priceNew mr-2">
-                      ${{ course.priceNew }}
-                    </span>
-                  </div>
-                </v-row>
-                <div class="centrar mt-2">
-                  <v-btn class="minibtn mt-3">
-                    Ver Curso
-                  </v-btn>
-                </div>
-              </v-card>
-            </v-slide-item>
-          </v-slide-group>
+                </v-card>
+              </v-slide-item>
+            </v-slide-group>
+          </v-col>
           <v-btn to="/courses" class="btn my-5">
             Ver todos los cursos
           </v-btn>
@@ -123,28 +125,27 @@
       </v-container>
     </section>
     <!--Seccion de los mejores cursos-->
-    <section class="students mt-5 py-5 d-flex justify-content-center align-items-center">
-      <v-container class="d-flex justify-content-center align-items-center">
-        <v-row align="center">
+    <section class="students mt-5 py-5">
+      <v-container>
+        <v-row justify="center">
           <v-col
-            cols="11"
+            cols="12"
             md="8"
             lg="8"
             xl="8"
-            class="container"
           >
-            <v-sheet elevation="5" rounded="xl" class="bg-sheet mx-auto py-5">
-              <h2 class="mt-5 text-center mb-2">
+            <v-sheet elevation="5" rounded="xl" class="bg-sheet mx-auto py-5 px-3 text-center">
+              <h2 class="mt-5 mb-2 px-5 text-center">
                 Lo que dicen los Teo estudiantes
               </h2>
               <v-slide-group multiple show-arrow class="quote-slider my-slider">
-                <v-slide-item v-for="(quote, i) in quotes" :key="i" class="card-quote mx-auto">
-                  <v-card class="text-center mx-auto shadow-none">
-                    <v-row justify="center">
+                <v-slide-item v-for="(quote, i) in quotes" :key="i" class="card-quote pa-5">
+                  <v-card>
+                    <v-row>
                       <v-col
-                        cols="11"
+                        cols="12"
                       >
-                        <v-container class="d-flex flex-column align-items-center py-0">
+                        <v-container class="d-flex flex-column justify-center align-center">
                           <p class="quote">
                             {{ quote.text }}
                           </p>
@@ -174,7 +175,7 @@
           Próximos Eventos
         </h2>
         <v-container>
-          <v-row v-for="(evento, i) in eventos" :key="i" class="rail d-flex justify-content-center align-items-start py-3">
+          <v-row v-for="(evento, i) in eventos" :key="i" class="rail py-3">
             <v-col
               cols="5"
               xl="2"
@@ -183,10 +184,10 @@
               sm="6"
               class="order-3 order-lg-1 mx-auto"
             >
-              <div class="date-box d-flex flex-column justify-content-around">
+              <div class="date-box">
                 <div class="d-inline-flex">
                   <span class="date mr-4"> {{ evento.date }} </span>
-                  <p class="month align-self-end">
+                  <p class="month">
                     {{ evento.month }}
                   </p>
                 </div>
@@ -231,29 +232,28 @@
         </v-container>
       </v-container>
     </section>
-    <section class="our-team d-flex justify-content-center align-items-center">
+    <section class="our-team d-flex justify-center align-center">
       <div class="mask" />
       <v-container>
-        <v-row>
+        <v-row justify="center">
           <v-col
-            cols="11"
+            cols="12"
             md="8"
             lg="8"
             xl="8"
-            class="container"
           >
-            <v-sheet elevation="5" rounded="xl" min-height="45vh" class="bg-sheet mx-auto py-2">
-              <h2 class="mt-5 text-center">
+            <v-sheet elevation="5" rounded="xl" class="bg-sheet mx-auto py-5 px-3 text-center">
+              <h2 class="mt-5 mb-2 text-center">
                 Nuestro Equipo
               </h2>
               <v-slide-group multiple show-arrow class="team-slider my-slider">
                 <v-slide-item v-for="(partner, i) in partners" :key="i" class="card-member mx-auto">
-                  <v-card class="text-center mx-auto shadow-none">
-                    <v-row justify="center">
+                  <v-card>
+                    <v-row>
                       <v-col
                         cols="12"
                       >
-                        <v-container class="d-flex flex-column align-items-center py-0">
+                        <v-container class="d-flex flex-column justify-center align-center py-5">
                           <v-avatar size="125" class="mb-4">
                             <v-img :src="require('../assets/img/' + partner.avatar)" />
                           </v-avatar>
@@ -279,47 +279,51 @@
     </section>
     <section class="blog gutter-p mb-5 pb-5">
       <v-container>
-        <h2 class="d-flex align-start ml-5">
+        <h2 class="text-start ml-3">
           Nuestro Blog
         </h2>
         <v-row justify="center" class="my-5">
-          <v-slide-group multiple arrows class="my-3 my-slider">
-            <v-slide-item v-for="(entry, i) in entries" :key="i" class="slides ma-5">
-              <v-card elevation="5" max-width="315px" height="315px" class="bg-dark blog-card d-flex justify-content-end align-items-end rounded-xl">
-                <v-img
-                  :src="require('../assets/img/' + entry.img)"
-                  height="100%"
-                  class="rounded-xl"
-                />
-                <div class="card-overlay">
-                  <v-card-title class="card-title text-center text--white">
-                    {{ entry.title }}
-                  </v-card-title>
-                  <div class="d-flex justify-content-start align-items-start p-2">
-                    <v-avatar size="45" class="mb-4 mx-3">
-                      <v-img :src="require('../assets/img/' + entry.avatar)" />
-                    </v-avatar>
-                    <div class="px-2 mr-4">
-                      <h4 class="author">
-                        {{ entry.author }}
-                      </h4>
-                      <span class="date">
-                        {{ entry.date }}
-                      </span>
-                    </div>
-                    <div>
-                      <v-btn to="/" class="btn-leer">
-                        <v-icon class="">
-                          mdi-eye
-                        </v-icon> <br>
-                        <span>Leer</span>
-                      </v-btn>
+          <v-col
+            cols="12"
+          >
+            <v-slide-group multiple arrows class="my-3 my-slider">
+              <v-slide-item v-for="(entry, i) in entries" :key="i" class="slide ma-5">
+                <v-card elevation="5" max-width="315px" height="315px" class="blog-card d-flex align-end rounded-xl">
+                  <v-img
+                    :src="require('../assets/img/' + entry.img)"
+                    height="100%"
+                    class="rounded-xl"
+                  />
+                  <div class="card-overlay">
+                    <v-card-title class="card-title text-center mb-4">
+                      {{ entry.title }}
+                    </v-card-title>
+                    <div class="d-flex justify-start align-start px-2">
+                      <v-avatar size="45" class="mb-4 mx-2">
+                        <v-img :src="require('../assets/img/' + entry.avatar)" />
+                      </v-avatar>
+                      <div class="px-2 mr-3">
+                        <h4 class="author mb-2">
+                          {{ entry.author }}
+                        </h4>
+                        <span class="date">
+                          {{ entry.date }}
+                        </span>
+                      </div>
+                      <div>
+                        <v-btn to="/" class="btn-leer">
+                          <v-icon class="eye-i">
+                            mdi-eye
+                          </v-icon> <br>
+                          <span>Leer</span>
+                        </v-btn>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </v-card>
-            </v-slide-item>
-          </v-slide-group>
+                </v-card>
+              </v-slide-item>
+            </v-slide-group>
+          </v-col>
           <v-btn to="/blog" class="btn my-5">
             Ver todos los articulos
           </v-btn>
@@ -328,13 +332,13 @@
     </section>
     <section class="newsletter mt- pt-5">
       <v-container>
-        <v-row align="center" class="d-flex justify-content-center">
+        <v-row class="d-flex justify-center align-center">
           <v-col
             cols="12"
             xl="4"
             lg="4"
             md="6"
-            sm="8"
+            sm="6"
             class="mr-5"
           >
             <v-img
@@ -347,19 +351,25 @@
             xl="5"
             lg="5"
             md="6"
-            sm="6"
-            class="ml-5"
+            sm="10"
           >
-            <div class="container mx-5">
+            <div class="container mx-auto">
               <h3 class="mb-5">
                 Recibe información acerca de nuestros eventos y contenidos
               </h3>
-              <form action="">
-                <input type="email" placeholder="Email" class="input-email rounded-lg px-3">
+              <v-form v-model="valid" action="" class="form-box">
+                <v-text-field
+                  v-model="email"
+                  :rules="emailRules"
+                  label="E-mail"
+                  required
+                  clearable
+                  class="input-email rounded-l-lg"
+                />
                 <button type="submit" class="btn-input rounded-lg">
                   Enviar
                 </button>
-              </form>
+              </v-form>
             </div>
           </v-col>
         </v-row>
@@ -372,12 +382,12 @@ export default {
   // components: {},
   data () {
     return {
-      tinySliderOptions: {
-        mouseDrag: true,
-        loop: false,
-        items: 4,
-        swipeAngle: 45
-      },
+      valid: false,
+      email: '',
+      emailRules: [
+        v => !!v || 'El E-mail es requerido',
+        v => /.+@.+/.test(v) || 'Debe ser un E-mail válido'
+      ],
       courses: [
         {
           img: require('../assets/img/IniciacionCristiana.webp'),
@@ -581,10 +591,11 @@ export default {
     display: block !important;
   }
   .rail {
-    max-width: 100% !important;
-    justify-content: center !important;
+    margin: 0 auto !important;
+    display: flex;
+    justify-content: center;
     .hero-card {
-      min-height: 450px !important;
+      min-height: 70% !important;
     }
     .text {
       font-size: $body + .4rem;
@@ -597,7 +608,7 @@ export default {
   }
   @include tablet {
     .btn {
-      display: inline-block;
+      display: inline-block !important;
     }
     .rail {
       .hero-card {
@@ -608,7 +619,8 @@ export default {
 
   @include miniDesktop {
     .rail {
-      max-width: 85% !important;
+      max-width: 1000px;
+      width: 65% !important;
       display: flex !important;
       justify-content: flex-end !important;
     }
@@ -624,6 +636,11 @@ export default {
   .rounded {
     max-width: 100%;
     border-radius: 2.5rem!important;
+  }
+}
+@include miniDesktop() {
+  .gutter-p {
+    padding-top: 12rem !important;
   }
 }
 .top-cursos {
@@ -665,26 +682,24 @@ export default {
   background: rgb(149,149,149);
   background: linear-gradient(0deg, rgba(149,149,149,1) 0%, rgba(193,193,193,1) 25%, rgba(211,211,211,1) 50%, rgba(231,231,231,1) 75%, rgba(250,250,250,1) 100%);
   padding: 5rem 0 !important;
-  height: 70vh;
-  max-height: 110vh !important;
+  min-height: 70vh !important;
+  max-height: 100% !important;
   .bg-sheet {
     min-height: 450px;
   }
     .quote-slider {
       min-height: 35vh !important;
       .card-quote {
-        max-width: 81.5vw !important;
-        // min-width: 320px !important;
-        // width: 80% !important;
-        padding-bottom: 1.5rem;
+        max-width: 82vw !important;
+        padding: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
       }
       .quote {
         color: $gray-mid;
-        font-size: $link +.1rem;
-        text-align: center;
+        font-size: $link + .2rem;
         line-height: 1.6;
-        // max-width: 85%;
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
       }
       @include miniTelefono {
         .card-quote {
@@ -708,7 +723,7 @@ export default {
       }
       @include lgdesktop {
         .card-quote {
-            max-width: 39vw !important;
+            width: 38vw !important;
         }
         .quote {
           font-size: $link + .4rem;
@@ -747,21 +762,30 @@ export default {
     &:last-child {
       border-bottom: none;
     }
-    span.date {
-      font-family: $title-font;
-      color: $ocean;
-      font-size: 6rem;
-      font-weight: 400;
-    }
-    .month {
-      font-family: $title-font;
-      font-size: 2.8rem;
-      color: $gray-mid;
-    }
-    .day  {
-      color: $gray-mid;
-      font-size: 2.2rem;
-      font-family: $title-font;
+    .date-box {
+      span.date {
+        font-family: $title-font;
+        color: $ocean;
+        font-size: 6rem;
+        font-weight: 400;
+      }
+      .month {
+        font-family: $title-font;
+        font-size: 2.8rem;
+        color: $gray-mid;
+        align-self: center !important;
+      }
+      .day  {
+        color: $gray-mid;
+        font-size: 2.2rem;
+        font-family: $title-font;
+        text-align: center;
+      }
+      @include telefono {
+        .day {
+          text-align: start !important;
+        }
+      }
     }
     .event-center {
       max-width: 650px;
@@ -776,6 +800,7 @@ export default {
     }
   }
 }
+
 .our-team {
   position: relative !important;
   background-image: url(../assets/img/library-banner.webp);
@@ -784,10 +809,10 @@ export default {
   background-position: center center;
   min-height: 80vh;
   max-height: 110vh !important;
+  padding: 0 !important;
   .mask {
     position: absolute;
     background: rgba($color: #ffffff, $alpha: 0.45);
-    // min-height: 60vh;
     height: 100% !important;
     width: 100%;
   }
@@ -802,8 +827,12 @@ export default {
         line-height: 1.4;
         margin: 0 !important;
       }
+      .card-member {
+        border: none !important;
+        box-shadow: none !important;
+      }
       .member {
-        font-size: $link - .3rem;
+        font-size: $link;
         text-align: center;
         line-height: 1.4;
         margin: 1rem;
@@ -848,75 +877,116 @@ export default {
   }
 }
 .blog {
-  .slides {
-    .blog-card{
-      position: relative;
-    }
-    .card-overlay{
-      background-color: rgba($gray-dark, $alpha: 0.60);
-      height: 47.5%;
-      position: absolute;
-      width: 100%;
-      border-bottom-left-radius: 2.4rem;
-      .card-title, .date {
-        color: #fff !important;
+  .my-slider {
+    border-top: .2rem solid $gray-light;
+    border-bottom: .2rem solid $gray-light;
+    .slide {
+      .blog-card{
+        position: relative;
       }
-      .card-title {
-        font-size: 2rem !important;
+      .card-overlay{
+        background-color: rgba($gray-dark, $alpha: 0.60);
+        height: 47.5%;
+        position: absolute;
+        width: 100%;
+        border-bottom-left-radius: 2.4rem;
+        .card-title, .date {
+          color: #fff !important;
+        }
+        .card-title {
+          font-size: 2rem !important;
 
+        }
+        .author {
+          font-size: 1.5rem;
+          color: #fff;
+        }
+        .date {
+            font-size: $subtitle;
+        }
+        .btn-leer {
+          width: 85px;
+          height: 50px;
+            color: white;
+            background-color: rgba($gray-dark, $alpha: 0.50);
+            text-transform: capitalize !important;
+            font-size: $link;
+            .eye-i{
+              font-size: 2.5rem;
+              margin-right: .6rem;
+            }
+        }
       }
-       .author {
-         font-size: 1.5rem;
-         color: #fff;
-       }
-       .date {
-          font-size: $subtitle;
-       }
-       .btn-leer {
-         width: 80px;
-         height: 60px;
-          color: white;
-          background-color: rgba($gray-dark, $alpha: 0.50);
-          text-transform: capitalize !important;
-          font-size: $link;
-       }
     }
   }
 }
 .newsletter {
+  display: flex;
+  align-items: center !important;
+  min-height: 50vh !important;
   background: rgb(190,30,45);
   background: linear-gradient(90deg, rgba(190,30,45,1) 0%, rgba(142,22,34,1) 50%, rgba(95,15,23,1) 100%);
   h3 {
     color: #ffffff;
   }
-  .input-email {
-    background: rgba($color: #f0f0f0, $alpha: 1.0);
-    height: 45px;
-    font-size: $body;
-    font-family: $title-font;
-    border: none;
-    margin: 0 !important;
-    border-top-right-radius: 0 !important;
-    border-bottom-right-radius: 0 !important;
-    width: 32rem;
-  }
-  .btn-input {
-    height: 4.5rem !important;
-    width: 12rem;
-    border-top-left-radius: 0rem !important;
-    border-bottom-left-radius: 0rem !important;
-    background-color: $ocean !important;
-    color: #ffffff;
-    text-transform: capitalize !important;
-    font-size: $link + 0.1rem;
-    padding: 1.2rem 1.5rem !important;
-    font-family: $title-font !important;
-    margin-left: -.5rem !important;
-    &:hover {
-      color: $wine;
-      font-weight: 700;
-      background: #ffffff !important;
-  }
+  .form-box {
+    height: 45px !important;
+    padding: 0 !important;
+    width: 100%;
+    display: flex !important;
+    justify-content: center !important;
+
+    .input-email {
+      background: rgba($color: #f0f0f0, $alpha: 1.0);
+      min-height: 100% !important;
+      font-size: $body;
+      font-family: $title-font;
+      border: none;
+      margin: 0 !important;
+      border-top-right-radius: 0 !important;
+      border-bottom-right-radius: 0 !important;
+      padding: 1rem !important;
+      max-width: 80% !important;
+
+      /* Elemento | http://localhost:3000/ */
+
+        .v-messages__message {
+          background: transparent;
+          color: $gray-light !important;
+          font-size: 1.3rem !important;
+        }
+
+        /* En línea #5 | http://localhost:3000/ */
+
+        .v-application .error--text {
+          color: $gray-light !important;
+          font-weight: 700;
+          caret-color: rgba($gray-light, $alpha: 0.60) !important;
+        }
+
+        .v-application .error--text {
+          /* color: #ff5252 !important; */
+          color: $gray-mid !important;
+        }
+    }
+    .btn-input {
+      min-height: 100% !important;
+      border-top-left-radius: 0rem !important;
+      border-bottom-left-radius: 0rem !important;
+      border: transparent !important;
+      background-color: $ocean !important;
+      color: #ffffff;
+      text-transform: capitalize !important;
+      font-size: $link + 0.1rem;
+      padding: 1.2rem 1.5rem !important;
+      font-family: $title-font !important;
+      margin-left: -.5rem !important;
+      &:hover {
+        color: $wine;
+        font-weight: 700;
+        background: #ffffff !important;
+    }
+    }
   }
 }
 </style>
