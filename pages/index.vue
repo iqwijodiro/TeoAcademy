@@ -12,15 +12,14 @@
           class="px-5"
         >
           <v-card elevation="5" class="hero-card rounded-lg text-center py-3">
-            <v-card-title class="mx-auto">
+            <v-card-title class="mx-auto pb-0">
               <h1 class="fw-700 mx-4">
                 Formación con alcance eterno
               </h1>
             </v-card-title>
-            <v-card-text class="my-3 mx-auto p-0">
+            <v-card-text class="my-3 mx-auto px-5 py-0">
               <p class="text">
-                Disfruta la maravillosa experiencia de la formación cristiana a
-                través de los cursos y programas de Teo Academy
+                Disfruta la maravillosa experiencia de la formación cristiana a través de los cursos y programas de Teo Academy
               </p>
             </v-card-text>
             <v-btn to="/courses" class="btn">
@@ -442,28 +441,28 @@ export default {
       ],
       quotes: [
         {
-          avatar: 'adriana.jpg',
+          avatar: 'adriana.webp',
           text:
             '"Hacer el programa Teo 100 ha representado para mi vida una gran oportunidad de cambio. La experiencia ha sido super enriquecedora y amena. Agradezco mucho el acompañamiento que me dieron. Los recursos son de mucha calidad. Voy por mas."',
           name: 'Adriana Campos',
           job: 'Lic. Business Management'
         },
         {
-          avatar: 'gustavo.jpg',
+          avatar: 'gustavo.webp',
           text:
             '"Hacer el programa Teo 100 ha representado para mi vida una gran oportunidad de cambio. La experiencia ha sido super enriquecedora y amena. Agradezco mucho el acompañamiento que me dieron. Los recursos son de mucha calidad. Voy por mas."',
           name: 'Gustavo Campos',
           job: 'Lic. Business Management'
         },
         {
-          avatar: 'winder.jpg',
+          avatar: 'winder.webp',
           text:
             '"Hacer el programa Teo 100 ha representado para mi vida una gran oportunidad de cambio. La experiencia ha sido super enriquecedora y amena. Agradezco mucho el acompañamiento que me dieron. Los recursos son de mucha calidad. Voy por mas."',
           name: 'Winder Díaz',
           job: 'Frontend Developer'
         },
         {
-          avatar: 'aquiles.jpg',
+          avatar: 'aquiles.webp',
           text:
             '"Hacer el programa Teo 100 ha representado para mi vida una gran oportunidad de cambio. La experiencia ha sido super enriquecedora y amena. Agradezco mucho el acompañamiento que me dieron. Los recursos son de mucha calidad. Voy por mas."',
           name: 'Aquiles Campos',
@@ -498,25 +497,25 @@ export default {
       ],
       partners: [
         {
-          avatar: 'gustavo.jpg',
+          avatar: 'gustavo.webp',
           member: 'Gustavo Campos',
           role: 'Fundador - Colaborador',
           text: 'Participar en la fundación y actividades de Teo Academy ha sido una experiencia única y enriquecedora para mi vida y la de mis allegados.'
         },
         {
-          avatar: 'adriana.jpg',
+          avatar: 'adriana.webp',
           member: 'Adriana Campos',
           role: 'Fundador - Colaborador',
           text: 'Participar en la fundación y actividades de Teo Academy ha sido una experiencia única y enriquecedora para mi vida y la de mis allegados.'
         },
         {
-          avatar: 'aquiles.jpg',
+          avatar: 'aquiles.webp',
           member: 'Aquiles Campos',
           role: 'Fundador - Colaborador',
           text: 'Participar en la fundación y actividades de Teo Academy ha sido una experiencia única y enriquecedora para mi vida y la de mis allegados.'
         },
         {
-          avatar: 'vladimir.jpg',
+          avatar: 'vladimir.webp',
           member: 'Vladimir Rueda',
           role: 'CTO - Founder',
           text: 'Participar en la fundación y actividades de Teo Academy ha sido una experiencia única y enriquecedora para mi vida y la de mis allegados.'
@@ -526,42 +525,42 @@ export default {
         {
           img: 'blog-1.webp',
           title: 'Fundamentos de la fe cristiana',
-          avatar: 'gustavo.jpg',
+          avatar: 'gustavo.webp',
           author: 'Gustavo Campos',
           date: '01/03/2021'
         },
         {
           img: 'blog-2.webp',
           title: 'Fundamentos de la fe cristiana',
-          avatar: 'adriana.jpg',
+          avatar: 'adriana.webp',
           author: 'Adriana Campos',
           date: '01/03/2021'
         },
         {
           img: 'blog-3.webp',
           title: 'Fundamentos de la fe cristiana',
-          avatar: 'gustavo.jpg',
+          avatar: 'gustavo.webp',
           author: 'Gustavo Campos',
           date: '01/03/2021'
         },
         {
           img: 'event-1.webp',
           title: 'Fundamentos de la Teología Biblica',
-          avatar: 'winder.jpg',
+          avatar: 'winder.webp',
           author: 'Winder Díaz',
           date: '01/03/2021'
         },
         {
           img: 'IniciacionCristiana.webp',
           title: 'Beneficios de la educación online',
-          avatar: 'vladimir.jpg',
+          avatar: 'vladimir.webp',
           author: 'Vladimir Rueda',
           date: '01/03/2021'
         },
         {
           img: 'troubbles.webp',
           title: 'Conflictos de la personalidad',
-          avatar: 'aquiles.jpg',
+          avatar: 'aquiles.webp',
           author: 'Aquiles Campos',
           date: '01/03/2021'
         }
@@ -571,40 +570,11 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.hero {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  min-height: 100vh;
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: 25% 25%;
+.hero{
   background-image: url(../assets/img/banner-index.webp);
-  .mask {
-    position: absolute;
-    background: rgba($color: #ffffff, $alpha: 0.45);
-    min-height: 100vh;
-    width: 100%;
-  }
+  min-height: 650px !important;
   .btn {
     display: block !important;
-  }
-  .rail {
-    margin: 0 auto !important;
-    display: flex;
-    justify-content: center;
-    .hero-card {
-      min-height: 70% !important;
-    }
-    .text {
-      font-size: $body + .4rem;
-      color: $gray-mid;
-      font-weight: 400;
-      line-height: 1.55;
-      margin: 0;
-      padding: 0;
-    }
   }
   @include tablet {
     .btn {
@@ -626,18 +596,18 @@ export default {
     }
   }
 }
-.ebook {
-  background: no-repeat url(../assets/img/wave.svg);
-  background-size: cover;
-  min-height: 80vh;
-  h2 {
-    color: $gray-mid;
-  }
-  .rounded {
-    max-width: 100%;
-    border-radius: 2.5rem!important;
-  }
-}
+// .ebook {
+//   background: no-repeat url(../assets/img/wave.svg);
+//   background-size: cover;
+//   min-height: 80vh;
+//   h2 {
+//     color: $gray-mid;
+//   }
+//   .rounded {
+//     max-width: 100%;
+//     border-radius: 2.5rem!important;
+//   }
+// }
 @include miniDesktop() {
   .gutter-p {
     padding-top: 12rem !important;

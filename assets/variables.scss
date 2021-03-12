@@ -21,109 +21,6 @@ $link: 1.5rem;
 $miniLink: 1rem;
 $body: 1.6rem;
 
-/*** Estilos a utilidades **/
-html, body, * {
-  word-break: normal !important;
-  line-height: 1.25;
-  scroll-behavior: smooth;
-}
-.btn {
-  height: 4.5rem !important;
-  border-radius: 0.5rem;
-  background-color: $ocean !important;
-  color: #ffffff;
-  text-transform: capitalize !important;
-  font-size: $link + 0.1rem;
-  padding: 1.2rem 1.5rem !important;
-  margin: 0.7rem;
-  font-family: $title-font !important;
-  &:hover {
-    color: $wine;
-    font-weight: 700;
-    background: #ffffff !important;
-  }
-}
-.minibtn {
-  border-radius: 0.5rem;
-  background-color: $ocean !important;
-  color: #ffffff;
-  text-transform: capitalize !important;
-  font-size: $link + 0.1rem;
-  padding: .8rem 1rem !important;
-  margin: 0.5rem !important;
-  font-family: $title-font !important;
-  &:hover {
-    color: $wine;
-    font-weight: 700;
-    background: #ffffff !important;
-  }
-}
-.centrar {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center!important;
-}
-h1 {
-  font-size: 3.5rem;
-  color: $wine;
-  line-height: 1.1;
-  text-align: center!important;
-}
-h2 {
-    font-size: $section-title + .5rem;
-    font-weight: 400;
-    color: $wine;
-    line-height: 1.7;
-    margin-bottom: 1rem;
-  }
-h3 {
-    font-size: $section-title - .3rem;
-    font-weight: 300;
-    color: $gray-mid;
-    line-height: 1.5;
-    margin-bottom: 1rem;
-  }
-h4 {
-  font-size: $link + 0.5rem;
-  font-family: $title-font;
-  font-weight: 300;
-}
-.gutter-p {
-    padding-top: 2rem !important;
-}
-
-section {
-  padding: 2rem 0 !important;
-  margin-bottom: 2rem !important;
-}
-.fw-300 {
-  font-weight: 300 !important;
-}
-
-.fw-700 {
-  font-weight: 700;
-}
-
-.fw-900 {
-  font-weight: 900 !important;
-}
-.link {
-  font-size: $link + 0.2rem;
-  color: $gray-mid;
-  &:hover {
-    color: $ocean;
-    border-bottom: 0.2rem solid $ocean;
-    margin-top: 0;
-  }
-}
-.card-title {
-  font-family: $title-font !important;
-  font-size: $link + .3rem !important;
-  padding: 0 .5rem !important;
-  margin: 1.2rem 1rem;
-}
-
-
 /** Breakpoints **/ 
 $miniTelefono: 320px;
 $telefono: 425px;
@@ -132,7 +29,6 @@ $miniDesktop: 1024px;
 $desktop: 1260px;
 $largeDesktop: 1440px;
 $xlDesktop: 1940px;
-
 
 /** Mixins **/ 
 @mixin miniTelefono {
@@ -173,4 +69,180 @@ $xlDesktop: 1940px;
     @media (min-width: $xlDesktop) {
         @content;
     }
+}
+
+/*** Estilos a utilidades **/
+html, body, * {
+  word-break: normal !important;
+  line-height: 1.25;
+  scroll-behavior: smooth;
+}
+
+/** headings / titulos **/
+h1,
+h2,
+h3,
+h4,
+a {
+  font-family: $title-font !important;
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 3.5rem;
+  color: $wine;
+  line-height: 1.2;
+  text-align: center!important;
+}
+h2 {
+    font-size: $section-title + .5rem;
+    font-weight: 400;
+    // color: $wine;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+h3 {
+    font-size: $section-title - .3rem;
+    font-weight: 300;
+    color: $gray-mid;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+h4 {
+  font-size: $link + 0.5rem;
+  font-family: $title-font;
+  font-weight: 300;
+}
+
+/*** Botones ***/ 
+.btn {
+  height: 4.5rem !important;
+//   border-radius: 0.5rem;
+  background-color: $ocean !important;
+  color: #ffffff;
+  text-transform: capitalize !important;
+  font-size: $link + 0.1rem;
+  padding: 1.2rem 1.5rem !important;
+  margin: 0.7rem;
+  font-family: $title-font !important;
+  &:hover {
+    color: $wine;
+    font-weight: 700;
+    background: #ffffff !important;
+  }
+}
+.minibtn {
+  border-radius: 0.5rem;
+  background-color: $ocean !important;
+  color: #ffffff;
+  text-transform: capitalize !important;
+  font-size: $link + 0.1rem;
+  padding: .8rem 1rem !important;
+  margin: 0.5rem !important;
+  font-family: $title-font !important;
+  &:hover {
+    color: $wine;
+    font-weight: 700;
+    background: #ffffff !important;
+  }
+}
+
+/*** tools y espaciados **/ 
+.centrar {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center!important;
+}
+
+.gutter-p {
+    padding-top: 2rem !important;
+}
+
+section {
+  padding: 2rem 0 !important;
+  margin-bottom: 2rem !important;
+}
+.fw-300 {
+  font-weight: 300 !important;
+}
+
+.fw-700 {
+  font-weight: 700;
+}
+
+.fw-900 {
+  font-weight: 900 !important;
+}
+.link {
+  font-size: $link + 0.2rem;
+  color: $gray-mid;
+  &:hover {
+    color: $ocean;
+    border-bottom: 0.2rem solid $ocean;
+    margin-top: 0;
+  }
+}
+.text {
+  font-size: $body + .5rem;
+  color: $gray-mid;
+  font-weight: 300;
+  line-height: 1.7 !important;
+  margin: 0;
+  padding: 0;
+  }
+/** Tarjetas **/
+.hero-card {
+  background-color: rgba($color: #fff, $alpha: .8) !important;
+}
+.card-title {
+  font-family: $title-font !important;
+  font-size: $link + .3rem !important;
+  padding: 0 .5rem !important;
+  margin: 1.2rem 1rem;
+}
+/** Banners - heros **/
+.hero {
+  position: relative;
+  top: 0; left: 0;
+  width: 100%;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 25% 25%;
+  .mask {
+    position: absolute;
+    background: rgba($color: #ffffff, $alpha: 0.45);
+    min-height: 100%;
+    width: 100%;
+  }
+  .rail {
+      margin: 0 auto !important;
+      display: flex;
+      justify-content: center;
+  }
+  .text {
+        font-size: $body + .5rem;
+        color: $gray-mid;
+        font-weight: 300;
+        line-height: 1.7 !important;
+        margin: 0;
+        padding: 0;
+  }
+}
+@include tablet {
+  .hero {
+    min-height: 100%;
+    height: 100vh;
+  }
+}
+.ebook {
+  background: no-repeat url(../assets/img/wave.svg);
+  background-size: cover;
+  min-height: 80vh;
+  h2 {
+    color: $gray-mid;
+  }
+  .rounded {
+    max-width: 100%;
+    border-radius: 2.5rem!important;
+  }
 }

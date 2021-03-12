@@ -23,6 +23,8 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    // // 'sass',
+    // '@/assets/styles.scss'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -46,27 +48,6 @@ export default {
     '@nuxtjs/axios',
     'nuxt-fontawesome'
   ],
-  // module: {
-  //   rules: [
-  //     {
-  //       test: /\.s(c|a)ss$/,
-  //       use: [
-  //         'vue-style-loader',
-  //         'css-loader',
-  //         {
-  //           loader: 'sass-loader',
-  //           // Requires sass-loader@^8.0.0
-  //           options: {
-  //             implementation: require('sass'),
-  //             sassOptions: {
-  //               indentedSyntax: true // optional
-  //             }
-  //           }
-  //         }
-  //       ]
-  //     }
-  //   ]
-  // },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},

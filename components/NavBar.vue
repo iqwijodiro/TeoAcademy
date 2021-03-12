@@ -36,7 +36,7 @@
                   <v-list-item-title class="link" v-text="item.title" />
                 </nuxt-link>
               </v-list-item>
-              <v-btn to="/login" class="btn ml-5 my-2">
+              <v-btn to="/login" class="btn rounded ml-5 my-2">
                 Iniciar Sesión
               </v-btn>
             </v-item-group>
