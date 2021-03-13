@@ -137,7 +137,7 @@
               <h2 class="mt-5 mb-2 px-5 text-center">
                 Lo que dicen los Teo estudiantes
               </h2>
-              <v-slide-group multiple show-arrow class="quote-slider my-slider">
+              <v-slide-group show-arrow class="quote-slider my-slider">
                 <v-slide-item v-for="(quote, i) in quotes" :key="i" class="card-quote pa-5">
                   <v-card>
                     <v-row>
@@ -241,7 +241,7 @@
             lg="8"
             xl="8"
           >
-            <v-sheet elevation="5" rounded="xl" class="bg-sheet mx-auto py-5 px-3 text-center">
+            <v-sheet absolute elevation="10" rounded="xl" class="bg-sheet mx-auto py-5 px-3 text-center">
               <h2 class="mt-5 mb-2 text-center">
                 Nuestro Equipo
               </h2>
@@ -281,15 +281,15 @@
         <h2 class="text-start ml-3">
           Nuestro Blog
         </h2>
-        <v-row justify="center" class="my-5">
+        <v-row justify="center" class="mb-5">
           <v-col
             cols="12"
           >
-            <v-slide-group multiple arrows class="my-3 my-slider">
+            <v-slide-group arrows class="my-3 my-slider">
               <v-slide-item v-for="(entry, i) in entries" :key="i" class="slide ma-5">
                 <v-card elevation="5" max-width="315px" height="315px" class="blog-card d-flex align-end rounded-xl">
                   <v-img
-                    :src="require('../assets/img/' + entry.img)"
+                    :src="entry.img"
                     height="100%"
                     class="rounded-xl"
                   />
@@ -381,6 +381,7 @@ export default {
   // components: {},
   data () {
     return {
+      title: 'Inicio',
       valid: false,
       email: '',
       emailRules: [
@@ -523,48 +524,53 @@ export default {
       ],
       entries: [
         {
-          img: 'blog-1.webp',
+          img: require('../assets/img/blog-1.webp'),
           title: 'Fundamentos de la fe cristiana',
           avatar: 'gustavo.webp',
           author: 'Gustavo Campos',
           date: '01/03/2021'
         },
         {
-          img: 'blog-2.webp',
+          img: require('../assets/img/blog-2.webp'),
           title: 'Fundamentos de la fe cristiana',
           avatar: 'adriana.webp',
           author: 'Adriana Campos',
           date: '01/03/2021'
         },
         {
-          img: 'blog-3.webp',
+          img: require('../assets/img/blog-3.webp'),
           title: 'Fundamentos de la fe cristiana',
           avatar: 'gustavo.webp',
           author: 'Gustavo Campos',
           date: '01/03/2021'
         },
         {
-          img: 'event-1.webp',
+          img: require('../assets/img/event-1.webp'),
           title: 'Fundamentos de la Teología Biblica',
           avatar: 'winder.webp',
           author: 'Winder Díaz',
           date: '01/03/2021'
         },
         {
-          img: 'IniciacionCristiana.webp',
+          img: require('../assets/img/blog-1.webp'),
           title: 'Beneficios de la educación online',
           avatar: 'vladimir.webp',
           author: 'Vladimir Rueda',
           date: '01/03/2021'
         },
         {
-          img: 'troubbles.webp',
+          img: require('../assets/img/blog-1.webp'),
           title: 'Conflictos de la personalidad',
           avatar: 'aquiles.webp',
           author: 'Aquiles Campos',
           date: '01/03/2021'
         }
       ]
+    }
+  },
+  head () {
+    return {
+      title: this.title
     }
   }
 }
@@ -596,18 +602,6 @@ export default {
     }
   }
 }
-// .ebook {
-//   background: no-repeat url(../assets/img/wave.svg);
-//   background-size: cover;
-//   min-height: 80vh;
-//   h2 {
-//     color: $gray-mid;
-//   }
-//   .rounded {
-//     max-width: 100%;
-//     border-radius: 2.5rem!important;
-//   }
-// }
 @include miniDesktop() {
   .gutter-p {
     padding-top: 12rem !important;
@@ -615,7 +609,14 @@ export default {
 }
 .top-cursos {
   h2 {
-    margin-left: 5.5rem !important;
+    color: $wine;
+    text-align: center;
+  }
+  @include miniDesktop {
+    h2 {
+      margin-left: 7rem !important;
+      text-align: left;
+    }
   }
   .slides{
     .text-card {
@@ -654,6 +655,9 @@ export default {
   padding: 5rem 0 !important;
   min-height: 70vh !important;
   max-height: 100% !important;
+  h2 {
+    color: $wine;
+  }
   .bg-sheet {
     min-height: 450px;
   }
@@ -727,6 +731,9 @@ export default {
       }
     }
 .next-events{
+  h2 {
+    color: $wine;
+  }
   .rail {
     border-bottom: .2rem solid $gray-light;
     &:last-child {
@@ -753,7 +760,7 @@ export default {
       }
       @include telefono {
         .day {
-          text-align: start !important;
+          text-align: left;
         }
       }
     }
@@ -782,20 +789,26 @@ export default {
   padding: 0 !important;
   .mask {
     position: absolute;
-    background: rgba($color: #ffffff, $alpha: 0.45);
+    background: rgba($color: #ffffff, $alpha: 0.25);
     height: 100% !important;
     width: 100%;
   }
+  h2 {
+    color: $wine;
+  }
   .team-slider {
-
       .name, .job {
         font-family: $title-font;
         font-size: $link + .5rem;
         padding: 0 1rem !important;
         color: $gray-mid;
-        font-weight: 300;
+        font-weight: 300 !important;
         line-height: 1.4;
         margin: 0 !important;
+      }
+      .name {
+        color: $wine;
+        font-weight: 400 !important;
       }
       .card-member {
         border: none !important;
@@ -847,6 +860,9 @@ export default {
   }
 }
 .blog {
+  h2 {
+    color: $wine;
+  }
   .my-slider {
     border-top: .2rem solid $gray-light;
     border-bottom: .2rem solid $gray-light;

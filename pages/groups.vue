@@ -60,7 +60,10 @@
     <section class="goals gutter-p px-5">
       <v-container class="px-5">
         <v-row>
-          <v-col>
+          <v-col
+            lg="10"
+            class="mx-auto"
+          >
             <h2 class="text-center mb-5">
               <v-icon class="icon">
                 mdi-bullseye-arrow
@@ -91,12 +94,41 @@
         </v-row>
       </v-container>
     </section>
+    <section class="whom">
+      <v-container>
+        <h2 class="text-center">
+          Dirigido a:
+        </h2>
+        <v-row justify="center" class="mb-5">
+          <v-col
+            cols="12"
+            md="10"
+            lg="8"
+          >
+            <v-slide-group arrows class="my-3 my-slider">
+              <v-slide-item
+                v-for="(who, i) in whos"
+                :key="i"
+                class="slides ma-5"
+              >
+                <v-card elevation="5" max-width="700" class="rounded-lg">
+                  <v-img
+                    :src="who.img"
+                  />
+                </v-card>
+              </v-slide-item>
+            </v-slide-group>
+          </v-col>
+        </v-row>
+      </v-container>
+    </section>
   </div>
 </template>
 <script>
 export default {
   data () {
     return {
+      title: 'For Groups',
       goals: [
         'Fomentar el desarrollo saludable del creyente en las tres áreas del ser (espíritu, alma y cuerpo).',
         'Desarrollar competencias de carácter espiritual en el participante, a través del estudio sistemático de la Biblia (ver competencias por curso).',
@@ -111,7 +143,26 @@ export default {
         'Acceso a compendio de recursos educativos de alta calidad, lo que permite hacer del proceso formativo una experiencia amena y exitosa.',
         'Acceso a plataforma tecnológica de clase mundial, lo que facilita disponer de todo el programay materiales desde cualquier lugar, espacio y tiempo con recursos que hoy se encuentran al alcance de hogares e iglesias.',
         'Ahorro significativo de tiempo, recursos humanos y monetarios.'
+      ],
+      whos: [
+        {
+          img: require('../assets/img/who-1.webp'),
+          text: 'La importancia de la formación cristiana sistémica y disciplinada para el sano desarrollo del Cuerpo de Cristo.'
+        },
+        {
+          img: require('../assets/img/who-2.webp'),
+          text: 'Los recursos precisos, experiencia comprobada y métodos eficaces para garantizar el éxito de la labor formativa.'
+        },
+        {
+          img: require('../assets/img/who-3.webp'),
+          text: 'Tomar acciones con alcance eterno y no postergar para mañana la implementación de un pilar fundamental de la fe cristiana: “el proceso de formación”.'
+        }
       ]
+    }
+  },
+  head () {
+    return {
+      title: this.title
     }
   }
 }
@@ -173,5 +224,10 @@ export default {
   .icon {
     font-size: 3rem;
   }
+}
+.whom {
+  background: rgb(149,149,149);
+  background: linear-gradient(0deg, rgba(149,149,149,1) 0%, rgba(149,149,149,0.5) 25%, rgba(233,233,233,1) 50%, rgba(149,149,149,0.5) 75%, rgba(149,149,149,1) 100%);
+
 }
 </style>

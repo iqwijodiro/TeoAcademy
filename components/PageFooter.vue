@@ -150,6 +150,9 @@ export default {
 </script>
 <style lang="scss" scoped>
 #footer {
+  h4 {
+    color: $gray-mid !important;
+  }
   .icon {
     font-size: $link + 1.5rem !important;
   }
