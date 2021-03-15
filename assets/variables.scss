@@ -77,7 +77,9 @@ html, body, * {
   line-height: 1.25;
   scroll-behavior: smooth;
 }
-
+ul, li, ol {
+  list-style-type: none;
+}
 /** headings / titulos **/
 h1,
 h2,
@@ -97,14 +99,12 @@ h1 {
 h2 {
     font-size: $section-title + .5rem;
     font-weight: 400;
-    // color: $wine;
     line-height: 1.7;
     margin-bottom: 1rem;
   }
 h3 {
     font-size: $section-title - .3rem;
     font-weight: 300;
-    color: $gray-mid;
     line-height: 1.5;
     margin-bottom: 1rem;
   }
@@ -113,7 +113,12 @@ h4 {
   font-family: $title-font;
   font-weight: 300;
 }
-
+.red-font {
+  color: $wine;
+}
+.gray-m-font {
+  color: $gray-mid;
+}
 /*** Botones ***/ 
 .btn {
   height: 4.5rem !important;

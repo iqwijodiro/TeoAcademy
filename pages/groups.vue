@@ -94,18 +94,50 @@
         </v-row>
       </v-container>
     </section>
-    <section class="whom">
+    <section class="whom gutter-p">
       <v-container>
-        <h2 class="text-center">
+        <h2 class="text-center mb-5">
           Dirigido a:
         </h2>
-        <v-row justify="center" class="mb-5">
+        <v-row justify="center">
           <v-col
-            cols="12"
-            md="10"
             lg="8"
+            sm="10"
           >
-            <v-slide-group arrows class="my-3 my-slider">
+            <v-card class="sheet-slider rounded-lg mt-5" height="85%">
+              <div class="mask rounded-lg" />
+              <v-row justify="center" class="mb-5">
+                <v-col
+                  cols="12"
+                >
+                  <v-carousel hide-delimiters show-arrows-on-hover>
+                    <v-carousel-item
+                      v-for="(who, i) in whos"
+                      :key="i"
+                      class="ma-5 rounded-lg"
+                    >
+                      <!-- <v-img
+                    :src="who.img"
+                    contain
+                    class="rounded-lg"
+                    gradient="to top right, rgba(255,255,255,.3), rgba(240,240,240,.7)"
+                  /> -->
+                      <v-card elevation="0" color="transparent" class="d-flex flex-column justify-center rounded-lg" height="85%">
+                        <h3 class="text-center mb-10">
+                          Quienes {{ who.title }}
+                        </h3>
+                        <p class="text text-center mx-auto">
+                          {{ who.text }}
+                        </p>
+                      </v-card>
+                    </v-carousel-item>
+                  </v-carousel>
+                </v-col>
+              </v-row>
+            </v-card>
+          </v-col>
+        </v-row>
+        <!-- <v-slide-group arrows class="my-3 my-slider">
               <v-slide-item
                 v-for="(who, i) in whos"
                 :key="i"
@@ -117,9 +149,126 @@
                   />
                 </v-card>
               </v-slide-item>
-            </v-slide-group>
+            </v-slide-group> -->
+      </v-container>
+    </section>
+    <section class="levels gutter-p">
+      <v-container>
+        <h2 class="text-center red-font">
+          De acuerdo a las necesidades y factibilidades de cada congregación, proveemos:
+        </h2>
+        <section class="library ">
+          <h3 class="text-center red-font">
+            Biblioteca de Cursos
+          </h3>
+          <v-container class="d-flex justify-center align-center">
+            <v-row>
+              <v-col
+                v-for="(level, i) in levels"
+                :key="i"
+                lg="4"
+                xl="4"
+                md="4"
+              >
+                <v-card
+                  elevation="5"
+                  width="320"
+                  height="320"
+                  class="level-card rounded-xl mx-auto d-flex align-end"
+                >
+                  <v-img
+                    :src="level.img"
+                    height="100%"
+                    class="rounded-xl"
+                  />
+                  <div class="card-overlay">
+                    <h4 class="text-center card-title mb-4">
+                      {{ level.title }}
+                    </h4>
+                    <div class="centrar px-2">
+                      <v-btn to="/" class="btn-leer rounded-lg">
+                        <v-icon class="eye-i">
+                          mdi-eye
+                        </v-icon> <br>
+                        <span>Leer</span>
+                      </v-btn>
+                    </div>
+                  </div>
+                </v-card>
+              </v-col>
+            </v-row>
+          </v-container>
+        </section>
+        <v-container>
+          <h3 class="text-start gray-m-font">
+            Con recursos formativos de excepcional calidad:
+          </h3>
+          <ul>
+            <li
+              v-for="(source, i) in sources"
+              :key="i"
+              class="list-item mr-7 gray-m-font"
+            >
+              <v-icon class="icon mr-3 gray-m-font">
+                mdi-{{ source.icon }}
+              </v-icon>
+              {{ source.title }}
+            </li>
+          </ul>
+        </v-container>
+      </v-container>
+    </section>
+    <section class="software">
+      <v-container>
+        <v-row>
+          <v-col>
+            <h2 class="text-center red-font mb-5">
+              Software para gestión de procesos formativos
+            </h2>
+            <p class="text-center text px-2">
+              Ponemos a disposición de grupos y congregaciones las mejores tecnologías al servicio de la educación,desarrolladas para satisfacer las más exigentes necesidades en materia de gestión de procesos formativos, haciendo posible el acceder metodológicamente a un universo de contenidos de alto valor y hacer de la participación de tutores y estudiantes una experiencia enriquecedora, amena y efectiva.
+            </p>
+            <div class="centrar mt-5">
+              <v-btn href="https://www.segoschool.com/" class="btn">
+                Descubre más
+              </v-btn>
+            </div>
           </v-col>
         </v-row>
+      </v-container>
+    </section>
+    <section class="asesoria">
+      <v-container>
+        <h2 class="text-center red-font mb-5">
+          Asesoría para la implementación de procesos formativos
+        </h2>
+        <ul class="px-2">
+          <li class="text">
+            Diseño, planificación e implementación del programa formativo cristiano.
+          </li>
+          <li class="text">
+            Seguimiento, control y mejora del proceso formativo.
+          </li>
+          <li class="text">
+            Asesoría para la creación de contenidos.
+          </li>
+        </ul>
+      </v-container>
+    </section>
+    <section class="process">
+      <v-container>
+        <h2 class="text-center red-font mb-5">
+          Proceso de implementación
+        </h2>
+        <p class="text-center text px-3">
+          Nuestro proceso de implementación para grupos y congregaciones esta diseñado para garantizar la
+          efectividad en todas sus actividades y lograr los objetivos propuestos.
+        </p>
+        <div class="centrar mt-5">
+          <v-btn href="https://www.segoschool.com/" class="btn">
+            Descubre ficha de servicios
+          </v-btn>
+        </div>
       </v-container>
     </section>
   </div>
@@ -147,15 +296,54 @@ export default {
       whos: [
         {
           img: require('../assets/img/who-1.webp'),
+          title: 'entienden',
           text: 'La importancia de la formación cristiana sistémica y disciplinada para el sano desarrollo del Cuerpo de Cristo.'
         },
         {
           img: require('../assets/img/who-2.webp'),
+          title: 'necesitan',
           text: 'Los recursos precisos, experiencia comprobada y métodos eficaces para garantizar el éxito de la labor formativa.'
         },
         {
           img: require('../assets/img/who-3.webp'),
+          title: 'deciden',
           text: 'Tomar acciones con alcance eterno y no postergar para mañana la implementación de un pilar fundamental de la fe cristiana: “el proceso de formación”.'
+        }
+      ],
+      levels: [
+        {
+          title: 'Básico',
+          img: require('../assets/img/basic.webp')
+        },
+        {
+          title: 'Intermedio',
+          img: require('../assets/img/intermediate.webp')
+        },
+        {
+          title: 'Avanzado',
+          img: require('../assets/img/advance.webp')
+        }
+      ],
+      sources: [
+        {
+          icon: 'play-circle-outline',
+          title: 'Videos'
+        },
+        {
+          icon: 'file-document-outline',
+          title: 'Documentos'
+        },
+        {
+          icon: 'square-edit-outline',
+          title: 'Asignaciones'
+        },
+        {
+          icon: 'magnify',
+          title: 'Cuestionarios'
+        },
+        {
+          icon: 'account-group',
+          title: 'Foros'
         }
       ]
     }
@@ -211,7 +399,6 @@ export default {
     color: $gray-mid;
   }
   ul{
-    list-style-type: none;
     padding: 0 !important;
     text-indent: -4rem;
     li {
@@ -228,6 +415,71 @@ export default {
 .whom {
   background: rgb(149,149,149);
   background: linear-gradient(0deg, rgba(149,149,149,1) 0%, rgba(149,149,149,0.5) 25%, rgba(233,233,233,1) 50%, rgba(149,149,149,0.5) 75%, rgba(149,149,149,1) 100%);
+  h2, h3 {color: $wine;}
+  .sheet-slider{
+    background-image: url(../assets/img/who-1.webp);
+    background-size: cover;
+    background-position: center center;
+    object-fit: cover;
+    position: relative;
+    .mask {
+      position: absolute;
+      background: rgba($color: #ffffff, $alpha: 0.55);
+      min-height: 100%;
+      width: 100%;
+    }
+    h3 {
+      font-size: 3.2rem;
+      font-weight: 700;
+    }
+    .text {
+      font-size: 2.2rem;
+      color: $gray-dark;
+      font-weight: 700;
+      text-align: center;
+      max-width: 75%;
+    }
+
+  }
+}
+.levels {
+  h3 {
+    font-size: 2.5rem;
+    font-weight: 400;
+  }
+  .level-card {
+    position: relative;
+    .card-overlay{
+      background-color: rgba($gray-dark, $alpha: 0.650);
+      height: 40%;
+      position: absolute;
+      width: 100%;
+      .card-title {
+        font-size: 2.3rem !important;
+        color: #fff;
+      }
+      .btn-leer {
+        width: 85px;
+        height: 50px;
+        color: white;
+        background-color: rgba($gray-dark, $alpha: 0.75);
+        text-transform: capitalize !important;
+        font-size: $link;
+        .eye-i{
+          font-size: 2.5rem;
+          margin-right: .6rem;
+        }
+      }
+    }
+  }
+  .list-item {
+    display: inline-block;
+    font-size: 2.5rem;
+    .icon {
+      font-size: 4.8rem;
+    }
+  }
 
 }
+
 </style>
