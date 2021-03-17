@@ -11,7 +11,7 @@
           sm="8"
           class="px-5"
         >
-          <v-card elevation="5" class="hero-card rounded-lg text-center py-3">
+          <v-card elevation="10" class="hero-card rounded-lg text-center py-3">
             <v-card-title class="mx-auto pb-0">
               <h1 class="fw-700 mx-4">
                 Formación con alcance eterno
@@ -56,9 +56,7 @@
             </v-card>
           </v-col>
           <v-col lg="4" md="6" sm="10" class="mx-auto">
-            <v-hover>
-              <img lazy src="../assets/img/ebook1.webp" class="rounded">
-            </v-hover>
+            <v-img :src="require('../assets/img/ebook1.webp')" class="rounded" />
           </v-col>
         </v-row>
       </v-container>
@@ -204,7 +202,7 @@
               class="order-2 order-lg-2 mx-auto"
             >
               <div class="event-center mx-auto">
-                <h3 class="event-title">
+                <h3 class="event-title gray-m-font">
                   {{ evento.title }}
                 </h3>
                 <p class="text-start text evento-text">
@@ -577,8 +575,12 @@ export default {
 </script>
 <style lang="scss" scoped>
 .hero{
-  background-image: url(../assets/img/banner-index.webp);
+  background-image: url(../assets/img/banner-indexmod.webp);
   min-height: 650px !important;
+  background-color: rgba($color: $gray-mid, $alpha: 0.37);
+  // .mask {
+  //   background-color: rgba($color: #ffffff, $alpha: 0.15);
+  // }
   .btn {
     display: block !important;
   }

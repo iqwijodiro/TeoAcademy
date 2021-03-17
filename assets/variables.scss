@@ -212,11 +212,12 @@ section {
   top: 0; left: 0;
   width: 100%;
   background-size: cover;
-  background-attachment: fixed;
-  background-position: 25% 25%;
+  // background-attachment: fixed;
+  // background-position: 25% 25%;
+  background-position: center center;
   .mask {
     position: absolute;
-    background: rgba($color: #ffffff, $alpha: 0.45);
+    background-color: rgba($color: #ffffff, $alpha: 0.45);
     min-height: 100%;
     width: 100%;
   }

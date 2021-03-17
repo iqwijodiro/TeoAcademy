@@ -51,7 +51,7 @@
             </v-card>
           </v-col>
           <v-col lg="4" md="6" sm="10" class="mx-auto">
-            <img lazy src="../assets/img/ebook2.webp" class="rounded">
+            <v-img :src="require('../assets/img/ebook2.webp')" class="rounded" />
           </v-col>
         </v-row>
       </v-container>
@@ -112,8 +112,8 @@
                 >
                   <v-carousel hide-delimiters show-arrows-on-hover>
                     <v-carousel-item
-                      v-for="(who, i) in whos"
-                      :key="i"
+                      v-for="who in whos"
+                      :key="who.id"
                       class="ma-5 rounded-lg"
                     >
                       <!-- <v-img
@@ -164,8 +164,8 @@
           <v-container class="d-flex justify-center align-center">
             <v-row>
               <v-col
-                v-for="(level, i) in levels"
-                :key="i"
+                v-for="level in levels"
+                :key="level.id"
                 lg="4"
                 xl="4"
                 md="4"
@@ -205,8 +205,8 @@
           </h3>
           <ul>
             <li
-              v-for="(source, i) in sources"
-              :key="i"
+              v-for="(source, n) in sources"
+              :key="n"
               class="list-item mr-7 gray-m-font"
             >
               <v-icon class="icon mr-3 gray-m-font">
@@ -271,6 +271,38 @@
         </div>
       </v-container>
     </section>
+    <section class="faq gutter-p pb-10">
+      <h2 class="text-center red-font mb-3">
+        Preguntas Frecuentes
+      </h2>
+      <v-container class="pb-5">
+        <v-row justify="center">
+          <v-col
+            lg="10"
+            md="10"
+          >
+            <v-expansion-panels accordion focusable>
+              <v-expansion-panel
+                v-for="(question, x) in questions"
+                :key="x"
+                class="px-5"
+              >
+                <v-expansion-panel-header disable-icon-rotate expand-icon="mdi-plus-thick" class="card-title">
+                  <h4 class="red-font mr-5">
+                    {{ question.title }}
+                  </h4>
+                </v-expansion-panel-header>
+                <v-expansion-panel-content>
+                  <p class="text">
+                    {{ question.text }}
+                  </p>
+                </v-expansion-panel-content>
+              </v-expansion-panel>
+            </v-expansion-panels>
+          </v-col>
+        </v-row>
+      </v-container>
+    </section>
   </div>
 </template>
 <script>
@@ -295,16 +327,19 @@ export default {
       ],
       whos: [
         {
+          id: '1',
           img: require('../assets/img/who-1.webp'),
           title: 'entienden',
           text: 'La importancia de la formación cristiana sistémica y disciplinada para el sano desarrollo del Cuerpo de Cristo.'
         },
         {
+          id: '2',
           img: require('../assets/img/who-2.webp'),
           title: 'necesitan',
           text: 'Los recursos precisos, experiencia comprobada y métodos eficaces para garantizar el éxito de la labor formativa.'
         },
         {
+          id: '3',
           img: require('../assets/img/who-3.webp'),
           title: 'deciden',
           text: 'Tomar acciones con alcance eterno y no postergar para mañana la implementación de un pilar fundamental de la fe cristiana: “el proceso de formación”.'
@@ -312,14 +347,17 @@ export default {
       ],
       levels: [
         {
+          id: 'a',
           title: 'Básico',
           img: require('../assets/img/basic.webp')
         },
         {
+          id: 'b',
           title: 'Intermedio',
           img: require('../assets/img/intermediate.webp')
         },
         {
+          id: 'c',
           title: 'Avanzado',
           img: require('../assets/img/advance.webp')
         }
@@ -344,6 +382,28 @@ export default {
         {
           icon: 'account-group',
           title: 'Foros'
+        }
+      ],
+      questions: [
+        {
+          title: '¿Es Teo Academy una congregación cristiana?',
+          text: 'Teo Academy no es una congregación cristiana, por lo que no persigue ganar personas para propósitos particulares ni emite planteamientos de dónde deben  congregarse las personas. Teo Academy es una organización cristiana apegada a la sana doctrina (sana enseñanza), que tiene por misión brindar los recursos, herramientas y contenidos de alta calidad a cualquier denominación o congregación cristiana para efectos de posibilitar y facilitar un proceso formativo efectivo, aportando valor a la labor gran comisionista de formar discípulos para Cristo.'
+        },
+        {
+          title: '¿El programa TEO Academy puede implementarse en cualquier denominación cristiana?',
+          text: 'Si, nuestro contenido esta apegado y sustentado en las sagradas escrituras (La Biblia),   como la única base de nuestra fe, la inefable Palabra escrita de Dios en todos sus libros del Antiguo y Nuevo Testamento. Creemos que fue única, verbal y totalmente inspirada por el Espíritu Santo y fue escrita sin error en los manuscritos originales y ella debe tenerse como suprema y final autoridad en todo aquello que enseña. Estamos afianzados en la creencia de un solo y verdadero Dios existente eternamente en tres personas distintas: Padre, Hijo y Espíritu Santo, cada una de las cuales posee todos los atributos de la Deidad. Prescindimos el ofrecer contenidos con mensajes doctrinales donde existen históricamente posiciones divergentes entre denominaciones, por ejemplo: la predestinación. Ante lo cual quedara ha criterio de la denominación cristiana respectiva impartir su mensaje.'
+        },
+        {
+          title: '¿Se pueden hacer modificaciones o adecuaciones al programa TEO Academy de acuerdo a las características y necesidades de cada iglesia?',
+          text: 'Si, nuestro programa formativo es una propuesta base, de la cual se puede prescindir unidades y temas a requerimiento y solicitud de cada congregación. De igual forma se podrán añadir las unidades y temas que creen convenientes. Esto es posible gracias al diseño modular de unidades y temas, a la plataforma tecnológica empleada y a la ejecución del proceso de diagnóstico e implementación diseñado por Teo Academy a ser aplicado en cada congregación permitiendo la creación de programas adaptables a las necesidades particulares de quienes empleen nuestros recursos.'
+        },
+        {
+          title: '¿Participando y aprobando en el programa TEO Academy se obtiene un título en Teología Bíblica?',
+          text: 'No, sin embargo, al finalizar y aprobar cada sub-programa el participante recibe un certificado de participación y aprobación respectivo a cada nivel. Nuestro programa esta diseñado para brindar soluciones efectivas a las necesidades del individuo y del cuerpo de Cristo, su iglesia, garantizando el logro de los objetivos propuestos por el programa. No tenemos por misión el generar títulos académicos, aunque en ninguna circunstancia nos oponemos a aquellos quienes deseen obtenerlos por otros medios formales con el propósito de glorificar a Cristo.'
+        },
+        {
+          title: '¿Qué se requiere para implementar Teo Academy en un grupo ó congregación?',
+          text: 'Se requiere: Tener la visión correcta de como la enseñanza beneficia al cuerpo de Cristo. Comprender el alcance eterno que tiene un proceso formativo organizado y estructurado. Disposición para adoptar o mejorar acciones en materia formativa. Disposición para asumir los compromisos y generar cambios. Superar el espacio de confort creado por no adoptar medidas efectivas en materia formativa.'
         }
       ]
     }
@@ -481,5 +541,8 @@ export default {
   }
 
 }
-
+.faq {
+  background: rgb(149,149,149);
+  background: linear-gradient(0deg, rgba(149,149,149,1) 0%, rgba(193,193,193,1) 25%, rgba(211,211,211,1) 50%, rgba(231,231,231,1) 75%, rgba(250,250,250,1) 100%);
+}
 </style>
