@@ -70,7 +70,7 @@
               </v-icon>
               Objetivos
             </h2>
-            <ul v-for="(goal, i) in goals" :key="i">
+            <ul v-for="(goal, j) in goals" :key="j">
               <li class="text ml-3">
                 <v-icon class="icon mr-3">
                   mdi-check-circle
@@ -83,7 +83,7 @@
               </v-icon>
               Beneficios
             </h2>
-            <ul v-for="(benefit, i) in benefits" :key="i">
+            <ul v-for="(benefit, n) in benefits" :key="n">
               <li class="text ml-3">
                 <v-icon class="icon mr-3">
                   mdi-seal
@@ -124,7 +124,7 @@
                   /> -->
                       <v-card elevation="0" color="transparent" class="d-flex flex-column justify-center rounded-lg" height="85%">
                         <h3 class="text-center mb-10">
-                          Quienes {{ who.title }}
+                          Quienes {{ who.slide }}
                         </h3>
                         <p class="text text-center mx-auto">
                           {{ who.text }}
@@ -183,7 +183,7 @@
                   />
                   <div class="card-overlay">
                     <h4 class="text-center card-title mb-4">
-                      {{ level.title }}
+                      {{ level.mod }}
                     </h4>
                     <div class="centrar px-2">
                       <v-btn to="/" class="btn-leer rounded-lg">
@@ -205,8 +205,8 @@
           </h3>
           <ul>
             <li
-              v-for="(source, n) in sources"
-              :key="n"
+              v-for="(source, y) in sources"
+              :key="y"
               class="list-item mr-7 gray-m-font"
             >
               <v-icon class="icon mr-3 gray-m-font">
@@ -289,12 +289,12 @@
               >
                 <v-expansion-panel-header disable-icon-rotate expand-icon="mdi-plus-thick" class="card-title">
                   <h4 class="red-font mr-5">
-                    {{ question.title }}
+                    {{ question.header }}
                   </h4>
                 </v-expansion-panel-header>
                 <v-expansion-panel-content>
                   <p class="text">
-                    {{ question.text }}
+                    {{ question.answer }}
                   </p>
                 </v-expansion-panel-content>
               </v-expansion-panel>
@@ -329,36 +329,36 @@ export default {
         {
           id: '1',
           img: require('../assets/img/who-1.webp'),
-          title: 'entienden',
+          slide: 'entienden',
           text: 'La importancia de la formación cristiana sistémica y disciplinada para el sano desarrollo del Cuerpo de Cristo.'
         },
         {
           id: '2',
           img: require('../assets/img/who-2.webp'),
-          title: 'necesitan',
+          slide: 'necesitan',
           text: 'Los recursos precisos, experiencia comprobada y métodos eficaces para garantizar el éxito de la labor formativa.'
         },
         {
           id: '3',
           img: require('../assets/img/who-3.webp'),
-          title: 'deciden',
+          slide: 'deciden',
           text: 'Tomar acciones con alcance eterno y no postergar para mañana la implementación de un pilar fundamental de la fe cristiana: “el proceso de formación”.'
         }
       ],
       levels: [
         {
           id: 'a',
-          title: 'Básico',
+          mod: 'Básico',
           img: require('../assets/img/basic.webp')
         },
         {
           id: 'b',
-          title: 'Intermedio',
+          mod: 'Intermedio',
           img: require('../assets/img/intermediate.webp')
         },
         {
           id: 'c',
-          title: 'Avanzado',
+          mod: 'Avanzado',
           img: require('../assets/img/advance.webp')
         }
       ],
@@ -386,24 +386,24 @@ export default {
       ],
       questions: [
         {
-          title: '¿Es Teo Academy una congregación cristiana?',
-          text: 'Teo Academy no es una congregación cristiana, por lo que no persigue ganar personas para propósitos particulares ni emite planteamientos de dónde deben  congregarse las personas. Teo Academy es una organización cristiana apegada a la sana doctrina (sana enseñanza), que tiene por misión brindar los recursos, herramientas y contenidos de alta calidad a cualquier denominación o congregación cristiana para efectos de posibilitar y facilitar un proceso formativo efectivo, aportando valor a la labor gran comisionista de formar discípulos para Cristo.'
+          header: '¿Es Teo Academy una congregación cristiana?',
+          answer: 'Teo Academy no es una congregación cristiana, por lo que no persigue ganar personas para propósitos particulares ni emite planteamientos de dónde deben  congregarse las personas. Teo Academy es una organización cristiana apegada a la sana doctrina (sana enseñanza), que tiene por misión brindar los recursos, herramientas y contenidos de alta calidad a cualquier denominación o congregación cristiana para efectos de posibilitar y facilitar un proceso formativo efectivo, aportando valor a la labor gran comisionista de formar discípulos para Cristo.'
         },
         {
-          title: '¿El programa TEO Academy puede implementarse en cualquier denominación cristiana?',
-          text: 'Si, nuestro contenido esta apegado y sustentado en las sagradas escrituras (La Biblia),   como la única base de nuestra fe, la inefable Palabra escrita de Dios en todos sus libros del Antiguo y Nuevo Testamento. Creemos que fue única, verbal y totalmente inspirada por el Espíritu Santo y fue escrita sin error en los manuscritos originales y ella debe tenerse como suprema y final autoridad en todo aquello que enseña. Estamos afianzados en la creencia de un solo y verdadero Dios existente eternamente en tres personas distintas: Padre, Hijo y Espíritu Santo, cada una de las cuales posee todos los atributos de la Deidad. Prescindimos el ofrecer contenidos con mensajes doctrinales donde existen históricamente posiciones divergentes entre denominaciones, por ejemplo: la predestinación. Ante lo cual quedara ha criterio de la denominación cristiana respectiva impartir su mensaje.'
+          header: '¿El programa TEO Academy puede implementarse en cualquier denominación cristiana?',
+          answer: 'Si, nuestro contenido esta apegado y sustentado en las sagradas escrituras (La Biblia),   como la única base de nuestra fe, la inefable Palabra escrita de Dios en todos sus libros del Antiguo y Nuevo Testamento. Creemos que fue única, verbal y totalmente inspirada por el Espíritu Santo y fue escrita sin error en los manuscritos originales y ella debe tenerse como suprema y final autoridad en todo aquello que enseña. Estamos afianzados en la creencia de un solo y verdadero Dios existente eternamente en tres personas distintas: Padre, Hijo y Espíritu Santo, cada una de las cuales posee todos los atributos de la Deidad. Prescindimos el ofrecer contenidos con mensajes doctrinales donde existen históricamente posiciones divergentes entre denominaciones, por ejemplo: la predestinación. Ante lo cual quedara ha criterio de la denominación cristiana respectiva impartir su mensaje.'
         },
         {
-          title: '¿Se pueden hacer modificaciones o adecuaciones al programa TEO Academy de acuerdo a las características y necesidades de cada iglesia?',
-          text: 'Si, nuestro programa formativo es una propuesta base, de la cual se puede prescindir unidades y temas a requerimiento y solicitud de cada congregación. De igual forma se podrán añadir las unidades y temas que creen convenientes. Esto es posible gracias al diseño modular de unidades y temas, a la plataforma tecnológica empleada y a la ejecución del proceso de diagnóstico e implementación diseñado por Teo Academy a ser aplicado en cada congregación permitiendo la creación de programas adaptables a las necesidades particulares de quienes empleen nuestros recursos.'
+          header: '¿Se pueden hacer modificaciones o adecuaciones al programa TEO Academy de acuerdo a las características y necesidades de cada iglesia?',
+          answer: 'Si, nuestro programa formativo es una propuesta base, de la cual se puede prescindir unidades y temas a requerimiento y solicitud de cada congregación. De igual forma se podrán añadir las unidades y temas que creen convenientes. Esto es posible gracias al diseño modular de unidades y temas, a la plataforma tecnológica empleada y a la ejecución del proceso de diagnóstico e implementación diseñado por Teo Academy a ser aplicado en cada congregación permitiendo la creación de programas adaptables a las necesidades particulares de quienes empleen nuestros recursos.'
         },
         {
-          title: '¿Participando y aprobando en el programa TEO Academy se obtiene un título en Teología Bíblica?',
-          text: 'No, sin embargo, al finalizar y aprobar cada sub-programa el participante recibe un certificado de participación y aprobación respectivo a cada nivel. Nuestro programa esta diseñado para brindar soluciones efectivas a las necesidades del individuo y del cuerpo de Cristo, su iglesia, garantizando el logro de los objetivos propuestos por el programa. No tenemos por misión el generar títulos académicos, aunque en ninguna circunstancia nos oponemos a aquellos quienes deseen obtenerlos por otros medios formales con el propósito de glorificar a Cristo.'
+          header: '¿Participando y aprobando en el programa TEO Academy se obtiene un título en Teología Bíblica?',
+          answer: 'No, sin embargo, al finalizar y aprobar cada sub-programa el participante recibe un certificado de participación y aprobación respectivo a cada nivel. Nuestro programa esta diseñado para brindar soluciones efectivas a las necesidades del individuo y del cuerpo de Cristo, su iglesia, garantizando el logro de los objetivos propuestos por el programa. No tenemos por misión el generar títulos académicos, aunque en ninguna circunstancia nos oponemos a aquellos quienes deseen obtenerlos por otros medios formales con el propósito de glorificar a Cristo.'
         },
         {
-          title: '¿Qué se requiere para implementar Teo Academy en un grupo ó congregación?',
-          text: 'Se requiere: Tener la visión correcta de como la enseñanza beneficia al cuerpo de Cristo. Comprender el alcance eterno que tiene un proceso formativo organizado y estructurado. Disposición para adoptar o mejorar acciones en materia formativa. Disposición para asumir los compromisos y generar cambios. Superar el espacio de confort creado por no adoptar medidas efectivas en materia formativa.'
+          header: '¿Qué se requiere para implementar Teo Academy en un grupo ó congregación?',
+          answer: 'Se requiere: Tener la visión correcta de como la enseñanza beneficia al cuerpo de Cristo. Comprender el alcance eterno que tiene un proceso formativo organizado y estructurado. Disposición para adoptar o mejorar acciones en materia formativa. Disposición para asumir los compromisos y generar cambios. Superar el espacio de confort creado por no adoptar medidas efectivas en materia formativa.'
         }
       ]
     }
