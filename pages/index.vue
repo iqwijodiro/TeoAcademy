@@ -609,6 +609,18 @@ export default {
     padding-top: 12rem !important;
   }
 }
+.ebook {
+  background-image: url(../assets/img/wave.svg);
+  background-size: cover;
+  min-height: 80vh;
+  h2 {
+    color: $gray-mid;
+  }
+  .rounded {
+    max-width: 100%;
+    border-radius: 2.5rem!important;
+  }
+}
 .top-cursos {
   h2 {
     color: $wine;

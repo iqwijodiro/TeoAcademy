@@ -454,6 +454,18 @@ export default {
     }
   }
 }
+.ebook {
+  background-image: url(../assets/img/wave.svg);
+  background-size: cover;
+  min-height: 80vh;
+  h2 {
+    color: $gray-mid;
+  }
+  .rounded {
+    max-width: 100%;
+    border-radius: 2.5rem!important;
+  }
+}
 .goals {
   h2, .icon {
     color: $gray-mid;
