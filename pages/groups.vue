@@ -207,7 +207,7 @@
             <li
               v-for="(source, y) in sources"
               :key="y"
-              class="list-item mr-7 gray-m-font"
+              class="list-item mr-7 gray-m-font my-5"
             >
               <v-icon class="icon mr-3 gray-m-font">
                 mdi-{{ source.icon }}

@@ -6,15 +6,15 @@
     <h1 v-else>
       {{ otherError }}
     </h1>
-    <NuxtLink to="/">
-      Home page
+    <NuxtLink to="/" class="card-title my-10 text-center">
+      Ir al Inicio
     </NuxtLink>
   </v-app>
 </template>
 
 <script>
 export default {
-  layout: 'empty',
+  // layout: 'empty',
   props: {
     error: {
       type: Object,
@@ -23,8 +23,8 @@ export default {
   },
   data () {
     return {
-      pageNotFound: '404 Not Found',
-      otherError: 'An error occurred'
+      pageNotFound: 'Error 404, no se encontró la solicitud',
+      otherError: 'Ocurrió un error inesperado'
     }
   },
   head () {
@@ -39,6 +39,6 @@ export default {
 
 <style scoped>
 h1 {
-  font-size: 20px;
+  font-size: 2.5rem;
 }
 </style>
