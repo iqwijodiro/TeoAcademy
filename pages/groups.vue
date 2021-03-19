@@ -10,9 +10,9 @@
           xs="10"
           class="px-5"
         >
-          <v-card elevation="5" class="hero-card rounded-lg text-center py-3 ma-5">
-            <v-card-title class="mx-auto pb-0">
-              <h1 class="fw-300">
+          <v-card elevation="5" class="hero-card rounded-lg text-center pa-10 ma-5">
+            <v-card-title class="mx-auto pb-0 mb-4">
+              <h1 class="fw-300 mb-4">
                 Implemente un proceso de formación cristiana en su congregación.
               </h1>
             </v-card-title>
@@ -264,6 +264,11 @@
           Nuestro proceso de implementación para grupos y congregaciones esta diseñado para garantizar la
           efectividad en todas sus actividades y lograr los objetivos propuestos.
         </p>
+        <v-row justify="center">
+          <v-col>
+            <v-img :src="require('../assets/img/process.svg')" max-width="1000" class="mx-auto" />
+          </v-col>
+        </v-row>
         <div class="centrar mt-5">
           <v-btn href="https://www.segoschool.com/" class="btn">
             Descubre ficha de servicios
@@ -432,12 +437,15 @@ export default {
     display: block;
   }
   @include tablet {
+    .text {
+      line-height: 2;
+    }
     .btn {
       display: inline-block !important;
     }
     .rail {
       .hero-card {
-        min-height: 330px !important;
+        min-height: 450px !important;
       }
     }
   }
@@ -447,8 +455,8 @@ export default {
       display: block !important;
     }
     .rail {
-      max-width: 1000px;
-      width: 75% !important;
+      max-width: 1200px;
+      width: 85% !important;
       display: flex !important;
       justify-content: center !important;
     }

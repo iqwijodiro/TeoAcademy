@@ -3,10 +3,7 @@
     <v-container class="py-4">
       <v-row>
         <v-col
-          cols="12"
-          xs="10"
-          sm="10"
-          md="4"
+          md="5"
           lg="5"
           xl="5"
         >
@@ -21,14 +18,12 @@
         </v-col>
         <v-col
           cols="12"
-          xs="10"
-          sm="10"
           md="3"
           lg="3"
           xl="3"
         >
           <v-list
-            class="d-flex flex-column align-center align-md-center align-lg-start align-xl-start pa-0"
+            class="d-flex flex-column align-sm-start align-center pa-0"
           >
             <h4 class="pt-4 mb-3">
               Acceso Rápido
@@ -40,11 +35,15 @@
             </v-list-item>
           </v-list>
         </v-col>
-        <v-col cols="12" sm="10" md="4" lg="4" xl="4">
+        <v-col
+          md="4"
+          lg="4"
+          xl="4"
+        >
           <v-img
             :src="require('../assets/img/logo-red-full.webp')"
             contain
-            width="18rem"
+            width="19rem"
             class="mx-auto py-4"
           />
           <h4 class="pb-3 text-center">
@@ -58,9 +57,11 @@
             >
               <a
                 :href="icons[i].link"
-              ><v-icon class="icon mx-5">
-                {{ icon.brand }}
-              </v-icon></a>
+              >
+                <v-icon class="icon mx-5 mb-5">
+                  {{ icon.brand }}
+                </v-icon>
+              </a>
             </v-list>
           </div>
         </v-col>
@@ -154,7 +155,7 @@ export default {
     color: $gray-mid !important;
   }
   .icon {
-    font-size: $link + 1.5rem !important;
+    font-size: 4.5rem;
   }
   .text {
     font-size: $body;
@@ -175,6 +176,11 @@ export default {
   .row-foot {
     border-bottom: 0.2rem solid $gray-light;
     padding-bottom: 0.5rem;
+  }
+  @include tablet {
+    .icon {
+      font-size: $link + 1.5rem !important;
+    }
   }
 }
 </style>

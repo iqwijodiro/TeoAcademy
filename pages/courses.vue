@@ -113,6 +113,8 @@
           <v-pagination
             v-model="page"
             :length="6"
+            color="#2ec4b6"
+            class="fs-mid"
           />
         </div>
       </v-container>
@@ -543,6 +545,6 @@ export default {
         font-family: $title-font;
         font-weight: 400;
       }
-}
+  }
 }
 </style>

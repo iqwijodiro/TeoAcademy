@@ -1,0 +1,339 @@
+<template>
+  <div id="programs">
+    <div class="hero d-flex justify-center align-center">
+      <div class="mask" />
+      <v-row justify="center" class="rail">
+        <v-col
+          lg="10"
+          sm="10"
+          md="10"
+          class="px-5"
+        >
+          <v-card elevation="5" class="hero-card rounded-lg text-center pa-5 ma-2">
+            <v-card-title class="centrar mx-auto pb-0">
+              <h1 class="fw-300">
+                Nuestros Programas
+              </h1>
+            </v-card-title>
+            <v-card-text class="my-3 mx-auto px-5 py-0">
+              <p class="text">
+                Ponemos a su disposición programas de enseñanza bíblica de amplio alcance
+                diseñados y desarrollado por lideres con el Don de la Enseñanza y amplia
+                experiencia ministerial, disponible para personas con el anhelo de desarrollar su fe y
+                experimentar la maravillosa experiencia de la formación cristiana. <br>
+                <span class="fw-700">¡Matriculate y disfruta la experiencia!</span>
+              </p>
+            </v-card-text>
+          </v-card>
+        </v-col>
+      </v-row>
+    </div>
+    <main>
+      <v-container class="gutter-p">
+        <v-row
+          v-for="(program, i) in programs"
+          :key="i"
+          no-gutters
+          justify="center"
+          class="pt-5 mt-5"
+        >
+          <v-col>
+            <v-card
+              elevation="5"
+              class="d-flex flex-column flex-sm-row program-card pa-0 rounded-lg mb-10"
+            >
+              <v-col
+                xl="6"
+                lg="6"
+                md="6"
+                sm="6"
+                class="pa-0"
+              >
+                <v-img :src="program.img" class="rounded-l-lg pa-0 ma-0 fill-height" />
+              </v-col>
+              <v-col
+                xl="6"
+                lg="6"
+                md="6"
+                class="px-8 py-5"
+              >
+                <v-card-title class="pa-0">
+                  <h2 class="fw-300 gray-m-font">
+                    {{ program.title }}
+                  </h2>
+                </v-card-title>
+                <v-card-text class="pa-0 mb-5">
+                  <p class="text">
+                    {{ program.content }}
+                  </p>
+                </v-card-text>
+                <div class="d-flex mb-5">
+                  <v-icon class="icon mr-5">
+                    mdi-book-open-page-variant-outline
+                  </v-icon>
+                  <p class="text">
+                    {{ program.resources }} recursos descargables
+                  </p>
+                </div>
+                <div class="d-flex mb-5">
+                  <v-icon class="icon mr-5">
+                    mdi-school
+                  </v-icon>
+                  <p class="text">
+                    Dirigido a quienes inician en estudios teologicos
+                  </p>
+                </div>
+                <v-row class="minirow d-flex justify-start align-center ma-0">
+                  <v-col
+                    cols="12"
+                    lg="4"
+                    xl="4"
+                    md="4"
+                    class="px-2"
+                  >
+                    <div class="text-center">
+                      <span class="priceOld mr-2">
+                        $100
+                      </span>
+                      <span class="priceNew mr-2">
+                        ${{ program.price }}
+                      </span>
+                      <p class="text-sm">
+                        hasta <br> DD-MM-AAAA
+                      </p>
+                    </div>
+                  </v-col>
+                  <v-col
+                    cols="12"
+                    lg="4"
+                    xl="4"
+                    md="4"
+                    class="px-2"
+                  >
+                    <div class="text-center px-2">
+                      <v-icon>
+                        mdi-earth
+                      </v-icon>
+                      <p class="text-sm mt-2">
+                        Descuentos aplican segun tu país
+                      </p>
+                    </div>
+                  </v-col>
+                  <v-col
+                    cols="12"
+                    lg="4"
+                    xl="4"
+                    md="4"
+                    class="px-2"
+                  >
+                    <v-btn class="btn">
+                      Leer más
+                    </v-btn>
+                  </v-col>
+                </v-row>
+              </v-col>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
+    </main>
+    <section class="register">
+      <v-container>
+        <v-row justify="center">
+          <v-col
+            lg="6"
+            xl="6"
+            md="6"
+            sm="8"
+          >
+            <h2 class="text-center">
+              Registrate gratis y solicita tu cupón de descuento
+            </h2>
+            <div class="centrar">
+              <v-btn class="btn">
+                Registrarse
+              </v-btn>
+            </div>
+          </v-col>
+        </v-row>
+      </v-container>
+    </section>
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      title: 'Nuestros Programas',
+      programs: [
+        {
+          img: require('../assets/img/who-1.webp'),
+          title: 'Teo 101 Beginner',
+          content: 'Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.',
+          resources: 50,
+          price: 90
+        },
+        {
+          img: require('../assets/img/who-1.webp'),
+          title: 'Teo 101 Beginner',
+          content: 'Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.',
+          resources: 50,
+          price: 90
+        },
+        {
+          img: require('../assets/img/who-1.webp'),
+          title: 'Teo 101 Beginner',
+          content: 'Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.',
+          resources: 50,
+          price: 90
+        },
+        {
+          img: require('../assets/img/who-1.webp'),
+          title: 'Teo 101 Beginner',
+          content: 'Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.',
+          resources: 50,
+          price: 90
+        },
+        {
+          img: require('../assets/img/who-1.webp'),
+          title: 'Teo 101 Beginner',
+          content: 'Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.',
+          resources: 50,
+          price: 90
+        },
+        {
+          img: require('../assets/img/who-1.webp'),
+          title: 'Teo 101 Beginner',
+          content: 'Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.',
+          resources: 50,
+          price: 90
+        },
+        {
+          img: require('../assets/img/who-1.webp'),
+          title: 'Teo 101 Beginner',
+          content: 'Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.',
+          resources: 50,
+          price: 90
+        },
+        {
+          img: require('../assets/img/who-1.webp'),
+          title: 'Teo 101 Beginner',
+          content: 'Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.',
+          resources: 50,
+          price: 90
+        },
+        {
+          img: require('../assets/img/who-1.webp'),
+          title: 'Teo 101 Beginner',
+          content: 'Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.',
+          resources: 50,
+          price: 90
+        },
+        {
+          img: require('../assets/img/who-1.webp'),
+          title: 'Teo 101 Beginner',
+          content: 'Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.',
+          resources: 50,
+          price: 90
+        }
+      ]
+    }
+  },
+  head () {
+    return {
+      title: this.title
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+@include miniDesktop() {
+  .gutter-p {
+    padding-top: 12rem !important;
+  }
+}
+.hero {
+  background-image: url(../assets/img/hero-programs.webp);
+  min-height: 650px;
+  .text {
+    line-height: 1.5;
+    font-size: 1.5rem;
+  }
+  @include tablet {
+    .text {
+        font-size: $body + .4rem;
+        line-height: 2;
+    }
+    .rail {
+      .hero-card {
+        min-height: 330px !important;
+      }
+    }
+  }
+
+  @include miniDesktop {
+    .text {
+      display: block !important;
+    }
+    .rail {
+      max-width: 1200px;
+      width: 85% !important;
+      display: flex !important;
+      justify-content: center !important;
+    }
+  }
+}
+main {
+    //   .program-card {
+    //       flex-direction: column;
+    //   }
+    .text {
+        font-size: $body;
+    }
+    .text-sm {
+        font-size: $body - .3rem;
+        color: $gray-mid;
+        font-weight: 300;
+        line-height: 1.7;
+        margin: 0;
+        padding: 0;
+    }
+    .minirow {
+      .priceOld {
+        color: $wine;
+        font-size: $link + .2rem;
+        font-family: $title-font;
+        text-decoration: line-through;
+      }
+      .priceNew {
+        color: $gray-mid;
+        font-size: 2.9rem;
+        font-family: $title-font;
+        font-weight: 400;
+      }
+    }
+    .btn {
+        width: 100%;
+    }
+    // @include miniDesktop {
+    //     .program-card {
+    //         flex-direction: row;
+    //     }
+    // }
+}
+.register {
+  display: flex;
+  align-items: center;
+  min-height: 30vh !important;
+  background: rgb(190,30,45);
+  background: linear-gradient(90deg, rgba(190,30,45,1) 0%, rgba(142,22,34,1) 50%, rgba(95,15,23,1) 100%);
+  h2 {
+    color: #ffffff;
+  }
+  .btn {
+      max-width: 200px;
+  }
+}
+</style>

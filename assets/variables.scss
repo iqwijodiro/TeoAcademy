@@ -191,11 +191,20 @@ section {
   font-size: $body + .5rem;
   color: $gray-mid;
   font-weight: 300;
-  line-height: 1.7 !important;
+  line-height: 1.7;
   margin: 0;
   padding: 0;
   }
-/** Tarjetas **/
+.text {
+  font-size: $body + .5rem;
+  color: $gray-mid;
+  font-weight: 300;
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
+  }
+
+  //** Tarjetas **/
 .hero-card {
   background-color: rgba($color: #fff, $alpha: .8) !important;
 }
@@ -224,14 +233,6 @@ section {
       margin: 0 auto !important;
       display: flex;
       justify-content: center;
-  }
-  .text {
-        font-size: $body + .5rem;
-        color: $gray-mid;
-        font-weight: 300;
-        line-height: 1.7 !important;
-        margin: 0;
-        padding: 0;
   }
 }
 @include tablet {
