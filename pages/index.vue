@@ -1003,18 +1003,19 @@ export default {
 
 /* Elemento | http://localhost:3000/ */
 
-.my-slider > div:nth-child(3) > i:nth-child(1) {
-  border: 1px solid $gray-light;
-  color: $gray-mid;
-  border-radius: 50%;
-  background-color: rgba($color: $gray-light, $alpha: 0.45);
-}
-.mdi-chevron-left {
+// .my-slider > div:nth-child(3) > i:nth-child(1) {
+//   border: 1px solid $gray-light;
+//   color: $gray-mid;
+//   border-radius: 50%;
+//   // background-color: rgba($color: $gray-light, $alpha: 0.45);
+// }
+.mdi-chevron-left,
+.mdi-chevron-right {
   transform-origin: center top 0px;
   border: 1px solid $gray-light;
-  color: $gray-mid;
+  color: $gray-light;
   border-radius: 50%;
-  background-color: rgba($color: $gray-light, $alpha: 0.45);
+  background-color: rgba($color: $gray-light, $alpha: 0.25);
 }
 
 </style>

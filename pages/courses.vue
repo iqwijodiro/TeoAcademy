@@ -1,27 +1,35 @@
 <template>
   <div id="courses">
     <div class="hero d-flex justify-center align-center mt-9">
-      <div class="mask">
-        <v-row justify="center" class="rail">
-          <v-col
-            lg="8"
-            md="10"
-            class="mx-auto px-5"
-          >
-            <v-card elevation="5" class="hero-card rounded-lg text-center pa-5 ma-5">
-              <v-card-title class="centrar mx-auto pa-2 mb-4">
-                <h1 class="fw-300 text-center">
-                  Conoce todos nuestros cursos
-                </h1>
-              </v-card-title>
-              <v-form
-                ref="form"
-                v-model="valid"
-                lazy-validation
-                class="px-5 courses-form"
-              >
+      <div class="mask" />
+      <v-row justify="center" class="rail">
+        <v-col
+          lg="8"
+          md="10"
+          class="mx-auto px-5"
+        >
+          <v-card elevation="5" class="hero-card rounded-lg text-center pa-5 mt-8">
+            <v-card-title class="centrar mx-auto pa-0 mb-4">
+              <h1 class="fw-300 text-center">
+                Conoce todos nuestros cursos
+              </h1>
+            </v-card-title>
+            <v-form
+              ref="form"
+              v-model="valid"
+              lazy-validation
+              class="courses-form"
+              @submit.prevent="submit"
+            >
+              <v-container>
                 <v-row>
-                  <v-col>
+                  <v-col
+                    cols="12"
+                    lg="4"
+                    xl="4"
+                    md="4"
+                    class="py-0 my-1"
+                  >
                     <v-select
                       id="category"
                       v-model="select"
@@ -32,7 +40,13 @@
                       solo
                     />
                   </v-col>
-                  <v-col>
+                  <v-col
+                    cols="12"
+                    lg="4"
+                    xl="4"
+                    md="4"
+                    class="py-0 my-1"
+                  >
                     <v-select
                       id="price"
                       v-model="select"
@@ -43,93 +57,141 @@
                       solo
                     />
                   </v-col>
-                  <v-col>
+                  <v-col
+                    cols="12"
+                    lg="4"
+                    xl="4"
+                    md="4"
+                    class="py-0 my-1"
+                  >
                     <v-text-field
                       id="search"
-                      label="Categoría"
+                      v-model="search"
+                      label="Buscar..."
                       solo
                       append-icon="mdi-magnify"
+                      autofocus
+                      @keyup.enter="submit"
                     />
                   </v-col>
                 </v-row>
-              </v-form>
-            </v-card>
-          </v-col>
-        </v-row>
-      </div>
+              </v-container>
+            </v-form>
+          </v-card>
+        </v-col>
+      </v-row>
     </div>
     <main class="gallery gutter-p">
-      <v-container>
-        <v-row>
-          <v-col
-            v-for="course in courses"
-            :key="course.id"
-            lg="4"
-            xl="4"
-            md="4"
-          >
-            <v-card elevation="5" max-width="325px" class="rounded-lg mx-3 my-5 pb-2">
-              <v-img
-                :src="course.img"
-                height="47%"
-              />
-              <v-card-title class="card-title">
-                {{ course.title }}
-              </v-card-title>
-              <v-card-text class="text-card">
-                {{ course.text }}
-              </v-card-text>
-              <v-row class="minirow d-flex justify-center align-center py-1">
-                <div class="my-2 mr-2">
-                  <p class="ma-0 px-3">
-                    {{ course.modules }} <br>
-                    Módulos
-                  </p>
-                </div>
-                <div class="my-2 mr-2">
-                  <p class="ma-0 px-3">
-                    {{ course.resources }} <br>
-                    Recursos
-                  </p>
-                </div>
-                <div>
-                  <span class="priceOld mr-2">
-                    ${{ course.priceOld }}
-                  </span>
-                  <span class="priceNew mr-2">
-                    ${{ course.priceNew }}
-                  </span>
-                </div>
-              </v-row>
-              <div class="centrar mt-2">
-                <v-btn class="minibtn mt-3">
-                  Ver Curso
-                </v-btn>
-              </div>
-            </v-card>
-          </v-col>
-        </v-row>
-        <div class="text-center">
-          <v-pagination
-            v-model="page"
-            :length="6"
-            color="#2ec4b6"
-            class="fs-mid"
-          />
-        </div>
-      </v-container>
+      <v-data-iterator
+        :items="courses"
+        :items-per-page.sync="ipp"
+        :page.sync="page"
+        hide-default-footer
+      >
+        <template #default="props">
+          <v-container>
+            <v-row id="container" class="overflow-auto">
+              <v-col
+                v-for="course in props.items"
+                :key="course.name"
+              >
+                <v-card elevation="5" max-width="325px" class="card rounded-lg mx-3 my-5 pb-2">
+                  <v-img
+                    :src="course.img"
+                    height="47%"
+                  />
+                  <v-card-title class="card-title">
+                    {{ course.title }}
+                  </v-card-title>
+                  <v-card-text class="text-card">
+                    {{ course.text }}
+                  </v-card-text>
+                  <v-row class="minirow d-flex justify-center align-center py-1">
+                    <div class="my-2 mr-2">
+                      <p class="ma-0 px-3">
+                        {{ course.modules }} <br>
+                        Módulos
+                      </p>
+                    </div>
+                    <div class="my-2 mr-2">
+                      <p class="ma-0 px-3">
+                        {{ course.resources }} <br>
+                        Recursos
+                      </p>
+                    </div>
+                    <div>
+                      <span class="priceOld mr-2">
+                        ${{ parseInt(course.price) }}
+                      </span>
+                      <span class="priceNew mr-2">
+                        ${{ parseInt(course.price) }}
+                      </span>
+                    </div>
+                  </v-row>
+                  <div class="centrar mt-2">
+                    <v-btn class="minibtn mt-3">
+                      Ver Curso
+                    </v-btn>
+                  </div>
+                </v-card>
+              </v-col>
+            </v-row>
+          </v-container>
+        </template>
+        <template #footer>
+          <v-row justify="center" class="mt-5 py-5">
+            <span class="text mr-5">
+              Pagina {{ page }} de
+              <span class="gray-m-font" v-text="numberOfPages" />
+            </span>
+            <v-btn
+              small
+              rounded
+              dark
+              color="#2ec4b6"
+              class="mr-2"
+              @click="formerPage"
+            >
+              <v-icon>mdi-chevron-left</v-icon>
+            </v-btn>
+            <v-btn
+              small
+              rounded
+              dark
+              color="#2ec4b6"
+              class="ml-2"
+              @click="nextPage"
+            >
+              <v-icon>mdi-chevron-right</v-icon>
+            </v-btn>
+          </v-row>
+        </template>
+      </v-data-iterator>
     </main>
   </div>
 </template>
 
 <script>
+
 export default {
+  async asyncData ({ $axios }) {
+    const courses = await $axios.$get('https://6053662645e4b30017291968.mockapi.io/courses/courses')
+    return { courses }
+  },
   data () {
     return {
       title: 'Cursos',
+      search: '',
       valid: true,
       select: null,
       page: 1,
+      pages: 1,
+      rpp: 3,
+      rowsPerPageArray: [6, 9, 12, 15],
+      pagination: {
+        rowsPerPage: 3
+      },
+      busy: false,
       options: [
         'Categoría 1',
         'Categoría 2',
@@ -141,364 +203,58 @@ export default {
         'Precio 2 - Precio 3',
         'Precio 3 - Precio 4',
         'Precio 4 - Precio 5'
-      ],
-      courses: [
-        {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
-          text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-          modules: 9,
-          resources: 9,
-          priceOld: 19.99,
-          priceNew: 9.99
-        },
-        {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
-          text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-          modules: 9,
-          resources: 9,
-          priceOld: 19.99,
-          priceNew: 9.99
-        },
-        {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
-          text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-          modules: 9,
-          resources: 9,
-          priceOld: 19.99,
-          priceNew: 9.99
-        },
-        {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
-          text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-          modules: 9,
-          resources: 9,
-          priceOld: 19.99,
-          priceNew: 9.99
-        },
-        {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
-          text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-          modules: 9,
-          resources: 9,
-          priceOld: 19.99,
-          priceNew: 9.99
-        },
-        {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
-          text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-          modules: 9,
-          resources: 9,
-          priceOld: 19.99,
-          priceNew: 9.99
-        },
-        {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
-          text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-          modules: 9,
-          resources: 9,
-          priceOld: 19.99,
-          priceNew: 9.99
-        },
-        {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
-          text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-          modules: 9,
-          resources: 9,
-          priceOld: 19.99,
-          priceNew: 9.99
-        },
-        {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
-          text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-          modules: 9,
-          resources: 9,
-          priceOld: 19.99,
-          priceNew: 9.99
-        },
-        {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
-          text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-          modules: 9,
-          resources: 9,
-          priceOld: 19.99,
-          priceNew: 9.99
-        },
-        {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
-          text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-          modules: 9,
-          resources: 9,
-          priceOld: 19.99,
-          priceNew: 9.99
-        },
-        {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
-          text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-          modules: 9,
-          resources: 9,
-          priceOld: 19.99,
-          priceNew: 9.99
-        },
-        {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
-          text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-          modules: 9,
-          resources: 9,
-          priceOld: 19.99,
-          priceNew: 9.99
-        },
-        {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
-          text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-          modules: 9,
-          resources: 9,
-          priceOld: 19.99,
-          priceNew: 9.99
-        },
-        {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
-          text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-          modules: 9,
-          resources: 9,
-          priceOld: 19.99,
-          priceNew: 9.99
-        },
-        {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
-          text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-          modules: 9,
-          resources: 9,
-          priceOld: 19.99,
-          priceNew: 9.99
-        },
-        {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
-          text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-          modules: 9,
-          resources: 9,
-          priceOld: 19.99,
-          priceNew: 9.99
-        },
-        {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
-          text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-          modules: 9,
-          resources: 9,
-          priceOld: 19.99,
-          priceNew: 9.99
-        },
-        {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
-          text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-          modules: 9,
-          resources: 9,
-          priceOld: 19.99,
-          priceNew: 9.99
-        },
-        {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
-          text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-          modules: 9,
-          resources: 9,
-          priceOld: 19.99,
-          priceNew: 9.99
-        },
-        {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
-          text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-          modules: 9,
-          resources: 9,
-          priceOld: 19.99,
-          priceNew: 9.99
-        },
-        {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
-          text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-          modules: 9,
-          resources: 9,
-          priceOld: 19.99,
-          priceNew: 9.99
-        },
-        {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
-          text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-          modules: 9,
-          resources: 9,
-          priceOld: 19.99,
-          priceNew: 9.99
-        },
-        {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
-          text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-          modules: 9,
-          resources: 9,
-          priceOld: 19.99,
-          priceNew: 9.99
-        },
-        {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
-          text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-          modules: 9,
-          resources: 9,
-          priceOld: 19.99,
-          priceNew: 9.99
-        },
-        {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
-          text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-          modules: 9,
-          resources: 9,
-          priceOld: 19.99,
-          priceNew: 9.99
-        },
-        {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
-          text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-          modules: 9,
-          resources: 9,
-          priceOld: 19.99,
-          priceNew: 9.99
-        },
-        {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
-          text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-          modules: 9,
-          resources: 9,
-          priceOld: 19.99,
-          priceNew: 9.99
-        },
-        {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
-          text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-          modules: 9,
-          resources: 9,
-          priceOld: 19.99,
-          priceNew: 9.99
-        },
-        {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
-          text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-          modules: 9,
-          resources: 9,
-          priceOld: 19.99,
-          priceNew: 9.99
-        },
-        {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
-          text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-          modules: 9,
-          resources: 9,
-          priceOld: 19.99,
-          priceNew: 9.99
-        },
-        {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
-          text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-          modules: 9,
-          resources: 9,
-          priceOld: 19.99,
-          priceNew: 9.99
-        },
-        {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
-          text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-          modules: 9,
-          resources: 9,
-          priceOld: 19.99,
-          priceNew: 9.99
-        },
-        {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
-          text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-          modules: 9,
-          resources: 9,
-          priceOld: 19.99,
-          priceNew: 9.99
-        },
-        {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
-          text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-          modules: 9,
-          resources: 9,
-          priceOld: 19.99,
-          priceNew: 9.99
-        }
       ]
     }
   },
   head () {
     return {
       title: this.title
+    }
+  },
+  computed: {
+    numberOfPages () {
+      return Math.ceil(this.courses.length / this.ipp)
+    },
+    rowsPerPage () {
+      return this.rpp
+    },
+    itemsPerRow () {
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs': return 1
+        case 'sm': return 1
+        case 'md': return 3
+        case 'lg': return 3
+        case 'xl': return 3
+        default: return 9
+      }
+    },
+    ipp () {
+      return Math.ceil(this.rowsPerPage * this.itemsPerRow)
+    }
+  },
+  methods: {
+    handlePageChange (value) {
+      this.page = value
+    },
+    nextPage () {
+      if (this.page + 1 <= this.numberOfPages) {
+        this.page += 1
+      }
+    },
+    formerPage () {
+      if (this.page - 1 >= 1) {
+        this.page -= 1
+      }
+    },
+    calcRowsPerPage () {
+      const container = document.getElementById('container')
+      const minItemHeight = 300
+      if (container) {
+        const containerHeight = parseInt(container.clientHeight, 0)
+        this.rpp = Math.floor(Math.max(containerHeight, minItemHeight) / minItemHeight)
+      } else {
+        this.rpp = 3
+      }
     }
   }
 }
@@ -507,17 +263,45 @@ export default {
 <style lang="scss" scoped>
 .hero {
     background-image: url(../assets/img/hero-courses.webp);
-    height: 40vh;
-    background-position: bottom center;
-    .hero-card{
-    .courses-form{
-      #category > * {
-        font-size: 2rem !important;
-      }
+    height: 600px;
+    background-position: 25% 25%;
+
+  .text {
+    display: none;
+  }
+  .btn {
+    display: block;
+  }
+
+}
+  @include tablet {
+    .text {
+      line-height: 2;
+    }
+    .btn {
+      display: inline-block !important;
     }
   }
-}
+  @include miniDesktop {
+    .hero {
+      max-height: 40vh;
+    }
+    .text {
+      display: block !important;
+    }
+    // .rail {
+    //   max-width: 1200px;
+    //   width: 85% !important;
+    //   display: flex !important;
+    //   justify-content: center !important;
+    // }
+  }
 .gallery {
+    .mh-100 {
+        min-height: 100vh;
+        max-height: 100vh;
+        height: 100vh;
+    }
   .text-card {
       font-size: $body - .15rem;
       color: $gray-mid;
@@ -546,5 +330,9 @@ export default {
         font-weight: 400;
       }
   }
+}
+.mdi-chevron-left,
+.mdi-chevron-right {
+  border: none;
 }
 </style>

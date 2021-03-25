@@ -29,7 +29,151 @@
       </v-row>
     </div>
     <main>
-      <v-container class="gutter-p">
+      <v-data-iterator
+        :items="programs"
+        :items-per-page="3"
+        :page.sync="page"
+        hide-default-footer
+      >
+        <template #default="props">
+          <v-container class="gutter-p">
+            <v-row
+              v-for="program in props.items"
+              :key="program.name"
+              no-gutters
+              justify="center"
+              class="pt-5 mt-5"
+            >
+              <v-col>
+                <v-card
+                  elevation="5"
+                  class="d-flex flex-column flex-sm-row program-card pa-0 rounded-lg mb-10"
+                >
+                  <v-col
+                    xl="6"
+                    lg="6"
+                    md="6"
+                    sm="6"
+                    class="pa-0"
+                  >
+                    <v-img :src="program.img" class="rounded-l-lg pa-0 ma-0 fill-height" />
+                  </v-col>
+                  <v-col
+                    xl="6"
+                    lg="6"
+                    md="6"
+                    class="px-8 py-5"
+                  >
+                    <v-card-title class="pa-0">
+                      <h2 class="fw-300 gray-m-font">
+                        {{ program.title }}
+                      </h2>
+                    </v-card-title>
+                    <v-card-text class="pa-0 mb-5">
+                      <p class="text">
+                        Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.
+                      </p>
+                    </v-card-text>
+                    <div class="d-flex mb-5">
+                      <v-icon class="icon mr-5">
+                        mdi-book-open-page-variant-outline
+                      </v-icon>
+                      <p class="text">
+                        {{ program.resources }} recursos descargables
+                      </p>
+                    </div>
+                    <div class="d-flex mb-5">
+                      <v-icon class="icon mr-5">
+                        mdi-school
+                      </v-icon>
+                      <p class="text">
+                        Dirigido a quienes inician en estudios teologicos
+                      </p>
+                    </div>
+                    <v-row class="minirow d-flex justify-start align-center ma-0">
+                      <v-col
+                        cols="12"
+                        lg="4"
+                        xl="4"
+                        md="4"
+                        class="px-2"
+                      >
+                        <div class="text-center">
+                          <span class="priceOld mr-2">
+                            $100
+                          </span>
+                          <span class="priceNew mr-2">
+                            ${{ program.price }}
+                          </span>
+                          <p class="text-sm">
+                            hasta <br> DD-MM-AAAA
+                          </p>
+                        </div>
+                      </v-col>
+                      <v-col
+                        cols="12"
+                        lg="4"
+                        xl="4"
+                        md="4"
+                        class="px-2"
+                      >
+                        <div class="text-center px-2">
+                          <v-icon>
+                            mdi-earth
+                          </v-icon>
+                          <p class="text-sm mt-2">
+                            Descuentos aplican segun tu país
+                          </p>
+                        </div>
+                      </v-col>
+                      <v-col
+                        cols="12"
+                        lg="4"
+                        xl="4"
+                        md="4"
+                        class="px-2"
+                      >
+                        <v-btn class="btn">
+                          Leer más
+                        </v-btn>
+                      </v-col>
+                    </v-row>
+                  </v-col>
+                </v-card>
+              </v-col>
+            </v-row>
+          </v-container>
+        </template>
+        <template #footer>
+          <v-row justify="center" class="mt-5 py-5">
+            <span class="text mr-5">
+              Pagina {{ page }} de
+              <span class="gray-m-font" v-text="numberOfPages" />
+            </span>
+            <v-btn
+              small
+              rounded
+              dark
+              color="#2ec4b6"
+              class="mr-2"
+              @click="formerPage"
+            >
+              <v-icon>mdi-chevron-left</v-icon>
+            </v-btn>
+            <v-btn
+              small
+              rounded
+              dark
+              color="#2ec4b6"
+              class="ml-2"
+              @click="nextPage"
+            >
+              <v-icon>mdi-chevron-right</v-icon>
+            </v-btn>
+          </v-row>
+        </template>
+      </v-data-iterator>
+      <!-- <v-container class="gutter-p">
         <v-row
           v-for="(program, i) in programs"
           :key="i"
@@ -135,7 +279,7 @@
             </v-card>
           </v-col>
         </v-row>
-      </v-container>
+      </v-container> -->
     </main>
     <section class="register">
       <v-container>
@@ -163,87 +307,122 @@
 
 <script>
 export default {
+  async asyncData ({ $axios }) {
+    const programs = await $axios.$get('https://6053662645e4b30017291968.mockapi.io/courses/courses')
+    return { programs }
+  },
   data () {
     return {
       title: 'Nuestros Programas',
-      programs: [
-        {
-          img: require('../assets/img/who-1.webp'),
-          title: 'Teo 101 Beginner',
-          content: 'Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.',
-          resources: 50,
-          price: 90
-        },
-        {
-          img: require('../assets/img/who-1.webp'),
-          title: 'Teo 101 Beginner',
-          content: 'Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.',
-          resources: 50,
-          price: 90
-        },
-        {
-          img: require('../assets/img/who-1.webp'),
-          title: 'Teo 101 Beginner',
-          content: 'Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.',
-          resources: 50,
-          price: 90
-        },
-        {
-          img: require('../assets/img/who-1.webp'),
-          title: 'Teo 101 Beginner',
-          content: 'Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.',
-          resources: 50,
-          price: 90
-        },
-        {
-          img: require('../assets/img/who-1.webp'),
-          title: 'Teo 101 Beginner',
-          content: 'Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.',
-          resources: 50,
-          price: 90
-        },
-        {
-          img: require('../assets/img/who-1.webp'),
-          title: 'Teo 101 Beginner',
-          content: 'Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.',
-          resources: 50,
-          price: 90
-        },
-        {
-          img: require('../assets/img/who-1.webp'),
-          title: 'Teo 101 Beginner',
-          content: 'Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.',
-          resources: 50,
-          price: 90
-        },
-        {
-          img: require('../assets/img/who-1.webp'),
-          title: 'Teo 101 Beginner',
-          content: 'Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.',
-          resources: 50,
-          price: 90
-        },
-        {
-          img: require('../assets/img/who-1.webp'),
-          title: 'Teo 101 Beginner',
-          content: 'Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.',
-          resources: 50,
-          price: 90
-        },
-        {
-          img: require('../assets/img/who-1.webp'),
-          title: 'Teo 101 Beginner',
-          content: 'Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.',
-          resources: 50,
-          price: 90
-        }
-      ]
+      page: 1,
+      pages: 1,
+      pagination: {
+        rowsPerPage: 3
+      },
+      ipp: 3,
+      rpp: 3
+      // programs: [
+      //   {
+      //     img: require('../assets/img/who-1.webp'),
+      //     title: 'Teo 101 Beginner',
+      //     content: 'Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.',
+      //     resources: 50,
+      //     price: 90
+      //   },
+      //   {
+      //     img: require('../assets/img/who-1.webp'),
+      //     title: 'Teo 101 Beginner',
+      //     content: 'Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.',
+      //     resources: 50,
+      //     price: 90
+      //   },
+      //   {
+      //     img: require('../assets/img/who-1.webp'),
+      //     title: 'Teo 101 Beginner',
+      //     content: 'Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.',
+      //     resources: 50,
+      //     price: 90
+      //   },
+      //   {
+      //     img: require('../assets/img/who-1.webp'),
+      //     title: 'Teo 101 Beginner',
+      //     content: 'Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.',
+      //     resources: 50,
+      //     price: 90
+      //   },
+      //   {
+      //     img: require('../assets/img/who-1.webp'),
+      //     title: 'Teo 101 Beginner',
+      //     content: 'Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.',
+      //     resources: 50,
+      //     price: 90
+      //   },
+      //   {
+      //     img: require('../assets/img/who-1.webp'),
+      //     title: 'Teo 101 Beginner',
+      //     content: 'Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.',
+      //     resources: 50,
+      //     price: 90
+      //   },
+      //   {
+      //     img: require('../assets/img/who-1.webp'),
+      //     title: 'Teo 101 Beginner',
+      //     content: 'Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.',
+      //     resources: 50,
+      //     price: 90
+      //   },
+      //   {
+      //     img: require('../assets/img/who-1.webp'),
+      //     title: 'Teo 101 Beginner',
+      //     content: 'Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.',
+      //     resources: 50,
+      //     price: 90
+      //   },
+      //   {
+      //     img: require('../assets/img/who-1.webp'),
+      //     title: 'Teo 101 Beginner',
+      //     content: 'Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.',
+      //     resources: 50,
+      //     price: 90
+      //   },
+      //   {
+      //     img: require('../assets/img/who-1.webp'),
+      //     title: 'Teo 101 Beginner',
+      //     content: 'Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.',
+      //     resources: 50,
+      //     price: 90
+      //   }
+      // ]
     }
   },
   head () {
     return {
       title: this.title
     }
+  },
+  computed: {
+    numberOfPages () {
+      return Math.ceil(this.programs.length / this.ipp)
+    },
+    rowsPerPage () {
+      return this.rpp
+    }
+  },
+  methods: {
+    handlePageChange (value) {
+      this.page = value
+    },
+    nextPage () {
+      if (this.page + 1 <= this.numberOfPages) {
+        this.page += 1
+      }
+    },
+    formerPage () {
+      if (this.page - 1 >= 1) {
+        this.page -= 1
+      }
+    }
+
   }
 }
 </script>
@@ -335,5 +514,9 @@ main {
   .btn {
       max-width: 200px;
   }
+}
+.mdi-chevron-left,
+.mdi-chevron-right {
+  border: none;
 }
 </style>
