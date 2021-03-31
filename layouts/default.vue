@@ -45,6 +45,7 @@ html {
 }
 .app {
   font-family: $body-font;
+  padding-top: 2rem;
 }
 
 </style>

@@ -13,7 +13,7 @@
         >
           <v-card elevation="10" class="hero-card rounded-lg text-center py-3">
             <v-card-title class="mx-auto pb-0">
-              <h1 class="fw-700 mx-4">
+              <h1 class="fw-700 text-center mx-4">
                 Formación con alcance eterno
               </h1>
             </v-card-title>

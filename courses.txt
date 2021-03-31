@@ -1,8 +1,10 @@
 ,
 courses: [
         {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
+          imgFileProps: require('../assets/img/IniciacionCristiana.webp'),
+          name: 'El proceso de iniciacion Cristiana',
+          subname,
+          shortName,
           text:
             'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
           modules: 9,

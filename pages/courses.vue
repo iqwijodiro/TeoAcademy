@@ -1,6 +1,6 @@
 <template>
   <div id="courses">
-    <div class="hero d-flex justify-center align-center mt-9">
+    <div class="hero d-flex justify-center align-center">
       <div class="mask" />
       <v-row justify="center" class="rail">
         <v-col
@@ -67,7 +67,7 @@
                     <v-text-field
                       id="search"
                       v-model="search"
-                      label="Buscar..."
+                      placeholder="Buscar curso..."
                       solo
                       append-icon="mdi-magnify"
                       autofocus
@@ -84,7 +84,7 @@
     <main class="gallery gutter-p">
       <v-data-iterator
         :items="courses"
-        :items-per-page.sync="ipp"
+        :items-per-page="ipp"
         :page.sync="page"
         hide-default-footer
       >
@@ -93,18 +93,18 @@
             <v-row id="container" class="overflow-auto">
               <v-col
                 v-for="course in props.items"
-                :key="course.name"
+                :key="course.id"
               >
                 <v-card elevation="5" max-width="325px" class="card rounded-lg mx-3 my-5 pb-2">
                   <v-img
-                    :src="course.img"
+                    :src="course.imgFileProps"
                     height="47%"
                   />
                   <v-card-title class="card-title">
-                    {{ course.title }}
+                    {{ course.name }}
                   </v-card-title>
                   <v-card-text class="text-card">
-                    {{ course.text }}
+                    {{ course.subName }}
                   </v-card-text>
                   <v-row class="minirow d-flex justify-center align-center py-1">
                     <div class="my-2 mr-2">
@@ -121,15 +121,15 @@
                     </div>
                     <div>
                       <span class="priceOld mr-2">
-                        ${{ parseInt(course.price) }}
+                        ${{ parseInt(course.priceInfo) }}
                       </span>
                       <span class="priceNew mr-2">
-                        ${{ parseInt(course.price) }}
+                        ${{ parseInt(course.priceInfo) }}
                       </span>
                     </div>
                   </v-row>
                   <div class="centrar mt-2">
-                    <v-btn class="minibtn mt-3">
+                    <v-btn to="/course" class="minibtn mt-3">
                       Ver Curso
                     </v-btn>
                   </div>
@@ -174,19 +174,21 @@
 <script>
 
 export default {
-  async asyncData ({ $axios }) {
-    const courses = await $axios.$get('https://6053662645e4b30017291968.mockapi.io/courses/courses')
-    return { courses }
-  },
+  // async asyncData ({ $axios }) {
+  //   const courses = await $axios.$get('https://6053662645e4b30017291968.mockapi.io/courses/segoapi')
+  //   return { courses }
+  // },
   data () {
     return {
       title: 'Cursos',
+      courses: [],
       search: '',
       valid: true,
       select: null,
       page: 1,
       pages: 1,
       rpp: 3,
+      ipp: 9,
       rowsPerPageArray: [6, 9, 12, 15],
       pagination: {
         rowsPerPage: 3
@@ -213,11 +215,11 @@ export default {
   },
   computed: {
     numberOfPages () {
-      return Math.ceil(this.courses.length / this.ipp)
+      return Math.ceil(this.courses.length / 9)
     },
-    rowsPerPage () {
-      return this.rpp
-    },
+    // rowsPerPage () {
+    //   return this.rpp
+    // },
     itemsPerRow () {
       switch (this.$vuetify.breakpoint.name) {
         case 'xs': return 1
@@ -227,12 +229,22 @@ export default {
         case 'xl': return 3
         default: return 9
       }
-    },
-    ipp () {
-      return Math.ceil(this.rowsPerPage * this.itemsPerRow)
     }
+    // ,
+    // ipp () {
+    //   return Math.ceil(this.rowsPerPage * this.itemsPerRow)
+    // }
+  },
+  mounted () {
+    this.getCourses()
   },
   methods: {
+    async getCourses () {
+      this.courses = await this.$axios.$get('https://6053662645e4b30017291968.mockapi.io/courses/segoapi')
+    },
+    async submit () {
+      this.courses = await this.$axios.$get('https://6053662645e4b30017291968.mockapi.io/courses/segoapi/' + this.search)
+    },
     handlePageChange (value) {
       this.page = value
     },

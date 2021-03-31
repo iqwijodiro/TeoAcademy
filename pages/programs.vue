@@ -39,7 +39,7 @@
           <v-container class="gutter-p">
             <v-row
               v-for="program in props.items"
-              :key="program.name"
+              :key="program.id"
               no-gutters
               justify="center"
               class="pt-5 mt-5"
@@ -56,7 +56,7 @@
                     sm="6"
                     class="pa-0"
                   >
-                    <v-img :src="program.img" class="rounded-l-lg pa-0 ma-0 fill-height" />
+                    <v-img :src="program.imgFileProps" class="rounded-l-lg pa-0 ma-0 fill-height" />
                   </v-col>
                   <v-col
                     xl="6"
@@ -66,7 +66,7 @@
                   >
                     <v-card-title class="pa-0">
                       <h2 class="fw-300 gray-m-font">
-                        {{ program.title }}
+                        {{ program.name }}
                       </h2>
                     </v-card-title>
                     <v-card-text class="pa-0 mb-5">
@@ -103,7 +103,7 @@
                             $100
                           </span>
                           <span class="priceNew mr-2">
-                            ${{ program.price }}
+                            ${{ program.priceInfo }}
                           </span>
                           <p class="text-sm">
                             hasta <br> DD-MM-AAAA
@@ -308,7 +308,7 @@
 <script>
 export default {
   async asyncData ({ $axios }) {
-    const programs = await $axios.$get('https://6053662645e4b30017291968.mockapi.io/courses/courses')
+    const programs = await $axios.$get('https://6053662645e4b30017291968.mockapi.io/courses/segoapi')
     return { programs }
   },
   data () {
