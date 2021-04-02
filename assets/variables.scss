@@ -252,3 +252,15 @@ section {
     height: 100vh;
   }
 }
+.priceOld {
+  color: $wine;
+  font-size: $link;
+  font-family: $title-font;
+  text-decoration: line-through;
+}
+.priceNew {
+  color: $gray-mid;
+  font-size: 2.5rem;
+  font-family: $title-font;
+  font-weight: 400;
+}

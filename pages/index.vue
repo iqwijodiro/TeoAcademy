@@ -648,18 +648,6 @@ export default {
       &:nth-child(1) {
         border-right: .2rem solid $gray-light;
       }
-      .priceOld {
-        color: $wine;
-        font-size: $link;
-        font-family: $title-font;
-        text-decoration: line-through;
-      }
-      .priceNew {
-        color: $gray-mid;
-        font-size: 2.5rem;
-        font-family: $title-font;
-        font-weight: 400;
-      }
     }
   }
 }
