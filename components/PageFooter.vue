@@ -23,7 +23,7 @@
           xl="3"
         >
           <v-list
-            class="d-flex flex-column align-sm-start align-center pa-0"
+            class="d-flex flex-column align-md-start align-center pa-0"
           >
             <h4 class="pt-4 mb-3">
               Acceso Rápido

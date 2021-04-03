@@ -1,6 +1,6 @@
 <template>
-  <div class="mt-10">
-    <v-container>
+  <div class="mt-10 ">
+    <v-container class="px-8">
       <h1 class="text-uppercase font-weight-light text-start gray-m-font mb-3">
         Curso:
       </h1>
@@ -25,7 +25,7 @@
             <p class="text">
               {{ description }}
             </p>
-            <h2 class="gray-m-font">
+            <h2 class="gray-m-font mt-8 mb-5">
               Temas
             </h2>
             <v-expansion-panels accordion>
@@ -85,27 +85,89 @@
               </v-icon>
               Regalar Curso
             </v-btn>
-            <div class="my-5 d-flex justify-center align-center">
+            <section class="my-5 d-flex justify-center align-center">
               <v-icon size="40" class="mr-6 gray-m-font">
                 mdi-account-group
               </v-icon>
-              <div class="px-5">
-                <h3 class="text-center gray-m-font font-weigth-bold">
+              <div class="pl-5">
+                <h3 class="text-start ml-5 gray-m-font font-weigth-bold">
                   Dirigido a:
                 </h3>
                 <ul class="text-mid adressed-list">
                   <li>
-                    - Involucrados en general
+                    Involucrados en general
                   </li>
                   <li>
-                    - Simpatizantes en general
+                    Simpatizantes en general
                   </li>
                   <li>
-                    - Personas con poco o moderado conocimiento bíblico
+                    Personas con poco o moderado conocimiento bíblico
                   </li>
                 </ul>
               </div>
-            </div>
+            </section>
+            <section>
+              <h3 class="gray-m-font text-center">
+                Modalidad
+              </h3>
+              <ul class="text d-inline">
+                <li class="text mb-2 ml-3">
+                  <v-icon size="35" class="mr-3 flex-grow-0">
+                    mdi-video
+                  </v-icon>
+                  <p class="d-inline">
+                    5 Clases aula virtual Teo
+                  </p>
+                </li>
+                <li class="text mb-2 ml-3">
+                  <v-icon size="35" class="mr-3 flex-grow-0">
+                    mdi-headset
+                  </v-icon>
+                  <p class="d-inline">
+                    2 Sesiones en vivo
+                  </p>
+                </li>
+              </ul>
+            </section>
+            <section>
+              <h3 class="gray-m-font text-center">
+                Requerimientos
+              </h3>
+              <div class="d-flex justify-center">
+                <div class="d-flex flex-column text-mid text-center">
+                  <v-icon size="30">
+                    mdi-school
+                  </v-icon>
+                  <span class="mt-3 text-mid font-weight-bold gray-m-font">
+                    Conocimientos previos:
+                  </span>
+                  No requiere
+                </div>
+                <div class="d-flex flex-column text-mid text-center">
+                  <v-icon size="30">
+                    mdi-wifi
+                  </v-icon>
+                  <span class="mt-3 text-mid font-weight-bold gray-m-font">
+                    Tecnológicos:
+                  </span>
+                  Conexión a Internet <br>
+                  PC/Móvil
+                </div>
+              </div>
+            </section>
+            <section class="text-center">
+              <div>
+                <v-icon size="35" class="mr-3">
+                  mdi-medal
+                </v-icon>
+                <h4 class="d-inline gray-m-font">
+                  Competencias
+                </h4>
+              </div>
+              <p class="text-mid mt-3">
+                Identifica y experimenta el proceso de transformación cristiana y establece una sana relación con Dios Padre, Hijo y Espíritu Santo.
+              </p>
+            </section>
             <!-- </div> -->
           </aside>
         </v-col>
@@ -118,26 +180,24 @@
         </h2>
         <v-row no-gutters>
           <v-col
-            xl="4"
-            lg="4"
-            md="4"
-            sm="6"
-            class="wrapper-col px-5"
+            class="px-5"
           >
-            <ul
-              v-for="(ind, j) in indicators"
-              :key="j"
-              class="d-inline pa-0"
-            >
-              <li>
-                <v-icon size="30" class="flex-grow-0 gray-m-font mr-2">
-                  mdi-check-circle
-                </v-icon>
-                <p class="text mt-2">
-                  {{ ind }}
-                </p>
-              </li>
-            </ul>
+            <section class="wrapper-col">
+              <ul
+                v-for="(ind, j) in indicators"
+                :key="j"
+                class="pa-0"
+              >
+                <li class="d-flex align-start">
+                  <v-icon size="25" class="flex-grow-0 gray-m-font mr-3 mt-2">
+                    mdi-check-circle
+                  </v-icon>
+                  <p class="text mt-0">
+                    {{ ind }}
+                  </p>
+                </li>
+              </ul>
+            </section>
           </v-col>
         </v-row>
       </v-container>
@@ -253,27 +313,21 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-// .indicators{
-//   max-height: 500px;
-//   height: 40vh;
-//   .row-sect {
-//     display: flex;
-//     flex-direction: column;
-//     flex-wrap: wrap;
-//   }
-// }
+.indicators{
+  background: rgb(149,149,149);
+  background: linear-gradient(180deg, #fff 0%, #e9e9e9 100%);
+}
 .sidebar {
   height: 100%;
   border-left-color: $gray-light;
   border-left-width: 2px;
   border-left-style: solid;
 }
+
 .wrapper-col {
-  max-height: 450px;
-  display: flex;
-  flex-flow: column wrap;
+  display: block;
   p.text {
-    text-indent: -4rem;
+    margin-top: -2rem;
   }
 }
 .adressed-list {
@@ -281,5 +335,12 @@ export default {
     margin-bottom: 1rem;
   }
 }
-
+@include tablet {
+  .wrapper-col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    flex-flow: column;
+  }
+}
 </style>
