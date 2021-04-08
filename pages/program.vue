@@ -1,8 +1,8 @@
 <template>
-  <div class="mt-10 ">
+  <div class="mt-10">
     <v-container class="px-5">
       <h1 class="text-uppercase font-weight-light text-start gray-m-font mb-3">
-        Curso:
+        Programa:
       </h1>
       <v-row>
         <v-col
@@ -13,7 +13,7 @@
         >
           <main>
             <h2 class="red-font font-weight-light">
-              {{ courseTitle }}
+              {{ programTitle }}
             </h2>
             <h3 class="gray-m-font">
               {{ subtitle }}
@@ -26,7 +26,7 @@
               {{ description }}
             </p>
             <h2 class="gray-m-font mt-8 mb-5">
-              Temas
+              Cursos
             </h2>
             <v-expansion-panels accordion>
               <v-expansion-panel
@@ -116,7 +116,7 @@
                     mdi-video
                   </v-icon>
                   <p class="d-inline">
-                    5 Clases aula virtual Teo
+                    25 Clases aula virtual Teo
                   </p>
                 </li>
                 <li class="text mb-2 ml-3">
@@ -124,7 +124,7 @@
                     mdi-headset
                   </v-icon>
                   <p class="d-inline">
-                    2 Sesiones en vivo
+                    32 Sesiones en vivo
                   </p>
                 </li>
               </ul>
@@ -176,7 +176,7 @@
     <section class="indicators">
       <v-container>
         <h2 class="sect-title gray-m-font">
-          Indicadores
+          Competencias
         </h2>
         <v-row no-gutters>
           <v-col
@@ -202,7 +202,7 @@
         </v-row>
         <div class="centrar">
           <v-btn class="btn">
-            Descargar ficha del curso
+            Descargar ficha del programa
           </v-btn>
         </div>
       </v-container>
@@ -214,7 +214,7 @@ export default {
   data () {
     return {
       singleCourse: {},
-      courseTitle: 'El proceso de iniciación cristiana',
+      programTitle: 'Teo 101 - Beginner',
       subtitle: 'Conoce los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental',
       imgCourse: require('../assets/img/IniciacionCristiana.webp'),
       description: 'En este curso se abordan los aspectos fundamentales de la vida espiritual cristiana, Duis sit amet ligula varius, interdum quam ut, rutrum tellus. Suspendisse pulvinar lectus sed quam hendrerit fermentum. Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus',
@@ -279,37 +279,37 @@ export default {
       resources: [
         {
           icon: 'mdi-play-circle-outline',
-          number: 10,
+          number: 60,
           resource: 'Videos'
         },
         {
           icon: 'mdi-file-document-outline',
-          number: 10,
+          number: 25,
           resource: 'Documentos'
         },
         {
           icon: 'mdi-magnify',
-          number: 9,
+          number: 29,
           resource: 'Cuestionarios'
         },
         {
           icon: 'mdi-note-search-outline',
-          number: 9,
+          number: 19,
           resource: 'Asignaciones'
         },
         {
           icon: 'mdi-link-variant',
-          number: 4,
+          number: 24,
           resource: 'Enlaces'
         },
         {
           icon: 'mdi-book-cross',
-          number: 16,
+          number: 36,
           resource: 'Versiculos a memorizar'
         },
         {
           icon: 'mdi-help-circle-outline',
-          number: 16,
+          number: 26,
           resource: 'Preguntas Frecuentes'
         }
       ]
@@ -317,7 +317,7 @@ export default {
   },
   head () {
     return {
-      title: this.courseTitle
+      title: this.programTitle
     }
   }
   // ,

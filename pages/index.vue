@@ -123,45 +123,44 @@
     </section>
     <!--Seccion de los mejores cursos-->
     <section class="students mt-5 py-5">
-      <v-container>
+      <v-container class="d-flex justify-center align-center">
         <v-row justify="center">
           <v-col
-            cols="12"
-            md="8"
+            md="9"
             lg="8"
             xl="8"
+            sm="10"
           >
-            <v-sheet elevation="5" rounded="xl" class="bg-sheet mx-auto py-5 px-3 text-center">
-              <h2 class="mt-5 mb-2 px-5 text-center">
+            <v-card elevation="5" rounded="xl" class="bg-sheet d-flex flex-column justify-space-around mx-auto py-5 px-3 text-center">
+              <h2 class="mt-5 mb-3 px-5 text-center">
                 Lo que dicen los Teo estudiantes
               </h2>
-              <v-slide-group show-arrow class="quote-slider my-slider">
-                <v-slide-item v-for="(quote, i) in quotes" :key="i" class="card-quote pa-5">
-                  <v-card>
-                    <v-row>
-                      <v-col
-                        cols="12"
-                      >
-                        <v-container class="d-flex flex-column justify-center align-center">
-                          <p class="quote">
-                            {{ quote.text }}
-                          </p>
-                          <v-avatar size="95" class="mb-4">
-                            <v-img :src="require('../assets/img/' + quote.avatar)" />
-                          </v-avatar>
-                          <h3 class="name">
-                            {{ quote.name }}
-                          </h3>
-                          <h3 class="job">
-                            {{ quote.job }}
-                          </h3>
-                        </v-container>
-                      </v-col>
-                    </v-row>
+              <v-carousel
+                cycle
+                hide-delimiters
+                class="quote-slider my-slider"
+              >
+                <v-carousel-item
+                  v-for="(quote, i) in quotes"
+                  :key="i"
+                >
+                  <v-card light max-width="80%" elevation="0" class="card-quote mx-auto">
+                    <p class="quote">
+                      {{ quote.text }}
+                    </p>
+                    <v-avatar size="95" class="mb-4">
+                      <v-img :src="require('../assets/img/' + quote.avatar)" />
+                    </v-avatar>
+                    <h3 class="name">
+                      {{ quote.name }}
+                    </h3>
+                    <h3 class="job">
+                      {{ quote.job }}
+                    </h3>
                   </v-card>
-                </v-slide-item>
-              </v-slide-group>
-            </v-sheet>
+                </v-carousel-item>
+              </v-carousel>
+            </v-card>
           </v-col>
         </v-row>
       </v-container>
@@ -234,42 +233,36 @@
       <v-container>
         <v-row justify="center">
           <v-col
-            cols="12"
             md="8"
             lg="8"
             xl="8"
           >
-            <v-sheet absolute elevation="10" rounded="xl" class="bg-sheet mx-auto py-5 px-3 text-center">
+            <v-card rounded="xl" class="bg-sheet mx-auto py-5 px-3 text-center">
               <h2 class="mt-5 mb-2 text-center">
                 Nuestro Equipo
               </h2>
-              <v-slide-group multiple show-arrow class="team-slider my-slider">
-                <v-slide-item v-for="(partner, i) in partners" :key="i" class="card-member mx-auto">
-                  <v-card>
-                    <v-row>
-                      <v-col
-                        cols="12"
-                      >
-                        <v-container class="d-flex flex-column justify-center align-center py-5">
-                          <v-avatar size="125" class="mb-4">
-                            <v-img :src="require('../assets/img/' + partner.avatar)" />
-                          </v-avatar>
-                          <h3 class="name">
-                            {{ partner.member }}
-                          </h3>
-                          <h3 class="job">
-                            {{ partner.role }}
-                          </h3>
-                          <p class="member">
-                            {{ partner.text }}
-                          </p>
-                        </v-container>
-                      </v-col>
-                    </v-row>
+              <v-carousel
+                hide-delimiters
+                class="team-slider my-slider"
+              >
+                <v-carousel-item v-for="(partner, i) in partners" :key="i" class="card-member mx-auto">
+                  <v-card max-width="90%" elevation="0" light class="mx-auto d-flex flex-column justify-center align-center py-5">
+                    <v-avatar style="border-radius: 50%" size="125" class="mb-4">
+                      <v-img :src="require('../assets/img/' + partner.avatar)" />
+                    </v-avatar>
+                    <h3 class="name">
+                      {{ partner.member }}
+                    </h3>
+                    <h3 class="job">
+                      {{ partner.role }}
+                    </h3>
+                    <p class="member">
+                      {{ partner.text }}
+                    </p>
                   </v-card>
-                </v-slide-item>
-              </v-slide-group>
-            </v-sheet>
+                </v-carousel-item>
+              </v-carousel>
+            </v-card>
           </v-col>
         </v-row>
       </v-container>
@@ -280,9 +273,7 @@
           Nuestro Blog
         </h2>
         <v-row justify="center" class="mb-5">
-          <v-col
-            cols="12"
-          >
+          <v-col>
             <v-slide-group arrows class="my-3 my-slider">
               <v-slide-item v-for="(entry, i) in entries" :key="i" class="slide ma-5">
                 <v-card elevation="5" max-width="315px" height="315px" class="blog-card d-flex align-end rounded-xl">
@@ -654,19 +645,16 @@ export default {
 .students{
   background: rgb(149,149,149);
   background: linear-gradient(0deg, rgba(149,149,149,1) 0%, rgba(193,193,193,1) 25%, rgba(211,211,211,1) 50%, rgba(231,231,231,1) 75%, rgba(250,250,250,1) 100%);
-  padding: 5rem 0 !important;
-  min-height: 70vh !important;
-  max-height: 100% !important;
-  h2 {
-    color: $wine;
-  }
+  padding: 5rem 2rem;
+  max-height: 110vh;
   .bg-sheet {
-    min-height: 450px;
-  }
+    height: 95%;
+    h2 {
+      color: $wine;
+      line-height: 1.4;
+    }
     .quote-slider {
-      min-height: 35vh !important;
       .card-quote {
-        max-width: 82vw !important;
         padding: 0 !important;
         border: none !important;
         box-shadow: none !important;
@@ -674,62 +662,52 @@ export default {
       .quote {
         color: $gray-mid;
         font-size: $link + .2rem;
-        line-height: 1.6;
+        line-height: 1.5;
         margin-bottom: 2rem;
       }
-      @include miniTelefono {
-        .card-quote {
-          max-width: 82vw !important;
-        }
-      }
-      @include telefono {
-        .card-quote {
-          max-width: 87vw !important;
-        }
-      }
-      @include tablet {
-        .card-quote {
-          max-width: 80vw !important;
-        }
-      }
-      @include miniDesktop {
-        .card-quote {
-          max-width: 55.5vw !important;
-        }
-      }
-      @include lgdesktop {
-        .card-quote {
-            width: 38vw !important;
-        }
-        .quote {
-          font-size: $link + .4rem;
-        }
-      }
-      @include xlDesktop {
-        .card-quote {
-            max-width: 48vw !important;
-        }
-        .quote {
-          font-size: $link + .8rem;
-        }
-      }
-      .name, .job {
-        font-family: $title-font;
-        font-size: $link +.5rem;
-        padding: 0 1rem !important;
-        color: $gray-mid;
-        font-weight: 300;
-        line-height: 1.4;
-        margin: 0 !important;
-      }
     }
+    .name, .job {
+      font-family: $title-font;
+      font-size: $link +.5rem;
+      padding: 0 1rem !important;
+      color: $gray-mid;
+      font-weight: 300;
+      line-height: 1.4;
+      margin: 0 !important;
+    }
+  }
 }
-    @include lgdesktop {
-      .students {
-        max-height: 60vh;
-        .bg-sheet {
-          min-height: 450px !important;
-        }
+  @include miniTelefono {
+    .quote {
+        font-size: $link + .8rem;
+      }
+    .bg-sheet {
+        max-height: 580px;
+      }
+  }
+  @include telefono {
+    .bg-sheet {
+        max-height: 550px;
+      }
+  }
+  @include tablet {
+    .quote {
+        font-size: $link + .6rem;
+      }
+      .bg-sheet {
+        max-height: 450px;
+      }
+  }
+  @include lgdesktop {
+    .students {
+      // max-height: 60vh;
+      max-height: 75vh;
+      }
+      .quote {
+        font-size: $link + .4rem;
+      }
+      .bg-sheet {
+        max-height: 450px;
       }
     }
 .next-events{
@@ -806,59 +784,18 @@ export default {
         color: $gray-mid;
         font-weight: 300 !important;
         line-height: 1.4;
-        margin: 0 !important;
       }
       .name {
         color: $wine;
         font-weight: 400 !important;
       }
-      .card-member {
-        border: none !important;
-        box-shadow: none !important;
-      }
       .member {
-        font-size: $link;
+        font-size: $link + .4rem;
         text-align: center;
         line-height: 1.4;
         margin: 1rem;
         color: $gray-mid;
        }
-       @include miniTelefono {
-        .card-member {
-          max-width: 82vw !important;
-        }
-      }
-      @include telefono {
-        .card-member {
-          max-width: 87vw !important;
-        }
-      }
-      @include tablet {
-        .card-member {
-          max-width: 80vw !important;
-        }
-      }
-      @include miniDesktop {
-        .card-member {
-          max-width: 55.5vw !important;
-        }
-      }
-      @include lgdesktop {
-        .card-member {
-            max-width: 39vw !important;
-        }
-        .member {
-          font-size: $link + .4rem;
-        }
-      }
-      @include xlDesktop {
-        .card-member {
-            max-width: 48vw !important;
-        }
-        .member {
-          font-size: $link + .8rem;
-        }
-      }
   }
 }
 .blog {
@@ -913,7 +850,7 @@ export default {
   align-items: center !important;
   min-height: 50vh !important;
   background: rgb(190,30,45);
-  background: linear-gradient(90deg, rgba(190,30,45,1) 0%, rgba(142,22,34,1) 50%, rgba(95,15,23,1) 100%);
+  background: linear-gradient(90deg, #be1e2d 0%, rgba(142,22,34,1) 50%, rgba(95,15,23,1) 100%);
   h3 {
     color: #ffffff;
   }

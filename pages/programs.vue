@@ -133,7 +133,7 @@
                         md="4"
                         class="px-2"
                       >
-                        <v-btn class="btn">
+                        <v-btn to="/program" class="btn">
                           Leer más
                         </v-btn>
                       </v-col>
