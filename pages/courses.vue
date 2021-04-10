@@ -131,7 +131,7 @@
                     </div>
                   </v-row>
                   <div class="centrar mt-2">
-                    <v-btn :to="'/courses/' + _id" class="minibtn mt-3" @click="setCourse(course)">
+                    <v-btn class="minibtn mt-3" @click="setCourse(course)">
                       Ver Curso
                     </v-btn>
                   </div>
@@ -144,7 +144,7 @@
           <v-row justify="center" class="mt-5 py-5">
             <span class="text mr-5">
               Pagina {{ page }} de
-              <span class="gray-m-font" v-text="numberOfPages" />
+              <span class="gray-m-font" v-text="pages" />
             </span>
             <v-btn
               small
@@ -186,7 +186,7 @@ export default {
       page: 1,
       pages: 1,
       rpp: 3,
-      ipp: 9,
+      ipp: 3,
       rowsPerPageArray: [6, 9, 12, 15],
       pagination: {
         rowsPerPage: 3
@@ -233,12 +233,18 @@ export default {
     //   return Math.ceil(this.rowsPerPage * this.itemsPerRow)
     // }
   },
+  watch: {
+    page () {
+      this.getCourses(this.page)
+    }
+  },
   mounted () {
-    this.getCourses()
+    this.getCourses(this.page)
   },
   methods: {
-    async getCourses () {
-      const data = await this.$axios.$get(`${this.$store.state.urlAPI}/courses/client6049278bc32f0d0015e108e9/all`)
+    async getCourses (page) {
+      const data = await this.$axios.$get(`${this.$store.state.urlAPI}/courses/client6049278bc32f0d0015e108e9/${page}/${this.ipp}`)
+      this.pages = data.pages
       this.courses = data.courses
     },
     async submit () {
@@ -246,12 +252,13 @@ export default {
     },
     setCourse (course) {
       this.$store.commit('setCourse', course)
+      this.$router.replace('/course/' + course._id)
     },
     handlePageChange (value) {
       this.page = value
     },
     nextPage () {
-      if (this.page + 1 <= this.numberOfPages) {
+      if (this.page + 1 <= this.pages) {
         this.page += 1
       }
     },

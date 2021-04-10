@@ -213,6 +213,7 @@
 export default {
   data () {
     return {
+      courseId: null,
       // courseTitle: ,
       // subtitle: 'Conoce los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental',
       // imgCourse: require('../assets/img/IniciacionCristiana.webp'),
@@ -322,6 +323,18 @@ export default {
   computed: {
     singleCourse () {
       return this.$store.state.course
+    }
+  },
+  mounted () {
+    this.courseId = this.$route.params.id
+    if (!this.singleCourse._id) {
+      this.getCourseId()
+    }
+  },
+  methods: {
+    async getCourseId () {
+      const data = await this.$axios.$get(`${this.$store.state.urlAPI}/course/id${this.courseId}`)
+      this.$store.commit('setCourse', data.course)
     }
   }
 }
