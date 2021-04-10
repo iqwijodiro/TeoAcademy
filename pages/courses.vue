@@ -93,12 +93,14 @@
             <v-row id="container" class="overflow-auto">
               <v-col
                 v-for="course in props.items"
-                :key="course.id"
+                :key="course._id"
               >
-                <v-card elevation="5" max-width="325px" class="card rounded-lg mx-3 my-5 pb-2">
+                <v-card elevation="5" height="510px" max-width="325px" class="card rounded-lg mx-3 my-5 pb-2 d-flex flex-column justify-space-between">
                   <v-img
-                    :src="course.imgFileProps"
+                    :src="course.imgUrl"
                     height="47%"
+                    max-height="230px"
+                    class="mb-2"
                   />
                   <v-card-title class="card-title">
                     {{ course.name }}
@@ -107,29 +109,29 @@
                     {{ course.subName }}
                   </v-card-text>
                   <v-row class="minirow d-flex justify-center align-center py-1">
-                    <div class="my-2 mr-2">
+                    <div v-if="course.structure && course.structure.sections" class="my-2 mr-2">
                       <p class="ma-0 px-3">
-                        {{ course.modules }} <br>
+                        {{ course.structure.sections.length }} <br>
                         Módulos
                       </p>
                     </div>
-                    <div class="my-2 mr-2">
+                    <div v-if="course.features && course.features.resources" class="my-2 mr-2">
                       <p class="ma-0 px-3">
-                        {{ course.resources }} <br>
+                        {{ course.features.resources.length }} <br>
                         Recursos
                       </p>
                     </div>
                     <div>
                       <span class="priceOld mr-2">
-                        ${{ parseInt(course.priceInfo) }}
+                        ${{ parseInt(course.features.priceInfo.price) }}
                       </span>
                       <span class="priceNew mr-2">
-                        ${{ parseInt(course.priceInfo) }}
+                        ${{ parseInt(course.features.priceInfo.finalPrice) }}
                       </span>
                     </div>
                   </v-row>
                   <div class="centrar mt-2">
-                    <v-btn to="/course" class="minibtn mt-3">
+                    <v-btn :to="'/courses/' + _id" class="minibtn mt-3" @click="setCourse(course)">
                       Ver Curso
                     </v-btn>
                   </div>
@@ -174,10 +176,6 @@
 <script>
 
 export default {
-  // async asyncData ({ $axios }) {
-  //   const courses = await $axios.$get('https://6053662645e4b30017291968.mockapi.io/courses/segoapi')
-  //   return { courses }
-  // },
   data () {
     return {
       title: 'Cursos',
@@ -240,10 +238,14 @@ export default {
   },
   methods: {
     async getCourses () {
-      this.courses = await this.$axios.$get('https://6053662645e4b30017291968.mockapi.io/courses/segoapi')
+      const data = await this.$axios.$get(`${this.$store.state.urlAPI}/courses/client6049278bc32f0d0015e108e9/all`)
+      this.courses = data.courses
     },
     async submit () {
-      this.courses = await this.$axios.$get('https://6053662645e4b30017291968.mockapi.io/courses/segoapi/' + this.search)
+      this.courses = await this.$axios.$get(`${this.$store.state.urlAPI}/courses/client6049278bc32f0d0015e108e9/all/search${this.search}/${this.page}/12`)
+    },
+    setCourse (course) {
+      this.$store.commit('setCourse', course)
     },
     handlePageChange (value) {
       this.page = value

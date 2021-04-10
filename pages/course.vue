@@ -13,37 +13,37 @@
         >
           <main>
             <h2 class="red-font font-weight-light">
-              {{ courseTitle }}
+              {{ singleCourse.name }}
             </h2>
             <h3 class="gray-m-font">
-              {{ subtitle }}
+              {{ singleCourse.subName }}
             </h3>
-            <v-img :src="imgCourse" class="rounded-lg my-5" />
+            <v-img :src="singleCourse.imgUrl" class="rounded-lg my-5" />
             <h4 class="gray-m-font mb-4 mt-5">
               <span class="font-weight-medium">Descripción:</span>
             </h4>
             <p class="text">
-              {{ description }}
+              {{ singleCourse.description }}
             </p>
             <h2 class="gray-m-font mt-8 mb-5">
               Temas
             </h2>
-            <v-expansion-panels accordion>
+            <v-expansion-panels v-if="singleCourse.structure && singleCourse.structure.sections" accordion>
               <v-expansion-panel
-                v-for="(module, i) in modules"
+                v-for="(module, i) in singleCourse.structure.sections"
                 :key="i"
               >
                 <v-expansion-panel-header>
-                  <v-icon color="#2ec4b6" class="d-inline flex-grow-0 mr-5" size="30">
+                  <!-- <v-icon color="#2ec4b6" class="d-inline flex-grow-0 mr-5" size="30">
                     {{ module.icon }}
-                  </v-icon>
+                  </v-icon> -->
                   <h4 class="red-font text-start mr-5">
-                    {{ module.moduleTitle }}
+                    {{ module.name }}
                   </h4>
                 </v-expansion-panel-header>
                 <v-expansion-panel-content>
                   <p class="text-mid">
-                    {{ module.text }}
+                    Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus
                   </p>
                 </v-expansion-panel-content>
               </v-expansion-panel>
@@ -213,58 +213,57 @@
 export default {
   data () {
     return {
-      singleCourse: {},
-      courseTitle: 'El proceso de iniciación cristiana',
-      subtitle: 'Conoce los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental',
-      imgCourse: require('../assets/img/IniciacionCristiana.webp'),
-      description: 'En este curso se abordan los aspectos fundamentales de la vida espiritual cristiana, Duis sit amet ligula varius, interdum quam ut, rutrum tellus. Suspendisse pulvinar lectus sed quam hendrerit fermentum. Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus',
-      modules: [
-        {
-          icon: 'mdi-play-circle-outline',
-          moduleTitle: 'Los cuatro principios de la vida espiritual',
-          text: 'Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus.'
-        },
-        {
-          icon: 'mdi-play-circle-outline',
-          moduleTitle: 'La seguridad de la salvación',
-          text: 'Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus.'
-        },
-        {
-          icon: 'mdi-play-circle-outline',
-          moduleTitle: 'El papel de la Biblia',
-          text: 'Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus.'
-        },
-        {
-          icon: 'mdi-file-document-outline',
-          moduleTitle: 'La respiración espiritual',
-          text: 'Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus.'
-        },
-        {
-          icon: 'mdi-file-document-outline',
-          moduleTitle: 'El cristiano y la oración',
-          text: 'Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus.'
-        },
-        {
-          icon: 'mdi-play-circle-outline',
-          moduleTitle: 'Conociendo la voluntad de Dios',
-          text: 'Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus.'
-        },
-        {
-          icon: 'mdi-play-circle-outline',
-          moduleTitle: 'Administrándose a usted mismo',
-          text: 'Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus.'
-        },
-        {
-          icon: 'mdi-play-circle-outline',
-          moduleTitle: 'El compañerismo cristiano',
-          text: 'Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus.'
-        },
-        {
-          icon: 'mdi-play-circle-outline',
-          moduleTitle: 'Participando en una célula de éxito',
-          text: 'Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus.'
-        }
-      ],
+      // courseTitle: ,
+      // subtitle: 'Conoce los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental',
+      // imgCourse: require('../assets/img/IniciacionCristiana.webp'),
+      // description: 'En este curso se abordan los aspectos fundamentales de la vida espiritual cristiana, Duis sit amet ligula varius, interdum quam ut, rutrum tellus. Suspendisse pulvinar lectus sed quam hendrerit fermentum. Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus',
+      // modules: [
+      //   {
+      //     icon: 'mdi-play-circle-outline',
+      //     moduleTitle: 'Los cuatro principios de la vida espiritual',
+      //     text: 'Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus.'
+      //   },
+      //   {
+      //     icon: 'mdi-play-circle-outline',
+      //     moduleTitle: 'La seguridad de la salvación',
+      //     text: 'Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus.'
+      //   },
+      //   {
+      //     icon: 'mdi-play-circle-outline',
+      //     moduleTitle: 'El papel de la Biblia',
+      //     text: 'Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus.'
+      //   },
+      //   {
+      //     icon: 'mdi-file-document-outline',
+      //     moduleTitle: 'La respiración espiritual',
+      //     text: 'Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus.'
+      //   },
+      //   {
+      //     icon: 'mdi-file-document-outline',
+      //     moduleTitle: 'El cristiano y la oración',
+      //     text: 'Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus.'
+      //   },
+      //   {
+      //     icon: 'mdi-play-circle-outline',
+      //     moduleTitle: 'Conociendo la voluntad de Dios',
+      //     text: 'Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus.'
+      //   },
+      //   {
+      //     icon: 'mdi-play-circle-outline',
+      //     moduleTitle: 'Administrándose a usted mismo',
+      //     text: 'Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus.'
+      //   },
+      //   {
+      //     icon: 'mdi-play-circle-outline',
+      //     moduleTitle: 'El compañerismo cristiano',
+      //     text: 'Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus.'
+      //   },
+      //   {
+      //     icon: 'mdi-play-circle-outline',
+      //     moduleTitle: 'Participando en una célula de éxito',
+      //     text: 'Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus.'
+      //   }
+      // ],
       indicators: [
         'Identifica y comprende las llaves de la vida espiritual, importantes para tomar la voluntaria decisión de recibir a Cristo en el corazón.',
         'Identifica y comprende cinco (5) pilares esenciales de la fe cristiana.',
@@ -319,17 +318,12 @@ export default {
     return {
       title: this.courseTitle
     }
+  },
+  computed: {
+    singleCourse () {
+      return this.$store.state.course
+    }
   }
-  // ,
-  // mounted () {
-  //   this.getInfoCourse()
-  // }
-  // methods: {
-  //   async getInfoCourse () {
-  //     // const { id } = this.singleCourse
-  //     this.singleCourse = await this.$axios.$get('https://6053662645e4b30017291968.mockapi.io/courses/segoapi/1')
-  //   }
-  // }
 }
 </script>
 <style lang="scss" scoped>

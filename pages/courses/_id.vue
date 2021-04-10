@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="course-page">
     <h1 class="mt-10">
-      El resultado de tu busqueda es: {{ $route.params.id }}
+      El resultado de tu busqueda es: {{ $route.params._id }}
     </h1>
     {{ coursesData }}
   </div>

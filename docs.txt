@@ -1,0 +1,83 @@
+Documentación SEGOSchool API public:
+
+Rutas públicas (https://segoschool-api.herokuapp.com/public):
+
+Escuelas (Carreras):
+	Todas las escuelas (carreras) de un cliente
+	/schools/client?:clientId
+    res:
+      {
+        schools: [{...}, {...}, ..., {...}]
+      }
+
+	Una escuela específica (_id)
+	/school/id?:schoolId
+    res:
+      { school: {...} }
+
+Divisiones (Grados/Niveles/Programas):
+	Todas las divisiones (programas) de un cliente
+	/divisions/client?:clientId
+    res:
+      {
+        divisions: [{...}, {...}, ..., {...}]
+      }
+
+	Todas las divisiones de una escuela (carrera)
+	/divisions/school?:schoolId
+    res:
+      {
+        divisions: [{...}, {...}, ..., {...}]
+      }
+
+	Una división específica (_id)
+	/division/id?:divisionId
+    res:
+      { division: {...} }
+
+Cursos (Asignaturas):
+	Todos los cursos de un cliente
+	/courses/client?:clientId/all
+    res:
+      {
+        courses: [{...}, {...}, ..., {...}]
+      }
+
+	Los cursos de una página específica
+	/courses/client?:clientId/:page/:perPage
+    res:
+      {
+        courses: [{...}, {...}, ..., {...}],
+        current: Number, // Página actual
+        pages: Number, // Número de páginas
+        total: Number // Total de items
+      }
+
+	Búsqueda de cursos por nombre (name) paginado
+	/courses/client?:clientId/search:?:search/:page/:perPage
+    res:
+      {
+        courses: [{...}, {...}, ..., {...}],
+        current: Number, // Página actual
+        pages: Number, // Número de páginas
+        total: Number // Total de items
+      }
+
+	Todos los cusos de una escuela (carrera)
+	/courses/school?:schoolId/all
+    res:
+      {
+        courses: [{...}, {...}, ..., {...}]
+      }
+
+	Todos los cursos de una división (programa)
+	/courses/division?:divisionId/all
+    res:
+      {
+        courses: [{...}, {...}, ..., {...}]
+      }
+
+	Un curso específico (_id)
+	/course/id?:courseId
+    res:
+      { course: {...} }

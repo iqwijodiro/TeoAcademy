@@ -56,7 +56,7 @@
             </v-card>
           </v-col>
           <v-col lg="4" md="6" sm="10" class="mx-auto">
-            <v-img :src="require('../assets/img/ebook1.webp')" class="rounded" />
+            <v-img src="https://images.unsplash.com/photo-1454817481404-7e84c1b73b4a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80)" class="rounded" />
           </v-col>
         </v-row>
       </v-container>
@@ -149,7 +149,7 @@
                       {{ quote.text }}
                     </p>
                     <v-avatar size="95" class="mb-4">
-                      <v-img :src="require('../assets/img/' + quote.avatar)" />
+                      <v-img :src="quote.avatar" />
                     </v-avatar>
                     <h3 class="name">
                       {{ quote.name }}
@@ -222,7 +222,7 @@
               sm="12"
               class="order-1 order-lg-3"
             >
-              <v-img :src="require('../assets/img/' + evento.img)" class="rounded fill-height" min-height="200px" />
+              <v-img :src="evento.img" class="rounded fill-height" min-height="200px" />
             </v-col>
           </v-row>
         </v-container>
@@ -248,7 +248,7 @@
                 <v-carousel-item v-for="(partner, i) in partners" :key="i" class="card-member mx-auto">
                   <v-card max-width="90%" elevation="0" light class="mx-auto d-flex flex-column justify-center align-center py-5">
                     <v-avatar style="border-radius: 50%" size="125" class="mb-4">
-                      <v-img :src="require('../assets/img/' + partner.avatar)" />
+                      <v-img :src="partner.avatar" />
                     </v-avatar>
                     <h3 class="name">
                       {{ partner.member }}
@@ -288,7 +288,7 @@
                     </v-card-title>
                     <div class="d-flex justify-start align-start px-2">
                       <v-avatar size="45" class="mb-4 mx-2">
-                        <v-img :src="require('../assets/img/' + entry.avatar)" />
+                        <v-img :src="entry.avatar" />
                       </v-avatar>
                       <div class="px-2 mr-3">
                         <h4 class="author mb-2">
@@ -431,28 +431,28 @@ export default {
       ],
       quotes: [
         {
-          avatar: 'adriana.webp',
+          avatar: 'https://randomuser.me/api/portraits/women/3.jpg',
           text:
             '"Hacer el programa Teo 100 ha representado para mi vida una gran oportunidad de cambio. La experiencia ha sido super enriquecedora y amena. Agradezco mucho el acompañamiento que me dieron. Los recursos son de mucha calidad. Voy por mas."',
           name: 'Adriana Campos',
           job: 'Lic. Business Management'
         },
         {
-          avatar: 'gustavo.webp',
+          avatar: 'https://randomuser.me/api/portraits/men/82.jpg',
           text:
             '"Hacer el programa Teo 100 ha representado para mi vida una gran oportunidad de cambio. La experiencia ha sido super enriquecedora y amena. Agradezco mucho el acompañamiento que me dieron. Los recursos son de mucha calidad. Voy por mas."',
           name: 'Gustavo Campos',
           job: 'Lic. Business Management'
         },
         {
-          avatar: 'winder.webp',
+          avatar: 'https://lh3.googleusercontent.com/ogw/ADGmqu92UHJOEtoubLZW2b6fItrHIOvxKRUtHvIIMVuAEg=s83-c-mo',
           text:
             '"Hacer el programa Teo 100 ha representado para mi vida una gran oportunidad de cambio. La experiencia ha sido super enriquecedora y amena. Agradezco mucho el acompañamiento que me dieron. Los recursos son de mucha calidad. Voy por mas."',
           name: 'Winder Díaz',
           job: 'Frontend Developer'
         },
         {
-          avatar: 'aquiles.webp',
+          avatar: 'https://randomuser.me/api/portraits/men/13.jpg',
           text:
             '"Hacer el programa Teo 100 ha representado para mi vida una gran oportunidad de cambio. La experiencia ha sido super enriquecedora y amena. Agradezco mucho el acompañamiento que me dieron. Los recursos son de mucha calidad. Voy por mas."',
           name: 'Aquiles Campos',
@@ -466,7 +466,7 @@ export default {
           date: 1,
           month: 'Abril',
           day: 'Jueves',
-          img: 'event-1.webp'
+          img: 'https://images.unsplash.com/photo-1510590337019-5ef8d3d32116?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
         },
         {
           title: 'El proceso de la iniciación cristiana',
@@ -474,7 +474,7 @@ export default {
           date: 6,
           month: 'Mayo',
           day: 'Jueves',
-          img: 'event-2.webp'
+          img: 'https://images.unsplash.com/photo-1502101872923-d48509bff386?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80'
         },
         {
           title: 'Importancia de la formación bíblica para el desarrollo del cristiano',
@@ -482,30 +482,30 @@ export default {
           date: 3,
           month: 'Junio',
           day: 'Jueves',
-          img: 'event-3.webp'
+          img: 'https://images.unsplash.com/photo-1516733725897-1aa73b87c8e8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
         }
       ],
       partners: [
         {
-          avatar: 'gustavo.webp',
+          avatar: 'https://randomuser.me/api/portraits/men/82.jpg',
           member: 'Gustavo Campos',
           role: 'Fundador - Colaborador',
           text: 'Participar en la fundación y actividades de Teo Academy ha sido una experiencia única y enriquecedora para mi vida y la de mis allegados.'
         },
         {
-          avatar: 'adriana.webp',
+          avatar: 'https://randomuser.me/api/portraits/women/3.jpg',
           member: 'Adriana Campos',
           role: 'Fundador - Colaborador',
           text: 'Participar en la fundación y actividades de Teo Academy ha sido una experiencia única y enriquecedora para mi vida y la de mis allegados.'
         },
         {
-          avatar: 'aquiles.webp',
+          avatar: 'https://randomuser.me/api/portraits/men/13.jpg',
           member: 'Aquiles Campos',
           role: 'Fundador - Colaborador',
           text: 'Participar en la fundación y actividades de Teo Academy ha sido una experiencia única y enriquecedora para mi vida y la de mis allegados.'
         },
         {
-          avatar: 'vladimir.webp',
+          avatar: 'https://randomuser.me/api/portraits/men/11.jpg',
           member: 'Vladimir Rueda',
           role: 'CTO - Founder',
           text: 'Participar en la fundación y actividades de Teo Academy ha sido una experiencia única y enriquecedora para mi vida y la de mis allegados.'
@@ -513,44 +513,44 @@ export default {
       ],
       entries: [
         {
-          img: require('../assets/img/blog-1.webp'),
+          img: 'https://images.unsplash.com/photo-1555935288-ad7bad5d006b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
           title: 'Fundamentos de la fe cristiana',
-          avatar: 'gustavo.webp',
+          avatar: 'https://randomuser.me/api/portraits/men/82.jpg',
           author: 'Gustavo Campos',
           date: '01/03/2021'
         },
         {
-          img: require('../assets/img/blog-2.webp'),
+          img: 'https://images.unsplash.com/photo-1590363763899-f0b78a7bb968?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
           title: 'Fundamentos de la fe cristiana',
-          avatar: 'adriana.webp',
+          avatar: 'https://randomuser.me/api/portraits/women/3.jpg',
           author: 'Adriana Campos',
           date: '01/03/2021'
         },
         {
-          img: require('../assets/img/blog-3.webp'),
+          img: 'https://images.unsplash.com/photo-1611525464734-aa4126eb6a8c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
           title: 'Fundamentos de la fe cristiana',
-          avatar: 'gustavo.webp',
+          avatar: 'https://randomuser.me/api/portraits/men/82.jpg',
           author: 'Gustavo Campos',
           date: '01/03/2021'
         },
         {
-          img: require('../assets/img/event-1.webp'),
+          img: 'https://images.unsplash.com/photo-1482920387559-08269818bcfc?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80',
           title: 'Fundamentos de la Teología Biblica',
-          avatar: 'winder.webp',
+          avatar: 'https://randomuser.me/api/portraits/men/48.jpg',
           author: 'Winder Díaz',
           date: '01/03/2021'
         },
         {
-          img: require('../assets/img/blog-1.webp'),
+          img: 'https://images.unsplash.com/photo-1577760263010-ebfa5798337c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80',
           title: 'Beneficios de la educación online',
-          avatar: 'vladimir.webp',
+          avatar: 'https://randomuser.me/api/portraits/men/11.jpg',
           author: 'Vladimir Rueda',
           date: '01/03/2021'
         },
         {
-          img: require('../assets/img/blog-1.webp'),
+          img: 'https://images.unsplash.com/photo-1602058176018-7915d6bd37ae?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
           title: 'Conflictos de la personalidad',
-          avatar: 'aquiles.webp',
+          avatar: 'https://randomuser.me/api/portraits/men/13.jpg',
           author: 'Aquiles Campos',
           date: '01/03/2021'
         }

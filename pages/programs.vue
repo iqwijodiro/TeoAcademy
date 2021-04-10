@@ -39,7 +39,7 @@
           <v-container class="gutter-p">
             <v-row
               v-for="program in props.items"
-              :key="program.id"
+              :key="program._id"
               no-gutters
               justify="center"
               class="pt-5 mt-5"
@@ -56,7 +56,7 @@
                     sm="6"
                     class="pa-0"
                   >
-                    <v-img :src="program.imgFileProps" class="rounded-l-lg pa-0 ma-0 fill-height" />
+                    <v-img :src="program.imgUrl" class="rounded-l-lg pa-0 ma-0 fill-height" />
                   </v-col>
                   <v-col
                     xl="6"
@@ -71,15 +71,15 @@
                     </v-card-title>
                     <v-card-text class="pa-0 mb-5">
                       <p class="text">
-                        Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.
+                        {{ program.description }}
                       </p>
                     </v-card-text>
-                    <div class="d-flex mb-5">
+                    <div v-if="program.features && program.features.resources" class="d-flex mb-5">
                       <v-icon class="icon mr-5">
                         mdi-book-open-page-variant-outline
                       </v-icon>
                       <p class="text">
-                        {{ program.resources }} recursos descargables
+                        {{ program.features.resources.length }} recursos descargables
                       </p>
                     </div>
                     <div class="d-flex mb-5">
@@ -100,10 +100,10 @@
                       >
                         <div class="text-center">
                           <span class="priceOld mr-2">
-                            $100
+                            ${{ program.features.priceInfo.price }}
                           </span>
                           <span class="priceNew mr-2">
-                            ${{ program.priceInfo }}
+                            ${{ program.features.priceInfo.finalPrice }}
                           </span>
                           <p class="text-sm">
                             hasta <br> DD-MM-AAAA
@@ -307,13 +307,14 @@
 
 <script>
 export default {
-  async asyncData ({ $axios }) {
-    const programs = await $axios.$get('https://6053662645e4b30017291968.mockapi.io/courses/segoapi')
-    return { programs }
-  },
+  // async asyncData ({ $axios }) {
+  //   const programs = await $axios.$get('https://6053662645e4b30017291968.mockapi.io/courses/segoapi')
+  //   return { programs }
+  // },
   data () {
     return {
       title: 'Nuestros Programas',
+      programs: [],
       page: 1,
       pages: 1,
       pagination: {
@@ -408,7 +409,14 @@ export default {
       return this.rpp
     }
   },
+  mounted () {
+    this.getPrograms()
+  },
   methods: {
+    async getPrograms () {
+      const data = await this.$axios.$get(`${this.$store.state.urlAPI}/divisions/client6049278bc32f0d0015e108e9`)
+      this.programs = data.divisions
+    },
     handlePageChange (value) {
       this.page = value
     },

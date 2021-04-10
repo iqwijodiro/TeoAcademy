@@ -20,6 +20,9 @@ export default {
       { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css' }
     ]
   },
+  env: {
+    api: process.env.SEGO_API
+  },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
