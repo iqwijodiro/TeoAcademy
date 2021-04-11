@@ -57,7 +57,7 @@
                       solo
                     />
                   </v-col> -->
-                  <div class="d-flex justify-center col-12 mx-auto">
+                  <div class="col-12 mx-auto">
                     <v-col
                       cols="12"
                       lg="4"
@@ -108,7 +108,7 @@
                 v-for="course in props.items"
                 :key="course._id"
               >
-                <v-card elevation="5" height="510px" max-width="325px" class="card rounded-lg mx-3 my-5 pb-2 d-flex flex-column justify-space-between">
+                <v-card elevation="5" height="100%" max-height="530px" max-width="325px" class="card rounded-lg mx-3 my-5 pb-2 d-flex flex-column justify-space-between">
                   <v-img
                     :src="course.imgUrl"
                     height="47%"

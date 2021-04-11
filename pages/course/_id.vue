@@ -214,7 +214,6 @@ export default {
   data () {
     return {
       courseId: null,
-      // courseTitle: ,
       // subtitle: 'Conoce los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental',
       // imgCourse: require('../assets/img/IniciacionCristiana.webp'),
       // description: 'En este curso se abordan los aspectos fundamentales de la vida espiritual cristiana, Duis sit amet ligula varius, interdum quam ut, rutrum tellus. Suspendisse pulvinar lectus sed quam hendrerit fermentum. Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus',
