@@ -30,6 +30,7 @@ $desktop: 1260px;
 $largeDesktop: 1440px;
 $xlDesktop: 1940px;
 
+
 /** Mixins **/ 
 @mixin miniTelefono {
     @media (min-width: $miniTelefono) {

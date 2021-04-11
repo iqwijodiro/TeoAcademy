@@ -23,7 +23,7 @@
             >
               <v-container>
                 <v-row>
-                  <v-col
+                  <!-- <v-col
                     cols="12"
                     lg="4"
                     xl="4"
@@ -56,24 +56,37 @@
                       required
                       solo
                     />
-                  </v-col>
-                  <v-col
-                    cols="12"
-                    lg="4"
-                    xl="4"
-                    md="4"
-                    class="py-0 my-1"
-                  >
-                    <v-text-field
-                      id="search"
-                      v-model="search"
-                      placeholder="Buscar curso..."
-                      solo
-                      append-icon="mdi-magnify"
-                      autofocus
-                      @keyup.enter="submit"
-                    />
-                  </v-col>
+                  </v-col> -->
+                  <div class="d-flex justify-center col-12 mx-auto">
+                    <v-col
+                      cols="12"
+                      lg="4"
+                      xl="4"
+                      md="4"
+                      class="py-0 my-1"
+                    >
+                      <v-text-field
+                        id="search"
+                        v-model="search"
+                        placeholder="Buscar curso..."
+                        solo
+                        append-icon="mdi-magnify"
+                        autofocus
+                        @keyup.enter="searchData"
+                      />
+                    </v-col>
+                    <v-col
+                      xl="2"
+                      lg="2"
+                      md="3"
+                      sm="6"
+                      class="pa-0"
+                    >
+                      <v-btn width="85%" max-width="200px" class="btn d-block" @click="searchData">
+                        Buscar
+                      </v-btn>
+                    </v-col>
+                  </div>
                 </v-row>
               </v-container>
             </v-form>
@@ -142,7 +155,7 @@
         </template>
         <template #footer>
           <v-row justify="center" class="mt-5 py-5">
-            <span class="text mr-5">
+            <!-- <span class="text mr-5">
               Pagina {{ page }} de
               <span class="gray-m-font" v-text="pages" />
             </span>
@@ -165,7 +178,15 @@
               @click="nextPage"
             >
               <v-icon>mdi-chevron-right</v-icon>
-            </v-btn>
+            </v-btn> -->
+            <v-pagination
+              v-model="page"
+              :length="pages"
+              color="#2ec4b6"
+              next-icon="mdi-chevron-right"
+              prev-icon="mdi-chevron-left"
+              class="pagination"
+            />
           </v-row>
         </template>
       </v-data-iterator>
@@ -247,25 +268,14 @@ export default {
       this.pages = data.pages
       this.courses = data.courses
     },
-    async submit () {
-      this.courses = await this.$axios.$get(`${this.$store.state.urlAPI}/courses/client6049278bc32f0d0015e108e9/all/search${this.search}/${this.page}/12`)
+    async searchData () {
+      const searched = await this.$axios.$get(`${this.$store.state.urlAPI}/courses/client6049278bc32f0d0015e108e9/search:?${this.search}/${this.page}/${this.ipp}`)
+      this.pages = searched.pages
+      this.courses = searched.courses
     },
     setCourse (course) {
       this.$store.commit('setCourse', course)
       this.$router.replace('/course/' + course._id)
-    },
-    handlePageChange (value) {
-      this.page = value
-    },
-    nextPage () {
-      if (this.page + 1 <= this.pages) {
-        this.page += 1
-      }
-    },
-    formerPage () {
-      if (this.page - 1 >= 1) {
-        this.page -= 1
-      }
     },
     calcRowsPerPage () {
       const container = document.getElementById('container')
@@ -356,4 +366,9 @@ export default {
 .mdi-chevron-right {
   border: none;
 }
+.pagination{
+  font-size: 2rem;
+
+}
+
 </style>
