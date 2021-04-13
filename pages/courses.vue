@@ -249,11 +249,11 @@ export default {
       this.pages = data.pages
       this.courses = data.courses
     },
-    // async searchData () {
-    //   const searched = await this.$axios.$get(`${this.$store.state.urlAPI}/courses/client6049278bc32f0d0015e108e9/search:?${this.search}/${this.page}/${this.ipp}`)
-    //   this.pages = searched.pages
-    //   this.courses = searched.courses
-    // },
+    async searchData () {
+      const searched = await this.$axios.$get(`${this.$store.state.urlAPI}/courses/client6049278bc32f0d0015e108e9/search:?${this.search}/${this.page}/${this.ipp}`)
+      this.pages = searched.pages
+      this.courses = searched.courses
+    },
     setCourse (course) {
       this.$store.commit('setCourse', course)
       this.$router.replace('/course/' + course._id)
