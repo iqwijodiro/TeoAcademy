@@ -96,22 +96,22 @@
     </div>
     <main class="gallery gutter-p">
       <v-data-iterator
-        :items="courses"
+        :items="filteredCourses"
         :items-per-page="ipp"
         :page.sync="page"
         hide-default-footer
       >
         <template #default="props">
           <v-container>
-            <v-row id="container" class="overflow-auto">
+            <v-row id="container" justify="center">
               <v-col
                 v-for="course in props.items"
                 :key="course._id"
               >
-                <v-card elevation="5" height="100%" max-height="530px" max-width="325px" class="card rounded-lg mx-3 my-5 pb-2 d-flex flex-column justify-space-between">
+                <v-card elevation="5" height="100%" max-height="500px" max-width="325px" class="card rounded-lg mx-3 my-5 pb-2 d-flex flex-column justify-space-between">
                   <v-img
                     :src="course.imgUrl"
-                    height="47%"
+                    height="45%"
                     max-height="230px"
                     class="mb-2"
                   />
@@ -155,30 +155,6 @@
         </template>
         <template #footer>
           <v-row justify="center" class="mt-5 py-5">
-            <!-- <span class="text mr-5">
-              Pagina {{ page }} de
-              <span class="gray-m-font" v-text="pages" />
-            </span>
-            <v-btn
-              small
-              rounded
-              dark
-              color="#2ec4b6"
-              class="mr-2"
-              @click="formerPage"
-            >
-              <v-icon>mdi-chevron-left</v-icon>
-            </v-btn>
-            <v-btn
-              small
-              rounded
-              dark
-              color="#2ec4b6"
-              class="ml-2"
-              @click="nextPage"
-            >
-              <v-icon>mdi-chevron-right</v-icon>
-            </v-btn> -->
             <v-pagination
               v-model="page"
               :length="pages"
@@ -207,7 +183,7 @@ export default {
       page: 1,
       pages: 1,
       rpp: 3,
-      ipp: 3,
+      ipp: 9,
       rowsPerPageArray: [6, 9, 12, 15],
       pagination: {
         rowsPerPage: 3
@@ -236,9 +212,9 @@ export default {
     numberOfPages () {
       return Math.ceil(this.courses.length / 9)
     },
-    // rowsPerPage () {
-    //   return this.rpp
-    // },
+    rowsPerPage () {
+      return this.rpp
+    },
     itemsPerRow () {
       switch (this.$vuetify.breakpoint.name) {
         case 'xs': return 1
@@ -248,11 +224,16 @@ export default {
         case 'xl': return 3
         default: return 9
       }
-    }
-    // ,
-    // ipp () {
+    },
+    // },
+    // itemsPerPage () {
     //   return Math.ceil(this.rowsPerPage * this.itemsPerRow)
-    // }
+    // },
+    filteredCourses () {
+      return this.courses.filter((course) => {
+        return course.name.toLowerCase().match(this.search.toLowerCase())
+      })
+    }
   },
   watch: {
     page () {
@@ -268,11 +249,11 @@ export default {
       this.pages = data.pages
       this.courses = data.courses
     },
-    async searchData () {
-      const searched = await this.$axios.$get(`${this.$store.state.urlAPI}/courses/client6049278bc32f0d0015e108e9/search:?${this.search}/${this.page}/${this.ipp}`)
-      this.pages = searched.pages
-      this.courses = searched.courses
-    },
+    // async searchData () {
+    //   const searched = await this.$axios.$get(`${this.$store.state.urlAPI}/courses/client6049278bc32f0d0015e108e9/search:?${this.search}/${this.page}/${this.ipp}`)
+    //   this.pages = searched.pages
+    //   this.courses = searched.courses
+    // },
     setCourse (course) {
       this.$store.commit('setCourse', course)
       this.$router.replace('/course/' + course._id)

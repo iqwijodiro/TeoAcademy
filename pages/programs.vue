@@ -133,7 +133,7 @@
                         md="4"
                         class="px-2"
                       >
-                        <v-btn to="/program" class="btn">
+                        <v-btn class="btn" @click="setProgram(program)">
                           Leer más
                         </v-btn>
                       </v-col>
@@ -173,113 +173,6 @@
           </v-row>
         </template>
       </v-data-iterator>
-      <!-- <v-container class="gutter-p">
-        <v-row
-          v-for="(program, i) in programs"
-          :key="i"
-          no-gutters
-          justify="center"
-          class="pt-5 mt-5"
-        >
-          <v-col>
-            <v-card
-              elevation="5"
-              class="d-flex flex-column flex-sm-row program-card pa-0 rounded-lg mb-10"
-            >
-              <v-col
-                xl="6"
-                lg="6"
-                md="6"
-                sm="6"
-                class="pa-0"
-              >
-                <v-img :src="program.img" class="rounded-l-lg pa-0 ma-0 fill-height" />
-              </v-col>
-              <v-col
-                xl="6"
-                lg="6"
-                md="6"
-                class="px-8 py-5"
-              >
-                <v-card-title class="pa-0">
-                  <h2 class="fw-300 gray-m-font">
-                    {{ program.title }}
-                  </h2>
-                </v-card-title>
-                <v-card-text class="pa-0 mb-5">
-                  <p class="text">
-                    {{ program.content }}
-                  </p>
-                </v-card-text>
-                <div class="d-flex mb-5">
-                  <v-icon class="icon mr-5">
-                    mdi-book-open-page-variant-outline
-                  </v-icon>
-                  <p class="text">
-                    {{ program.resources }} recursos descargables
-                  </p>
-                </div>
-                <div class="d-flex mb-5">
-                  <v-icon class="icon mr-5">
-                    mdi-school
-                  </v-icon>
-                  <p class="text">
-                    Dirigido a quienes inician en estudios teologicos
-                  </p>
-                </div>
-                <v-row class="minirow d-flex justify-start align-center ma-0">
-                  <v-col
-                    cols="12"
-                    lg="4"
-                    xl="4"
-                    md="4"
-                    class="px-2"
-                  >
-                    <div class="text-center">
-                      <span class="priceOld mr-2">
-                        $100
-                      </span>
-                      <span class="priceNew mr-2">
-                        ${{ program.price }}
-                      </span>
-                      <p class="text-sm">
-                        hasta <br> DD-MM-AAAA
-                      </p>
-                    </div>
-                  </v-col>
-                  <v-col
-                    cols="12"
-                    lg="4"
-                    xl="4"
-                    md="4"
-                    class="px-2"
-                  >
-                    <div class="text-center px-2">
-                      <v-icon>
-                        mdi-earth
-                      </v-icon>
-                      <p class="text-sm mt-2">
-                        Descuentos aplican segun tu país
-                      </p>
-                    </div>
-                  </v-col>
-                  <v-col
-                    cols="12"
-                    lg="4"
-                    xl="4"
-                    md="4"
-                    class="px-2"
-                  >
-                    <v-btn class="btn">
-                      Leer más
-                    </v-btn>
-                  </v-col>
-                </v-row>
-              </v-col>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-container> -->
     </main>
     <section class="register">
       <v-container>
@@ -307,10 +200,6 @@
 
 <script>
 export default {
-  // async asyncData ({ $axios }) {
-  //   const programs = await $axios.$get('https://6053662645e4b30017291968.mockapi.io/courses/segoapi')
-  //   return { programs }
-  // },
   data () {
     return {
       title: 'Nuestros Programas',
@@ -410,12 +299,17 @@ export default {
     }
   },
   mounted () {
-    this.getPrograms()
+    this.getPrograms(this.page)
   },
   methods: {
     async getPrograms () {
       const data = await this.$axios.$get(`${this.$store.state.urlAPI}/divisions/client6049278bc32f0d0015e108e9`)
+      this.pages = data.pages
       this.programs = data.divisions
+    },
+    setProgram (program) {
+      this.$store.commit('setProgram', program)
+      this.$router.replace('/program/' + program._id)
     },
     handlePageChange (value) {
       this.page = value

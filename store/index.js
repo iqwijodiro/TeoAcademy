@@ -6,5 +6,8 @@ export const state = () => ({
 export const mutations = {
   setCourse (state, obj) {
     state.course = obj
+  },
+  setProgram (state, obj) {
+    state.division = obj
   }
 }
