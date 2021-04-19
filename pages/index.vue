@@ -4,14 +4,13 @@
       <div class="mask" />
       <v-row class="rail">
         <v-col
-          cols="12"
-          lg="5"
+          lg="6"
           xl="5"
           md="8"
           sm="8"
-          class="px-5"
+          class="px-5 ml-15"
         >
-          <v-card elevation="10" class="hero-card rounded-lg text-center py-3">
+          <v-card elevation="5" class="hero-card rounded-lg text-center py-3">
             <v-card-title class="mx-auto pb-0">
               <h1 class="fw-700 text-center mx-4">
                 Formación con alcance eterno
@@ -201,8 +200,8 @@
               </div>
             </v-card>
           </v-col>
-          <v-col lg="4" md="6" sm="10" class="mx-auto">
-            <v-img src="https://images.unsplash.com/photo-1454817481404-7e84c1b73b4a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80)" class="rounded" />
+          <v-col xl="6" lg="6" md="6" sm="10" class="mx-auto">
+            <v-img max-width="500px" :src="require('../assets/img/ebook_index.jpeg')" class="rounded" />
           </v-col>
         </v-row>
       </v-container>
@@ -270,7 +269,7 @@
       </v-container>
     </section>
     <!--Seccion de los mejores cursos-->
-    <section class="students mt-5 py-5">
+    <section class="students mt-5 py-5 d-flex align-center">
       <v-container class="d-flex justify-center align-center">
         <v-row justify="center">
           <v-col
@@ -327,7 +326,7 @@
               lg="2"
               md="4"
               sm="6"
-              class="order-3 order-lg-1 mx-auto"
+              class="order-1 order-lg-1 mx-auto"
             >
               <div class="date-box">
                 <div class="d-inline-flex">
@@ -347,7 +346,7 @@
               lg="7"
               md="6"
               sm="12"
-              class="order-2 order-lg-2 mx-auto"
+              class="order-3 order-lg-2 mx-auto"
             >
               <div class="event-center mx-auto">
                 <h3 class="event-title gray-m-font">
@@ -369,7 +368,7 @@
               lg="3"
               md="2"
               sm="12"
-              class="order-1 order-lg-3"
+              class="order-2 order-lg-3"
             >
               <v-img :src="evento.img" class="rounded fill-height" min-height="200px" />
             </v-col>
@@ -418,7 +417,7 @@
       </v-container>
     </section>
     <!-- Nuestro Blog -->
-    <section class="blog gutter-p mb-5 pb-5">
+    <section class="blog gutter-p mb-4 pb-5">
       <v-container>
         <h2 class="text-start ml-3">
           Nuestro Blog
@@ -427,7 +426,7 @@
           <v-col>
             <v-slide-group arrows class="my-3 my-slider">
               <v-slide-item v-for="(entry, i) in entries" :key="i" class="slide ma-5">
-                <v-card elevation="5" max-width="315px" height="315px" class="blog-card d-flex align-end rounded-xl">
+                <v-card elevation="5" max-width="310px" height="310px" class="blog-card d-flex align-end rounded-xl">
                   <v-img
                     :src="entry.img"
                     height="100%"
@@ -760,8 +759,10 @@ export default {
       display: inline-block !important;
     }
     .rail {
+      display: flex;
+      justify-content: end;
       .hero-card {
-        min-height: 330px !important;
+        min-height: 310px !important;
       }
     }
   }
@@ -837,11 +838,6 @@ export default {
       line-height: 1.4;
     }
     .quote-slider {
-      .card-quote {
-        padding: 0 !important;
-        border: none !important;
-        box-shadow: none !important;
-      }
       .quote {
         color: $gray-mid;
         font-size: $link + .2rem;
@@ -865,7 +861,7 @@ export default {
         font-size: $link + .8rem;
       }
     .bg-sheet {
-        max-height: 580px;
+        max-height: 650px;
       }
   }
   @include telefono {
@@ -884,7 +880,7 @@ export default {
   @include lgdesktop {
     .students {
       // max-height: 60vh;
-      max-height: 75vh;
+      height: 70vh;
       }
       .quote {
         font-size: $link + .4rem;
@@ -973,9 +969,9 @@ export default {
         font-weight: 400 !important;
       }
       .member {
-        font-size: $link + .4rem;
+        font-size: $link + .2rem;
         text-align: center;
-        line-height: 1.4;
+        line-height: 1.5;
         margin: 1rem;
         color: $gray-mid;
        }
