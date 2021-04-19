@@ -4,7 +4,6 @@
       <div class="mask" />
       <v-row justify="center" class="rail">
         <v-col
-          cols="12"
           lg="10"
           sm="10"
           xs="10"
@@ -436,7 +435,8 @@ export default {
   .btn {
     display: block;
   }
-  @include tablet {
+}
+@include tablet {
     .text {
       line-height: 2;
     }
@@ -461,7 +461,6 @@ export default {
       justify-content: center !important;
     }
   }
-}
 .ebook {
   background-image: url(../assets/img/wave.svg);
   background-size: cover;

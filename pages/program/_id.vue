@@ -335,7 +335,7 @@ export default {
     async getProgramId () {
       const data = await this.$axios
         .$get(`${this.$store.state.urlAPI}/divisions/id${this.programId}`)
-      this.$store.commit('setProgram', data.program)
+      this.$store.commit('setProgram', data.division)
     }
   }
 }

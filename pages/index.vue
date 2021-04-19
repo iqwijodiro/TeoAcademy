@@ -25,9 +25,89 @@
             <v-btn to="/courses" class="btn">
               Nuestros Cursos
             </v-btn>
-            <v-btn to="/courses" class="btn">
-              Contáctanos
-            </v-btn>
+            <v-dialog
+              v-model="dialogContact"
+              transition="dialog-top-transition"
+              persistent
+              max-width="650px"
+            >
+              <template #activator="{ on, attrs }">
+                <v-btn
+                  class="btn"
+                  v-bind="attrs"
+                  v-on="on"
+                >
+                  Contáctanos
+                </v-btn>
+              </template>
+              <v-card class="pt-5">
+                <h2 class="text-center red-font">
+                  Contáctanos
+                </h2>
+                <v-container>
+                  <v-row justify="center">
+                    <v-col
+                      xl="10"
+                      lg="10"
+                    >
+                      <v-text-field
+                        :rules="[validationRules.required, validationRules.email]"
+                        solo
+                        clearable
+                        label="Nombre"
+                        required
+                      />
+                      <v-text-field
+                        v-model="email"
+                        :rules="[validationRules.required, validationRules.email]"
+                        solo
+                        clearable
+                        label="Email"
+                        required
+                      />
+                      <v-text-field
+                        :rules="[validationRules.required, validationRules.email]"
+                        solo
+                        clearable
+                        label="País"
+                        required
+                      />
+                      <v-text-field
+                        solo
+                        clearable
+                        label="Teléfono (opcional)"
+                        required
+                        type="number"
+                      />
+                      <v-textarea
+                        :rules="[validationRules.required, validationRules.email]"
+                        solo
+                        clearable
+                        label="Coméntanos tu solicitud (requerido)"
+                        auto-grow
+                      />
+                    </v-col>
+                  </v-row>
+                </v-container>
+                <v-card-actions>
+                  <v-spacer />
+                  <div class="centrar">
+                    <v-btn
+                      class="btn"
+                      @click="dialogContact = false"
+                    >
+                      Enviar
+                    </v-btn>
+                    <v-btn
+                      class="btn"
+                      @click="dialogContact = false"
+                    >
+                      Cerrar
+                    </v-btn>
+                  </div>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
           </v-card>
         </v-col>
       </v-row>
@@ -49,9 +129,75 @@
                 Descarga gratis nuestro ebook
               </h2>
               <div class="centrar">
-                <v-btn class="btn">
-                  Descargar
-                </v-btn>
+                <v-dialog
+                  v-model="dialogEbook"
+                  transition="dialog-top-transition"
+                  persistent
+                  max-width="350px"
+                >
+                  <template #activator="{ on, attrs}">
+                    <v-btn
+                      class="btn"
+                      v-bind="attrs"
+                      v-on="on"
+                    >
+                      Descargar
+                    </v-btn>
+                  </template>
+                  <v-card class="pa-5">
+                    <h2 class="text-center red-font">
+                      Solicita nuestro ebook gratis
+                    </h2>
+                    <v-container>
+                      <v-row justify="center">
+                        <v-col
+                          xl="10"
+                          lg="10"
+                          class="pa-0"
+                        >
+                          <v-text-field
+                            :rules="[validationRules.required, validationRules.email]"
+                            solo
+                            clearable
+                            label="Nombre"
+                            required
+                          />
+                          <v-text-field
+                            v-model="email"
+                            :rules="[validationRules.required, validationRules.email]"
+                            solo
+                            clearable
+                            label="Email"
+                            required
+                          />
+                          <v-text-field
+                            :rules="[validationRules.required, validationRules.email]"
+                            solo
+                            clearable
+                            label="País"
+                            required
+                          />
+                        </v-col>
+                      </v-row>
+                    </v-container>
+                    <v-card-actions class="d-flex justify-center">
+                      <div class="centrar">
+                        <v-btn
+                          class="btn"
+                          @click="dialogEbook = false"
+                        >
+                          Enviar
+                        </v-btn>
+                        <v-btn
+                          class="btn"
+                          @click="dialogEbook = false"
+                        >
+                          Cerrar
+                        </v-btn>
+                      </div>
+                    </v-card-actions>
+                  </v-card>
+                </v-dialog>
               </div>
             </v-card>
           </v-col>
@@ -72,42 +218,44 @@
             cols="12"
           >
             <v-slide-group multiple arrows class="my-3 my-slider">
-              <v-slide-item v-for="(course, i) in courses" :key="i" class="slides ma-5">
-                <v-card elevation="5" max-width="315px" class="rounded-lg">
+              <v-slide-item v-for="course in courses" :key="course._id" class="slides">
+                <v-card elevation="5" height="100%" max-height="500px" max-width="315px" class="card rounded-lg mx-4 my-5 pb-2 d-flex flex-column justify-space-between">
                   <v-img
-                    :src="course.img"
-                    height="47%"
+                    :src="course.imgUrl"
+                    height="45%"
+                    max-height="230px"
+                    class="mb-2"
                   />
                   <v-card-title class="card-title">
-                    {{ course.title }}
+                    {{ course.name }}
                   </v-card-title>
                   <v-card-text class="text-card">
-                    {{ course.text }}
+                    {{ course.subName }}
                   </v-card-text>
                   <v-row class="minirow d-flex justify-center align-center py-1">
-                    <div class="my-2 mr-2">
+                    <div v-if="course.structure && course.structure.sections" class="my-2 mr-2">
                       <p class="ma-0 px-3">
-                        {{ course.modules }} <br>
+                        {{ course.structure.sections.length }} <br>
                         Módulos
                       </p>
                     </div>
-                    <div class="my-2 mr-2">
+                    <div v-if="course.features && course.features.resources" class="my-2 mr-2">
                       <p class="ma-0 px-3">
-                        {{ course.resources }} <br>
+                        {{ course.features.resources.length }} <br>
                         Recursos
                       </p>
                     </div>
                     <div>
                       <span class="priceOld mr-2">
-                        ${{ course.priceOld }}
+                        ${{ parseInt(course.features.priceInfo.price) }}
                       </span>
                       <span class="priceNew mr-2">
-                        ${{ course.priceNew }}
+                        ${{ parseInt(course.features.priceInfo.finalPrice) }}
                       </span>
                     </div>
                   </v-row>
                   <div class="centrar mt-2">
-                    <v-btn class="minibtn mt-3">
+                    <v-btn class="minibtn mt-3" @click="setCourse(course)">
                       Ver Curso
                     </v-btn>
                   </div>
@@ -165,6 +313,7 @@
         </v-row>
       </v-container>
     </section>
+    <!-- ProximosEventos -->
     <section class="next-events gutter-p pb-5 mb-5">
       <v-container>
         <h2 class="d-flex align-start ml-5">
@@ -228,6 +377,7 @@
         </v-container>
       </v-container>
     </section>
+    <!-- Nuestro Equipo de trabajo -->
     <section class="our-team d-flex justify-center align-center">
       <div class="mask" />
       <v-container>
@@ -267,6 +417,7 @@
         </v-row>
       </v-container>
     </section>
+    <!-- Nuestro Blog -->
     <section class="blog gutter-p mb-5 pb-5">
       <v-container>
         <h2 class="text-start ml-3">
@@ -318,6 +469,7 @@
         </v-row>
       </v-container>
     </section>
+    <!-- Newsletter & inputEmail -->
     <section class="newsletter mt- pt-5">
       <v-container>
         <v-row class="d-flex justify-center align-center">
@@ -348,7 +500,7 @@
               <v-form v-model="valid" action="" class="form-box">
                 <v-text-field
                   v-model="email"
-                  :rules="emailRules"
+                  :rules="[validationRules.required, validationRules.email]"
                   label="E-mail"
                   required
                   clearable
@@ -372,63 +524,76 @@ export default {
     return {
       title: 'Inicio',
       valid: false,
+      dialogContact: false,
+      dialogEbook: false,
+      // emailRules: [
+      //   v => !!v || 'El E-mail es requerido',
+      //   v => /.+@.+/.test(v) || 'Debe ser un E-mail válido'
+      // ],
+      courses: [],
+      name: '',
       email: '',
-      emailRules: [
-        v => !!v || 'El E-mail es requerido',
-        v => /.+@.+/.test(v) || 'Debe ser un E-mail válido'
-      ],
-      courses: [
-        {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
-          text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-          modules: 9,
-          resources: 9,
-          priceOld: 19.99,
-          priceNew: 9.99
-        },
-        {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
-          text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-          modules: 9,
-          resources: 9,
-          priceOld: 19.99,
-          priceNew: 9.99
-        },
-        {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
-          text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-          modules: 9,
-          resources: 9,
-          priceOld: 19.99,
-          priceNew: 9.99
-        },
-        {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
-          text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-          modules: 9,
-          resources: 9,
-          priceOld: 19.99,
-          priceNew: 9.99
-        },
-        {
-          img: require('../assets/img/IniciacionCristiana.webp'),
-          title: 'El proceso de iniciacion Cristiana',
-          text:
-            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-          modules: 9,
-          resources: 9,
-          priceOld: 19.99,
-          priceNew: 9.99
+      country: '',
+      requestText: '',
+      validationRules: {
+        required: v => !!v || 'Campo Requerido',
+        email: (v) => {
+          const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+          return pattern.test(v) || 'E-mail inválido'
         }
-      ],
+      },
+      // courses: [
+      //   {
+      //     img: require('../assets/img/IniciacionCristiana.webp'),
+      //     title: 'El proceso de iniciacion Cristiana',
+      //     text:
+      //       'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+      //     modules: 9,
+      //     resources: 9,
+      //     priceOld: 19.99,
+      //     priceNew: 9.99
+      //   },
+      //   {
+      //     img: require('../assets/img/IniciacionCristiana.webp'),
+      //     title: 'El proceso de iniciacion Cristiana',
+      //     text:
+      //       'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+      //     modules: 9,
+      //     resources: 9,
+      //     priceOld: 19.99,
+      //     priceNew: 9.99
+      //   },
+      //   {
+      //     img: require('../assets/img/IniciacionCristiana.webp'),
+      //     title: 'El proceso de iniciacion Cristiana',
+      //     text:
+      //       'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+      //     modules: 9,
+      //     resources: 9,
+      //     priceOld: 19.99,
+      //     priceNew: 9.99
+      //   },
+      //   {
+      //     img: require('../assets/img/IniciacionCristiana.webp'),
+      //     title: 'El proceso de iniciacion Cristiana',
+      //     text:
+      //       'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+      //     modules: 9,
+      //     resources: 9,
+      //     priceOld: 19.99,
+      //     priceNew: 9.99
+      //   },
+      //   {
+      //     img: require('../assets/img/IniciacionCristiana.webp'),
+      //     title: 'El proceso de iniciacion Cristiana',
+      //     text:
+      //       'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+      //     modules: 9,
+      //     resources: 9,
+      //     priceOld: 19.99,
+      //     priceNew: 9.99
+      //   }
+      // ],
       quotes: [
         {
           avatar: 'https://randomuser.me/api/portraits/women/3.jpg',
@@ -561,6 +726,21 @@ export default {
     return {
       title: this.title
     }
+  },
+  mounted () {
+    this.getTopCourses()
+  },
+  methods: {
+    async getTopCourses () {
+      const data = await this.$axios.$get(`${this.$store.state.urlAPI}/courses/client6049278bc32f0d0015e108e9/all`)
+      this.courses = data.courses
+    },
+    validForm () {
+      const alert = document.querySelector('#divMsj')
+      if (!this.name && !this.email && !this.country && !this.requestText) {
+        alert.innerHTML = '<p class="card-title red-font text-center">Campo Requerido</p>'
+      }
+    }
   }
 }
 </script>
@@ -617,6 +797,9 @@ export default {
     color: $wine;
     text-align: center;
   }
+    .my-slider {
+      height: 550px;
+    }
   @include miniDesktop {
     h2 {
       margin-left: 7rem !important;

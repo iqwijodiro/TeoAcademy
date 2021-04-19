@@ -1,6 +1,7 @@
 export const state = () => ({
   urlAPI: process.env.api,
-  course: {}
+  course: {},
+  division: {}
 })
 
 export const mutations = {

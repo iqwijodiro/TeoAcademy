@@ -8,14 +8,7 @@
       color="white"
       class="appbar py-2"
     >
-      <v-container
-        cols="12"
-        xl="8"
-        lg="8"
-        md="10"
-        sm="10"
-        xs="12"
-      >
+      <v-container>
         <v-row class="d-flex justify-space-between align-items-center mt-3">
           <v-toolbar-title>
             <nuxt-link to="/">
@@ -29,9 +22,6 @@
           <v-list class="nav transparent hidden-sm-and-down">
             <v-item-group class="d-flex align-center">
               <v-list-item v-for="(item, i) in items" :key="i" class="px-1">
-                <!-- <v-icon class="icon">
-                  {{ item.icon }}
-                </v-icon> -->
                 <nuxt-link :to="item.to">
                   <v-list-item-title class="link" v-text="item.title" />
                 </nuxt-link>
@@ -118,10 +108,8 @@ export default {
           to: '/blog'
         }
       ],
-      // miniVariant: false,
       right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js'
+      rightDrawer: false
     }
   }
 }

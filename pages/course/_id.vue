@@ -70,14 +70,15 @@
             </ul>
             <v-card elevation="3" height="55" class="mx-auto my-5 card-title rounded-lg d-flex justify-center align-center">
               <div>
-                Costo:
+                Aporte:
                 <span class="priceOld mr-3">$19.99</span>
-                <span class="priceNew">$9.99</span>
+                <!-- <span class="priceNew">$9.99</span> -->
+                <span class="priceNew">Voluntario</span>
               </div>
             </v-card>
             <!-- <div class="centrar d-flex flex-column"> -->
             <v-btn width="95%" class="btn">
-              Comprar
+              Matricular
             </v-btn>
             <v-btn width="95%" class="btn">
               <v-icon size="30" class="mr-3">
