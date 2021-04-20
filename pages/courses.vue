@@ -63,7 +63,8 @@
                     v-model="search"
                     placeholder="Buscar curso..."
                     solo
-                    append-icon="mdi-magnify"
+                    clearable
+                    prepend-inner-icon="mdi-magnify"
                     autofocus
                     class="my-1"
                     @keyup.enter.stop="searchData"
@@ -214,6 +215,11 @@ export default {
     }
   },
   watch: {
+    search (newVal, oldVal) {
+      if (oldVal && (newVal === '' || newVal === null)) {
+        this.getCourses(this.page)
+      }
+    },
     page () {
       if (this.search === null || this.search === '') {
         this.getCourses(this.page)
@@ -259,7 +265,7 @@ export default {
 
 <style lang="scss" scoped>
 .hero {
-    background-image: url(../assets/img/hero-courses.webp);
+    background-image: url(https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80);
     height: 600px;
     background-position: 25% 25%;
     .hero-card {

@@ -1,6 +1,6 @@
 <template>
   <div class="mt-10">
-    <v-container class="px-5">
+    <v-container v-if="singleProgram && singleProgram._id" class="px-5">
       <h1 class="text-uppercase font-weight-light text-start gray-m-font mb-3">
         Programa:
       </h1>
@@ -16,7 +16,7 @@
               {{ singleProgram.name }}
             </h2>
             <h3 class="gray-m-font">
-              {{ singleProgram.subname }}
+              {{ singleProgram.subName }}
             </h3>
             <v-img :src="singleProgram.imgUrl" class="rounded-lg my-5" />
             <h4 class="gray-m-font mb-4 mt-5">
@@ -28,22 +28,22 @@
             <h2 class="gray-m-font mt-8 mb-5">
               Cursos
             </h2>
-            <v-expansion-panels accordion>
+            <v-expansion-panels v-if="singleProgram.courses" accordion>
               <v-expansion-panel
-                v-for="(module, i) in modules"
+                v-for="(course, i) in singleProgram.courses"
                 :key="i"
               >
                 <v-expansion-panel-header>
                   <v-icon color="#2ec4b6" class="d-inline flex-grow-0 mr-5" size="30">
-                    {{ module.icon }}
+                    {{ course.icon }}
                   </v-icon>
                   <h4 class="red-font text-start mr-5">
-                    {{ module.moduleTitle }}
+                    {{ course.courseTitle }}
                   </h4>
                 </v-expansion-panel-header>
                 <v-expansion-panel-content>
                   <p class="text-mid">
-                    {{ module.text }}
+                    {{ course.text }}
                   </p>
                 </v-expansion-panel-content>
               </v-expansion-panel>
@@ -60,12 +60,12 @@
             Recursos
           </h3>
           <aside class="sidebar">
-            <ul v-for="(item, i) in resources" :key="i">
+            <ul v-for="(resource, i) in singleProgram.features.resources" :key="i">
               <li class="text">
                 <v-icon class="text mr-3" size="35">
-                  {{ item.icon }}
+                  {{ resource.icon }}
                 </v-icon>
-                {{ item.number }} {{ item.resource }}
+                {{ resource.quantity }} {{ resource.text }}
               </li>
             </ul>
             <v-card elevation="3" height="55" class="mx-auto my-5 card-title rounded-lg d-flex justify-center align-center">
@@ -93,15 +93,9 @@
                 <h3 class="text-start ml-5 gray-m-font font-weigth-bold">
                   Dirigido a:
                 </h3>
-                <ul class="text-mid adressed-list">
+                <ul v-for="(item, i) in singleProgram.features.addressed" :key="i" class="text-mid adressed-list">
                   <li>
-                    Involucrados en general
-                  </li>
-                  <li>
-                    Simpatizantes en general
-                  </li>
-                  <li>
-                    Personas con poco o moderado conocimiento bíblico
+                    {{ singleProgram.features.addressed[i] }}
                   </li>
                 </ul>
               </div>
@@ -209,62 +203,12 @@
     </section>
   </div>
 </template>
+
 <script>
 export default {
   data () {
     return {
       programId: null,
-      //   programTitle: 'Teo 101 - Beginner',
-      //   subtitle: 'Conoce los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental',
-      //   imgCourse: require('../assets/img/IniciacionCristiana.webp'),
-      //   description: 'En este curso se abordan los aspectos fundamentales de la vida espiritual cristiana, Duis sit amet ligula varius, interdum quam ut, rutrum tellus. Suspendisse pulvinar lectus sed quam hendrerit fermentum. Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus',
-      //   modules: [
-      //     {
-      //       icon: 'mdi-play-circle-outline',
-      //       moduleTitle: 'Los cuatro principios de la vida espiritual',
-      //       text: 'Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus.'
-      //     },
-      //     {
-      //       icon: 'mdi-play-circle-outline',
-      //       moduleTitle: 'La seguridad de la salvación',
-      //       text: 'Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus.'
-      //     },
-      //     {
-      //       icon: 'mdi-play-circle-outline',
-      //       moduleTitle: 'El papel de la Biblia',
-      //       text: 'Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus.'
-      //     },
-      //     {
-      //       icon: 'mdi-file-document-outline',
-      //       moduleTitle: 'La respiración espiritual',
-      //       text: 'Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus.'
-      //     },
-      //     {
-      //       icon: 'mdi-file-document-outline',
-      //       moduleTitle: 'El cristiano y la oración',
-      //       text: 'Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus.'
-      //     },
-      //     {
-      //       icon: 'mdi-play-circle-outline',
-      //       moduleTitle: 'Conociendo la voluntad de Dios',
-      //       text: 'Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus.'
-      //     },
-      //     {
-      //       icon: 'mdi-play-circle-outline',
-      //       moduleTitle: 'Administrándose a usted mismo',
-      //       text: 'Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus.'
-      //     },
-      //     {
-      //       icon: 'mdi-play-circle-outline',
-      //       moduleTitle: 'El compañerismo cristiano',
-      //       text: 'Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus.'
-      //     },
-      //     {
-      //       icon: 'mdi-play-circle-outline',
-      //       moduleTitle: 'Participando en una célula de éxito',
-      //       text: 'Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus.'
-      //     }
-      //   ],
       indicators: [
         'Identifica y comprende las llaves de la vida espiritual, importantes para tomar la voluntaria decisión de recibir a Cristo en el corazón.',
         'Identifica y comprende cinco (5) pilares esenciales de la fe cristiana.',
@@ -317,7 +261,7 @@ export default {
   },
   head () {
     return {
-      title: this.programTitle
+      title: this.singleProgram.shortName
     }
   },
   computed: {
@@ -334,12 +278,13 @@ export default {
   methods: {
     async getProgramId () {
       const data = await this.$axios
-        .$get(`${this.$store.state.urlAPI}/divisions/id${this.programId}`)
+        .$get(`${this.$store.state.urlAPI}/division/id${this.programId}`)
       this.$store.commit('setProgram', data.division)
     }
   }
 }
 </script>
+
 <style lang="scss" scoped>
 .col-container{
   padding-right: 1.5rem;

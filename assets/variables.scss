@@ -25,10 +25,10 @@ $body: 1.6rem;
 $miniTelefono: 320px;
 $telefono: 425px;
 $tablet: 768px;
-$miniDesktop: 1024px;
-$desktop: 1260px;
+$miniDesktop: 960px;
+$desktop: 1264px;
 $largeDesktop: 1440px;
-$xlDesktop: 1940px;
+$xlDesktop: 1904px;
 
 
 /** Mixins **/ 
@@ -191,14 +191,6 @@ section {
     margin-top: 0;
   }
 }
-// .text {
-//   font-size: $body + .5rem;
-//   color: $gray-mid;
-//   font-weight: 300;
-//   line-height: 1.7;
-//   margin: 0;
-//   padding: 0;
-//   }
 .text {
   font-size: $body + .4rem;
   color: $gray-mid;

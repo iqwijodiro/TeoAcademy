@@ -22,92 +22,109 @@
                   Disfruta la maravillosa experiencia de la formación cristiana a través de los cursos y programas de Teo Academy
                 </p>
               </v-card-text>
-              <v-row justify="center" class="mt-2">
+              <div class="d-block mx-auto d-sm-flex justify-sm-center px-2">
                 <v-btn to="/courses" class="btn">
                   Nuestros Cursos
                 </v-btn>
-                <v-dialog
-                  v-model="dialogContact"
-                  transition="dialog-top-transition"
-                  persistent
-                  max-width="650px"
-                >
-                  <template #activator="{ on, attrs }">
-                    <v-btn
-                      class="btn"
-                      v-bind="attrs"
-                      v-on="on"
-                    >
-                      Contáctanos
-                    </v-btn>
-                  </template>
-                  <v-card class="pt-5">
-                    <h2 class="text-center red-font">
-                      Contáctanos
-                    </h2>
-                    <v-container>
-                      <v-row justify="center">
-                        <v-col
-                          xl="10"
-                          lg="10"
+                <div class="centrar">
+                  <v-dialog
+                    v-model="dialogContact"
+                    transition="dialog-top-transition"
+                    persistent
+                    max-width="650px"
+                  >
+                    <template #activator="{ on, attrs }" class="d-block mx-auto">
+                      <v-btn
+                        class="btn d-block"
+                        v-bind="attrs"
+                        v-on="on"
+                      >
+                        Contáctanos
+                      </v-btn>
+                    </template>
+                    <v-card class="py-5 px-3 rounded-xl">
+                      <h2 class="text-center red-font">
+                        Contáctanos
+                      </h2>
+                      <v-container>
+                        <v-row justify="center">
+                          <v-col
+                            xl="10"
+                            lg="10"
+                          >
+                            <v-text-field
+                              :rules="[validationRules.required, validationRules.email]"
+                              solo
+                              clearable
+                              label="Nombre"
+                              required
+                            />
+                            <v-text-field
+                              v-model="email"
+                              :rules="[validationRules.required, validationRules.email]"
+                              solo
+                              clearable
+                              label="Email"
+                              required
+                            />
+                            <v-text-field
+                              :rules="[validationRules.required, validationRules.email]"
+                              solo
+                              clearable
+                              label="País"
+                              required
+                            />
+                            <v-text-field
+                              solo
+                              clearable
+                              label="Teléfono (opcional)"
+                              required
+                              type="number"
+                            />
+                            <v-textarea
+                              :rules="[validationRules.required, validationRules.email]"
+                              solo
+                              clearable
+                              label="Coméntanos tu solicitud (requerido)"
+                              auto-grow
+                            />
+                          </v-col>
+                        </v-row>
+                        <v-container>
+                          <p class="text-mid" style="line-height: 2">
+                            Al hacer click en <span class="minibtn">Enviar</span>, usted está confirmando que acepta los términos de nuestras <a href="/" class="text-decoration-underline red-font"> políticas y condiciones</a>
+                          </p>
+                        </v-container>
+                      </v-container>
+                      <v-spacer />
+                      <div class="centrar">
+                        <v-alert
+                          v-model="alertForm"
+                          dismissible
+                          color="white"
+                          colored-border
+                          elevation="2"
+                          preppend-inner-icon="mdi-check-circle-outline"
                         >
-                          <v-text-field
-                            :rules="[validationRules.required, validationRules.email]"
-                            solo
-                            clearable
-                            label="Nombre"
-                            required
-                          />
-                          <v-text-field
-                            v-model="email"
-                            :rules="[validationRules.required, validationRules.email]"
-                            solo
-                            clearable
-                            label="Email"
-                            required
-                          />
-                          <v-text-field
-                            :rules="[validationRules.required, validationRules.email]"
-                            solo
-                            clearable
-                            label="País"
-                            required
-                          />
-                          <v-text-field
-                            solo
-                            clearable
-                            label="Teléfono (opcional)"
-                            required
-                            type="number"
-                          />
-                          <v-textarea
-                            :rules="[validationRules.required, validationRules.email]"
-                            solo
-                            clearable
-                            label="Coméntanos tu solicitud (requerido)"
-                            auto-grow
-                          />
-                        </v-col>
-                      </v-row>
-                    </v-container>
-                    <v-spacer />
-                    <div class="centrar">
-                      <v-btn
-                        class="btn"
-                        @click="dialogContact = false"
-                      >
-                        Enviar
-                      </v-btn>
-                      <v-btn
-                        class="btn"
-                        @click="dialogContact = false"
-                      >
-                        Cerrar
-                      </v-btn>
-                    </div>
-                  </v-card>
-                </v-dialog>
-              </v-row>
+                          <span>Tus datos han sido registrados exitosamente</span>
+                        </v-alert>
+                        <v-btn
+                          class="btn"
+                          @click="alertForm = true"
+                        >
+                          Enviar
+                        </v-btn>
+                        <v-btn
+                          class="btn"
+                          @click="dialogContact = false"
+                        >
+                          Cerrar
+                        </v-btn>
+                      </div>
+                    </v-card>
+                  </v-dialog>
+                </div>
+              </div>
             </v-card>
           </v-col>
         </v-row>
@@ -123,7 +140,7 @@
             lg="4"
             md="6"
             sm="10"
-            class="mx-auto"
+            class="mx-auto px-5"
           >
             <v-card class="pa-5 rounded-xl mx-auto">
               <h2 class="text-capitalize text-center">
@@ -136,9 +153,9 @@
                   persistent
                   max-width="350px"
                 >
-                  <template #activator="{ on, attrs}">
+                  <template #activator="{ on, attrs}" class="mx-auto d-block">
                     <v-btn
-                      class="btn"
+                      class="btn d-block"
                       v-bind="attrs"
                       v-on="on"
                     >
@@ -271,33 +288,35 @@
       </v-container>
     </section>
     <!--Seccion de los mejores cursos-->
-    <section class="students mt-5 py-5 d-flex align-center">
+    <section class="students mt-5 py-5 px-2 d-flex justify-center align-center">
       <v-container class="d-flex justify-center align-center">
-        <v-row justify="center">
+        <v-row justify="center" class="fill-height">
           <v-col
             md="9"
-            lg="8"
-            xl="8"
+            lg="7"
+            xl="5"
             sm="10"
+            class="d-flex align-center"
           >
-            <v-card elevation="5" rounded="xl" class="bg-sheet d-flex flex-column justify-space-around mx-auto py-5 px-3 text-center">
+            <v-card elevation="5" rounded="xl" class="bg-sheet mx-auto py-5 px-3 text-center">
               <h2 class="mt-5 mb-3 px-5 text-center">
                 Lo que dicen los Teo estudiantes
               </h2>
               <v-carousel
                 cycle
                 hide-delimiters
-                class="quote-slider my-slider"
+                class="quote-slider my-slider mt-5"
               >
                 <v-carousel-item
                   v-for="(quote, i) in quotes"
                   :key="i"
+                  class="fill-height"
                 >
-                  <v-card light max-width="80%" elevation="0" class="card-quote mx-auto">
+                  <v-card light elevation="0" class="card-quote d-flex flex-column justify-space-between align-center mx-auto">
                     <p class="quote">
                       {{ quote.text }}
                     </p>
-                    <v-avatar size="95" class="mb-4">
+                    <v-avatar size="95" class="mb-5">
                       <v-img :src="quote.avatar" />
                     </v-avatar>
                     <h3 class="name">
@@ -321,31 +340,28 @@
           Próximos Eventos
         </h2>
         <v-container>
-          <v-row v-for="(evento, i) in eventos" :key="i" class="rail py-3">
+          <v-row v-for="(evento, i) in eventos" :key="i" justify="center" class="rail py-3">
             <v-col
-              cols="5"
               xl="2"
               lg="2"
-              md="4"
-              sm="6"
-              class="order-1 order-lg-1 mx-auto"
+              md="2"
+              class="order-1 order-lg-1"
             >
-              <div class="date-box">
-                <div class="d-inline-flex">
-                  <span class="date mr-4"> {{ evento.date }} </span>
-                  <p class="month">
+              <div class="date-box d-flex justify-center align-start">
+                <span class="date mr-4 d-block"> {{ evento.date }} </span>
+                <div class="d-block pt-4">
+                  <p class="month ma-0 pa-0">
                     {{ evento.month }}
                   </p>
+                  <p class="day">
+                    {{ evento.day }}
+                  </p>
                 </div>
-                <p class="day">
-                  {{ evento.day }}
-                </p>
               </div>
             </v-col>
             <v-col
-              cols="12"
-              xl="7"
-              lg="7"
+              xl="4"
+              lg="6"
               md="6"
               sm="12"
               class="order-3 order-lg-2 mx-auto"
@@ -365,11 +381,9 @@
               </div>
             </v-col>
             <v-col
-              cols="12"
-              xl="3"
-              lg="3"
-              md="2"
-              sm="12"
+              xl="4"
+              lg="4"
+              md="4"
               class="order-2 order-lg-3"
             >
               <v-img :src="evento.img" class="rounded fill-height" min-height="200px" />
@@ -382,22 +396,28 @@
     <section class="our-team d-flex justify-center align-center">
       <div class="mask" />
       <v-container>
-        <v-row justify="center">
+        <v-row justify="center" class="fill-height">
           <v-col
-            md="8"
-            lg="8"
-            xl="8"
+            md="9"
+            lg="7"
+            xl="5"
+            sm="10"
+            class="d-flex align-center"
           >
-            <v-card rounded="xl" class="bg-sheet mx-auto py-5 px-3 text-center">
+            <v-card
+              rounded="xl"
+              class="bg-sheet mx-auto py-5 px-3 text-center"
+            >
               <h2 class="mt-5 mb-2 text-center">
                 Nuestro Equipo
               </h2>
               <v-carousel
+                cycle
                 hide-delimiters
                 class="team-slider my-slider"
               >
-                <v-carousel-item v-for="(partner, i) in partners" :key="i" class="card-member mx-auto">
-                  <v-card max-width="90%" elevation="0" light class="mx-auto d-flex flex-column justify-center align-center py-5">
+                <v-carousel-item v-for="(partner, i) in partners" :key="i" class="card-member mx-auto fill-height">
+                  <v-card elevation="0" light class="card-quote d-flex flex-column justify-space-between align-center mx-auto">
                     <v-avatar style="border-radius: 50%" size="125" class="mb-4">
                       <v-img :src="partner.avatar" />
                     </v-avatar>
@@ -527,10 +547,7 @@ export default {
       valid: false,
       dialogContact: false,
       dialogEbook: false,
-      // emailRules: [
-      //   v => !!v || 'El E-mail es requerido',
-      //   v => /.+@.+/.test(v) || 'Debe ser un E-mail válido'
-      // ],
+      alertForm: false,
       courses: [],
       name: '',
       email: '',
@@ -543,58 +560,6 @@ export default {
           return pattern.test(v) || 'E-mail inválido'
         }
       },
-      // courses: [
-      //   {
-      //     img: require('../assets/img/IniciacionCristiana.webp'),
-      //     title: 'El proceso de iniciacion Cristiana',
-      //     text:
-      //       'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-      //     modules: 9,
-      //     resources: 9,
-      //     priceOld: 19.99,
-      //     priceNew: 9.99
-      //   },
-      //   {
-      //     img: require('../assets/img/IniciacionCristiana.webp'),
-      //     title: 'El proceso de iniciacion Cristiana',
-      //     text:
-      //       'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-      //     modules: 9,
-      //     resources: 9,
-      //     priceOld: 19.99,
-      //     priceNew: 9.99
-      //   },
-      //   {
-      //     img: require('../assets/img/IniciacionCristiana.webp'),
-      //     title: 'El proceso de iniciacion Cristiana',
-      //     text:
-      //       'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-      //     modules: 9,
-      //     resources: 9,
-      //     priceOld: 19.99,
-      //     priceNew: 9.99
-      //   },
-      //   {
-      //     img: require('../assets/img/IniciacionCristiana.webp'),
-      //     title: 'El proceso de iniciacion Cristiana',
-      //     text:
-      //       'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-      //     modules: 9,
-      //     resources: 9,
-      //     priceOld: 19.99,
-      //     priceNew: 9.99
-      //   },
-      //   {
-      //     img: require('../assets/img/IniciacionCristiana.webp'),
-      //     title: 'El proceso de iniciacion Cristiana',
-      //     text:
-      //       'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
-      //     modules: 9,
-      //     resources: 9,
-      //     priceOld: 19.99,
-      //     priceNew: 9.99
-      //   }
-      // ],
       quotes: [
         {
           avatar: 'https://randomuser.me/api/portraits/women/3.jpg',
@@ -735,12 +700,6 @@ export default {
     async getTopCourses () {
       const data = await this.$axios.$get(`${this.$store.state.urlAPI}/courses/client6049278bc32f0d0015e108e9/all`)
       this.courses = data.courses
-    },
-    validForm () {
-      const alert = document.querySelector('#divMsj')
-      if (!this.name && !this.email && !this.country && !this.requestText) {
-        alert.innerHTML = '<p class="card-title red-font text-center">Campo Requerido</p>'
-      }
     }
   }
 }
@@ -753,11 +712,13 @@ export default {
   .rail {
     display: flex;
     justify-content: center;
-    .hero-card{
-      .btn {
-        display: block;
-      }
-    }
+    // .hero-card{
+    //   .btn {
+    //     display: block;
+    //     width: 80%;
+    //     overflow: unset;
+    //   }
+    // }
   }
 }
   @include tablet {
@@ -767,24 +728,15 @@ export default {
         justify-content: center;
         .hero-card {
           margin: 0 auto;
-          .btn {
-            display: block;
-          }
         }
       }
     }
   }
-
 @include miniDesktop {
   .hero{
     .rail {
       display: flex;
       justify-content: center;
-      .hero-card {
-        .btn {
-          display: block;
-        }
-      }
     }
   }
 }
@@ -848,19 +800,29 @@ export default {
   background: rgb(149,149,149);
   background: linear-gradient(0deg, rgba(149,149,149,1) 0%, rgba(193,193,193,1) 25%, rgba(211,211,211,1) 50%, rgba(231,231,231,1) 75%, rgba(250,250,250,1) 100%);
   padding: 5rem 2rem;
-  max-height: 110vh;
+  min-height: 600px;
+  height: 120vh;
+  max-height: 900px;
   .bg-sheet {
     height: 95%;
+    min-height: 300px;
+    max-height: 1000px;
+    overflow: hidden;
     h2 {
       color: $wine;
       line-height: 1.4;
+      font-size: 2.2rem;
     }
     .quote-slider {
+      .card-quote {
+        width: 90%;
+        max-width: 500px;
+      }
       .quote {
         color: $gray-mid;
         font-size: $link + .2rem;
-        line-height: 1.5;
-        margin-bottom: 2rem;
+        line-height: 1.7;
+        margin-bottom: 3rem;
       }
     }
     .name, .job {
@@ -874,39 +836,39 @@ export default {
     }
   }
 }
-  @include miniTelefono {
-    .quote {
-        font-size: $link + .8rem;
-      }
-    .bg-sheet {
-        max-height: 650px;
-      }
-  }
   @include telefono {
-    .bg-sheet {
-        max-height: 550px;
+    .students{
+      .bg-sheet {
+        height: 85%;
+        max-height: 600px;
       }
-  }
-  @include tablet {
+    }
     .quote {
         font-size: $link + .6rem;
       }
+  }
+  @include tablet {
+    .students {
+      height: 70vh;
       .bg-sheet {
-        max-height: 450px;
+        max-height: 600px;
+        height: 80%;
       }
+    }
+  }
+  @include desktop {
+    .bg-sheet {
+      height: 75%;
+    }
   }
   @include lgdesktop {
-    .students {
-      // max-height: 60vh;
-      height: 70vh;
-      }
       .quote {
         font-size: $link + .4rem;
       }
       .bg-sheet {
-        max-height: 450px;
+        height: 75%;
       }
-    }
+  }
 .next-events{
   h2 {
     color: $wine;
@@ -920,7 +882,7 @@ export default {
       span.date {
         font-family: $title-font;
         color: $ocean;
-        font-size: 6rem;
+        font-size: 9rem;
         font-weight: 400;
       }
       .month {
@@ -957,12 +919,13 @@ export default {
 
 .our-team {
   position: relative !important;
-  background-image: url(../assets/img/library-banner.webp);
+  background-image: url(https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1453&q=80);
   background-size: cover;
   background-attachment: fixed;
   background-position: center center;
-  min-height: 80vh;
-  max-height: 110vh !important;
+  min-height: 800px;
+  height: 80vh;
+  max-height: 1100px;
   padding: 0 !important;
   .mask {
     position: absolute;
@@ -976,7 +939,7 @@ export default {
   .team-slider {
       .name, .job {
         font-family: $title-font;
-        font-size: $link + .5rem;
+        font-size: $link + .8rem;
         padding: 0 1rem !important;
         color: $gray-mid;
         font-weight: 300 !important;
@@ -987,10 +950,11 @@ export default {
         font-weight: 400 !important;
       }
       .member {
-        font-size: $link + .2rem;
+        font-size: $link + .5rem;
         text-align: center;
-        line-height: 1.5;
+        line-height: 1.6;
         margin: 1rem;
+        padding: 1rem;
         color: $gray-mid;
        }
   }

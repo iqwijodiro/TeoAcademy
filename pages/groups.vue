@@ -341,19 +341,19 @@ export default {
       whos: [
         {
           id: '1',
-          img: require('../assets/img/who-1.webp'),
+          // img: require('../assets/img/who-1.webp'),
           slide: 'entienden',
           text: 'La importancia de la formación cristiana sistémica y disciplinada para el sano desarrollo del Cuerpo de Cristo.'
         },
         {
           id: '2',
-          img: require('../assets/img/who-2.webp'),
+          // img: require('../assets/img/who-2.webp'),
           slide: 'necesitan',
           text: 'Los recursos precisos, experiencia comprobada y métodos eficaces para garantizar el éxito de la labor formativa.'
         },
         {
           id: '3',
-          img: require('../assets/img/who-3.webp'),
+          // img: require('../assets/img/who-3.webp'),
           slide: 'deciden',
           text: 'Tomar acciones con alcance eterno y no postergar para mañana la implementación de un pilar fundamental de la fe cristiana: “el proceso de formación”.'
         }
@@ -505,7 +505,7 @@ export default {
   background: linear-gradient(0deg, rgba(149,149,149,1) 0%, rgba(149,149,149,0.5) 25%, rgba(233,233,233,1) 50%, rgba(149,149,149,0.5) 75%, rgba(149,149,149,1) 100%);
   h2, h3 {color: $wine;}
   .sheet-slider{
-    background-image: url(../assets/img/who-1.webp);
+    background-image: url(https://images.unsplash.com/photo-1440317539597-ad354a025165?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);
     background-size: cover;
     background-position: center center;
     object-fit: cover;

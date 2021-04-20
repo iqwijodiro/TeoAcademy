@@ -1,6 +1,6 @@
 <template>
   <div class="mt-10 ">
-    <v-container class="px-5">
+    <v-container v-if="singleCourse && singleCourse._id" class="px-5">
       <h1 class="text-uppercase font-weight-light text-start gray-m-font mb-3">
         Curso:
       </h1>
@@ -227,17 +227,6 @@ export default {
     return {
       courseId: null,
       dialogVideo: false
-      // indicators: [
-      //   'Identifica y comprende las llaves de la vida espiritual, importantes para tomar la voluntaria decisión de recibir a Cristo en el corazón.',
-      //   'Identifica y comprende cinco (5) pilares esenciales de la fe cristiana.',
-      //   'Identifica y practica las vías de alimentación para ser nutrido espiritualmente.',
-      //   'Comprende y realiza de manera correcta y continua la confesión del pecado y  apropiarse del perdón de Dios.',
-      //   'Identifica y comprende la manera correcta de practicar el hábito de la oración a Dios.',
-      //   'Identifica y comprende las vías esenciales para conocer y aceptar la voluntad de Dios.',
-      //   'Identifica la importancia de la correcta administración de todo el ser y en consecuencia establecer correctas prioridades a su vida.',
-      //   'Identifica y establece correctas relaciones interpersonales para una sana edificación de su vida y el  desarrollo del cuerpo de Cristo.',
-      //   'Comprende la importancia y los beneficios de su participación en el ambiente celular cristiano para su vida, su entorno y el mundo.'
-      // ]
     }
   },
   head () {

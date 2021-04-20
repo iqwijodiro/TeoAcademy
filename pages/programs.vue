@@ -92,7 +92,6 @@
                     </div>
                     <v-row class="minirow d-flex justify-start align-center ma-0">
                       <v-col
-                        cols="12"
                         lg="4"
                         xl="4"
                         md="4"
@@ -147,14 +146,14 @@
         <template #footer>
           <v-container>
             <v-row justify="center" class="mt-5 py-10 paginator-rail">
-              <v-pagination
+              <!-- <v-pagination
                 v-model="page"
                 :length="pages"
                 color="#2ec4b6"
                 next-icon="mdi-chevron-right"
                 prev-icon="mdi-chevron-left"
                 class="pagination"
-              />
+              /> -->
             </v-row>
           </v-container>
         </template>
