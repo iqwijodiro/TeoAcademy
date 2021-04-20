@@ -8,7 +8,7 @@
           md="10"
           class="mx-auto px-5"
         >
-          <v-card elevation="5" class="hero-card rounded-lg text-center pa-5 mt-8">
+          <v-card elevation="5" max-width="900px" class="hero-card rounded-lg text-center mx-auto pa-5 mt-8">
             <v-card-title class="centrar mx-auto pa-0 mb-4">
               <h1 class="fw-300 text-center">
                 Conoce todos nuestros cursos
@@ -16,7 +16,7 @@
             </v-card-title>
             <v-form>
               <v-container>
-                <v-row>
+                <v-row justify="center">
                   <!-- <v-col
                     cols="12"
                     lg="4"
@@ -51,36 +51,27 @@
                       solo
                     />
                   </v-col> -->
-                  <div class="col-12 mx-auto">
-                    <v-col
-                      cols="12"
-                      lg="4"
-                      xl="4"
-                      md="4"
-                      class="py-0 my-1"
-                    >
-                      <input type="text" style="display: none; visibility: hidden">
-                      <v-text-field
-                        v-model="search"
-                        placeholder="Buscar curso..."
-                        solo
-                        append-icon="mdi-magnify"
-                        autofocus
-                        @keyup.enter.stop="searchData"
-                      />
-                    </v-col>
-                    <v-col
-                      xl="2"
-                      lg="2"
-                      md="3"
-                      sm="6"
-                      class="pa-0"
-                    >
-                      <v-btn width="85%" max-width="200px" class="btn d-block" @click="searchData">
-                        Buscar
-                      </v-btn>
-                    </v-col>
-                  </div>
+                  <!-- <v-col
+                    cols="12"
+                    lg="8"
+                    xl="8"
+                    md="8"
+                    class="py-0 my-1"
+                  > -->
+                  <input type="text" style="display: none; visibility: hidden">
+                  <v-text-field
+                    v-model="search"
+                    placeholder="Buscar curso..."
+                    solo
+                    append-icon="mdi-magnify"
+                    autofocus
+                    class="my-1"
+                    @keyup.enter.stop="searchData"
+                  />
+                  <!-- </v-col> -->
+                  <v-btn width="100%" max-width="200px" class="btn d-block" @click="searchData">
+                    Buscar
+                  </v-btn>
                 </v-row>
               </v-container>
             </v-form>
@@ -115,21 +106,21 @@
                   <v-card-text class="text-card">
                     {{ course.subName }}
                   </v-card-text>
-                  <v-row class="minirow d-flex justify-center align-center py-1">
+                  <v-row class="minirow d-flex justify-center align-center py-1 px-2">
                     <div v-if="course.structure && course.structure.sections" class="my-2 mr-2">
-                      <p class="ma-0 px-3">
+                      <p class="mx-3 my-0 px-3">
                         {{ course.structure.sections.length }} <br>
                         Módulos
                       </p>
                     </div>
                     <div v-if="course.features && course.features.resources" class="my-2 mr-2">
-                      <p class="ma-0 px-3">
+                      <p class="mx-3 my-0 px-3">
                         {{ course.features.resources.length }} <br>
                         Recursos
                       </p>
                     </div>
                     <div>
-                      <span class="priceOld mr-2">
+                      <span class="priceOld mx-2">
                         ${{ parseInt(course.features.priceInfo.price) }}
                       </span>
                       <span class="priceNew mr-2">
@@ -148,16 +139,18 @@
           </v-container>
         </template>
         <template #footer>
-          <v-row justify="center" class="mt-5 py-5">
-            <v-pagination
-              v-model="page"
-              :length="pages"
-              color="#2ec4b6"
-              next-icon="mdi-chevron-right"
-              prev-icon="mdi-chevron-left"
-              class="pagination"
-            />
-          </v-row>
+          <v-container>
+            <v-row justify="center" class="mt-5 py-10 paginator-rail">
+              <v-pagination
+                v-model="page"
+                :length="pages"
+                color="#2ec4b6"
+                next-icon="mdi-chevron-right"
+                prev-icon="mdi-chevron-left"
+                class="pagination"
+              />
+            </v-row>
+          </v-container>
         </template>
       </v-data-iterator>
     </main>
@@ -219,15 +212,6 @@ export default {
         default: return 9
       }
     }
-    // },
-    // itemsPerPage () {
-    //   return Math.ceil(this.rowsPerPage * this.itemsPerRow)
-    // },
-    // filteredCourses () {
-    //   return this.courses.filter((course) => {
-    //     return course.name.toLowerCase().match(this.search.toLowerCase())
-    //   })
-    // }
   },
   watch: {
     page () {
@@ -278,6 +262,9 @@ export default {
     background-image: url(../assets/img/hero-courses.webp);
     height: 600px;
     background-position: 25% 25%;
+    .hero-card {
+      max-height: 500px;
+    }
 
   .text {
     display: none;
@@ -292,7 +279,7 @@ export default {
       line-height: 2;
     }
     .btn {
-      display: inline-block !important;
+      display: block !important;
     }
   }
   @include miniDesktop {
@@ -302,12 +289,6 @@ export default {
     .text {
       display: block !important;
     }
-    // .rail {
-    //   max-width: 1200px;
-    //   width: 85% !important;
-    //   display: flex !important;
-    //   justify-content: center !important;
-    // }
   }
 .gallery {
     .mh-100 {
@@ -348,9 +329,13 @@ export default {
 .mdi-chevron-right {
   border: none;
 }
-.pagination{
-  font-size: 2rem;
-
+.paginator-rail {
+  border-bottom: 3px;
+  border-bottom-style: solid;
+  border-bottom-color: $gray-light;
+  .pagination{
+    font-size: 2rem;
+  }
 }
 
 </style>

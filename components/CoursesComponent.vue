@@ -15,9 +15,9 @@
               </h1>
             </v-card-title>
             <v-form>
-            <v-container>
-              <v-row>
-                <!-- <v-col
+              <v-container>
+                <v-row>
+                  <!-- <v-col
                     cols="12"
                     lg="4"
                     xl="4"
@@ -51,38 +51,38 @@
                       solo
                     />
                   </v-col> -->
-                <div class="col-12 mx-auto">
-                  <v-col
-                    cols="12"
-                    lg="4"
-                    xl="4"
-                    md="4"
-                    class="py-0 my-1"
-                  >
-                  <input type="text" style="display: none; visibility: hidden">
-                    <v-text-field
-                      v-model="search"
-                      placeholder="Buscar curso..."
-                      solo
-                      append-icon="mdi-magnify"
-                      autofocus
-                      @keyup.enter.stop="searchData"
-                    />
-                  </v-col>
-                  <v-col
-                    xl="2"
-                    lg="2"
-                    md="3"
-                    sm="6"
-                    class="pa-0"
-                  >
-                    <v-btn width="85%" max-width="200px" class="btn d-block" @click="searchData">
-                      Buscar
-                    </v-btn>
-                  </v-col>
-                </div>
-              </v-row>
-            </v-container>
+                  <div class="col-12 mx-auto">
+                    <v-col
+                      cols="12"
+                      lg="4"
+                      xl="4"
+                      md="4"
+                      class="py-0 my-1"
+                    >
+                      <input type="text" style="display: none; visibility: hidden">
+                      <v-text-field
+                        v-model="search"
+                        placeholder="Buscar curso..."
+                        solo
+                        append-icon="mdi-magnify"
+                        autofocus
+                        @keyup.enter.stop="searchData"
+                      />
+                    </v-col>
+                    <v-col
+                      xl="2"
+                      lg="2"
+                      md="3"
+                      sm="6"
+                      class="pa-0"
+                    >
+                      <v-btn width="85%" max-width="200px" class="btn d-block" @click="searchData">
+                        Buscar
+                      </v-btn>
+                    </v-col>
+                  </div>
+                </v-row>
+              </v-container>
             </v-form>
           </v-card>
         </v-col>

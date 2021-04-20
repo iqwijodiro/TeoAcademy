@@ -49,8 +49,8 @@
               </div>
             </v-card>
           </v-col>
-          <v-col lg="4" md="6" sm="10" class="mx-auto">
-            <v-img :src="require('../assets/img/ebook2.webp')" class="rounded" />
+          <v-col xl="6" lg="6" md="6" sm="10" class="mx-auto">
+            <v-img max-width="500px" :src="require('../assets/img/ebook_index.jpeg')" class="rounded" />
           </v-col>
         </v-row>
       </v-container>
@@ -76,7 +76,7 @@
                 </v-icon>{{ goal }}
               </li>
             </ul>
-            <h2 class="text-center my-5">
+            <h2 class="text-center mt-15 mb-5">
               <v-icon class="icon">
                 mdi-medal
               </v-icon>
@@ -93,7 +93,7 @@
         </v-row>
       </v-container>
     </section>
-    <section class="whom gutter-p">
+    <section class="whom gutter-p mt-15">
       <v-container>
         <h2 class="text-center mb-5">
           Dirigido a:
@@ -189,7 +189,7 @@
                         <v-icon class="eye-i">
                           mdi-eye
                         </v-icon> <br>
-                        <span>Leer</span>
+                        <span>Ver</span>
                       </v-btn>
                     </div>
                   </div>
@@ -228,7 +228,7 @@
               Ponemos a disposición de grupos y congregaciones las mejores tecnologías al servicio de la educación,desarrolladas para satisfacer las más exigentes necesidades en materia de gestión de procesos formativos, haciendo posible el acceder metodológicamente a un universo de contenidos de alto valor y hacer de la participación de tutores y estudiantes una experiencia enriquecedora, amena y efectiva.
             </p>
             <div class="centrar mt-5">
-              <v-btn href="https://www.segoschool.com/" class="btn">
+              <v-btn href="https://www.segoschool.com/" target="_blank" class="btn">
                 Descubre más
               </v-btn>
             </div>
@@ -243,12 +243,21 @@
         </h2>
         <ul class="px-2">
           <li class="text">
+            <v-icon class="icon mr-3 gray-m-font">
+              mdi-handshake-outline
+            </v-icon>
             Diseño, planificación e implementación del programa formativo cristiano.
           </li>
           <li class="text">
+            <v-icon class="icon mr-3 gray-m-font">
+              mdi-handshake-outline
+            </v-icon>
             Seguimiento, control y mejora del proceso formativo.
           </li>
           <li class="text">
+            <v-icon class="icon mr-3 gray-m-font">
+              mdi-handshake-outline
+            </v-icon>
             Asesoría para la creación de contenidos.
           </li>
         </ul>
@@ -279,7 +288,7 @@
       <h2 class="text-center red-font mb-3">
         Preguntas Frecuentes
       </h2>
-      <v-container class="pb-5">
+      <v-container class="pb-15 mb-5">
         <v-row justify="center">
           <v-col
             lg="10"
@@ -427,7 +436,7 @@ export default {
   }
 }
 .hero {
-  background-image: url(../assets/img/hero-groups.webp);
+  background-image: url(https://images.unsplash.com/photo-1543702404-38c2035462ad?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);
   min-height: 600px;
   .text {
     display: none;

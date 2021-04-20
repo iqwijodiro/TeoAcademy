@@ -18,7 +18,29 @@
             <h3 class="gray-m-font">
               {{ singleCourse.subName }}
             </h3>
-            <v-img :src="singleCourse.imgUrl" class="rounded-lg my-5" />
+            <v-dialog
+              v-model="dialogVideo"
+              transition="dialog-top-transition"
+              fullscreen
+              internal-activator
+            >
+              <template #activator="{ on, attrs }">
+                <div class="box">
+                  <v-img
+                    v-bind="attrs"
+                    :src="singleCourse.imgUrl"
+                    class="rounded-lg my-5 relative"
+                    v-on="on"
+                  />
+                  <v-icon size="50" class="icon gray-font absolute">
+                    mdi-play-circle-outline
+                  </v-icon>
+                </div>
+              </template>
+              <v-card width="100%">
+                <video :src="singleCourse.videoUrl" />
+              </v-card>
+            </v-dialog>
             <h4 class="gray-m-font mb-4 mt-5">
               <span class="font-weight-medium">Descripción:</span>
             </h4>
@@ -60,14 +82,16 @@
             Recursos
           </h3>
           <aside class="sidebar">
-            <ul v-for="(item, i) in resources" :key="i">
-              <li class="text">
-                <v-icon class="text mr-3" size="35">
-                  {{ item.icon }}
-                </v-icon>
-                {{ item.number }} {{ item.resource }}
-              </li>
-            </ul>
+            <div v-if="singleCourse.features.resources">
+              <ul v-for="(item, i) in singleCourse.features.resources" :key="i">
+                <li class="text">
+                  <v-icon class="text mr-3" size="35">
+                    {{ singleCourse.features.resources[i].icon }}
+                  </v-icon>
+                  {{ singleCourse.features.resources[i].quantity }} {{ singleCourse.features.resources[i].text }}
+                </li>
+              </ul>
+            </div>
             <v-card elevation="3" height="55" class="mx-auto my-5 card-title rounded-lg d-flex justify-center align-center">
               <div>
                 Aporte:
@@ -94,15 +118,9 @@
                 <h3 class="text-start ml-5 gray-m-font font-weigth-bold">
                   Dirigido a:
                 </h3>
-                <ul class="text-mid adressed-list">
+                <ul v-for="(item, i) in singleCourse.features.addressed" :key="i" class="text-mid adressed-list">
                   <li>
-                    Involucrados en general
-                  </li>
-                  <li>
-                    Simpatizantes en general
-                  </li>
-                  <li>
-                    Personas con poco o moderado conocimiento bíblico
+                    {{ singleCourse.features.addressed[i] }}
                   </li>
                 </ul>
               </div>
@@ -111,21 +129,13 @@
               <h3 class="gray-m-font text-center">
                 Modalidad
               </h3>
-              <ul class="text d-inline">
+              <ul v-for="(item, i) in singleCourse.features.modality" :key="i" class="text d-inline">
                 <li class="text mb-2 ml-3">
                   <v-icon size="35" class="mr-3 flex-grow-0">
-                    mdi-video
+                    {{ singleCourse.features.modality[i].icon }}
                   </v-icon>
                   <p class="d-inline">
-                    5 Clases aula virtual Teo
-                  </p>
-                </li>
-                <li class="text mb-2 ml-3">
-                  <v-icon size="35" class="mr-3 flex-grow-0">
-                    mdi-headset
-                  </v-icon>
-                  <p class="d-inline">
-                    2 Sesiones en vivo
+                    {{ singleCourse.features.modality[i].quantity }} {{ singleCourse.features.modality[i].text }}
                   </p>
                 </li>
               </ul>
@@ -142,7 +152,7 @@
                   <span class="mt-3 text-mid font-weight-bold gray-m-font">
                     Conocimientos previos:
                   </span>
-                  No requiere
+                  {{ singleCourse.features.requirements[0].reqList[0] }}
                 </div>
                 <div class="d-flex flex-column text-mid text-center">
                   <v-icon size="30">
@@ -151,12 +161,13 @@
                   <span class="mt-3 text-mid font-weight-bold gray-m-font">
                     Tecnológicos:
                   </span>
-                  Conexión a Internet <br>
-                  PC/Móvil
+                  {{ singleCourse.features.requirements[0].reqList[0] }} <br>
+                  {{ singleCourse.features.requirements[1].reqList[1] }}
+                  {{ singleCourse.features.requirements[1].reqList[2] }}
                 </div>
               </div>
             </section>
-            <section class="text-center">
+            <!-- <section class="text-center">
               <div>
                 <v-icon size="35" class="mr-3">
                   mdi-medal
@@ -168,33 +179,33 @@
               <p class="text-mid mt-3">
                 Identifica y experimenta el proceso de transformación cristiana y establece una sana relación con Dios Padre, Hijo y Espíritu Santo.
               </p>
-            </section>
+            </section> -->
             <!-- </div> -->
           </aside>
         </v-col>
       </v-row>
     </v-container>
-    <section class="indicators">
+    <section class="indicators mt-5">
       <v-container>
         <h2 class="sect-title gray-m-font">
-          Indicadores
+          Competencias
         </h2>
         <v-row no-gutters>
           <v-col
             class="px-5"
           >
-            <section class="wrapper-col">
+            <section v-if="singleCourse.provides && singleCourse.provides.skills" class="wrapper-col">
               <ul
-                v-for="(ind, j) in indicators"
+                v-for="(ind, j) in singleCourse.provides.skills"
                 :key="j"
                 class="pa-0"
               >
-                <li class="d-flex align-start">
+                <li class="d-flex align-start mb-3">
                   <v-icon size="25" class="flex-grow-0 gray-m-font mr-3 mt-2">
                     mdi-check-circle
                   </v-icon>
                   <p class="text mt-0">
-                    {{ ind }}
+                    {{ singleCourse.provides.skills[j].skill.name }}
                   </p>
                 </li>
               </ul>
@@ -215,109 +226,23 @@ export default {
   data () {
     return {
       courseId: null,
-      // subtitle: 'Conoce los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental',
-      // imgCourse: require('../assets/img/IniciacionCristiana.webp'),
-      // description: 'En este curso se abordan los aspectos fundamentales de la vida espiritual cristiana, Duis sit amet ligula varius, interdum quam ut, rutrum tellus. Suspendisse pulvinar lectus sed quam hendrerit fermentum. Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus',
-      // modules: [
-      //   {
-      //     icon: 'mdi-play-circle-outline',
-      //     moduleTitle: 'Los cuatro principios de la vida espiritual',
-      //     text: 'Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus.'
-      //   },
-      //   {
-      //     icon: 'mdi-play-circle-outline',
-      //     moduleTitle: 'La seguridad de la salvación',
-      //     text: 'Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus.'
-      //   },
-      //   {
-      //     icon: 'mdi-play-circle-outline',
-      //     moduleTitle: 'El papel de la Biblia',
-      //     text: 'Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus.'
-      //   },
-      //   {
-      //     icon: 'mdi-file-document-outline',
-      //     moduleTitle: 'La respiración espiritual',
-      //     text: 'Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus.'
-      //   },
-      //   {
-      //     icon: 'mdi-file-document-outline',
-      //     moduleTitle: 'El cristiano y la oración',
-      //     text: 'Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus.'
-      //   },
-      //   {
-      //     icon: 'mdi-play-circle-outline',
-      //     moduleTitle: 'Conociendo la voluntad de Dios',
-      //     text: 'Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus.'
-      //   },
-      //   {
-      //     icon: 'mdi-play-circle-outline',
-      //     moduleTitle: 'Administrándose a usted mismo',
-      //     text: 'Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus.'
-      //   },
-      //   {
-      //     icon: 'mdi-play-circle-outline',
-      //     moduleTitle: 'El compañerismo cristiano',
-      //     text: 'Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus.'
-      //   },
-      //   {
-      //     icon: 'mdi-play-circle-outline',
-      //     moduleTitle: 'Participando en una célula de éxito',
-      //     text: 'Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus.'
-      //   }
-      // ],
-      indicators: [
-        'Identifica y comprende las llaves de la vida espiritual, importantes para tomar la voluntaria decisión de recibir a Cristo en el corazón.',
-        'Identifica y comprende cinco (5) pilares esenciales de la fe cristiana.',
-        'Identifica y practica las vías de alimentación para ser nutrido espiritualmente.',
-        'Comprende y realiza de manera correcta y continua la confesión del pecado y  apropiarse del perdón de Dios.',
-        'Identifica y comprende la manera correcta de practicar el hábito de la oración a Dios.',
-        'Identifica y comprende las vías esenciales para conocer y aceptar la voluntad de Dios.',
-        'Identifica la importancia de la correcta administración de todo el ser y en consecuencia establecer correctas prioridades a su vida.',
-        'Identifica y establece correctas relaciones interpersonales para una sana edificación de su vida y el  desarrollo del cuerpo de Cristo.',
-        'Comprende la importancia y los beneficios de su participación en el ambiente celular cristiano para su vida, su entorno y el mundo.'
-      ],
-      resources: [
-        {
-          icon: 'mdi-play-circle-outline',
-          number: 10,
-          resource: 'Videos'
-        },
-        {
-          icon: 'mdi-file-document-outline',
-          number: 10,
-          resource: 'Documentos'
-        },
-        {
-          icon: 'mdi-magnify',
-          number: 9,
-          resource: 'Cuestionarios'
-        },
-        {
-          icon: 'mdi-note-search-outline',
-          number: 9,
-          resource: 'Asignaciones'
-        },
-        {
-          icon: 'mdi-link-variant',
-          number: 4,
-          resource: 'Enlaces'
-        },
-        {
-          icon: 'mdi-book-cross',
-          number: 16,
-          resource: 'Versiculos a memorizar'
-        },
-        {
-          icon: 'mdi-help-circle-outline',
-          number: 16,
-          resource: 'Preguntas Frecuentes'
-        }
-      ]
+      dialogVideo: false
+      // indicators: [
+      //   'Identifica y comprende las llaves de la vida espiritual, importantes para tomar la voluntaria decisión de recibir a Cristo en el corazón.',
+      //   'Identifica y comprende cinco (5) pilares esenciales de la fe cristiana.',
+      //   'Identifica y practica las vías de alimentación para ser nutrido espiritualmente.',
+      //   'Comprende y realiza de manera correcta y continua la confesión del pecado y  apropiarse del perdón de Dios.',
+      //   'Identifica y comprende la manera correcta de practicar el hábito de la oración a Dios.',
+      //   'Identifica y comprende las vías esenciales para conocer y aceptar la voluntad de Dios.',
+      //   'Identifica la importancia de la correcta administración de todo el ser y en consecuencia establecer correctas prioridades a su vida.',
+      //   'Identifica y establece correctas relaciones interpersonales para una sana edificación de su vida y el  desarrollo del cuerpo de Cristo.',
+      //   'Comprende la importancia y los beneficios de su participación en el ambiente celular cristiano para su vida, su entorno y el mundo.'
+      // ]
     }
   },
   head () {
     return {
-      title: this.courseTitle
+      title: this.$store.state.course.shortName
     }
   },
   computed: {
@@ -340,6 +265,14 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.box {
+  .relative {
+    position: relative;
+  }
+  .absolute {
+    position: absolute;
+  }
+}
 .col-container{
   padding-right: 1.5rem;
 }
@@ -368,14 +301,14 @@ export default {
   }
 }
 
-@include tablet {
-  .wrapper-col {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    flex-flow: column;
-  }
-}
+// @include tablet {
+//   .wrapper-col {
+//     display: grid;
+//     grid-template-columns: repeat(3, 1fr);
+//     gap: 2rem;
+//     flex-flow: column;
+//   }
+// }
 @include telefono {
   .col-container{
     padding-right: 4rem;

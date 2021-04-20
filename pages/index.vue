@@ -1,115 +1,117 @@
 <template>
   <div id="index">
-    <div class="hero d-flex align-center">
+    <div class="hero d-flex justify-center align-center">
       <div class="mask" />
-      <v-row class="rail">
-        <v-col
-          lg="6"
-          xl="5"
-          md="8"
-          sm="8"
-          class="px-5 ml-15"
-        >
-          <v-card elevation="5" class="hero-card rounded-lg text-center py-3">
-            <v-card-title class="mx-auto pb-0">
-              <h1 class="fw-700 text-center mx-4">
-                Formación con alcance eterno
-              </h1>
-            </v-card-title>
-            <v-card-text class="my-3 mx-auto px-5 py-0">
-              <p class="text">
-                Disfruta la maravillosa experiencia de la formación cristiana a través de los cursos y programas de Teo Academy
-              </p>
-            </v-card-text>
-            <v-btn to="/courses" class="btn">
-              Nuestros Cursos
-            </v-btn>
-            <v-dialog
-              v-model="dialogContact"
-              transition="dialog-top-transition"
-              persistent
-              max-width="650px"
-            >
-              <template #activator="{ on, attrs }">
-                <v-btn
-                  class="btn"
-                  v-bind="attrs"
-                  v-on="on"
-                >
-                  Contáctanos
+      <v-container>
+        <v-row class="rail">
+          <v-col
+            lg="5"
+            xl="5"
+            md="6"
+            sm="10"
+            class="px-5"
+          >
+            <v-card elevation="5" max-width="450px" min-height="320px" class="hero-card rounded-lg text-center py-3">
+              <v-card-title class="mx-auto pb-0">
+                <h1 class="fw-700 text-center mx-4">
+                  Formación con alcance eterno
+                </h1>
+              </v-card-title>
+              <v-card-text class="my-3 mx-auto px-5 py-0">
+                <p class="text">
+                  Disfruta la maravillosa experiencia de la formación cristiana a través de los cursos y programas de Teo Academy
+                </p>
+              </v-card-text>
+              <v-row justify="center" class="mt-2">
+                <v-btn to="/courses" class="btn">
+                  Nuestros Cursos
                 </v-btn>
-              </template>
-              <v-card class="pt-5">
-                <h2 class="text-center red-font">
-                  Contáctanos
-                </h2>
-                <v-container>
-                  <v-row justify="center">
-                    <v-col
-                      xl="10"
-                      lg="10"
-                    >
-                      <v-text-field
-                        :rules="[validationRules.required, validationRules.email]"
-                        solo
-                        clearable
-                        label="Nombre"
-                        required
-                      />
-                      <v-text-field
-                        v-model="email"
-                        :rules="[validationRules.required, validationRules.email]"
-                        solo
-                        clearable
-                        label="Email"
-                        required
-                      />
-                      <v-text-field
-                        :rules="[validationRules.required, validationRules.email]"
-                        solo
-                        clearable
-                        label="País"
-                        required
-                      />
-                      <v-text-field
-                        solo
-                        clearable
-                        label="Teléfono (opcional)"
-                        required
-                        type="number"
-                      />
-                      <v-textarea
-                        :rules="[validationRules.required, validationRules.email]"
-                        solo
-                        clearable
-                        label="Coméntanos tu solicitud (requerido)"
-                        auto-grow
-                      />
-                    </v-col>
-                  </v-row>
-                </v-container>
-                <v-card-actions>
-                  <v-spacer />
-                  <div class="centrar">
+                <v-dialog
+                  v-model="dialogContact"
+                  transition="dialog-top-transition"
+                  persistent
+                  max-width="650px"
+                >
+                  <template #activator="{ on, attrs }">
                     <v-btn
                       class="btn"
-                      @click="dialogContact = false"
+                      v-bind="attrs"
+                      v-on="on"
                     >
-                      Enviar
+                      Contáctanos
                     </v-btn>
-                    <v-btn
-                      class="btn"
-                      @click="dialogContact = false"
-                    >
-                      Cerrar
-                    </v-btn>
-                  </div>
-                </v-card-actions>
-              </v-card>
-            </v-dialog>
-          </v-card>
-        </v-col>
-      </v-row>
+                  </template>
+                  <v-card class="pt-5">
+                    <h2 class="text-center red-font">
+                      Contáctanos
+                    </h2>
+                    <v-container>
+                      <v-row justify="center">
+                        <v-col
+                          xl="10"
+                          lg="10"
+                        >
+                          <v-text-field
+                            :rules="[validationRules.required, validationRules.email]"
+                            solo
+                            clearable
+                            label="Nombre"
+                            required
+                          />
+                          <v-text-field
+                            v-model="email"
+                            :rules="[validationRules.required, validationRules.email]"
+                            solo
+                            clearable
+                            label="Email"
+                            required
+                          />
+                          <v-text-field
+                            :rules="[validationRules.required, validationRules.email]"
+                            solo
+                            clearable
+                            label="País"
+                            required
+                          />
+                          <v-text-field
+                            solo
+                            clearable
+                            label="Teléfono (opcional)"
+                            required
+                            type="number"
+                          />
+                          <v-textarea
+                            :rules="[validationRules.required, validationRules.email]"
+                            solo
+                            clearable
+                            label="Coméntanos tu solicitud (requerido)"
+                            auto-grow
+                          />
+                        </v-col>
+                      </v-row>
+                    </v-container>
+                    <v-spacer />
+                    <div class="centrar">
+                      <v-btn
+                        class="btn"
+                        @click="dialogContact = false"
+                      >
+                        Enviar
+                      </v-btn>
+                      <v-btn
+                        class="btn"
+                        @click="dialogContact = false"
+                      >
+                        Cerrar
+                      </v-btn>
+                    </div>
+                  </v-card>
+                </v-dialog>
+              </v-row>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
     </div>
     <!--Seccion de Hero-->
     <section class="ebook gutter-p">
@@ -218,11 +220,11 @@
           >
             <v-slide-group multiple arrows class="my-3 my-slider">
               <v-slide-item v-for="course in courses" :key="course._id" class="slides">
-                <v-card elevation="5" height="100%" max-height="500px" max-width="315px" class="card rounded-lg mx-4 my-5 pb-2 d-flex flex-column justify-space-between">
+                <v-card elevation="5" height="100%" max-height="520px" max-width="315px" class="card rounded-lg mx-4 my-5 pb-2 d-flex flex-column justify-space-between">
                   <v-img
                     :src="course.imgUrl"
                     height="45%"
-                    max-height="230px"
+                    max-height="220px"
                     class="mb-2"
                   />
                   <v-card-title class="card-title">
@@ -746,41 +748,57 @@ export default {
 <style lang="scss" scoped>
 .hero{
   background-image: url(../assets/img/banner-indexmod.webp);
-  min-height: 650px !important;
+  min-height: 650px;
   background-color: rgba($color: $gray-mid, $alpha: 0.37);
-  // .mask {
-  //   background-color: rgba($color: #ffffff, $alpha: 0.15);
-  // }
-  .btn {
-    display: block !important;
-  }
-  @include tablet {
-    .btn {
-      display: inline-block !important;
+  .rail {
+    display: flex;
+    justify-content: center;
+    .hero-card{
+      .btn {
+        display: block;
+      }
     }
-    .rail {
-      display: flex;
-      justify-content: end;
-      .hero-card {
-        min-height: 310px !important;
+  }
+}
+  @include tablet {
+    .hero{
+      .rail {
+        display: flex;
+        justify-content: center;
+        .hero-card {
+          margin: 0 auto;
+          .btn {
+            display: block;
+          }
+        }
       }
     }
   }
 
-  @include miniDesktop {
+@include miniDesktop {
+  .hero{
     .rail {
-      max-width: 1000px;
-      width: 65% !important;
-      display: flex !important;
-      justify-content: flex-end !important;
+      display: flex;
+      justify-content: center;
+      .hero-card {
+        .btn {
+          display: block;
+        }
+      }
     }
   }
 }
-@include miniDesktop() {
+@include desktop {
+  .hero {
+    .rail {
+      justify-content: flex-end;
+    }
+  }
   .gutter-p {
     padding-top: 12rem !important;
   }
 }
+
 .ebook {
   background-image: url(../assets/img/wave.svg);
   background-size: cover;

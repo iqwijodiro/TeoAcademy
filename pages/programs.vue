@@ -109,8 +109,8 @@
                             hasta <br> DD-MM-AAAA
                           </p>
                         </div>
-                      </v-col>
-                      <v-col
+                      </v-col><v-spacer />
+                      <!-- <v-col
                         cols="12"
                         lg="4"
                         xl="4"
@@ -125,7 +125,7 @@
                             Descuentos aplican segun tu país
                           </p>
                         </div>
-                      </v-col>
+                      </v-col> -->
                       <v-col
                         cols="12"
                         lg="4"
@@ -145,36 +145,22 @@
           </v-container>
         </template>
         <template #footer>
-          <v-row justify="center" class="mt-5 py-5">
-            <span class="text mr-5">
-              Pagina {{ page }} de
-              <span class="gray-m-font" v-text="numberOfPages" />
-            </span>
-            <v-btn
-              small
-              rounded
-              dark
-              color="#2ec4b6"
-              class="mr-2"
-              @click="formerPage"
-            >
-              <v-icon>mdi-chevron-left</v-icon>
-            </v-btn>
-            <v-btn
-              small
-              rounded
-              dark
-              color="#2ec4b6"
-              class="ml-2"
-              @click="nextPage"
-            >
-              <v-icon>mdi-chevron-right</v-icon>
-            </v-btn>
-          </v-row>
+          <v-container>
+            <v-row justify="center" class="mt-5 py-10 paginator-rail">
+              <v-pagination
+                v-model="page"
+                :length="pages"
+                color="#2ec4b6"
+                next-icon="mdi-chevron-right"
+                prev-icon="mdi-chevron-left"
+                class="pagination"
+              />
+            </v-row>
+          </v-container>
         </template>
       </v-data-iterator>
     </main>
-    <section class="register">
+    <!-- <section class="register">
       <v-container>
         <v-row justify="center">
           <v-col
@@ -194,7 +180,7 @@
           </v-col>
         </v-row>
       </v-container>
-    </section>
+    </section> -->
   </div>
 </template>
 
@@ -209,80 +195,8 @@ export default {
       pagination: {
         rowsPerPage: 3
       },
-      ipp: 3,
-      rpp: 3
-      // programs: [
-      //   {
-      //     img: require('../assets/img/who-1.webp'),
-      //     title: 'Teo 101 Beginner',
-      //     content: 'Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.',
-      //     resources: 50,
-      //     price: 90
-      //   },
-      //   {
-      //     img: require('../assets/img/who-1.webp'),
-      //     title: 'Teo 101 Beginner',
-      //     content: 'Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.',
-      //     resources: 50,
-      //     price: 90
-      //   },
-      //   {
-      //     img: require('../assets/img/who-1.webp'),
-      //     title: 'Teo 101 Beginner',
-      //     content: 'Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.',
-      //     resources: 50,
-      //     price: 90
-      //   },
-      //   {
-      //     img: require('../assets/img/who-1.webp'),
-      //     title: 'Teo 101 Beginner',
-      //     content: 'Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.',
-      //     resources: 50,
-      //     price: 90
-      //   },
-      //   {
-      //     img: require('../assets/img/who-1.webp'),
-      //     title: 'Teo 101 Beginner',
-      //     content: 'Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.',
-      //     resources: 50,
-      //     price: 90
-      //   },
-      //   {
-      //     img: require('../assets/img/who-1.webp'),
-      //     title: 'Teo 101 Beginner',
-      //     content: 'Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.',
-      //     resources: 50,
-      //     price: 90
-      //   },
-      //   {
-      //     img: require('../assets/img/who-1.webp'),
-      //     title: 'Teo 101 Beginner',
-      //     content: 'Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.',
-      //     resources: 50,
-      //     price: 90
-      //   },
-      //   {
-      //     img: require('../assets/img/who-1.webp'),
-      //     title: 'Teo 101 Beginner',
-      //     content: 'Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.',
-      //     resources: 50,
-      //     price: 90
-      //   },
-      //   {
-      //     img: require('../assets/img/who-1.webp'),
-      //     title: 'Teo 101 Beginner',
-      //     content: 'Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.',
-      //     resources: 50,
-      //     price: 90
-      //   },
-      //   {
-      //     img: require('../assets/img/who-1.webp'),
-      //     title: 'Teo 101 Beginner',
-      //     content: 'Maecenas vitae pulvinar libero. Nam ac risus eget felis accumsan auctor. In hac habitasse platea dictumst. Aenean lobortis dui enim, et sodales quam pretium at.',
-      //     resources: 50,
-      //     price: 90
-      //   }
-      // ]
+      ipp: 2,
+      rpp: 2
     }
   },
   head () {
@@ -336,8 +250,9 @@ export default {
   }
 }
 .hero {
-  background-image: url(../assets/img/hero-programs.webp);
-  min-height: 650px;
+  background-image: url(https://images.unsplash.com/photo-1515162305285-0293e4767cc2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80);
+  height: 55vh;
+  background-position: 220% 220%;
   .text {
     line-height: 1.5;
     font-size: 1.5rem;
@@ -415,6 +330,14 @@ main {
   }
   .btn {
       max-width: 200px;
+  }
+}
+.paginator-rail {
+  border-bottom: 3px;
+  border-bottom-style: solid;
+  border-bottom-color: $gray-light;
+  .pagination{
+    font-size: 2rem;
   }
 }
 .mdi-chevron-left,

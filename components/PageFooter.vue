@@ -67,10 +67,10 @@
         </v-col>
       </v-row>
       <v-container class="text-center mt-2">
-        <v-row class="d-flex justify-center row-foot">
+        <v-row class="d-flex justify-center row-foot py-4">
           <span>Created by SEGO Technology</span>
         </v-row>
-        <v-row class="d-flex justify-center py-4">
+        <v-row class="d-flex justify-center py-5">
           <span>Todos los derechos reservados para Teo Academy &copy; </span>
         </v-row>
       </v-container>
