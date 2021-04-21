@@ -123,6 +123,15 @@ h4 {
 .gray-m-font {
   color: $gray-mid;
 }
+.gray-light-font {
+  color: $gray-light;
+}
+.opacity {
+  opacity: .75;
+}
+.border-n {
+  border: 2px solid #959595;
+}
 /*** Botones ***/ 
 .btn {
   height: 4.5rem !important;

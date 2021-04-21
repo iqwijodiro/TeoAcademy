@@ -18,7 +18,32 @@
             <h3 class="gray-m-font">
               {{ singleProgram.subName }}
             </h3>
-            <v-img :src="singleProgram.imgUrl" class="rounded-lg my-5" />
+            <!-- <v-img :src="singleProgram.imgUrl" class="rounded-lg my-5" /> -->
+            <v-dialog
+              v-model="dialogVideo"
+              transition="dialog-top-transition"
+              internal-activator
+              width="90%"
+              max-width="1000px"
+            >
+              <template #activator="{ on, attrs }">
+                <div class="box">
+                  <v-img
+                    v-bind="attrs"
+                    :src="singleProgram.imgUrl"
+                    class="rounded-lg d-flex justify-center align-center my-5"
+                    v-on="on"
+                  >
+                    <v-icon color="#959595" size="130" class="icon d-flex justify-center align-center opacity">
+                      mdi-play-circle-outline
+                    </v-icon>
+                  </v-img>
+                </div>
+              </template>
+              <v-card width="100%">
+                <video width="100%" autoplay controls :src="singleProgram.videoUrl" />
+              </v-card>
+            </v-dialog>
             <h4 class="gray-m-font mb-4 mt-5">
               <span class="font-weight-medium">Descripción:</span>
             </h4>
@@ -28,23 +53,29 @@
             <h2 class="gray-m-font mt-8 mb-5">
               Cursos
             </h2>
-            <v-expansion-panels v-if="singleProgram.courses" accordion>
+            <v-expansion-panels v-if="courses" accordion>
               <v-expansion-panel
-                v-for="(course, i) in singleProgram.courses"
+                v-for="(course, i) in courses"
                 :key="i"
               >
                 <v-expansion-panel-header>
-                  <v-icon color="#2ec4b6" class="d-inline flex-grow-0 mr-5" size="30">
-                    {{ course.icon }}
-                  </v-icon>
+                  <!-- <v-icon color="#2ec4b6" class="d-inline flex-grow-0 mr-5" size="30">
+                    {{ course.structure.sections.lessons }}
+                  </v-icon> -->
                   <h4 class="red-font text-start mr-5">
-                    {{ course.courseTitle }}
+                    {{ course.name }}
                   </h4>
                 </v-expansion-panel-header>
                 <v-expansion-panel-content>
                   <p class="text-mid">
-                    {{ course.text }}
+                    {{ course.description }}
                   </p>
+                  <v-row justify="center" class="py-2 mt-2">
+                    <!-- <v-spacer /> -->
+                    <v-btn class="minibtn" @click="setCourse(course)">
+                      Ver Curso
+                    </v-btn>
+                  </v-row>
                 </v-expansion-panel-content>
               </v-expansion-panel>
             </v-expansion-panels>
@@ -209,6 +240,7 @@ export default {
   data () {
     return {
       programId: null,
+      courses: [],
       indicators: [
         'Identifica y comprende las llaves de la vida espiritual, importantes para tomar la voluntaria decisión de recibir a Cristo en el corazón.',
         'Identifica y comprende cinco (5) pilares esenciales de la fe cristiana.',
@@ -274,12 +306,21 @@ export default {
     if (!this.singleProgram._id) {
       this.getProgramId()
     }
+    this.getCoursesProgram()
   },
   methods: {
     async getProgramId () {
       const data = await this.$axios
         .$get(`${this.$store.state.urlAPI}/division/id${this.programId}`)
       this.$store.commit('setProgram', data.division)
+    },
+    async getCoursesProgram () {
+      const data = await this.$axios.$get(`${this.$store.state.urlAPI}/courses/client6049278bc32f0d0015e108e9/division${this.programId}/all`)
+      this.courses = data.courses
+    },
+    setCourse (course) {
+      this.$store.commit('setCourse', course)
+      this.$router.replace('/course/' + course._id)
     }
   }
 }

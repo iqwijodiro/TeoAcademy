@@ -21,24 +21,29 @@
             <v-dialog
               v-model="dialogVideo"
               transition="dialog-top-transition"
-              fullscreen
               internal-activator
+              width="90%"
+              max-width="1000px"
             >
               <template #activator="{ on, attrs }">
                 <div class="box">
                   <v-img
                     v-bind="attrs"
                     :src="singleCourse.imgUrl"
-                    class="rounded-lg my-5 relative"
+                    class="rounded-lg d-flex justify-center align-center my-5"
                     v-on="on"
-                  />
-                  <v-icon size="50" class="icon gray-font absolute">
+                  >
+                    <v-icon color="#959595" size="130" class="icon d-flex justify-center align-center opacity">
+                      mdi-play-circle-outline
+                    </v-icon>
+                  </v-img>
+                  <!-- <v-icon size="50" class="icon gray-font absolute">
                     mdi-play-circle-outline
-                  </v-icon>
+                  </v-icon> -->
                 </div>
               </template>
               <v-card width="100%">
-                <video :src="singleCourse.videoUrl" />
+                <video width="100%" autoplay controls :src="singleCourse.videoUrl" />
               </v-card>
             </v-dialog>
             <h4 class="gray-m-font mb-4 mt-5">
@@ -48,7 +53,7 @@
               {{ singleCourse.description }}
             </p>
             <h2 class="gray-m-font mt-8 mb-5">
-              Temas
+              Unidades
             </h2>
             <v-expansion-panels v-if="singleCourse.structure && singleCourse.structure.sections" accordion>
               <v-expansion-panel
@@ -56,17 +61,29 @@
                 :key="i"
               >
                 <v-expansion-panel-header>
-                  <!-- <v-icon color="#2ec4b6" class="d-inline flex-grow-0 mr-5" size="30">
-                    {{ module.icon }}
-                  </v-icon> -->
                   <h4 class="red-font text-start mr-5">
                     {{ module.name }}
                   </h4>
                 </v-expansion-panel-header>
                 <v-expansion-panel-content>
-                  <p class="text-mid">
-                    Praesent laoreet turpis libero, at lacinia lectus elementum lacinia. Nullam sed sem velit. Sed quis aliquam ante. Quisque quis justo laoreet, interdum nibh et, imperdiet eros. Duis feugiat tristique purus
-                  </p>
+                  <v-expansion-panels
+                    v-for="(lesson, n) in module.lessons"
+                    :key="n"
+                    flat
+                  >
+                    <v-expansion-panel>
+                      <v-expansion-panel-header>
+                        <p class="card-title">
+                          {{ lesson.name }}
+                        </p>
+                      </v-expansion-panel-header>
+                      <v-expansion-panel-content>
+                        <p class="text-mid text-center">
+                          'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae assumenda alias labore unde, quia nulla dolor blanditiis. Tempore ratione cupiditate nisi, distinctio quis explicabo quae perferendis, ad corrupti, ipsa corporis?'
+                        </p>
+                      </v-expansion-panel-content>
+                    </v-expansion-panel>
+                  </v-expansion-panels>
                 </v-expansion-panel-content>
               </v-expansion-panel>
             </v-expansion-panels>
@@ -144,8 +161,8 @@
               <h3 class="gray-m-font text-center">
                 Requerimientos
               </h3>
-              <div class="d-flex justify-center">
-                <div class="d-flex flex-column text-mid text-center">
+              <div class="d-flex justify-center flex-column">
+                <div class="d-flex flex-column text-mid text-center mb-5">
                   <v-icon size="30">
                     mdi-school
                   </v-icon>
@@ -260,6 +277,8 @@ export default {
   }
   .absolute {
     position: absolute;
+    top: 40%;
+    left: 40%;
   }
 }
 .col-container{
