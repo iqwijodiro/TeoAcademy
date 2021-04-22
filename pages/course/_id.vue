@@ -209,7 +209,7 @@
         </v-col>
       </v-row>
     </v-container>
-    <section class="indicators mt-5">
+    <section class="indicators">
       <v-container>
         <h2 class="sect-title gray-m-font">
           Competencias
@@ -329,7 +329,7 @@ export default {
     padding-right: 4rem;
   }
   .sidebar {
-    height: 100%;
+    height: 95%;
     border-left-color: $gray-light;
     border-left-width: 2px;
     border-left-style: solid;

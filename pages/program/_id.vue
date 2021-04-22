@@ -368,7 +368,7 @@ export default {
     padding-right: 4rem;
   }
   .sidebar {
-    height: 100%;
+    height: 95%;
     border-left-color: $gray-light;
     border-left-width: 2px;
     border-left-style: solid;

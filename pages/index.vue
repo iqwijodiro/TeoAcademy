@@ -53,7 +53,7 @@
                             lg="10"
                           >
                             <v-text-field
-                              :rules="[validationRules.required, validationRules.email]"
+                              :rules="[validationRules.required]"
                               solo
                               clearable
                               label="Nombre"
@@ -68,7 +68,7 @@
                               required
                             />
                             <v-text-field
-                              :rules="[validationRules.required, validationRules.email]"
+                              :rules="[validationRules.required]"
                               solo
                               clearable
                               label="País"
@@ -78,11 +78,10 @@
                               solo
                               clearable
                               label="Teléfono (opcional)"
-                              required
                               type="number"
                             />
                             <v-textarea
-                              :rules="[validationRules.required, validationRules.email]"
+                              :rules="[validationRules.required]"
                               solo
                               clearable
                               label="Coméntanos tu solicitud (requerido)"
@@ -96,31 +95,46 @@
                           </p>
                         </v-container>
                       </v-container>
-                      <v-spacer />
-                      <div class="centrar">
-                        <v-alert
-                          v-model="alertForm"
-                          dismissible
-                          color="white"
-                          colored-border
-                          elevation="2"
-                          preppend-inner-icon="mdi-check-circle-outline"
-                        >
-                          <span>Tus datos han sido registrados exitosamente</span>
-                        </v-alert>
-                        <v-btn
-                          class="btn"
-                          @click="alertForm = true"
-                        >
-                          Enviar
-                        </v-btn>
-                        <v-btn
-                          class="btn"
-                          @click="dialogContact = false"
-                        >
-                          Cerrar
-                        </v-btn>
-                      </div>
+                      <v-container>
+                        <v-row justify="end">
+                          <v-alert
+                            v-if="alertForm"
+                            v-model="alertForm"
+                            dismissible
+                            color="#2ec4b6"
+                            dense
+                            outlined
+                            elevation="0"
+                            class="my-2"
+                          >
+                            <span>Tus datos han sido registrados exitosamente</span>
+                          </v-alert>
+                          <v-alert
+                            v-else
+                            v-model="errorForm"
+                            dismissible
+                            color="#be1e2d"
+                            dense
+                            outlined
+                            elevation="0"
+                            class="my-2 mr-1"
+                          >
+                            <span>No pudimos registrar sus datos. Intente de nuevo</span>
+                          </v-alert>
+                          <v-btn
+                            class="btn"
+                            @click="requestForm"
+                          >
+                            Enviar
+                          </v-btn>
+                          <v-btn
+                            class="btn"
+                            @click="dialogContact = false"
+                          >
+                            Cerrar
+                          </v-btn>
+                        </v-row>
+                      </v-container>
                     </v-card>
                   </v-dialog>
                 </div>
@@ -548,6 +562,7 @@ export default {
       dialogContact: false,
       dialogEbook: false,
       alertForm: false,
+      errorForm: false,
       courses: [],
       name: '',
       email: '',
@@ -700,6 +715,14 @@ export default {
     async getTopCourses () {
       const data = await this.$axios.$get(`${this.$store.state.urlAPI}/courses/client6049278bc32f0d0015e108e9/all`)
       this.courses = data.courses
+    },
+    requestForm () {
+      if (this.validationRules.required || this.validationRules.email) {
+        this.errorForm = true
+      } else {
+        this.errorForm = false
+        this.alertForm = true
+      }
     }
   }
 }
