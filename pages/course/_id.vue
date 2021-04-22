@@ -66,24 +66,31 @@
                   </h4>
                 </v-expansion-panel-header>
                 <v-expansion-panel-content>
-                  <v-expansion-panels
+                  <!-- <v-expansion-panels
                     v-for="(lesson, n) in module.lessons"
                     :key="n"
                     flat
                   >
                     <v-expansion-panel>
-                      <v-expansion-panel-header>
-                        <p class="card-title">
-                          {{ lesson.name }}
-                        </p>
-                      </v-expansion-panel-header>
+                      <v-expansion-panel-header> -->
+                  <ul
+                    v-for="(lesson, n) in module.lessons"
+                    :key="n"
+                  >
+                    <li class="mb-5">
+                      <p class="card-title">
+                        {{ lesson.name }}
+                      </p>
+                    </li>
+                  </ul>
+                  <!-- </v-expansion-panel-header>
                       <v-expansion-panel-content>
                         <p class="text-mid text-center">
                           'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae assumenda alias labore unde, quia nulla dolor blanditiis. Tempore ratione cupiditate nisi, distinctio quis explicabo quae perferendis, ad corrupti, ipsa corporis?'
                         </p>
                       </v-expansion-panel-content>
                     </v-expansion-panel>
-                  </v-expansion-panels>
+                  </v-expansion-panels> -->
                 </v-expansion-panel-content>
               </v-expansion-panel>
             </v-expansion-panels>

@@ -158,7 +158,7 @@
               <h3 class="gray-m-font text-center">
                 Requerimientos
               </h3>
-              <div class="d-flex justify-center">
+              <div class="d-flex justify-center flex-column">
                 <div class="d-flex flex-column text-mid text-center">
                   <v-icon size="30">
                     mdi-school
