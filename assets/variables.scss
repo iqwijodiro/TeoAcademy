@@ -90,9 +90,6 @@ a {
   font-family: $title-font !important;
   text-decoration: none;
 }
-body {
-  width: 100vw !important;
-}
 
 h1 {
   font-size: 3.5rem;
@@ -235,7 +232,7 @@ section {
   width: 100%;
   background-size: cover;
   background-attachment: fixed;
-  background-position: 25% 25%;
+  // background-position: 25% 25%;
   .mask {
     position: absolute;
     background-color: rgba($color: #ffffff, $alpha: 0.45);

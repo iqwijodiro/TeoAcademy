@@ -90,9 +90,35 @@
                           </v-col>
                         </v-row>
                         <v-container>
-                          <p class="text-mid" style="line-height: 2">
-                            Al hacer click en <span class="minibtn">Enviar</span>, usted está confirmando que acepta los términos de nuestras <a href="/" class="text-decoration-underline red-font"> políticas y condiciones</a>
-                          </p>
+                          <v-dialog
+                            v-model="privacy"
+                          >
+                            <template #activator="{ on, attrs }">
+                              <p class="text-mid" style="line-height: 2">
+                                Al hacer click en <span class="minibtn">Enviar</span>, usted está confirmando que acepta los términos de nuestras
+                                <a v-bind="attrs" class="text-decoration-underline red-font" v-on="on"> políticas y condiciones</a>
+                              </p>
+                            </template>
+                            <v-card>
+                              <v-toolbar
+                                flat
+                                dense
+                                app
+                                color="transparent"
+                              >
+                                <v-spacer />
+                                <v-btn
+                                  icon
+                                  @click="privacy = false"
+                                >
+                                  <v-icon size="30" class="icon gray-light-font">
+                                    mdi-close-circle-outline
+                                  </v-icon>
+                                </v-btn>
+                              </v-toolbar>
+                              <Privacy />
+                            </v-card>
+                          </v-dialog>
                         </v-container>
                       </v-container>
                       <v-container>
@@ -149,7 +175,6 @@
       <v-container>
         <v-row class="justify-space-around align-center pt-5 mt-5 mx-auto">
           <v-col
-            cols="12"
             xl="4"
             lg="4"
             md="6"
@@ -553,8 +578,9 @@
   </div>
 </template>
 <script>
+import Privacy from '~/components/Privacy'
 export default {
-  // components: {},
+  components: { Privacy },
   data () {
     return {
       title: 'Inicio',
@@ -563,6 +589,7 @@ export default {
       dialogEbook: false,
       alertForm: false,
       errorForm: false,
+      privacy: false,
       courses: [],
       name: '',
       email: '',

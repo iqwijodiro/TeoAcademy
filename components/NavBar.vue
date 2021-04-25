@@ -2,7 +2,7 @@
   <div id="navbar">
     <v-app-bar
       :clipped-left="clipped"
-      elevation="1"
+      elevate-on-scroll
       fixed
       app
       color="white"
@@ -119,6 +119,7 @@ export default {
 #navbar {
   .appbar {
     height: 100px !important;
+    width: 100vw;
   }
   .appbar,
   .drawer {

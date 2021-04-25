@@ -5,9 +5,9 @@
       <v-row justify="center" class="rail">
         <v-col
           lg="10"
-          sm="10"
-          xs="10"
-          class="px-5"
+          xl="8"
+          md="10"
+          class="px-1"
         >
           <v-card elevation="5" class="hero-card rounded-lg text-center pa-10 ma-5">
             <v-card-title class="mx-auto pb-0 mb-4">
@@ -437,7 +437,7 @@ export default {
 }
 .hero {
   background-image: url(https://images.unsplash.com/photo-1543702404-38c2035462ad?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);
-  min-height: 600px;
+  min-height: 650px;
   .text {
     display: none;
   }

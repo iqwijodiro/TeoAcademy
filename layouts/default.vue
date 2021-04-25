@@ -35,7 +35,12 @@ html {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  overflow-x: none;
 }
+// html::-webkit-scrollbar {
+//   display: none;
+//   width: 0;
+// }
 *,
 *:before,
 *:after {
@@ -45,9 +50,16 @@ html {
   margin: 0;
   padding: 0;
 }
+body {
+  width: 100vw !important;
+  min-width: 100% !important;
+  margin: 0 !important;
+}
 .app {
   font-family: $body-font;
   padding-top: 2rem;
+  width: 100vw !important;
+  min-width: 100% !important;
 }
 
 </style>
