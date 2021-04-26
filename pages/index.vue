@@ -46,87 +46,93 @@
                       <h2 class="text-center red-font">
                         Contáctanos
                       </h2>
-                      <v-container>
-                        <v-row justify="center">
-                          <v-col
-                            xl="10"
-                            lg="10"
-                          >
-                            <v-text-field
-                              :rules="[validationRules.required]"
-                              solo
-                              clearable
-                              label="Nombre"
-                              required
-                            />
-                            <v-text-field
-                              v-model="email"
-                              :rules="[validationRules.required, validationRules.email]"
-                              solo
-                              clearable
-                              label="Email"
-                              required
-                            />
-                            <v-text-field
-                              :rules="[validationRules.required]"
-                              solo
-                              clearable
-                              label="País"
-                              required
-                            />
-                            <v-text-field
-                              solo
-                              clearable
-                              label="Teléfono (opcional)"
-                              type="number"
-                            />
-                            <v-textarea
-                              :rules="[validationRules.required]"
-                              solo
-                              clearable
-                              label="Coméntanos tu solicitud (requerido)"
-                              auto-grow
-                            />
-                          </v-col>
-                        </v-row>
+                      <v-form
+                        v-model="validForm"
+                      >
                         <v-container>
-                          <v-dialog
-                            v-model="privacy"
-                          >
-                            <template #activator="{ on, attrs }">
-                              <p class="text-mid" style="line-height: 2">
-                                Al hacer click en <span class="minibtn">Enviar</span>, usted está confirmando que acepta los términos de nuestras
-                                <a v-bind="attrs" class="text-decoration-underline red-font" v-on="on"> políticas y condiciones</a>
-                              </p>
-                            </template>
-                            <v-card>
-                              <v-toolbar
-                                flat
-                                dense
-                                app
-                                color="transparent"
-                              >
-                                <v-spacer />
-                                <v-btn
-                                  icon
-                                  @click="privacy = false"
+                          <v-row justify="center">
+                            <v-col
+                              xl="10"
+                              lg="10"
+                            >
+                              <v-text-field
+                                v-model="lead.name"
+                                :rules="[validationRules.required]"
+                                solo
+                                clearable
+                                label="Nombre"
+                                required
+                              />
+                              <v-text-field
+                                v-model="lead.contactInfo.email"
+                                :rules="[validationRules.required, validationRules.email]"
+                                solo
+                                clearable
+                                label="Email"
+                                required
+                              />
+                              <v-text-field
+                                v-model="lead.contactInfo.masterLocation.country"
+                                :rules="[validationRules.required]"
+                                solo
+                                clearable
+                                label="País"
+                                required
+                              />
+                              <v-text-field
+                                v-model="lead.contactInfo.phoneNumber"
+                                solo
+                                clearable
+                                label="Teléfono (opcional)"
+                                type="number"
+                              />
+                              <v-textarea
+                                v-model="lead.request"
+                                :rules="[validationRules.required]"
+                                solo
+                                clearable
+                                label="Coméntanos tu solicitud (requerido)"
+                                auto-grow
+                              />
+                            </v-col>
+                          </v-row>
+                          <v-container>
+                            <v-dialog
+                              v-model="privacy"
+                            >
+                              <template #activator="{ on, attrs }">
+                                <p class="text-mid" style="line-height: 2">
+                                  Al hacer click en <span class="minibtn">Enviar</span>, usted está confirmando que acepta los términos de nuestras
+                                  <a v-bind="attrs" class="text-decoration-underline red-font" v-on="on"> políticas y condiciones</a>
+                                </p>
+                              </template>
+                              <v-card>
+                                <v-toolbar
+                                  flat
+                                  dense
+                                  app
+                                  color="transparent"
                                 >
-                                  <v-icon size="30" class="icon gray-light-font">
-                                    mdi-close-circle-outline
-                                  </v-icon>
-                                </v-btn>
-                              </v-toolbar>
-                              <Privacy />
-                            </v-card>
-                          </v-dialog>
+                                  <v-spacer />
+                                  <v-btn
+                                    icon
+                                    @click="privacy = false"
+                                  >
+                                    <v-icon size="30" class="icon gray-light-font">
+                                      mdi-close-circle-outline
+                                    </v-icon>
+                                  </v-btn>
+                                </v-toolbar>
+                                <Privacy />
+                              </v-card>
+                            </v-dialog>
+                          </v-container>
                         </v-container>
-                      </v-container>
+                      </v-form>
                       <v-container>
                         <v-row justify="end">
-                          <v-alert
-                            v-if="alertForm"
+                          <!-- <v-alert
                             v-model="alertForm"
-                            dismissible
                             color="#2ec4b6"
                             dense
                             outlined
@@ -134,11 +140,9 @@
                             class="my-2"
                           >
                             <span>Tus datos han sido registrados exitosamente</span>
-                          </v-alert>
-                          <v-alert
-                            v-else
+                          </v-alert> -->
+                          <!-- <v-alert
                             v-model="errorForm"
-                            dismissible
                             color="#be1e2d"
                             dense
                             outlined
@@ -146,7 +150,7 @@
                             class="my-2 mr-1"
                           >
                             <span>No pudimos registrar sus datos. Intente de nuevo</span>
-                          </v-alert>
+                          </v-alert> -->
                           <v-btn
                             class="btn"
                             @click="requestForm"
@@ -168,6 +172,36 @@
             </v-card>
           </v-col>
         </v-row>
+        <v-snackbar
+          v-model="snackbar.status"
+          timeout="2500"
+          text
+          top
+          :color="snackbar.color"
+          content-class="snackbar-text"
+          absolute
+          class="snackbar"
+        >
+          <template #default>
+            <span
+              style="font-size: 1.8rem"
+            >
+              {{ snackbar.text }}
+            </span>
+          </template>
+          <!-- <template #action="{ attrs }">
+            <v-btn
+              color="#2ec4b6"
+              text
+              v-bind="attrs"
+              @click="snackbar = false"
+            >
+              <v-icon class="icon">
+                mdi-close-circle-outline
+              </v-icon>
+            </v-btn>
+          </template> -->
+        </v-snackbar>
       </v-container>
     </div>
     <!--Seccion de Hero-->
@@ -205,38 +239,42 @@
                     <h2 class="text-center red-font">
                       Solicita nuestro ebook gratis
                     </h2>
-                    <v-container>
-                      <v-row justify="center">
-                        <v-col
-                          xl="10"
-                          lg="10"
-                          class="pa-0"
-                        >
-                          <v-text-field
-                            :rules="[validationRules.required, validationRules.email]"
-                            solo
-                            clearable
-                            label="Nombre"
-                            required
-                          />
-                          <v-text-field
-                            v-model="email"
-                            :rules="[validationRules.required, validationRules.email]"
-                            solo
-                            clearable
-                            label="Email"
-                            required
-                          />
-                          <v-text-field
-                            :rules="[validationRules.required, validationRules.email]"
-                            solo
-                            clearable
-                            label="País"
-                            required
-                          />
-                        </v-col>
-                      </v-row>
-                    </v-container>
+                    <v-form
+                      v-model="validForm"
+                    >
+                      <v-container>
+                        <v-row justify="center">
+                          <v-col
+                            xl="10"
+                            lg="10"
+                            class="pa-0"
+                          >
+                            <v-text-field
+                              :rules="[validationRules.required]"
+                              solo
+                              clearable
+                              label="Nombre"
+                              required
+                            />
+                            <v-text-field
+                              v-model="email"
+                              :rules="[validationRules.required, validationRules.emailPattern]"
+                              solo
+                              clearable
+                              label="Email"
+                              required
+                            />
+                            <v-text-field
+                              :rules="[validationRules.required]"
+                              solo
+                              clearable
+                              label="País"
+                              required
+                            />
+                          </v-col>
+                        </v-row>
+                      </v-container>
+                    </v-form>
                     <v-card-actions class="d-flex justify-center">
                       <div class="centrar">
                         <v-btn
@@ -560,7 +598,7 @@
               <v-form v-model="valid" action="" class="form-box">
                 <v-text-field
                   v-model="email"
-                  :rules="[validationRules.required, validationRules.email]"
+                  :rules="[validationRules.required, validationRules.emailPattern]"
                   label="E-mail"
                   required
                   clearable
@@ -591,13 +629,64 @@ export default {
       errorForm: false,
       privacy: false,
       courses: [],
-      name: '',
-      email: '',
-      country: '',
-      requestText: '',
+      // snackbar: false,
+      snackbar: {
+        status: false,
+        text: '',
+        color: ''
+      },
+      lead: {
+        name: '',
+        request: '',
+        contactInfo: {
+          masterPhone: {
+            phoneType: 'Principal',
+            code: '',
+            number: '',
+            ext: ''
+          },
+          masterLocation: {
+            _id: 'Principal',
+            name: 'Principal',
+            building: {
+              typeBuilding: 'Casa',
+              name: 'Principal',
+              floor: null,
+              number: null
+            },
+            route1: {
+              typeRoute: 'CL',
+              name: null
+            },
+            route2: {
+              typeRoute: 'AV',
+              name: null
+            },
+            neighborhood: null,
+            adminArea1: null,
+            city: null,
+            adminArea2: null,
+            country: 'Costa Rica',
+            postalCode: null,
+            formatted: null,
+            location: {
+              lat: null,
+              lng: null
+            }
+          },
+          email: null,
+          aditional: {
+            phones: [],
+            infoWeb: [],
+            locations: []
+          }
+        }
+      },
+      apiResponse: false,
+      validForm: false,
       validationRules: {
         required: v => !!v || 'Campo Requerido',
-        email: (v) => {
+        emailPattern: (v) => {
           const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
           return pattern.test(v) || 'E-mail inválido'
         }
@@ -744,11 +833,44 @@ export default {
       this.courses = data.courses
     },
     requestForm () {
-      if (this.validationRules.required || this.validationRules.email) {
-        this.errorForm = true
+      // const that = this
+      if (this.validForm) {
+        // Se realiza el post a la api
+        // Se recibe respuesta de la api
+        this.apiResponse = true
+        if (this.apiResponse) {
+          this.dialogContact = false
+          this.snackbar.status = true
+          this.snackbar.text = 'Los datos fueron registrados exitosamente'
+          this.snackbar.color = '#2ec4b6'
+          // Mensaje de éxito
+          /* this.alertForm = true
+          this.errorForm = false
+          setTimeout(() => {
+            that.alertForm = false
+          }, 3000) */
+        } else {
+          // Mensaje de error
+          this.dialogContact = false
+          // this.errorForm = true
+          // this.alertForm = false
+          this.snackbar.status = true
+          this.snackbar.text = 'No se pudo ingresar los datos, intente de nuevo'
+          this.snackbar.color = '#be1e2d'
+          // setTimeout(() => {
+          //   that.errorForm = false
+          // }, 3000)
+        }
       } else {
-        this.errorForm = false
-        this.alertForm = true
+        this.dialogContact = false
+        // this.errorForm = true
+        // this.alertForm = false
+        this.snackbar.status = true
+        this.snackbar.text = 'No se pudo ingresar los datos, intente de nuevo'
+        this.snackbar.color = '#be1e2d'
+        // setTimeout(() => {
+        //   that.errorForm = false
+        // }, 3000)
       }
     }
   }
@@ -762,13 +884,19 @@ export default {
   .rail {
     display: flex;
     justify-content: center;
-    // .hero-card{
-    //   .btn {
-    //     display: block;
-    //     width: 80%;
-    //     overflow: unset;
-    //   }
-    // }
+    .hero-card{
+      // .btn {
+      //   display: block;
+      //   width: 80%;
+      //   overflow: unset;
+      // }
+      .snackbar{
+        .snackbar-text {
+          font-size: 1.8rem;
+          color: white;
+        }
+      }
+    }
   }
 }
   @include tablet {

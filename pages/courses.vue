@@ -81,16 +81,19 @@
       </v-row>
     </div>
     <main class="gallery gutter-p">
-      <!-- <div v-if="spinner" class="spinner">
+      <div v-if="spinner" class="spinner">
         <div class="bounce1" />
         <div class="bounce2" />
         <div class="bounce3" />
-      </div> -->
+      </div>
       <v-data-iterator
+        v-else
         :items="courses"
         :items-per-page="ipp"
         :page.sync="page"
         hide-default-footer
+        :loading="spinner"
+        no-data-text=""
       >
         <template #default="props">
           <v-container>
@@ -173,6 +176,7 @@ export default {
       search: '',
       valid: true,
       select: null,
+      spinner: false,
       page: 1,
       pages: 1,
       rpp: 3,
@@ -234,13 +238,18 @@ export default {
     }
   },
   mounted () {
-    this.getCourses(this.page)
+    this.spinner = true
+    const that = this
+    setTimeout(() => {
+      that.getCourses(that.page)
+    }, 1000)
   },
   methods: {
     async getCourses (page) {
       const data = await this.$axios.$get(`${this.$store.state.urlAPI}/courses/client6049278bc32f0d0015e108e9/${page}/${this.ipp}`)
       this.pages = data.pages
       this.courses = data.courses
+      this.spinner = false
     },
     async searchData () {
       this.search.trim()
@@ -350,7 +359,7 @@ export default {
 }
 
 </style>
-<style>
+<style lang="scss">
 .spinner {
   margin: 100px auto 0;
   width: 70px;
@@ -360,7 +369,7 @@ export default {
 .spinner > div {
   width: 18px;
   height: 18px;
-  background-color: #333;
+  background-color: $wine;
 
   border-radius: 100%;
   display: inline-block;

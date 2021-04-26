@@ -315,7 +315,7 @@ export default {
       this.$store.commit('setProgram', data.division)
     },
     async getCoursesProgram () {
-      const data = await this.$axios.$get(`${this.$store.state.urlAPI}/courses/client6049278bc32f0d0015e108e9/division${this.programId}/all`)
+      const data = await this.$axios.$get(`${this.$store.state.urlAPI}/courses/division${this.programId}/all`)
       this.courses = data.courses
     },
     setCourse (course) {

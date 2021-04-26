@@ -38,6 +38,8 @@
         :items-per-page="3"
         :page.sync="page"
         hide-default-footer
+        loading=""
+        loading-text=""
       >
         <template #default="props">
           <v-container class="gutter-p">
