@@ -682,6 +682,7 @@ export default {
           }
         }
       },
+      email: '',
       apiResponse: false,
       validForm: false,
       validationRules: {
@@ -884,19 +885,13 @@ export default {
   .rail {
     display: flex;
     justify-content: center;
-    .hero-card{
+    // .hero-card{
       // .btn {
       //   display: block;
       //   width: 80%;
       //   overflow: unset;
       // }
-      .snackbar{
-        .snackbar-text {
-          font-size: 1.8rem;
-          color: white;
-        }
-      }
-    }
+    // }
   }
 }
   @include tablet {
