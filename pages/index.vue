@@ -1,5 +1,6 @@
 <template>
   <div id="index">
+    <!--Seccion de Hero-->
     <div class="hero d-flex justify-center align-center">
       <div class="mask" />
       <v-container>
@@ -28,7 +29,7 @@
                 </v-btn>
                 <div class="centrar">
                   <v-dialog
-                    v-model="dialogContact"
+                    v-model="dialog.heroContact"
                     transition="dialog-top-transition"
                     persistent
                     max-width="650px"
@@ -65,7 +66,7 @@
                               />
                               <v-text-field
                                 v-model="lead.contactInfo.email"
-                                :rules="[validationRules.required, validationRules.email]"
+                                :rules="[validationRules.required, validationRules.emailPattern]"
                                 solo
                                 clearable
                                 label="Email"
@@ -98,11 +99,11 @@
                           </v-row>
                           <v-container>
                             <v-dialog
-                              v-model="privacy"
+                              v-model="dialog.privacy"
                             >
                               <template #activator="{ on, attrs }">
                                 <p class="text-mid" style="line-height: 2">
-                                  Al hacer click en <span class="minibtn">Enviar</span>, usted está confirmando que acepta los términos de nuestras
+                                  Al hacer click en <span class="minibtn">Enviar</span> usted está confirmando que acepta los términos de nuestras
                                   <a v-bind="attrs" class="text-decoration-underline red-font" v-on="on"> políticas y condiciones</a>
                                 </p>
                               </template>
@@ -116,7 +117,7 @@
                                   <v-spacer />
                                   <v-btn
                                     icon
-                                    @click="privacy = false"
+                                    @click="dialog.privacy = false"
                                   >
                                     <v-icon size="30" class="icon gray-light-font">
                                       mdi-close-circle-outline
@@ -131,26 +132,62 @@
                       </v-form>
                       <v-container>
                         <v-row justify="end">
-                          <!-- <v-alert
-                            v-model="alertForm"
-                            color="#2ec4b6"
-                            dense
-                            outlined
-                            elevation="0"
-                            class="my-2"
+                          <v-dialog
+                            v-model="dialogSuccess"
+                            max-width="400px"
                           >
-                            <span>Tus datos han sido registrados exitosamente</span>
-                          </v-alert> -->
-                          <!-- <v-alert
-                            v-model="errorForm"
-                            color="#be1e2d"
-                            dense
-                            outlined
-                            elevation="0"
-                            class="my-2 mr-1"
+                            <v-card rounded="lg">
+                              <div class="centrar">
+                                <v-icon size="60" class="icon blue-font text-center my-3">
+                                  mdi-check-circle-outline
+                                </v-icon>
+                              </div>
+                              <v-card-text>
+                                <p class="text-mid text-center ma-2">
+                                  <span class="card-title blue-font">¡Gracias por contactarnos!</span>
+                                  <br> Un miembro de nuestro equipo le estará contactando para ampliar información y/o atender cualquiera de sus solicitudes.
+                                </p>
+                              </v-card-text>
+                              <v-card-actions>
+                                <v-spacer />
+                                <v-icon
+                                  size="30"
+                                  class="icon gray-m-font"
+                                  @click="dialogSuccess = false"
+                                >
+                                  mdi-close-circle-outline
+                                </v-icon>
+                              </v-card-actions>
+                            </v-card>
+                          </v-dialog>
+                          <v-dialog
+                            v-model="dialogError"
+                            max-width="400px"
                           >
-                            <span>No pudimos registrar sus datos. Intente de nuevo</span>
-                          </v-alert> -->
+                            <v-card rounded="lg">
+                              <div class="centrar">
+                                <v-icon size="60" class="icon red-font text-center my-3">
+                                  mdi-close-circle-outline
+                                </v-icon>
+                              </div>
+                              <v-card-text>
+                                <p class="text-mid text-center ma-2">
+                                  <span class="card-title red-font">Ocurrió un error</span>
+                                  <br> No se pudieron registrar los datos de forma exitosa, por favor verifique que todos los campos hayan sido llenados correctamente.
+                                </p>
+                              </v-card-text>
+                              <v-card-actions>
+                                <v-spacer />
+                                <v-icon
+                                  size="30"
+                                  class="icon gray-m-font"
+                                  @click="dialogError = false"
+                                >
+                                  mdi-close-circle-outline
+                                </v-icon>
+                              </v-card-actions>
+                            </v-card>
+                          </v-dialog>
                           <v-btn
                             class="btn"
                             @click="requestForm"
@@ -159,7 +196,7 @@
                           </v-btn>
                           <v-btn
                             class="btn"
-                            @click="dialogContact = false"
+                            @click="dialog.heroContact = false"
                           >
                             Cerrar
                           </v-btn>
@@ -172,39 +209,10 @@
             </v-card>
           </v-col>
         </v-row>
-        <v-snackbar
-          v-model="snackbar.status"
-          timeout="2500"
-          text
-          top
-          :color="snackbar.color"
-          content-class="snackbar-text"
-          absolute
-          class="snackbar"
-        >
-          <template #default>
-            <span
-              style="font-size: 1.8rem"
-            >
-              {{ snackbar.text }}
-            </span>
-          </template>
-          <!-- <template #action="{ attrs }">
-            <v-btn
-              color="#2ec4b6"
-              text
-              v-bind="attrs"
-              @click="snackbar = false"
-            >
-              <v-icon class="icon">
-                mdi-close-circle-outline
-              </v-icon>
-            </v-btn>
-          </template> -->
-        </v-snackbar>
       </v-container>
     </div>
     <!--Seccion de Hero-->
+    <!--Seccion del Ebook-->
     <section class="ebook gutter-p">
       <v-container>
         <v-row class="justify-space-around align-center pt-5 mt-5 mx-auto">
@@ -221,7 +229,7 @@
               </h2>
               <div class="centrar">
                 <v-dialog
-                  v-model="dialogEbook"
+                  v-model="dialog.ebookContact"
                   transition="dialog-top-transition"
                   persistent
                   max-width="350px"
@@ -257,35 +265,122 @@
                               required
                             />
                             <v-text-field
-                              v-model="email"
+                              v-model="emailEbook"
                               :rules="[validationRules.required, validationRules.emailPattern]"
                               solo
                               clearable
                               label="Email"
                               required
                             />
-                            <v-text-field
+                            <!-- <v-text-field
                               :rules="[validationRules.required]"
                               solo
                               clearable
                               label="País"
                               required
-                            />
+                            /> -->
                           </v-col>
                         </v-row>
+                        <v-container>
+                          <v-dialog
+                            v-model="dialog.privacy"
+                          >
+                            <template #activator="{ on, attrs }">
+                              <p class="text-small" style="line-height: 1.5">
+                                Al hacer click en <span class="blue-font font-weight-bold">Enviar</span> usted está confirmando que acepta los términos de nuestras
+                                <a v-bind="attrs" class="text-decoration-underline red-font" v-on="on"> políticas y condiciones</a>
+                              </p>
+                            </template>
+                            <v-card>
+                              <v-toolbar
+                                flat
+                                dense
+                                app
+                                color="transparent"
+                              >
+                                <v-spacer />
+                                <v-btn
+                                  icon
+                                  @click="dialog.privacy = false"
+                                >
+                                  <v-icon size="30" class="icon gray-light-font">
+                                    mdi-close-circle-outline
+                                  </v-icon>
+                                </v-btn>
+                              </v-toolbar>
+                              <Privacy />
+                            </v-card>
+                          </v-dialog>
+                        </v-container>
                       </v-container>
                     </v-form>
                     <v-card-actions class="d-flex justify-center">
+                      <v-dialog
+                        v-model="dialogSuccess"
+                        max-width="400px"
+                      >
+                        <v-card rounded="lg">
+                          <div class="centrar">
+                            <v-icon size="60" class="icon blue-font text-center my-3">
+                              mdi-check-circle-outline
+                            </v-icon>
+                          </div>
+                          <v-card-text>
+                            <p class="text-mid text-center ma-2">
+                              <span class="card-title blue-font">¡Gracias por contactarnos!</span>
+                              <br> Un miembro de nuestro equipo le estará contactando para ampliar información y/o atender cualquiera de sus solicitudes.
+                            </p>
+                          </v-card-text>
+                          <v-card-actions>
+                            <v-spacer />
+                            <v-icon
+                              size="30"
+                              class="icon gray-m-font"
+                              @click="dialogSuccess = false"
+                            >
+                              mdi-close-circle-outline
+                            </v-icon>
+                          </v-card-actions>
+                        </v-card>
+                      </v-dialog>
+                      <v-dialog
+                        v-model="dialogError"
+                        max-width="400px"
+                      >
+                        <v-card rounded="lg">
+                          <div class="centrar">
+                            <v-icon size="60" class="icon red-font text-center my-3">
+                              mdi-close-circle-outline
+                            </v-icon>
+                          </div>
+                          <v-card-text>
+                            <p class="text-mid text-center ma-2">
+                              <span class="card-title red-font">Ocurrió un error</span>
+                              <br> No se pudieron registrar los datos de forma exitosa, por favor verifique que todos los campos hayan sido llenados correctamente.
+                            </p>
+                          </v-card-text>
+                          <v-card-actions>
+                            <v-spacer />
+                            <v-icon
+                              size="30"
+                              class="icon gray-m-font"
+                              @click="dialogError = false"
+                            >
+                              mdi-close-circle-outline
+                            </v-icon>
+                          </v-card-actions>
+                        </v-card>
+                      </v-dialog>
                       <div class="centrar">
                         <v-btn
                           class="btn"
-                          @click="dialogEbook = false"
+                          @click="requestForm"
                         >
                           Enviar
                         </v-btn>
                         <v-btn
                           class="btn"
-                          @click="dialogEbook = false"
+                          @click="dialog.ebookContact = false"
                         >
                           Cerrar
                         </v-btn>
@@ -451,9 +546,169 @@
                   {{ evento.text }}
                 </p>
                 <div class="centrar">
-                  <v-btn class="minibtn mt-2">
-                    Registrarse
-                  </v-btn>
+                  <v-dialog
+                    v-model="dialog.eventContact"
+                    transition="dialog-top-transition"
+                    persistent
+                    max-width="400px"
+                  >
+                    <template #activator="{ on, attrs}" class="mx-auto d-block">
+                      <v-btn v-bind="attrs" class="minibtn mt-2" v-on="on">
+                        Registrarse
+                      </v-btn>
+                    </template>
+                    <v-card class="pa-5">
+                      <h2 class="text-center red-font">
+                        Registrate para nuestros próximos eventos gratuitos
+                      </h2>
+                      <v-form
+                        v-model="validForm"
+                      >
+                        <v-container>
+                          <v-row justify="center">
+                            <v-col
+                              xl="10"
+                              lg="10"
+                              class="pa-0"
+                            >
+                              <v-text-field
+                                :rules="[validationRules.required]"
+                                solo
+                                clearable
+                                label="Nombre"
+                                required
+                              />
+                              <v-text-field
+                                v-model="emailEvent"
+                                :rules="[validationRules.required, validationRules.emailPattern]"
+                                solo
+                                clearable
+                                label="Email"
+                                required
+                              />
+                              <v-text-field
+                                :rules="[validationRules.required]"
+                                solo
+                                clearable
+                                label="País"
+                                required
+                              />
+                              <v-text-field
+                                v-model="lead.contactInfo.phoneNumber"
+                                solo
+                                clearable
+                                label="Teléfono (opcional)"
+                                type="number"
+                              />
+                            </v-col>
+                          </v-row>
+                          <v-container>
+                            <v-dialog
+                              v-model="dialog.privacy"
+                            >
+                              <template #activator="{ on, attrs }">
+                                <p class="text-small" style="line-height: 1.5">
+                                  Al hacer click en <span class="blue-font font-weight-bold">Enviar</span> usted está confirmando que acepta los términos de nuestras
+                                  <a v-bind="attrs" class="text-decoration-underline red-font" v-on="on"> políticas y condiciones</a>
+                                </p>
+                              </template>
+                              <v-card>
+                                <v-toolbar
+                                  flat
+                                  dense
+                                  app
+                                  color="transparent"
+                                >
+                                  <v-spacer />
+                                  <v-btn
+                                    icon
+                                    @click="dialog.privacy = false"
+                                  >
+                                    <v-icon size="30" class="icon gray-light-font">
+                                      mdi-close-circle-outline
+                                    </v-icon>
+                                  </v-btn>
+                                </v-toolbar>
+                                <Privacy />
+                              </v-card>
+                            </v-dialog>
+                          </v-container>
+                        </v-container>
+                      </v-form>
+                      <v-card-actions class="d-flex justify-center">
+                        <v-dialog
+                          v-model="dialogSuccess"
+                          max-width="500px"
+                        >
+                          <v-card rounded="lg">
+                            <div class="centrar">
+                              <v-icon size="60" class="icon blue-font text-center my-3">
+                                mdi-check-circle-outline
+                              </v-icon>
+                            </div>
+                            <v-card-text>
+                              <p class="text-mid text-center ma-2">
+                                <span class="card-title blue-font">¡Gracias por contactarnos!</span>
+                                <br> Un miembro de nuestro equipo le estará contactando para ampliar información y/o atender cualquiera de sus solicitudes.
+                              </p>
+                            </v-card-text>
+                            <v-card-actions>
+                              <v-spacer />
+                              <v-icon
+                                size="30"
+                                class="icon gray-m-font"
+                                @click="dialogSuccess = false"
+                              >
+                                mdi-close-circle-outline
+                              </v-icon>
+                            </v-card-actions>
+                          </v-card>
+                        </v-dialog>
+                        <v-dialog
+                          v-model="dialogError"
+                          max-width="400px"
+                        >
+                          <v-card rounded="lg">
+                            <div class="centrar">
+                              <v-icon size="60" class="icon red-font text-center my-3">
+                                mdi-close-circle-outline
+                              </v-icon>
+                            </div>
+                            <v-card-text>
+                              <p class="text-mid text-center ma-2">
+                                <span class="card-title red-font">Ocurrió un error</span>
+                                <br> No se pudieron registrar los datos de forma exitosa, por favor verifique que todos los campos hayan sido llenados correctamente.
+                              </p>
+                            </v-card-text>
+                            <v-card-actions>
+                              <v-spacer />
+                              <v-icon
+                                size="30"
+                                class="icon gray-m-font"
+                                @click="dialogError = false"
+                              >
+                                mdi-close-circle-outline
+                              </v-icon>
+                            </v-card-actions>
+                          </v-card>
+                        </v-dialog>
+                        <div class="centrar">
+                          <v-btn
+                            class="btn"
+                            @click="requestForm"
+                          >
+                            Enviar
+                          </v-btn>
+                          <v-btn
+                            class="btn"
+                            @click="dialog.eventContact = false"
+                          >
+                            Cerrar
+                          </v-btn>
+                        </div>
+                      </v-card-actions>
+                    </v-card>
+                  </v-dialog>
                 </div>
               </div>
             </v-col>
@@ -595,7 +850,7 @@
               <h3 class="mb-5">
                 Recibe información acerca de nuestros eventos y contenidos
               </h3>
-              <v-form v-model="valid" action="" class="form-box">
+              <v-form v-model="validForm" class="form-box">
                 <v-text-field
                   v-model="email"
                   :rules="[validationRules.required, validationRules.emailPattern]"
@@ -622,19 +877,20 @@ export default {
   data () {
     return {
       title: 'Inicio',
-      valid: false,
-      dialogContact: false,
-      dialogEbook: false,
+      // valid: false,
+      dialog: {
+        heroContact: false,
+        ebookContact: false,
+        eventContact: false,
+        privacy: false,
+        cookies: false
+      },
+      dialogSuccess: false,
+      dialogError: false,
+      validForm: false,
       alertForm: false,
       errorForm: false,
-      privacy: false,
       courses: [],
-      // snackbar: false,
-      snackbar: {
-        status: false,
-        text: '',
-        color: ''
-      },
       lead: {
         name: '',
         request: '',
@@ -666,7 +922,7 @@ export default {
             adminArea1: null,
             city: null,
             adminArea2: null,
-            country: 'Costa Rica',
+            country: '',
             postalCode: null,
             formatted: null,
             location: {
@@ -682,9 +938,11 @@ export default {
           }
         }
       },
-      email: '',
+      emailHero: '',
+      emailEbook: '',
+      emailEvent: '',
+      emailNews: '',
       apiResponse: false,
-      validForm: false,
       validationRules: {
         required: v => !!v || 'Campo Requerido',
         emailPattern: (v) => {
@@ -840,39 +1098,54 @@ export default {
         // Se recibe respuesta de la api
         this.apiResponse = true
         if (this.apiResponse) {
-          this.dialogContact = false
-          this.snackbar.status = true
-          this.snackbar.text = 'Los datos fueron registrados exitosamente'
-          this.snackbar.color = '#2ec4b6'
           // Mensaje de éxito
-          /* this.alertForm = true
-          this.errorForm = false
-          setTimeout(() => {
-            that.alertForm = false
-          }, 3000) */
+          if (this.dialog.heroContact) {
+            this.dialog.heroContact = false
+            this.dialogSuccess = true
+            this.dialogError = false
+          }
+          if (this.dialog.ebookContact) {
+            this.dialog.ebookContact = false
+            this.dialogSuccess = true
+            this.dialogError = false
+          }
+          if (this.dialog.eventContact) {
+            this.dialog.eventContact = false
+            this.dialogSuccess = true
+            this.dialogError = false
+          }
         } else {
           // Mensaje de error
-          this.dialogContact = false
-          // this.errorForm = true
-          // this.alertForm = false
-          this.snackbar.status = true
-          this.snackbar.text = 'No se pudo ingresar los datos, intente de nuevo'
-          this.snackbar.color = '#be1e2d'
-          // setTimeout(() => {
-          //   that.errorForm = false
-          // }, 3000)
+          if (this.dialog.heroContact) {
+            this.dialog.heroContact = true
+            this.dialog.ebookContact = false
+            this.dialog.eventContact = false
+          } else if (this.dialog.ebookContact) {
+            this.dialog.heroContact = false
+            this.dialog.ebookContact = true
+            this.dialog.eventContact = false
+          } else if (this.dialog.eventContact) {
+            this.dialog.heroContact = false
+            this.dialog.ebookContact = false
+            this.dialog.eventContact = true
+          }
+          this.dialogError = true
         }
       } else {
-        this.dialogContact = false
-        // this.errorForm = true
-        // this.alertForm = false
-        this.snackbar.status = true
-        this.snackbar.text = 'No se pudo ingresar los datos, intente de nuevo'
-        this.snackbar.color = '#be1e2d'
-        // setTimeout(() => {
-        //   that.errorForm = false
-        // }, 3000)
+        if (this.dialog.heroContact) {
+          this.dialog.heroContact = true
+          this.dialog.ebookContact = false
+        } else if (this.dialog.ebookContact) {
+          this.dialog.heroContact = false
+          this.dialog.ebookContact = true
+        }
+        this.dialogError = true
       }
+      this.lead.name = ''
+      this.lead.contactInfo.email = ''
+      this.lead.contactInfo.masterLocation.country = ''
+      this.lead.contactInfo.phoneNumber = ''
+      this.lead.request = ''
     }
   }
 }

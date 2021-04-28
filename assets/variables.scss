@@ -117,6 +117,9 @@ h4 {
 .red-font {
   color: $wine;
 }
+.blue-font {
+  color: $ocean;
+}
 .gray-m-font {
   color: $gray-mid;
 }
@@ -213,6 +216,14 @@ section {
   margin: 0;
   padding: 0;
 }
+.text-small {
+  font-size: $body;
+  color: $gray-mid;
+  font-weight: 300;
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
+}
 
   //** Tarjetas **/
 .hero-card {
@@ -223,7 +234,7 @@ section {
   font-size: $link + .4rem !important;
   padding: 0 .5rem !important;
   margin: 1rem;
-  color: $gray-mid;
+  // color: $gray-mid;
 }
 /** Banners - heros **/
 .hero {

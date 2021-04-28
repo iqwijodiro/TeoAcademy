@@ -20,9 +20,184 @@
                 Teo Academy pone a su disposición los recursos (tecnologías y contenidos) y la experiencia (personas y métodos), para hacer del proceso formativo una experiencia de éxito y así brindar a los miembros del cuerpo de Cristo todos los beneficios que brinda la instrucción cristiana.
               </p>
             </v-card-text>
-            <v-btn to="/groups" class="btn mt-5">
-              Descargar ficha de servicios
-            </v-btn>
+            <div class="centrar">
+              <v-dialog
+                v-model="dialog.heroContact"
+                transition="dialog-top-transition"
+                persistent
+                max-width="650px"
+              >
+                <template #activator="{ on, attrs }" class="d-block mx-auto">
+                  <v-btn
+                    class="btn d-block"
+                    v-bind="attrs"
+                    v-on="on"
+                  >
+                    Contáctanos
+                  </v-btn>
+                </template>
+                <v-card class="py-5 px-3 rounded-xl">
+                  <h2 class="text-center red-font">
+                    Contáctanos
+                  </h2>
+                  <v-form
+                    v-model="validForm"
+                  >
+                    <v-container>
+                      <v-row justify="center">
+                        <v-col
+                          xl="10"
+                          lg="10"
+                        >
+                          <v-text-field
+                            v-model="lead.name"
+                            :rules="[validationRules.required]"
+                            solo
+                            clearable
+                            label="Nombre"
+                            required
+                          />
+                          <v-text-field
+                            v-model="lead.contactInfo.email"
+                            :rules="[validationRules.required, validationRules.emailPattern]"
+                            solo
+                            clearable
+                            label="Email"
+                            required
+                          />
+                          <v-text-field
+                            v-model="lead.contactInfo.masterLocation.country"
+                            :rules="[validationRules.required]"
+                            solo
+                            clearable
+                            label="País"
+                            required
+                          />
+                          <v-text-field
+                            v-model="lead.contactInfo.phoneNumber"
+                            solo
+                            clearable
+                            label="Teléfono (opcional)"
+                            type="number"
+                          />
+                          <v-textarea
+                            v-model="lead.request"
+                            :rules="[validationRules.required]"
+                            solo
+                            clearable
+                            label="Coméntanos tu solicitud (requerido)"
+                            auto-grow
+                          />
+                        </v-col>
+                      </v-row>
+                      <v-container>
+                        <v-dialog
+                          v-model="dialog.privacy"
+                        >
+                          <template #activator="{ on, attrs }">
+                            <p class="text-mid" style="line-height: 2">
+                              Al hacer click en <span class="minibtn">Enviar</span> usted está confirmando que acepta los términos de nuestras
+                              <a v-bind="attrs" class="text-decoration-underline red-font" v-on="on"> políticas y condiciones</a>
+                            </p>
+                          </template>
+                          <v-card>
+                            <v-toolbar
+                              flat
+                              dense
+                              app
+                              color="transparent"
+                            >
+                              <v-spacer />
+                              <v-btn
+                                icon
+                                @click="dialog.privacy = false"
+                              >
+                                <v-icon size="30" class="icon gray-light-font">
+                                  mdi-close-circle-outline
+                                </v-icon>
+                              </v-btn>
+                            </v-toolbar>
+                            <Privacy />
+                          </v-card>
+                        </v-dialog>
+                      </v-container>
+                    </v-container>
+                  </v-form>
+                  <v-container>
+                    <v-row justify="end">
+                      <v-dialog
+                        v-model="dialogSuccess"
+                        max-width="400px"
+                      >
+                        <v-card rounded="lg">
+                          <div class="centrar">
+                            <v-icon size="60" class="icon blue-font text-center my-3">
+                              mdi-check-circle-outline
+                            </v-icon>
+                          </div>
+                          <v-card-text>
+                            <p class="text-mid text-center ma-2">
+                              <span class="card-title blue-font">¡Gracias por contactarnos!</span>
+                              <br> Un miembro de nuestro equipo le estará contactando para ampliar información y/o atender cualquiera de sus solicitudes.
+                            </p>
+                          </v-card-text>
+                          <v-card-actions>
+                            <v-spacer />
+                            <v-icon
+                              size="30"
+                              class="icon gray-m-font"
+                              @click="dialogSuccess = false"
+                            >
+                              mdi-close-circle-outline
+                            </v-icon>
+                          </v-card-actions>
+                        </v-card>
+                      </v-dialog>
+                      <v-dialog
+                        v-model="dialogError"
+                        max-width="400px"
+                      >
+                        <v-card rounded="lg">
+                          <div class="centrar">
+                            <v-icon size="60" class="icon red-font text-center my-3">
+                              mdi-close-circle-outline
+                            </v-icon>
+                          </div>
+                          <v-card-text>
+                            <p class="text-mid text-center ma-2">
+                              <span class="card-title red-font">Ocurrió un error</span>
+                              <br> No se pudieron registrar los datos de forma exitosa, por favor verifique que todos los campos hayan sido llenados correctamente.
+                            </p>
+                          </v-card-text>
+                          <v-card-actions>
+                            <v-spacer />
+                            <v-icon
+                              size="30"
+                              class="icon gray-m-font"
+                              @click="dialogError = false"
+                            >
+                              mdi-close-circle-outline
+                            </v-icon>
+                          </v-card-actions>
+                        </v-card>
+                      </v-dialog>
+                      <v-btn
+                        class="btn"
+                        @click="requestForm"
+                      >
+                        Enviar
+                      </v-btn>
+                      <v-btn
+                        class="btn"
+                        @click="dialog.heroContact = false"
+                      >
+                        Cerrar
+                      </v-btn>
+                    </v-row>
+                  </v-container>
+                </v-card>
+              </v-dialog>
+            </div>
           </v-card>
         </v-col>
       </v-row>
@@ -43,9 +218,79 @@
                 Descarga gratis nuestro ebook
               </h2>
               <div class="centrar">
-                <v-btn class="btn">
-                  Descargar
-                </v-btn>
+                <v-dialog
+                  v-model="dialog.ebookContact"
+                  transition="dialog-top-transition"
+                  persistent
+                  max-width="350px"
+                >
+                  <template #activator="{ on, attrs}" class="mx-auto d-block">
+                    <v-btn
+                      class="btn d-block"
+                      v-bind="attrs"
+                      v-on="on"
+                    >
+                      Descargar
+                    </v-btn>
+                  </template>
+                  <v-card class="pa-5">
+                    <h2 class="text-center red-font">
+                      Solicita nuestro ebook gratis
+                    </h2>
+                    <v-form
+                      v-model="validForm"
+                    >
+                      <v-container>
+                        <v-row justify="center">
+                          <v-col
+                            xl="10"
+                            lg="10"
+                            class="pa-0"
+                          >
+                            <v-text-field
+                              :rules="[validationRules.required]"
+                              solo
+                              clearable
+                              label="Nombre"
+                              required
+                            />
+                            <v-text-field
+                              v-model="emailEbook"
+                              :rules="[validationRules.required, validationRules.emailPattern]"
+                              solo
+                              clearable
+                              label="Email"
+                              required
+                            />
+                            <v-text-field
+                              :rules="[validationRules.required]"
+                              solo
+                              clearable
+                              label="País"
+                              required
+                            />
+                          </v-col>
+                        </v-row>
+                      </v-container>
+                    </v-form>
+                    <v-card-actions class="d-flex justify-center">
+                      <div class="centrar">
+                        <v-btn
+                          class="btn"
+                          @click="requestForm"
+                        >
+                          Enviar
+                        </v-btn>
+                        <v-btn
+                          class="btn"
+                          @click="dialog.ebookContact = false"
+                        >
+                          Cerrar
+                        </v-btn>
+                      </div>
+                    </v-card-actions>
+                  </v-card>
+                </v-dialog>
               </div>
             </v-card>
           </v-col>
@@ -136,19 +381,6 @@
             </v-card>
           </v-col>
         </v-row>
-        <!-- <v-slide-group arrows class="my-3 my-slider">
-              <v-slide-item
-                v-for="(who, i) in whos"
-                :key="i"
-                class="slides ma-5"
-              >
-                <v-card elevation="5" max-width="700" class="rounded-lg">
-                  <v-img
-                    :src="who.img"
-                  />
-                </v-card>
-              </v-slide-item>
-            </v-slide-group> -->
       </v-container>
     </section>
     <section class="levels gutter-p">
@@ -278,9 +510,79 @@
           </v-col>
         </v-row>
         <div class="centrar mt-5">
-          <v-btn href="https://www.segoschool.com/" class="btn">
-            Descubre ficha de servicios
-          </v-btn>
+          <v-dialog
+            v-model="dialog.processContact"
+            transition="dialog-top-transition"
+            persistent
+            max-width="350px"
+          >
+            <template #activator="{ on, attrs}" class="mx-auto d-block">
+              <v-btn
+                class="btn d-block"
+                v-bind="attrs"
+                v-on="on"
+              >
+                Descargar ficha de servicios
+              </v-btn>
+            </template>
+            <v-card class="pa-5">
+              <h2 class="text-center red-font">
+                Conoce el proceso de implementación
+              </h2>
+              <v-form
+                v-model="validForm"
+              >
+                <v-container>
+                  <v-row justify="center">
+                    <v-col
+                      xl="10"
+                      lg="10"
+                      class="pa-0"
+                    >
+                      <v-text-field
+                        :rules="[validationRules.required]"
+                        solo
+                        clearable
+                        label="Nombre"
+                        required
+                      />
+                      <v-text-field
+                        v-model="emailProcess"
+                        :rules="[validationRules.required, validationRules.emailPattern]"
+                        solo
+                        clearable
+                        label="Email"
+                        required
+                      />
+                      <v-text-field
+                        :rules="[validationRules.required]"
+                        solo
+                        clearable
+                        label="País"
+                        required
+                      />
+                    </v-col>
+                  </v-row>
+                </v-container>
+              </v-form>
+              <v-card-actions class="d-flex justify-center">
+                <div class="centrar">
+                  <v-btn
+                    class="btn"
+                    @click="requestForm"
+                  >
+                    Enviar
+                  </v-btn>
+                  <v-btn
+                    class="btn"
+                    @click="dialog.processContact = false"
+                  >
+                    Cerrar
+                  </v-btn>
+                </div>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
         </div>
       </v-container>
     </section>
@@ -323,6 +625,78 @@ export default {
   data () {
     return {
       title: 'For Groups',
+      dialog: {
+        heroContact: false,
+        ebookContact: false,
+        processContact: false,
+        privacy: false,
+        cookies: false
+      },
+      dialogSuccess: false,
+      dialogError: false,
+      validForm: false,
+      alertForm: false,
+      errorForm: false,
+      courses: [],
+      lead: {
+        name: '',
+        request: '',
+        contactInfo: {
+          masterPhone: {
+            phoneType: 'Principal',
+            code: '',
+            number: '',
+            ext: ''
+          },
+          masterLocation: {
+            _id: 'Principal',
+            name: 'Principal',
+            building: {
+              typeBuilding: 'Casa',
+              name: 'Principal',
+              floor: null,
+              number: null
+            },
+            route1: {
+              typeRoute: 'CL',
+              name: null
+            },
+            route2: {
+              typeRoute: 'AV',
+              name: null
+            },
+            neighborhood: null,
+            adminArea1: null,
+            city: null,
+            adminArea2: null,
+            country: '',
+            postalCode: null,
+            formatted: null,
+            location: {
+              lat: null,
+              lng: null
+            }
+          },
+          email: null,
+          aditional: {
+            phones: [],
+            infoWeb: [],
+            locations: []
+          }
+        }
+      },
+      emailHero: '',
+      emailEbook: '',
+      emailProcess: '',
+      emailNews: '',
+      apiResponse: false,
+      validationRules: {
+        required: v => !!v || 'Campo Requerido',
+        emailPattern: (v) => {
+          const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+          return pattern.test(v) || 'E-mail inválido'
+        }
+      },
       goals: [
         'Fomentar el desarrollo saludable del creyente en las tres áreas del ser (espíritu, alma y cuerpo).',
         'Desarrollar competencias de carácter espiritual en el participante, a través del estudio sistemático de la Biblia (ver competencias por curso).',
@@ -424,6 +798,64 @@ export default {
   head () {
     return {
       title: this.title
+    }
+  },
+  methods: {
+    requestForm () {
+      // const that = this
+      if (this.validForm) {
+        // Se realiza el post a la api
+        // Se recibe respuesta de la api
+        this.apiResponse = true
+        if (this.apiResponse) {
+          // Mensaje de éxito
+          if (this.dialog.heroContact) {
+            this.dialog.heroContact = false
+            this.dialogSuccess = true
+            this.dialogError = false
+          }
+          if (this.dialog.ebookContact) {
+            this.dialog.ebookContact = false
+            this.dialogSuccess = true
+            this.dialogError = false
+          }
+          if (this.dialog.processContact) {
+            this.dialog.processContact = false
+            this.dialogSuccess = true
+            this.dialogError = false
+          }
+        } else {
+          // Mensaje de error
+          if (this.dialog.heroContact) {
+            this.dialog.heroContact = true
+            this.dialog.ebookContact = false
+            this.dialog.processContact = false
+          } else if (this.dialog.ebookContact) {
+            this.dialog.heroContact = false
+            this.dialog.ebookContact = true
+            this.dialog.processContact = false
+          } else if (this.dialog.processContact) {
+            this.dialog.heroContact = false
+            this.dialog.ebookContact = false
+            this.dialog.processContact = true
+          }
+          this.dialogError = true
+        }
+      } else {
+        if (this.dialog.heroContact) {
+          this.dialog.heroContact = true
+          this.dialog.ebookContact = false
+        } else if (this.dialog.ebookContact) {
+          this.dialog.heroContact = false
+          this.dialog.ebookContact = true
+        }
+        this.dialogError = true
+      }
+      this.lead.name = ''
+      this.lead.contactInfo.email = ''
+      this.lead.contactInfo.masterLocation.country = ''
+      this.lead.contactInfo.phoneNumber = ''
+      this.lead.request = ''
     }
   }
 }
