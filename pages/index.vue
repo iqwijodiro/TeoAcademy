@@ -631,6 +631,10 @@ export default {
     async getTopCourses () {
       const data = await this.$axios.$get(`${this.$store.state.urlAPI}/courses/client6049278bc32f0d0015e108e9/all`)
       this.courses = data.courses
+    },
+    setCourse (course) {
+      this.$store.commit('setCourse', course)
+      this.$router.push('/course/' + course._id)
     }
     // requestForm () {
     //   if (this.validForm) {

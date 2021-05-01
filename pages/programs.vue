@@ -1,6 +1,6 @@
 <template>
   <div id="programs">
-    <div class="hero d-flex justify-center align-center mt-5 ma-0 pa-0">
+    <div class="hero d-flex justify-center align-center mt-5 pa-0">
       <div class="mask" />
       <v-row justify="center" class="rail">
         <v-col
@@ -12,7 +12,7 @@
         >
           <v-card
             elevation="5"
-            class="hero-card rounded-lg text-center pa-5 ma-2"
+            class="hero-card rounded-lg text-center pa-5 mx-auto"
           >
             <v-card-title class="centrar mx-auto pb-0">
               <h1 class="fw-300">

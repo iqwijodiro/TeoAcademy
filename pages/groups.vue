@@ -1,15 +1,19 @@
 <template>
   <div id="groups">
-    <div class="hero d-flex justify-center align-center">
+    <div class="hero d-flex justify-center align-center mt-5 pa-0 ">
       <div class="mask" />
       <v-row justify="center" class="rail">
         <v-col
-          lg="10"
           xl="8"
+          lg="8"
+          sm="10"
           md="10"
-          class="px-1"
+          class="px-5"
         >
-          <v-card elevation="5" class="hero-card rounded-lg text-center pa-10 ma-5">
+          <v-card
+            elevation="5"
+            class="hero-card rounded-lg    text-center pa-5 mx-auto"
+          >
             <v-card-title class="mx-auto pb-0 mb-4">
               <h1 class="fw-300 mb-4">
                 Implemente un proceso de formación cristiana en su congregación.
@@ -516,64 +520,6 @@ export default {
     return {
       title: this.title
     }
-  },
-  methods: {
-    requestForm () {
-      // const that = this
-      if (this.validForm) {
-        // Se realiza el post a la api
-        // Se recibe respuesta de la api
-        this.apiResponse = true
-        if (this.apiResponse) {
-          // Mensaje de éxito
-          if (this.dialog.heroContact) {
-            this.dialog.heroContact = false
-            this.dialogSuccess = true
-            this.dialogError = false
-          }
-          if (this.dialog.ebookContact) {
-            this.dialog.ebookContact = false
-            this.dialogSuccess = true
-            this.dialogError = false
-          }
-          if (this.dialog.processContact) {
-            this.dialog.processContact = false
-            this.dialogSuccess = true
-            this.dialogError = false
-          }
-        } else {
-          // Mensaje de error
-          if (this.dialog.heroContact) {
-            this.dialog.heroContact = true
-            this.dialog.ebookContact = false
-            this.dialog.processContact = false
-          } else if (this.dialog.ebookContact) {
-            this.dialog.heroContact = false
-            this.dialog.ebookContact = true
-            this.dialog.processContact = false
-          } else if (this.dialog.processContact) {
-            this.dialog.heroContact = false
-            this.dialog.ebookContact = false
-            this.dialog.processContact = true
-          }
-          this.dialogError = true
-        }
-      } else {
-        if (this.dialog.heroContact) {
-          this.dialog.heroContact = true
-          this.dialog.ebookContact = false
-        } else if (this.dialog.ebookContact) {
-          this.dialog.heroContact = false
-          this.dialog.ebookContact = true
-        }
-        this.dialogError = true
-      }
-      this.lead.name = ''
-      this.lead.contactInfo.email = ''
-      this.lead.contactInfo.masterLocation.country = ''
-      this.lead.contactInfo.phoneNumber = ''
-      this.lead.request = ''
-    }
   }
 }
 </script>
@@ -602,8 +548,13 @@ export default {
       display: inline-block !important;
     }
     .rail {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       .hero-card {
-        min-height: 450px !important;
+        min-height: 350px !important;
+        width: 90%;
+        max-width: 1000px;
       }
     }
   }
@@ -611,12 +562,6 @@ export default {
   @include miniDesktop {
     .text {
       display: block !important;
-    }
-    .rail {
-      max-width: 1200px;
-      width: 85% !important;
-      display: flex !important;
-      justify-content: center !important;
     }
   }
 .ebook {
