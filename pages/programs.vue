@@ -259,7 +259,7 @@ export default {
   height: 55vh;
   .text {
     line-height: 1.5;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
 }
   // @include tablet {

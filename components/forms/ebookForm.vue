@@ -1,0 +1,208 @@
+<template>
+  <div class="centrar">
+    <v-dialog
+      v-model="ebookContact"
+      transition="dialog-top-transition"
+      persistent
+      max-width="350px"
+    >
+      <template #activator="{ on, attrs }" class="d-block mx-auto">
+        <slot name="activator" :on="on" :attrs="attrs" />
+      </template>
+      <v-card class="pa-5">
+        <h2 class="text-center red-font">
+          Solicita nuestro ebook gratis
+        </h2>
+        <v-form
+          ref="ebookForm"
+          v-model="validForm"
+        >
+          <v-container>
+            <v-row justify="center">
+              <v-col
+                xl="10"
+                lg="10"
+                class="pa-0"
+              >
+                <v-text-field
+                  v-model="ebook.name"
+                  :rules="[validationRules.required]"
+                  solo
+                  clearable
+                  label="Nombre"
+                  required
+                />
+                <v-text-field
+                  v-model="ebook.email"
+                  :rules="[validationRules.required, validationRules.emailPattern]"
+                  solo
+                  clearable
+                  label="Email"
+                  required
+                />
+                <!-- <v-text-field
+                              :rules="[validationRules.required]"
+                              solo
+                              clearable
+                              label="País"
+                              required
+                            /> -->
+              </v-col>
+            </v-row>
+            <v-container>
+              <v-dialog
+                v-model="privacy"
+              >
+                <template #activator="{ on, attrs }">
+                  <p class="text-small" style="line-height: 1.5">
+                    Al hacer click en <span class="blue-font font-weight-bold">Enviar</span> usted está confirmando que acepta los términos de nuestras
+                    <a v-bind="attrs" class="text-decoration-underline red-font" v-on="on"> políticas y condiciones</a>
+                  </p>
+                </template>
+                <v-card>
+                  <v-toolbar
+                    flat
+                    dense
+                    app
+                    color="transparent"
+                  >
+                    <v-spacer />
+                    <v-btn
+                      icon
+                      @click="privacy = false"
+                    >
+                      <v-icon size="30" class="icon gray-light-font">
+                        mdi-close-circle-outline
+                      </v-icon>
+                    </v-btn>
+                  </v-toolbar>
+                  <privacy />
+                </v-card>
+              </v-dialog>
+            </v-container>
+          </v-container>
+        </v-form>
+        <v-card-actions class="d-flex justify-center">
+          <div class="centrar">
+            <dialog-success
+              v-model="dialogSuccess"
+              header="¡Gracias por Descargar nuestro Ebook!"
+              message="En tu bandeja de correo electrónico recibirás el link de descarga del Ebook. Esperamos sea de gran utilidad."
+            >
+              <template
+                #activator="{ on, attrs }"
+              >
+                <v-btn
+                  :attrs="attrs"
+                  class="btn"
+                  @on="on"
+                  @click="requestForm"
+                >
+                  Enviar
+                </v-btn>
+              </template>
+            </dialog-success>
+            <dialog-error
+              v-model="dialogError"
+            />
+            <v-btn
+              class="btn"
+              @click="ebookContact = false"
+            >
+              Cerrar
+            </v-btn>
+          </div>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+  </div>
+</template>
+<script>
+import Privacy from '~/components/Privacy'
+import dialogSuccess from '~/components/dialogSuccess'
+import dialogError from '~/components/dialogError'
+
+export default {
+  components: { Privacy, dialogSuccess, dialogError },
+  props: {
+    value: {
+      type: Boolean,
+      default: false
+    }
+  },
+  data () {
+    return {
+      ebookContact: this.value,
+      privacy: false,
+      apiResponse: false,
+      validForm: false,
+      dialogSuccess: false,
+      dialogError: false,
+      ebook: {
+        name: '',
+        email: ''
+      },
+      validationRules: {
+        required: v => !!v || 'Campo Requerido',
+        emailPattern: (v) => {
+          const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+          return pattern.test(v) || 'E-mail inválido'
+        }
+      }
+    }
+  },
+  watch: {
+    value () {
+      this.ebookContact = this.value
+    },
+    ebookContact () {
+      this.$emit('input', this.ebookContact)
+    }
+  },
+  methods: {
+    requestForm () {
+      if (this.validForm) {
+        // Se realiza el post a la api
+        // Se recibe respuesta de la api
+        this.apiResponse = true
+        if (this.apiResponse) {
+          // Mensaje de éxito
+          this.resetForm()
+          this.ebookContact = false
+          this.dialogSuccess = true
+        } else {
+          // Mensaje de error
+          this.dialogError = true
+          // this.$emit('error', 'Esto es un parametro')
+        }
+      } else {
+        // Mensaje de error
+        this.dialogError = true
+        // this.$emit('error', 'Esto es un parametro')
+      }
+    },
+    resetForm () {
+      this.$refs.ebookForm.reset()
+      this.$refs.ebookForm.resetValidation()
+    }
+  }
+}
+</script>
+<style lang="scss" scoped>
+.btn {
+  height: 4.5rem !important;
+//   border-radius: 0.5rem;
+  background-color: $ocean !important;
+  color: #ffffff;
+  text-transform: capitalize !important;
+  font-size: $link + 0.1rem;
+  padding: 1.2rem 1.5rem !important;
+  margin: 0.7rem;
+  font-family: $title-font !important;
+  &:hover {
+    color: $wine;
+    font-weight: 700;
+    background: #ffffff !important;
+  }
+}
+</style>

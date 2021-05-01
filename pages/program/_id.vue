@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-10">
+  <div class="mt-10 pb-5 mb-5">
     <v-container v-if="singleProgram && singleProgram._id" class="px-5">
       <h1 class="text-uppercase font-weight-light text-start gray-m-font mb-3">
         Programa:
@@ -31,7 +31,7 @@
                   <v-img
                     v-bind="attrs"
                     :src="singleProgram.imgUrl"
-                    class="rounded-lg d-flex justify-center align-center my-5"
+                    class="rounded-lg d-flex justify-center align-center my-8"
                     v-on="on"
                   >
                     <v-icon color="#959595" size="130" class="icon d-flex justify-center align-center opacity">
@@ -50,10 +50,10 @@
             <p class="text">
               {{ singleProgram.description }}
             </p>
-            <h2 class="gray-m-font mt-8 mb-5">
+            <h2 class="gray-m-font my-5">
               Cursos
             </h2>
-            <v-expansion-panels v-if="courses" accordion>
+            <v-expansion-panels v-if="courses" class="mb-8 mt-4" accordion>
               <v-expansion-panel
                 v-for="(course, i) in courses"
                 :key="i"
@@ -71,7 +71,6 @@
                     {{ course.description }}
                   </p>
                   <v-row justify="center" class="py-2 mt-2">
-                    <!-- <v-spacer /> -->
                     <v-btn class="minibtn" @click="setCourse(course)">
                       Ver Curso
                     </v-btn>
@@ -79,6 +78,26 @@
                 </v-expansion-panel-content>
               </v-expansion-panel>
             </v-expansion-panels>
+            <div class="centrar">
+              <dialog-success
+                v-model="dialogSuccess"
+                header="¡Gracias por Descargar la ficha del programa!"
+                message="En tu bandeja de correo electrónico recibirás el link de descarga del Ebook. Esperamos sea de gran utilidad."
+              >
+                <template
+                  #activator="{ on, attrs }"
+                >
+                  <v-btn
+                    :attrs="attrs"
+                    class="btn"
+                    @on="on"
+                    @click="dialogSuccess = true"
+                  >
+                    Descargar ficha del programa
+                  </v-btn>
+                </template>
+              </dialog-success>
+            </div>
           </main>
         </v-col>
         <v-col
@@ -93,7 +112,7 @@
           <aside class="sidebar">
             <ul v-for="(resource, i) in singleProgram.features.resources" :key="i">
               <li class="text">
-                <v-icon class="text mr-3" size="35">
+                <v-icon class="text text-center mr-3" size="25">
                   {{ resource.icon }}
                 </v-icon>
                 {{ resource.quantity }} {{ resource.text }}
@@ -116,7 +135,7 @@
               </v-icon>
               Regalar Curso
             </v-btn>
-            <section class="my-5 d-flex justify-center align-center">
+            <section class="my-5 d-flex justify-center align-center pa-0">
               <v-icon size="40" class="mr-6 gray-m-font">
                 mdi-account-group
               </v-icon>
@@ -131,7 +150,7 @@
                 </ul>
               </div>
             </section>
-            <section>
+            <section class="pa-0">
               <h3 class="gray-m-font text-center">
                 Modalidad
               </h3>
@@ -154,11 +173,11 @@
                 </li>
               </ul>
             </section>
-            <section>
+            <section class="pa-0">
               <h3 class="gray-m-font text-center">
                 Requerimientos
               </h3>
-              <div class="d-flex justify-center flex-column">
+              <div class="d-flex justify-center">
                 <div class="d-flex flex-column text-mid text-center">
                   <v-icon size="30">
                     mdi-school
@@ -180,14 +199,14 @@
                 </div>
               </div>
             </section>
-            <section class="text-center">
+            <section class="text-center pa-0">
               <div>
                 <v-icon size="35" class="mr-3">
                   mdi-medal
                 </v-icon>
-                <h4 class="d-inline gray-m-font">
+                <h3 class="d-inline gray-m-font">
                   Competencias
-                </h4>
+                </h3>
               </div>
               <p class="text-mid mt-3">
                 Identifica y experimenta el proceso de transformación cristiana y establece una sana relación con Dios Padre, Hijo y Espíritu Santo.
@@ -198,7 +217,7 @@
         </v-col>
       </v-row>
     </v-container>
-    <section class="indicators">
+    <!-- <section class="indicators">
       <v-container>
         <h2 class="sect-title gray-m-font">
           Competencias
@@ -231,27 +250,32 @@
           </v-btn>
         </div>
       </v-container>
-    </section>
+    </section> -->
   </div>
 </template>
 
 <script>
+import dialogSuccess from '~/components/dialogSuccess'
+
 export default {
+  components: { dialogSuccess },
   data () {
     return {
       programId: null,
+      dialogSuccess: false,
+      dialogVideo: false,
       courses: [],
-      indicators: [
-        'Identifica y comprende las llaves de la vida espiritual, importantes para tomar la voluntaria decisión de recibir a Cristo en el corazón.',
-        'Identifica y comprende cinco (5) pilares esenciales de la fe cristiana.',
-        'Identifica y practica las vías de alimentación para ser nutrido espiritualmente.',
-        'Comprende y realiza de manera correcta y continua la confesión del pecado y  apropiarse del perdón de Dios.',
-        'Identifica y comprende la manera correcta de practicar el hábito de la oración a Dios.',
-        'Identifica y comprende las vías esenciales para conocer y aceptar la voluntad de Dios.',
-        'Identifica la importancia de la correcta administración de todo el ser y en consecuencia establecer correctas prioridades a su vida.',
-        'Identifica y establece correctas relaciones interpersonales para una sana edificación de su vida y el  desarrollo del cuerpo de Cristo.',
-        'Comprende la importancia y los beneficios de su participación en el ambiente celular cristiano para su vida, su entorno y el mundo.'
-      ],
+      // indicators: [
+      //   'Identifica y comprende las llaves de la vida espiritual, importantes para tomar la voluntaria decisión de recibir a Cristo en el corazón.',
+      //   'Identifica y comprende cinco (5) pilares esenciales de la fe cristiana.',
+      //   'Identifica y practica las vías de alimentación para ser nutrido espiritualmente.',
+      //   'Comprende y realiza de manera correcta y continua la confesión del pecado y  apropiarse del perdón de Dios.',
+      //   'Identifica y comprende la manera correcta de practicar el hábito de la oración a Dios.',
+      //   'Identifica y comprende las vías esenciales para conocer y aceptar la voluntad de Dios.',
+      //   'Identifica la importancia de la correcta administración de todo el ser y en consecuencia establecer correctas prioridades a su vida.',
+      //   'Identifica y establece correctas relaciones interpersonales para una sana edificación de su vida y el  desarrollo del cuerpo de Cristo.',
+      //   'Comprende la importancia y los beneficios de su participación en el ambiente celular cristiano para su vida, su entorno y el mundo.'
+      // ],
       resources: [
         {
           icon: 'mdi-play-circle-outline',
@@ -368,7 +392,7 @@ export default {
     padding-right: 4rem;
   }
   .sidebar {
-    height: 95%;
+    height: 100%;
     border-left-color: $gray-light;
     border-left-width: 2px;
     border-left-style: solid;

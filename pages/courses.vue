@@ -261,7 +261,7 @@ export default {
     },
     setCourse (course) {
       this.$store.commit('setCourse', course)
-      this.$router.replace('/course/' + course._id)
+      this.$router.push('/course/' + course._id)
     },
     calcRowsPerPage () {
       const container = document.getElementById('container')

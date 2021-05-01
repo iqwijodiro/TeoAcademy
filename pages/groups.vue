@@ -21,11 +21,8 @@
               </p>
             </v-card-text>
             <div class="centrar">
-              <v-dialog
-                v-model="dialog.heroContact"
-                transition="dialog-top-transition"
-                persistent
-                max-width="650px"
+              <contact-form
+                v-model="dialog.hero"
               >
                 <template #activator="{ on, attrs }" class="d-block mx-auto">
                   <v-btn
@@ -36,172 +33,13 @@
                     Contáctanos
                   </v-btn>
                 </template>
-                <v-card class="py-5 px-3 rounded-xl">
-                  <h2 class="text-center red-font">
-                    Contáctanos
-                  </h2>
-                  <v-form
-                    v-model="validForm"
-                  >
-                    <v-container>
-                      <v-row justify="center">
-                        <v-col
-                          xl="10"
-                          lg="10"
-                        >
-                          <v-text-field
-                            v-model="lead.name"
-                            :rules="[validationRules.required]"
-                            solo
-                            clearable
-                            label="Nombre"
-                            required
-                          />
-                          <v-text-field
-                            v-model="lead.contactInfo.email"
-                            :rules="[validationRules.required, validationRules.emailPattern]"
-                            solo
-                            clearable
-                            label="Email"
-                            required
-                          />
-                          <v-text-field
-                            v-model="lead.contactInfo.masterLocation.country"
-                            :rules="[validationRules.required]"
-                            solo
-                            clearable
-                            label="País"
-                            required
-                          />
-                          <v-text-field
-                            v-model="lead.contactInfo.phoneNumber"
-                            solo
-                            clearable
-                            label="Teléfono (opcional)"
-                            type="number"
-                          />
-                          <v-textarea
-                            v-model="lead.request"
-                            :rules="[validationRules.required]"
-                            solo
-                            clearable
-                            label="Coméntanos tu solicitud (requerido)"
-                            auto-grow
-                          />
-                        </v-col>
-                      </v-row>
-                      <v-container>
-                        <v-dialog
-                          v-model="dialog.privacy"
-                        >
-                          <template #activator="{ on, attrs }">
-                            <p class="text-mid" style="line-height: 2">
-                              Al hacer click en <span class="minibtn">Enviar</span> usted está confirmando que acepta los términos de nuestras
-                              <a v-bind="attrs" class="text-decoration-underline red-font" v-on="on"> políticas y condiciones</a>
-                            </p>
-                          </template>
-                          <v-card>
-                            <v-toolbar
-                              flat
-                              dense
-                              app
-                              color="transparent"
-                            >
-                              <v-spacer />
-                              <v-btn
-                                icon
-                                @click="dialog.privacy = false"
-                              >
-                                <v-icon size="30" class="icon gray-light-font">
-                                  mdi-close-circle-outline
-                                </v-icon>
-                              </v-btn>
-                            </v-toolbar>
-                            <Privacy />
-                          </v-card>
-                        </v-dialog>
-                      </v-container>
-                    </v-container>
-                  </v-form>
-                  <v-container>
-                    <v-row justify="end">
-                      <v-dialog
-                        v-model="dialogSuccess"
-                        max-width="400px"
-                      >
-                        <v-card rounded="lg">
-                          <div class="centrar">
-                            <v-icon size="60" class="icon blue-font text-center my-3">
-                              mdi-check-circle-outline
-                            </v-icon>
-                          </div>
-                          <v-card-text>
-                            <p class="text-mid text-center ma-2">
-                              <span class="card-title blue-font">¡Gracias por contactarnos!</span>
-                              <br> Un miembro de nuestro equipo le estará contactando para ampliar información y/o atender cualquiera de sus solicitudes.
-                            </p>
-                          </v-card-text>
-                          <v-card-actions>
-                            <v-spacer />
-                            <v-icon
-                              size="30"
-                              class="icon gray-m-font"
-                              @click="dialogSuccess = false"
-                            >
-                              mdi-close-circle-outline
-                            </v-icon>
-                          </v-card-actions>
-                        </v-card>
-                      </v-dialog>
-                      <v-dialog
-                        v-model="dialogError"
-                        max-width="400px"
-                      >
-                        <v-card rounded="lg">
-                          <div class="centrar">
-                            <v-icon size="60" class="icon red-font text-center my-3">
-                              mdi-close-circle-outline
-                            </v-icon>
-                          </div>
-                          <v-card-text>
-                            <p class="text-mid text-center ma-2">
-                              <span class="card-title red-font">Ocurrió un error</span>
-                              <br> No se pudieron registrar los datos de forma exitosa, por favor verifique que todos los campos hayan sido llenados correctamente.
-                            </p>
-                          </v-card-text>
-                          <v-card-actions>
-                            <v-spacer />
-                            <v-icon
-                              size="30"
-                              class="icon gray-m-font"
-                              @click="dialogError = false"
-                            >
-                              mdi-close-circle-outline
-                            </v-icon>
-                          </v-card-actions>
-                        </v-card>
-                      </v-dialog>
-                      <v-btn
-                        class="btn"
-                        @click="requestForm"
-                      >
-                        Enviar
-                      </v-btn>
-                      <v-btn
-                        class="btn"
-                        @click="dialog.heroContact = false"
-                      >
-                        Cerrar
-                      </v-btn>
-                    </v-row>
-                  </v-container>
-                </v-card>
-              </v-dialog>
+              </contact-form>
             </div>
           </v-card>
         </v-col>
       </v-row>
     </div>
+    <!--Seccion del Ebook-->
     <section class="ebook gutter-p">
       <v-container>
         <v-row class="justify-around align-center pt-5 mt-5 mx-auto flex-row-reverse">
@@ -217,81 +55,20 @@
               <h2 class="text-capitalize text-center">
                 Descarga gratis nuestro ebook
               </h2>
-              <div class="centrar">
-                <v-dialog
-                  v-model="dialog.ebookContact"
-                  transition="dialog-top-transition"
-                  persistent
-                  max-width="350px"
-                >
-                  <template #activator="{ on, attrs}" class="mx-auto d-block">
-                    <v-btn
-                      class="btn d-block"
-                      v-bind="attrs"
-                      v-on="on"
-                    >
-                      Descargar
-                    </v-btn>
-                  </template>
-                  <v-card class="pa-5">
-                    <h2 class="text-center red-font">
-                      Solicita nuestro ebook gratis
-                    </h2>
-                    <v-form
-                      v-model="validForm"
-                    >
-                      <v-container>
-                        <v-row justify="center">
-                          <v-col
-                            xl="10"
-                            lg="10"
-                            class="pa-0"
-                          >
-                            <v-text-field
-                              :rules="[validationRules.required]"
-                              solo
-                              clearable
-                              label="Nombre"
-                              required
-                            />
-                            <v-text-field
-                              v-model="emailEbook"
-                              :rules="[validationRules.required, validationRules.emailPattern]"
-                              solo
-                              clearable
-                              label="Email"
-                              required
-                            />
-                            <v-text-field
-                              :rules="[validationRules.required]"
-                              solo
-                              clearable
-                              label="País"
-                              required
-                            />
-                          </v-col>
-                        </v-row>
-                      </v-container>
-                    </v-form>
-                    <v-card-actions class="d-flex justify-center">
-                      <div class="centrar">
-                        <v-btn
-                          class="btn"
-                          @click="requestForm"
-                        >
-                          Enviar
-                        </v-btn>
-                        <v-btn
-                          class="btn"
-                          @click="dialog.ebookContact = false"
-                        >
-                          Cerrar
-                        </v-btn>
-                      </div>
-                    </v-card-actions>
-                  </v-card>
-                </v-dialog>
-              </div>
+              <!-- Formulario de Ebook / Descarga -->
+              <ebook-form
+                v-model="dialog.ebookContact"
+              >
+                <template #activator="{ on, attrs}" class="mx-auto d-block">
+                  <v-btn
+                    class="btn d-block"
+                    v-bind="attrs"
+                    v-on="on"
+                  >
+                    Descargar
+                  </v-btn>
+                </template>
+              </ebook-form>
             </v-card>
           </v-col>
           <v-col xl="6" lg="6" md="6" sm="10" class="mx-auto">
@@ -460,7 +237,7 @@
               Ponemos a disposición de grupos y congregaciones las mejores tecnologías al servicio de la educación,desarrolladas para satisfacer las más exigentes necesidades en materia de gestión de procesos formativos, haciendo posible el acceder metodológicamente a un universo de contenidos de alto valor y hacer de la participación de tutores y estudiantes una experiencia enriquecedora, amena y efectiva.
             </p>
             <div class="centrar mt-5">
-              <v-btn href="https://www.segoschool.com/" target="_blank" class="btn">
+              <v-btn href="https://www.segoschool.com/" target="_blank" class="btn" rel="noopener noreferrer">
                 Descubre más
               </v-btn>
             </div>
@@ -473,7 +250,7 @@
         <h2 class="text-center red-font mb-5">
           Asesoría para la implementación de procesos formativos
         </h2>
-        <ul class="px-2">
+        <ul class="px-5">
           <li class="text">
             <v-icon class="icon mr-3 gray-m-font">
               mdi-handshake-outline
@@ -510,79 +287,15 @@
           </v-col>
         </v-row>
         <div class="centrar mt-5">
-          <v-dialog
-            v-model="dialog.processContact"
-            transition="dialog-top-transition"
-            persistent
-            max-width="350px"
+          <process-form
+            v-model="dialog.process"
           >
             <template #activator="{ on, attrs}" class="mx-auto d-block">
-              <v-btn
-                class="btn d-block"
-                v-bind="attrs"
-                v-on="on"
-              >
-                Descargar ficha de servicios
+              <v-btn v-bind="attrs" class="btn mt-2" v-on="on">
+                Descargar ficha de servicio
               </v-btn>
             </template>
-            <v-card class="pa-5">
-              <h2 class="text-center red-font">
-                Conoce el proceso de implementación
-              </h2>
-              <v-form
-                v-model="validForm"
-              >
-                <v-container>
-                  <v-row justify="center">
-                    <v-col
-                      xl="10"
-                      lg="10"
-                      class="pa-0"
-                    >
-                      <v-text-field
-                        :rules="[validationRules.required]"
-                        solo
-                        clearable
-                        label="Nombre"
-                        required
-                      />
-                      <v-text-field
-                        v-model="emailProcess"
-                        :rules="[validationRules.required, validationRules.emailPattern]"
-                        solo
-                        clearable
-                        label="Email"
-                        required
-                      />
-                      <v-text-field
-                        :rules="[validationRules.required]"
-                        solo
-                        clearable
-                        label="País"
-                        required
-                      />
-                    </v-col>
-                  </v-row>
-                </v-container>
-              </v-form>
-              <v-card-actions class="d-flex justify-center">
-                <div class="centrar">
-                  <v-btn
-                    class="btn"
-                    @click="requestForm"
-                  >
-                    Enviar
-                  </v-btn>
-                  <v-btn
-                    class="btn"
-                    @click="dialog.processContact = false"
-                  >
-                    Cerrar
-                  </v-btn>
-                </div>
-              </v-card-actions>
-            </v-card>
-          </v-dialog>
+          </process-form>
         </div>
       </v-container>
     </section>
@@ -621,14 +334,18 @@
   </div>
 </template>
 <script>
+import ContactForm from '~/components/forms/contactForm'
+import ebookForm from '~/components/forms/ebookForm'
+import processForm from '~/components/forms/processForm'
 export default {
+  components: { ContactForm, ebookForm, processForm },
   data () {
     return {
       title: 'For Groups',
       dialog: {
-        heroContact: false,
-        ebookContact: false,
-        processContact: false,
+        hero: false,
+        ebook: false,
+        process: false,
         privacy: false,
         cookies: false
       },

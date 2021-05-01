@@ -1,11 +1,11 @@
 <template>
   <v-app class="app">
-    <NavBar />
+    <nav-bar />
     <v-main>
       <nuxt />
     </v-main>
     <!-- Main -->
-    <PageFooter />
+    <page-footer />
   </v-app>
 </template>
 
@@ -37,10 +37,7 @@ html {
   padding: 0;
   overflow-x: none;
 }
-// html::-webkit-scrollbar {
-//   display: none;
-//   width: 0;
-// }
+
 *,
 *:before,
 *:after {

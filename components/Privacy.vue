@@ -85,7 +85,7 @@
                   </v-icon>
                 </v-btn>
               </v-toolbar>
-              <Cookies />
+              <cookies />
             </v-card>
           </v-dialog>
 
