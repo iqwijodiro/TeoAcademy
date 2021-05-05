@@ -4,13 +4,17 @@
       v-model="heroContact"
       transition="dialog-top-transition"
       persistent
-      max-width="650px"
+      max-width="600px"
+      max-height="80%"
     >
       <template #activator="{ on, attrs }" class="d-block mx-auto">
         <slot name="activator" :on="on" :attrs="attrs" />
       </template>
-      <v-card class="py-5 px-3 rounded-xl">
-        <h2 class="text-center red-font">
+      <v-card
+        class="py-3 px-3 rounded-xl"
+        max-height="80%"
+      >
+        <h2 class="text-center red-font mb-0">
           Contáctanos
         </h2>
         <v-form
@@ -64,13 +68,13 @@
                 />
               </v-col>
             </v-row>
-            <v-container>
+            <v-container class="pa-0 ma-0">
               <v-dialog
                 v-model="privacy"
               >
                 <template #activator="{ on, attrs }">
-                  <p class="text-mid" style="line-height: 2">
-                    Al hacer click en <span class="minibtn">Enviar</span> usted está confirmando que acepta los términos de nuestras
+                  <p class="text-small">
+                    Al hacer click en <span class="blue-font font-weight-bold">Enviar</span> usted está confirmando que acepta los términos de nuestras
                     <a v-bind="attrs" class="text-decoration-underline red-font" v-on="on"> políticas y condiciones</a>
                   </p>
                 </template>
@@ -97,8 +101,8 @@
             </v-container>
           </v-container>
         </v-form>
-        <v-container>
-          <v-row justify="end">
+        <v-container class="pa-0 ma-0">
+          <v-row justify="end" class="pa-0 ma-0">
             <dialog-success
               v-model="dialogSuccess"
               header="¡Gracias por contactarnos!"

@@ -49,12 +49,12 @@
                   required
                 />
                 <!-- <v-text-field
-                                v-model="lead.contactInfo.phoneNumber"
-                                solo
-                                clearable
-                                label="Teléfono (opcional)"
-                                type="number"
-                              /> -->
+                  v-model="lead.contactInfo.phoneNumber"
+                  solo
+                  clearable
+                  label="Teléfono (opcional)"
+                  type="number"
+                /> -->
               </v-col>
             </v-row>
             <v-container>

@@ -14,7 +14,7 @@
           Registrate para asesorarte con el proceso de implementación
         </h2>
         <v-form
-          ref="eventContact"
+          ref="processContact"
           v-model="validForm"
         >
           <v-container>
