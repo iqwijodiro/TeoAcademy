@@ -105,7 +105,7 @@ export default {
         {
           icon: 'mdi-blogger',
           title: 'Blog',
-          to: '/blog'
+          to: '/blogPage'
         }
       ],
       right: true,

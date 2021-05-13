@@ -42,6 +42,11 @@ import ebookForm from '~/components/forms/ebookForm'
 export default {
   components: {
     ebookForm
+  },
+  data () {
+    return {
+      ebookContact: false
+    }
   }
 }
 </script>

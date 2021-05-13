@@ -15,7 +15,7 @@
               <v-col
                 cols="12"
               >
-                <v-carousel hide-delimiters show-arrows-on-hover>
+                <v-carousel hide-delimiters cycle>
                   <v-carousel-item
                     v-for="(who, i) in whos"
                     :key="i"

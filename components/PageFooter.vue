@@ -120,7 +120,7 @@ export default {
         },
         {
           text: 'Blog',
-          to: '/blog'
+          to: '/blogPage'
         },
         {
           text: 'Iniciar Sesión',

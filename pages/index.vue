@@ -13,7 +13,7 @@
     <!-- Nuestro Equipo de trabajo -->
     <our-team />
     <!-- Nuestro Blog -->
-    <blog-index />
+    <blog-index :posts="posts" />
     <!-- Newsletter & inputEmail -->
     <newsletter />
   </div>
@@ -39,16 +39,17 @@ export default {
     blogIndex,
     newsletter
   },
-  data () {
-    return {
-      title: 'Inicio'
-    }
+  async asyncData ({ $content }) {
+    const posts = await $content('/blog')
+      .without(['body'])
+      .sortBy('createdAt', 'asc')
+      .fetch()
+    return { posts }
   },
   head () {
     return {
-      title: this.title
+      title: 'Inicio'
     }
   }
 }
-
 </script>

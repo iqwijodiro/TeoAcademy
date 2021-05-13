@@ -230,9 +230,9 @@ section {
   background-color: rgba($color: #fff, $alpha: .8) !important;
 }
 .card-title {
-  font-family: $title-font !important;
-  font-size: $link + .4rem !important;
-  padding: 0 .5rem !important;
+  font-family: $title-font;
+  font-size: $link + .4rem;
+  padding: 0 .5rem;
   margin: 1rem;
   color: $gray-mid;
 }

@@ -10,7 +10,7 @@
       </p>
       <v-row justify="center">
         <v-col>
-          <v-img :src="require('@/assets/img/process.svg')" max-width="1000" class="mx-auto" />
+          <v-img :src="require('@/assets/img/infografiateo-copy.svg')" max-width="1000" class="mx-auto" />
         </v-col>
       </v-row>
       <div class="centrar mt-5">

@@ -1,20 +1,15 @@
 <template>
   <div id="programs">
-    <div class="hero d-flex justify-center align-center mt-5 pa-0">
+    <div class="hero d-flex justify-center align-center">
       <div class="mask" />
       <v-row justify="center" class="rail">
         <v-col
-          xl="8"
           lg="8"
-          sm="10"
           md="10"
-          class="px-5"
+          class="mx-auto px-5"
         >
-          <v-card
-            elevation="5"
-            class="hero-card rounded-lg text-center pa-5 mx-auto"
-          >
-            <v-card-title class="centrar mx-auto pb-0">
+          <v-card elevation="5" max-width="900px" class="hero-card rounded-lg text-center mx-auto pa-5 mt-8">
+            <v-card-title class="centrar mx-auto pa-0 mb-4">
               <h1 class="fw-300">
                 Nuestros Programas
               </h1>
@@ -256,71 +251,17 @@ export default {
 }
 .hero {
   background-image: url(https://images.unsplash.com/photo-1507692049790-de58290a4334?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);
-  height: 55vh;
-  .text {
-    line-height: 1.5;
-    font-size: 1.8rem;
-  }
+  height: 600px;
+  background-position: 25% 25%;
+    .hero-card {
+      max-height: 500px;
+      .text {
+        line-height: 1.5;
+        font-size: 1.8rem;
+      }
+    }
 }
-  // @include tablet {
-  //   .hero{
-  //     background-position: 50% 50%;
-  //     .text {
-  //         font-size: $body + .4rem;
-  //         line-height: 2;
-  //     }
-  //     .rail {
-  //       .hero-card {
-  //         min-height: 330px !important;
-  //       }
-  //     }
-  //   }
-  // }
-
-  // @include miniDesktop {
-  //   .text {
-  //     display: block !important;
-  //   }
-  //   .rail {
-  //     max-width: 1200px;
-  //     width: 85% !important;
-  //     display: flex !important;
-  //     justify-content: center !important;
-  //   }
-  // }
-//   @include tablet {
-//     .hero{
-//       .rail {
-//         display: flex;
-//         justify-content: center;
-//         .hero-card {
-//           margin: 0 auto;
-//         }
-//       }
-//     }
-//   }
-// @include miniDesktop {
-//   .hero{
-//     .rail {
-//       display: flex;
-//       justify-content: center;
-//     }
-//   }
-// }
-// @include desktop {
-//   .hero {
-//     .rail {
-//       justify-content: flex-end;
-//     }
-//   }
-//   .gutter-p {
-//     padding-top: 12rem !important;
-//   }
-// }
 main {
-    //   .program-card {
-    //       flex-direction: column;
-    //   }
     .text {
         font-size: $body;
     }

@@ -84,6 +84,9 @@ export default {
   data () {
     return {
       emailNews: '',
+      validForm: false,
+      dialogError: false,
+      dialogSuccess: false,
       apiResponse: false,
       validationRules: {
         required: v => !!v || 'Campo Requerido',
