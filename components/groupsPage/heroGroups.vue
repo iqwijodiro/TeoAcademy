@@ -1,47 +1,49 @@
 <template>
-  <div class="hero d-flex justify-center align-center mt-5 pa-0 ">
-    <div class="mask" />
-    <v-row justify="center" class="rail">
-      <v-col
-        xl="8"
-        lg="8"
-        sm="10"
-        md="10"
-        class="px-5"
-      >
-        <v-card
-          elevation="5"
-          class="hero-card rounded-lg    text-center pa-5 mx-auto"
+  <section class="pa-0 ma-0">
+    <div class="hero d-flex justify-center align-center mt-5 pa-0 ">
+      <div class="mask" />
+      <v-row justify="center" class="rail">
+        <v-col
+          xl="8"
+          lg="8"
+          sm="10"
+          md="10"
+          class="px-5"
         >
-          <v-card-title class="mx-auto pb-0 mb-4">
-            <h1 class="fw-300 mb-4">
-              Implemente un proceso de formación cristiana en su congregación.
-            </h1>
-          </v-card-title>
-          <v-card-text class="my-3 mx-auto px-5 py-0">
-            <p class="text">
-              Teo Academy pone a su disposición los recursos (tecnologías y contenidos) y la experiencia (personas y métodos), para hacer del proceso formativo una experiencia de éxito y así brindar a los miembros del cuerpo de Cristo todos los beneficios que brinda la instrucción cristiana.
-            </p>
-          </v-card-text>
-          <div class="centrar">
-            <contact-form
-              v-model="heroGroups"
-            >
-              <template #activator="{ on, attrs }" class="d-block mx-auto">
-                <v-btn
-                  class="btn d-block"
-                  v-bind="attrs"
-                  v-on="on"
-                >
-                  Contáctanos
-                </v-btn>
-              </template>
-            </contact-form>
-          </div>
-        </v-card>
-      </v-col>
-    </v-row>
-  </div>
+          <v-card
+            elevation="5"
+            class="hero-card rounded-lg    text-center pa-5 mx-auto"
+          >
+            <v-card-title class="mx-auto pb-0 mb-4">
+              <h1 class="fw-300 mb-4">
+                Implemente un proceso de formación cristiana en su congregación.
+              </h1>
+            </v-card-title>
+            <v-card-text class="my-3 mx-auto px-5 py-0">
+              <p class="text">
+                Teo Academy pone a su disposición los recursos (tecnologías y contenidos) y la experiencia (personas y métodos), para hacer del proceso formativo una experiencia de éxito y así brindar a los miembros del cuerpo de Cristo todos los beneficios que brinda la instrucción cristiana.
+              </p>
+            </v-card-text>
+            <div class="centrar">
+              <contact-form
+                v-model="heroGroups"
+              >
+                <template #activator="{ on, attrs }" class="d-block mx-auto">
+                  <v-btn
+                    class="btn d-block"
+                    v-bind="attrs"
+                    v-on="on"
+                  >
+                    Contáctanos
+                  </v-btn>
+                </template>
+              </contact-form>
+            </div>
+          </v-card>
+        </v-col>
+      </v-row>
+    </div>
+  </section>
 </template>
 <script>
 import ContactForm from '~/components/forms/contactForm'
