@@ -44,7 +44,7 @@ export default {
   },
   data () {
     return {
-      title: 'For Groups'
+      title: 'Formación cristiana y teológica para grupos y congregaciones - Teo Academy'
     }
   },
   head () {

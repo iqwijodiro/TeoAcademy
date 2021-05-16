@@ -73,15 +73,15 @@ export default {
       levels: [
         {
           mod: 'Básico',
-          img: require('@/assets/img/basic.webp')
+          img: 'https://images.unsplash.com/photo-1492052722242-2554d0e99e3a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1867&q=80'
         },
         {
           mod: 'Intermedio',
-          img: require('@/assets/img/intermediate.webp')
+          img: 'https://images.unsplash.com/photo-1472905981516-5ac09f35b7f4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1053&q=80'
         },
         {
           mod: 'Avanzado',
-          img: require('@/assets/img/advance.webp')
+          img: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80'
         }
       ],
       sources: [

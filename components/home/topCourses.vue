@@ -16,6 +16,7 @@
                   height="45%"
                   max-height="220px"
                   class="mb-2"
+                  :alt="course.name"
                 />
                 <v-card-title class="card-title">
                   {{ course.name }}

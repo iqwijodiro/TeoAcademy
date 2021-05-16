@@ -171,7 +171,7 @@
 export default {
   data () {
     return {
-      title: 'Cursos',
+      title: 'Cursos de formación cristiana y temas teológicos a tu alcance - Teo Academy',
       courses: [],
       search: '',
       valid: true,

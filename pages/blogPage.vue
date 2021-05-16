@@ -95,7 +95,7 @@ export default {
   },
   head () {
     return {
-      title: 'Nuestro Blog'
+      title: 'Contenido de temas cristiano y teologico a tu alcance - Teo Academy '
     }
   },
   methods: {

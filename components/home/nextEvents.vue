@@ -5,7 +5,7 @@
         Próximos Eventos
       </h2>
       <v-container>
-        <v-row v-for="(evento, i) in eventos" :key="i" justify="center" class="rail py-3">
+        <v-row v-for="(event, i) in events" :key="i" justify="center" class="rail py-3">
           <v-col
             xl="2"
             lg="2"
@@ -13,13 +13,13 @@
             class="order-1 order-lg-1"
           >
             <div class="date-box d-flex justify-center align-start">
-              <span class="date mr-4 d-block"> {{ evento.date }} </span>
+              <span class="date mr-4 d-block"> {{ event.date }} </span>
               <div class="d-block pt-4">
                 <p class="month ma-0 pa-0">
-                  {{ evento.month }}
+                  {{ event.month }}
                 </p>
                 <p class="day">
-                  {{ evento.day }}
+                  {{ event.day }}
                 </p>
               </div>
             </div>
@@ -33,10 +33,10 @@
           >
             <div class="event-center mx-auto">
               <h3 class="event-title gray-m-font">
-                {{ evento.title }}
+                {{ event.title }}
               </h3>
               <p class="text-start text evento-text">
-                {{ evento.text }}
+                {{ event.text }}
               </p>
               <div class="centrar">
                 <event-form
@@ -57,7 +57,7 @@
             md="4"
             class="order-2 order-lg-3"
           >
-            <v-img :src="evento.img" class="rounded fill-height" min-height="200px" />
+            <v-img :src="event.img" class="rounded fill-height" min-height="200px" :alt="event.title" />
           </v-col>
         </v-row>
       </v-container>
@@ -74,7 +74,7 @@ export default {
   data () {
     return {
       eventContact: false,
-      eventos: [
+      events: [
         {
           title: 'Importancia de la formación bíblica para el desarrollo del cristiano',
           text: 'Para las personas que desean conocer y comprender la importancia del estudio metódico y sistemático de las sagradas escrituras.',

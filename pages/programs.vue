@@ -188,7 +188,7 @@
 export default {
   data () {
     return {
-      title: 'Nuestros Programas',
+      title: 'Programas de cursos teológicos y de formación cristiana a tu alcance - Teo Academy',
       programs: [],
       page: 1,
       pages: 1,

@@ -48,7 +48,7 @@ export default {
   },
   head () {
     return {
-      title: 'Inicio'
+      title: 'Formación cristiana y teológica online a tu alcance - Teo Academy'
     }
   }
 }

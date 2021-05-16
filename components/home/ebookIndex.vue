@@ -30,7 +30,7 @@
           </v-card>
         </v-col>
         <v-col xl="6" lg="6" md="6" sm="10" class="mx-auto">
-          <v-img max-width="500px" :src="require('@/assets/img/ebook_index.jpeg')" class="rounded" />
+          <v-img max-width="500px" :src="require('@/assets/img/ebook_index.jpeg')" class="rounded" :alt="alt" />
         </v-col>
       </v-row>
     </v-container>
@@ -45,7 +45,8 @@ export default {
   },
   data () {
     return {
-      ebookContact: false
+      ebookContact: false,
+      alt: 'Libro digital: Relevancia de la formación bíblica para el cuerpo de Cristo'
     }
   }
 }
