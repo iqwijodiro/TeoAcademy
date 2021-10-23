@@ -1,0 +1,302 @@
+// Ref: https://github.com/nuxt-community/vuetify-module#customvariables
+//
+// The variables you want to modify
+// $font-size-root: 20px;
+/** Colores **/
+$wine: #be1e2d;
+$ocean: #0b83bf;
+$gray-light: #e9e9e9;
+$gray-mid: #959595;
+$gray-dark: #453f3c;
+
+/***---Fuentes---***/
+$body-font: "Nunito", sans-serif;
+$title-font: "Prompt", sans-serif;
+
+/** Tamaños de Fuente **/
+$main-title: 3rem;
+$section-title: 2.5rem;
+$subtitle: 1.4rem;
+$link: 1.5rem;
+$miniLink: 1rem;
+$body: 1.6rem;
+
+/** Breakpoints **/ 
+$miniTelefono: 320px;
+$telefono: 425px;
+$tablet: 768px;
+$miniDesktop: 960px;
+$desktop: 1264px;
+$largeDesktop: 1440px;
+$xlDesktop: 1904px;
+
+
+/** Mixins **/ 
+@mixin miniTelefono {
+    @media (min-width: $miniTelefono) {
+        @content;
+    }
+}
+@mixin telefono {
+    @media (min-width: $telefono) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: $tablet) {
+        @content;
+    }
+}
+
+@mixin miniDesktop {
+    @media (min-width: $miniDesktop) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: $desktop) {
+        @content;
+    }
+}
+
+@mixin lgdesktop {
+    @media (min-width: $largeDesktop) {
+        @content;
+    }
+}
+@mixin xlDesktop {
+    @media (min-width: $xlDesktop) {
+        @content;
+    }
+}
+
+/*** Estilos a utilidades **/
+html, body, * {
+  word-break: normal !important;
+  line-height: 1.25;
+  scroll-behavior: smooth;
+}
+ul, li, ol {
+  list-style-type: none;
+}
+/** headings / titulos **/
+h1,
+h2,
+h3,
+h4,
+a {
+  font-family: $title-font !important;
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 40px;
+  color: $wine;
+  line-height: 1.2;
+  // text-align: center;
+}
+h2 {
+    font-size: $section-title + .5rem;
+    font-weight: 400;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+h3 {
+    font-size: $section-title - .3rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+h4 {
+  font-size: $link + 0.5rem;
+  font-family: $title-font;
+  font-weight: 400;
+}
+.red-font {
+  color: $wine;
+}
+.blue-font {
+  color: $ocean;
+}
+.gray-m-font {
+  color: $gray-mid;
+}
+.gray-light-font {
+  color: $gray-light;
+}
+.opacity {
+  opacity: .75;
+}
+.border-n {
+  border: 2px solid #959595;
+}
+/*** Botones ***/ 
+.btn {
+  height: 50px !important;
+  border-radius: 0.9rem !important;
+  background-color: $ocean !important;
+  color: #ffffff;
+  text-transform: capitalize !important;
+  font-size: $link + .2rem;
+  padding: 12px 20px !important;
+  margin: 0.7rem;
+  font-family: $title-font !important;
+  &:hover {
+    color: #fff;
+    font-weight: 400;
+    background: $wine !important;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, .4);
+    transition: .5s;
+  }
+  &::after {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 0.9rem !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .3s;
+  }
+}
+.minibtn {
+  height: 40px !important;
+  border-radius: 0.9rem;
+  background-color: $ocean !important;
+  color: #ffffff;
+  text-transform: capitalize !important;
+  font-size: $link + 0.1rem;
+  padding: 12px !important;
+  margin: 0.5rem !important;
+  font-family: $title-font !important;
+  &:hover {
+    color: #fff;
+    font-weight: 400;
+    background: $wine !important;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, .4);
+    transition: .5s;
+  }
+  &::after {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 0.9rem !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .3s;
+  }
+}
+
+/*** tools y espaciados **/ 
+.centrar {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center!important;
+}
+
+.gutter-p {
+    padding-top: 2rem !important;
+}
+
+section {
+  padding: 2rem 0 !important;
+  margin-bottom: 2rem !important;
+}
+.fw-300 {
+  font-weight: 300 !important;
+}
+
+.fw-700 {
+  font-weight: 700;
+}
+
+.fw-900 {
+  font-weight: 900 !important;
+}
+.link {
+  font-size: $link + 0.2rem;
+  color: $gray-mid;
+  &:hover {
+    color: $ocean;
+    border-bottom: 0.2rem solid $ocean;
+    margin-top: 0;
+  }
+}
+.text {
+  font-size: $body + .4rem;
+  color: $gray-mid;
+  font-weight: 300;
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
+}
+.text-mid {
+  font-size: $body + .2rem;
+  color: $gray-mid;
+  font-weight: 300;
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
+}
+.text-small {
+  font-size: $body;
+  color: $gray-mid;
+  font-weight: 300;
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
+}
+
+  //** Tarjetas **/
+.hero-card {
+  background-color: rgba($color: #fff, $alpha: .8) !important;
+}
+.card-title {
+  font-family: $title-font;
+  font-size: $link + .4rem;
+  padding: 0 .5rem;
+  margin: 1rem;
+  color: $gray-mid;
+}
+/** Banners - heros **/
+.hero {
+  position: relative;
+  top: 0; left: 0;
+  width: 100%;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 25% 25%;
+  .mask {
+    position: absolute;
+    background-color: rgba($color: #ffffff, $alpha: 0.55);
+    min-height: 100%;
+    width: 100%;
+  }
+}
+@include tablet {
+  .hero {
+    min-height: 100%;
+    height: 100vh;
+  }
+}
+.priceOld {
+  color: $wine;
+  font-size: $link;
+  font-family: $title-font;
+  text-decoration: line-through;
+}
+.priceNew {
+  color: $gray-mid;
+  font-size: 2.5rem;
+  font-family: $title-font;
+  font-weight: 400;
+}

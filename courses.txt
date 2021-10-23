@@ -1,0 +1,355 @@
+,
+courses: [
+        {
+          imgFileProps: require('../assets/img/IniciacionCristiana.webp'),
+          name: 'El proceso de iniciacion Cristiana',
+          subname,
+          shortName,
+          text:
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+          modules: 9,
+          resources: 9,
+          priceOld: 19.99,
+          priceNew: 9.99
+        },
+        {
+          img: require('../assets/img/IniciacionCristiana.webp'),
+          title: 'El proceso de iniciacion Cristiana',
+          text:
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+          modules: 9,
+          resources: 9,
+          priceOld: 19.99,
+          priceNew: 9.99
+        },
+        {
+          img: require('../assets/img/IniciacionCristiana.webp'),
+          title: 'El proceso de iniciacion Cristiana',
+          text:
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+          modules: 9,
+          resources: 9,
+          priceOld: 19.99,
+          priceNew: 9.99
+        },
+        {
+          img: require('../assets/img/IniciacionCristiana.webp'),
+          title: 'El proceso de iniciacion Cristiana',
+          text:
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+          modules: 9,
+          resources: 9,
+          priceOld: 19.99,
+          priceNew: 9.99
+        },
+        {
+          img: require('../assets/img/IniciacionCristiana.webp'),
+          title: 'El proceso de iniciacion Cristiana',
+          text:
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+          modules: 9,
+          resources: 9,
+          priceOld: 19.99,
+          priceNew: 9.99
+        },
+        {
+          img: require('../assets/img/IniciacionCristiana.webp'),
+          title: 'El proceso de iniciacion Cristiana',
+          text:
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+          modules: 9,
+          resources: 9,
+          priceOld: 19.99,
+          priceNew: 9.99
+        },
+        {
+          img: require('../assets/img/IniciacionCristiana.webp'),
+          title: 'El proceso de iniciacion Cristiana',
+          text:
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+          modules: 9,
+          resources: 9,
+          priceOld: 19.99,
+          priceNew: 9.99
+        },
+        {
+          img: require('../assets/img/IniciacionCristiana.webp'),
+          title: 'El proceso de iniciacion Cristiana',
+          text:
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+          modules: 9,
+          resources: 9,
+          priceOld: 19.99,
+          priceNew: 9.99
+        },
+        {
+          img: require('../assets/img/IniciacionCristiana.webp'),
+          title: 'El proceso de iniciacion Cristiana',
+          text:
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+          modules: 9,
+          resources: 9,
+          priceOld: 19.99,
+          priceNew: 9.99
+        },
+        {
+          img: require('../assets/img/IniciacionCristiana.webp'),
+          title: 'El proceso de iniciacion Cristiana',
+          text:
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+          modules: 9,
+          resources: 9,
+          priceOld: 19.99,
+          priceNew: 9.99
+        },
+        {
+          img: require('../assets/img/IniciacionCristiana.webp'),
+          title: 'El proceso de iniciacion Cristiana',
+          text:
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+          modules: 9,
+          resources: 9,
+          priceOld: 19.99,
+          priceNew: 9.99
+        },
+        {
+          img: require('../assets/img/IniciacionCristiana.webp'),
+          title: 'El proceso de iniciacion Cristiana',
+          text:
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+          modules: 9,
+          resources: 9,
+          priceOld: 19.99,
+          priceNew: 9.99
+        },
+        {
+          img: require('../assets/img/IniciacionCristiana.webp'),
+          title: 'El proceso de iniciacion Cristiana',
+          text:
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+          modules: 9,
+          resources: 9,
+          priceOld: 19.99,
+          priceNew: 9.99
+        },
+        {
+          img: require('../assets/img/IniciacionCristiana.webp'),
+          title: 'El proceso de iniciacion Cristiana',
+          text:
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+          modules: 9,
+          resources: 9,
+          priceOld: 19.99,
+          priceNew: 9.99
+        },
+        {
+          img: require('../assets/img/IniciacionCristiana.webp'),
+          title: 'El proceso de iniciacion Cristiana',
+          text:
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+          modules: 9,
+          resources: 9,
+          priceOld: 19.99,
+          priceNew: 9.99
+        },
+        {
+          img: require('../assets/img/IniciacionCristiana.webp'),
+          title: 'El proceso de iniciacion Cristiana',
+          text:
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+          modules: 9,
+          resources: 9,
+          priceOld: 19.99,
+          priceNew: 9.99
+        },
+        {
+          img: require('../assets/img/IniciacionCristiana.webp'),
+          title: 'El proceso de iniciacion Cristiana',
+          text:
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+          modules: 9,
+          resources: 9,
+          priceOld: 19.99,
+          priceNew: 9.99
+        },
+        {
+          img: require('../assets/img/IniciacionCristiana.webp'),
+          title: 'El proceso de iniciacion Cristiana',
+          text:
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+          modules: 9,
+          resources: 9,
+          priceOld: 19.99,
+          priceNew: 9.99
+        },
+        {
+          img: require('../assets/img/IniciacionCristiana.webp'),
+          title: 'El proceso de iniciacion Cristiana',
+          text:
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+          modules: 9,
+          resources: 9,
+          priceOld: 19.99,
+          priceNew: 9.99
+        },
+        {
+          img: require('../assets/img/IniciacionCristiana.webp'),
+          title: 'El proceso de iniciacion Cristiana',
+          text:
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+          modules: 9,
+          resources: 9,
+          priceOld: 19.99,
+          priceNew: 9.99
+        },
+        {
+          img: require('../assets/img/IniciacionCristiana.webp'),
+          title: 'El proceso de iniciacion Cristiana',
+          text:
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+          modules: 9,
+          resources: 9,
+          priceOld: 19.99,
+          priceNew: 9.99
+        },
+        {
+          img: require('../assets/img/IniciacionCristiana.webp'),
+          title: 'El proceso de iniciacion Cristiana',
+          text:
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+          modules: 9,
+          resources: 9,
+          priceOld: 19.99,
+          priceNew: 9.99
+        },
+        {
+          img: require('../assets/img/IniciacionCristiana.webp'),
+          title: 'El proceso de iniciacion Cristiana',
+          text:
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+          modules: 9,
+          resources: 9,
+          priceOld: 19.99,
+          priceNew: 9.99
+        },
+        {
+          img: require('../assets/img/IniciacionCristiana.webp'),
+          title: 'El proceso de iniciacion Cristiana',
+          text:
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+          modules: 9,
+          resources: 9,
+          priceOld: 19.99,
+          priceNew: 9.99
+        },
+        {
+          img: require('../assets/img/IniciacionCristiana.webp'),
+          title: 'El proceso de iniciacion Cristiana',
+          text:
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+          modules: 9,
+          resources: 9,
+          priceOld: 19.99,
+          priceNew: 9.99
+        },
+        {
+          img: require('../assets/img/IniciacionCristiana.webp'),
+          title: 'El proceso de iniciacion Cristiana',
+          text:
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+          modules: 9,
+          resources: 9,
+          priceOld: 19.99,
+          priceNew: 9.99
+        },
+        {
+          img: require('../assets/img/IniciacionCristiana.webp'),
+          title: 'El proceso de iniciacion Cristiana',
+          text:
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+          modules: 9,
+          resources: 9,
+          priceOld: 19.99,
+          priceNew: 9.99
+        },
+        {
+          img: require('../assets/img/IniciacionCristiana.webp'),
+          title: 'El proceso de iniciacion Cristiana',
+          text:
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+          modules: 9,
+          resources: 9,
+          priceOld: 19.99,
+          priceNew: 9.99
+        },
+        {
+          img: require('../assets/img/IniciacionCristiana.webp'),
+          title: 'El proceso de iniciacion Cristiana',
+          text:
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+          modules: 9,
+          resources: 9,
+          priceOld: 19.99,
+          priceNew: 9.99
+        },
+        {
+          img: require('../assets/img/IniciacionCristiana.webp'),
+          title: 'El proceso de iniciacion Cristiana',
+          text:
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+          modules: 9,
+          resources: 9,
+          priceOld: 19.99,
+          priceNew: 9.99
+        },
+        {
+          img: require('../assets/img/IniciacionCristiana.webp'),
+          title: 'El proceso de iniciacion Cristiana',
+          text:
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+          modules: 9,
+          resources: 9,
+          priceOld: 19.99,
+          priceNew: 9.99
+        },
+        {
+          img: require('../assets/img/IniciacionCristiana.webp'),
+          title: 'El proceso de iniciacion Cristiana',
+          text:
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+          modules: 9,
+          resources: 9,
+          priceOld: 19.99,
+          priceNew: 9.99
+        },
+        {
+          img: require('../assets/img/IniciacionCristiana.webp'),
+          title: 'El proceso de iniciacion Cristiana',
+          text:
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+          modules: 9,
+          resources: 9,
+          priceOld: 19.99,
+          priceNew: 9.99
+        },
+        {
+          img: require('../assets/img/IniciacionCristiana.webp'),
+          title: 'El proceso de iniciacion Cristiana',
+          text:
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+          modules: 9,
+          resources: 9,
+          priceOld: 19.99,
+          priceNew: 9.99
+        },
+        {
+          img: require('../assets/img/IniciacionCristiana.webp'),
+          title: 'El proceso de iniciacion Cristiana',
+          text:
+            'Conoce cuáles son los primeros pasos de un cristiano en el desarrollo de una fe firme y trascendental.',
+          modules: 9,
+          resources: 9,
+          priceOld: 19.99,
+          priceNew: 9.99
+        }
+      ]
