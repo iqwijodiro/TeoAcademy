@@ -9,7 +9,7 @@
           sm="10"
           class="mx-auto px-5"
         >
-          <v-card elevation="4" class="pa-5 rounded-xl">
+          <v-card elevation="5" class="pa-5 rounded-xl">
             <h2 class="text-capitalize text-center">
               Descarga gratis nuestro ebook
             </h2>
@@ -29,11 +29,18 @@
             </ebook-form>
           </v-card>
         </v-col>
-        <transition name="enter-to">
-          <v-col xl="5" lg="5" md="5" sm="10" class="mx-auto">
-            <v-img height="100%" max-width="1000px" :src="require('@/assets/img/ebookindex.webp')" :alt="alt" />
-          </v-col>
-        </transition>
+        <v-col xl="5" lg="5" md="5" sm="10" class="mx-auto">
+          <transition name="ebook" mode="out-in">
+            <v-img
+              v-animate-on-scroll
+              height="100%"
+              max-width="1000px"
+              :src="require('@/assets/img/ebookindex.webp')"
+              class="ebook__img"
+              :alt="alt"
+            />
+          </transition>
+        </v-col>
       </v-row>
     </v-container>
   </section>
@@ -45,11 +52,19 @@ export default {
   components: {
     ebookForm
   },
+  transition: {
+    name: 'ebook',
+    mode: 'out-in'
+  },
   data () {
     return {
       ebookContact: false,
+      ebookAnim: false,
       alt: 'Libro digital: Relevancia de la formación bíblica para el cuerpo de Cristo'
     }
+  },
+  mounted () {
+    this.ebookAnim = true
   }
 }
 </script>
@@ -62,10 +77,62 @@ export default {
   h2 {
     color: $gray-mid;
   }
-  .v-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 15px rgba(0, 0, 0, .4) !important;
-    transition: .5s;
+  .v-card {
+    animation: bouncing 3s ease-in-out;
+    animation-iteration-count: infinite;
+    position: relative;
+    // box-shadow: 2px 10px 10px rgba(0, 0, 0, .14) !important;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+    transition: all 0.3s ease-in-out;
+    &::after {
+      position: absolute;
+      content: '';
+      z-index: -1;
+      opacity: 0;
+      // box-shadow: 15px 10px 25px rgba(0, 0, 0, .4) !important;
+       box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+      transition: opacity 0.3s ease-in-out;
+    }
   }
+  .ebook__img {
+    display: block;
+    animation: moveInRight 2s ease-out;
+
+  }
+ .ebook-enter-active, .ebook-leave-active { transition: opacity 1.5s; }
+  .ebook-enter, .ebook-leave-active { opacity: 0; }
 }
+.before-enter {
+  opacity: 0;
+  transform: translateX(-200px);
+  transition: all 2s ease-out;
+}
+.enter {
+  opacity: 1;
+  transform: translateX(0);
+}
+@keyframes bouncing {
+    0% {
+      transform: translateY(-10px);
+    }
+    50% {
+    transform: translateY(10px);
+    }
+    100% {
+    transform: translateY(-10px);
+    }
+}
+// @keyframes moveInRight {
+//     0% {
+//         opacity: 0;
+//         transform: translateX(100px);
+//     }
+//     80% {
+//         transform: translateX(-10px);
+//     }
+//     100% {
+//         opacity: 1;
+//         transform: translateX(0);
+//     }
+// }
 </style>

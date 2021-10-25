@@ -21,7 +21,15 @@ export default {
     ]
   },
   env: {
-    api: process.env.SEGO_API
+    api: process.env.SEGO_API_PUBLIC
+  },
+  layoutTransition: {
+    name: 'scroll-y-reverse-transition',
+    mode: 'out-in'
+  },
+  pageTransition: {
+    name: 'slide-x-transition',
+    mode: 'out-in'
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -32,6 +40,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '~/plugins/animateOnScroll.client.js',
+    '~/plugins/animationEntering.client.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

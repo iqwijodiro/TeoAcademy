@@ -20,18 +20,32 @@
                 />
               </nuxt-link>
             </v-toolbar-title>
-            <v-list class="nav transparent hidden-sm-and-down">
-              <v-item-group class="d-flex align-center">
-                <v-list-item v-for="(item, i) in items" :key="i" class="px-1">
-                  <nuxt-link :to="item.to">
-                    <v-list-item-title class="link" v-text="item.title" />
-                  </nuxt-link>
-                </v-list-item>
-                <v-btn to="/login" class="btn rounded ml-5 my-2">
+            <nav class="nav transparent hidden-sm-and-down">
+              <v-row justify="center" class="ma-0 pa-0">
+                <v-col>
+                  <v-tabs
+                    v-model="tabs"
+                    color="#0b83bf"
+                    active-class="link_item link-active"
+                    class="px-0 link_item d-flex align-center justify-center"
+                  >
+                    <v-tab
+                      v-for="(link, i) in links"
+                      :key="i"
+                      :to="link.to"
+                      class="px-1 tab__block "
+                    >
+                      <h2 class="link text-capitalize">
+                        {{ link.title }}
+                      </h2>
+                    </v-tab>
+                  </v-tabs>
+                </v-col>
+                <v-btn to="/login" class="btn rounded my-2">
                   Iniciar Sesión
                 </v-btn>
-              </v-item-group>
-            </v-list>
+              </v-row>
+            </nav>
             <v-btn
               class="hidden-md-and-up align-self-center"
               icon
@@ -57,15 +71,15 @@
         />
         <v-list nav dense>
           <v-list-item-group class="d-flex nav flex-column pa-1 mx-1">
-            <v-list-item v-for="(item, i) in items" :key="i" class="pa-2">
+            <v-list-item v-for="(link, i) in links" :key="i" class="tab__block pa-2">
               <v-icon class="icon mr-1">
-                {{ item.icon }}
+                {{ link.icon }}
               </v-icon>
-              <nuxt-link :to="item.to">
-                <v-list-item-title class="link" v-text="item.title" />
+              <nuxt-link :to="link.to">
+                <v-list-item-title class="link" v-text="link.title" />
               </nuxt-link>
             </v-list-item>
-            <v-btn to="/login" class="btn text-capitalize text-center my-2">
+            <v-btn to="#" class="btn text-capitalize text-center my-2">
               Iniciar Sesión
             </v-btn>
           </v-list-item-group>
@@ -83,7 +97,8 @@ export default {
       clipped: false,
       drawer: true,
       fixed: false,
-      items: [
+      tabs: false,
+      links: [
         {
           icon: 'mdi-home-variant-outline',
           title: 'Inicio',
@@ -99,13 +114,13 @@ export default {
           title: 'Programas',
           to: '/programs'
         },
+        // {
+        //   icon: 'mdi-account-group',
+        //   title: 'For Group',
+        //   to: '/groups'
+        // },
         {
-          icon: 'mdi-account-group',
-          title: 'For Group',
-          to: '/groups'
-        },
-        {
-          icon: 'mdi-blogger',
+          icon: 'fas fa-blog',
           title: 'Blog',
           to: '/blogPage'
         }
@@ -126,21 +141,43 @@ export default {
   .appbar,
   .drawer {
     .nav {
-      // position: absolute;
-      .link {
-        font-size: $link + .3rem;
-        font-weight: 400;
-        text-align: center !important;
-        margin: 0 1rem !important;
-        color: $wine;
-        padding: 1rem 0 !important;
-        &:hover {
-          color: $ocean;
-          border-bottom: 0.2rem solid $ocean;
-          margin-top: 0;
-        }
+      .tab__block {
+        .link {
+          font-size: $link + .3rem;
+          font-weight: 400;
+          text-align: center !important;
+          margin: 0 1rem !important;
+          color: $wine;
+          padding: 1rem 0 !important;
+          position: relative;
+          // &:hover {
+          //   color: rgba($ocean, .6);
+          //   border-bottom: 0.2rem solid rgba($ocean, .7);
+          //   margin-top: 0;
+          // }
+          &::after {
+            position: absolute;
+            content: '';
+            width: 0%;
+            height: 5px;
+            left: 50%;
+            bottom: -10px;
+            transition: all .5s ease-in-out;
+          }
+      }
+      &:hover .link::after {
+        width: 100%;
+        left: 0;
+      }
       }
     }
   }
+}
+.link-active.link_item {
+    border-bottom: 2px solid $ocean;
+    color: #fff;
+    .icon, .link {
+      color: $ocean !important;
+    }
 }
 </style>

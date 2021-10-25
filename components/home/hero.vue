@@ -12,7 +12,13 @@
             sm="10"
             class="px-5"
           >
-            <v-card elevation="5" max-width="450px" min-height="320px" class="hero-card rounded-lg text-center py-3">
+            <v-card
+              v-animation-entering:top="{duration: 1500, delay: 200}"
+              elevation="5"
+              max-width="450px"
+              min-height="320px"
+              class="hero-card rounded-lg text-center py-3"
+            >
               <v-card-title class="mx-auto pb-0">
                 <h1 class="fw-700 text-center mx-4">
                   Formación con alcance eterno

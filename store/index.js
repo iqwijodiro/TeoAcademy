@@ -1,5 +1,5 @@
 export const state = () => ({
-  urlAPI: process.env.api,
+  urlAPI: process.env.SEGO_API_PUBLIC,
   course: {},
   division: {}
 })

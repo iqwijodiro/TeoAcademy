@@ -6,8 +6,8 @@
     >
       <v-card rounded="lg">
         <div class="centrar">
-          <v-icon size="60" class="icon red-font text-center my-3">
-            mdi-close-circle-outline
+          <v-icon size="70" class="icon red-font text-center my-3">
+            mdi-alert-circle-outline
           </v-icon>
         </div>
         <v-card-text>
@@ -55,6 +55,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .red-font {
-  color: $wine;
+  color: rgba($wine, .7);
+  font-size: 24px;
 }
 </style>

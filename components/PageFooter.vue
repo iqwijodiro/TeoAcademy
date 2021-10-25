@@ -143,7 +143,7 @@ export default {
           link: 'https://instagram.com'
         },
         {
-          brand: 'mdi-telegram',
+          brand: 'fab fa-telegram-plane',
           link: 'https://telegram.com'
         }
       ]

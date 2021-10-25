@@ -9,7 +9,7 @@
       </template>
       <v-card rounded="lg">
         <div class="centrar">
-          <v-icon size="60" class="icon blue-font text-center my-3">
+          <v-icon size="70" class="icon blue-font text-center my-3">
             mdi-check-circle-outline
           </v-icon>
         </div>
@@ -70,6 +70,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 .blue-font {
-  color: $ocean;
+  color: rgba($ocean, .7);
 }
 </style>
