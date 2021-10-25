@@ -9,21 +9,17 @@
           cols="12"
         >
           <v-slide-group multiple arrows class="my-3 my-slider">
-            <v-slide-item
-              v-for="course in courses"
-              :key="course._id"
-              class="slides"
-            >
+            <v-slide-item v-for="course in courses" :key="course._id" class="slides course__card">
               <v-card
-                elevation="5"
+                max-height="520px"
                 max-width="315px"
-                class="card rounded-lg mx-4 my-5 pb-2 d-flex flex-column justify-space-between"
+                class="course__card rounded-lg mx-4 my-5 pb-2 d-flex flex-column justify-space-between"
               >
                 <v-img
                   :src="course.imgUrl"
                   height="45%"
                   max-height="220px"
-                  class="img-card mb-2"
+                  class="mb-2 img-course"
                   :alt="course.name"
                 />
                 <v-card-title class="card-title">
@@ -112,28 +108,40 @@ export default {
       text-align: left;
     }
   }
-  .slides{
-    .card {
-      height: 100%;
-      max-height: 520px;
-      .text-card {
-        font-size: $body - .15rem;
-        color: $gray-mid;
-        font-weight: 300;
-        line-height: 1.5;
-        padding: 0 1.5rem !important;
-        margin: 1.2rem 0 !important;
-        opacity: 0;
+    .course__card {
+      opacity: .65;
+      box-shadow: 10px 5px 10px -5px rgba(0,0,0,0.4) !important;
+      .img-course {
+        filter: grayscale(50%);
       }
-      .minirow div {
-        font-size: $miniLink + .3rem !important;
-        font-weight: 400;
-        color: $gray-mid;
-        &:nth-child(1) {
-          border-right: .2rem solid $gray-light;
+      &:hover {
+        opacity: 1;
+        transition: all .4s ease-in-out;
+        transform: translateY(-5px);
+        box-shadow: 15px 8px 15px -5px rgba(0,0,0,0.4) !important;
+        .img-course {
+          filter: none;
         }
       }
     }
-  }
+
+    .text-card {
+      font-size: $body - .15rem;
+      color: $gray-mid;
+      font-weight: 300;
+      line-height: 1.5;
+      padding: 0 1.5rem !important;
+      margin: 1.2rem 0 !important;
+      opacity: 1;
+    }
+    .minirow div {
+      font-size: $miniLink + .3rem !important;
+      font-weight: 400;
+      color: $gray-mid;
+      &:nth-child(1) {
+        border-right: .2rem solid $gray-light;
+      }
+    }
+
 }
 </style>
