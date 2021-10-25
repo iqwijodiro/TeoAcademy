@@ -12,43 +12,45 @@
             sm="10"
             class="px-5"
           >
-            <v-card
-              v-animation-entering:top="{duration: 1500, delay: 200}"
-              elevation="5"
-              max-width="450px"
-              min-height="320px"
-              class="hero-card rounded-lg text-center py-3"
-            >
-              <v-card-title class="mx-auto pb-0">
-                <h1 class="fw-700 text-center mx-4">
-                  Formación con alcance eterno
-                </h1>
-              </v-card-title>
-              <v-card-text class="my-3 mx-auto px-5 py-0">
-                <p class="text">
-                  Disfruta la maravillosa experiencia de la formación cristiana a través de los cursos y programas de Teo Academy
-                </p>
-              </v-card-text>
-              <div class="d-block mx-auto d-sm-flex justify-sm-center px-2">
-                <v-btn to="/courses" class="btn">
-                  Nuestros Cursos
-                </v-btn>
-                <!-- Formulario de contacto -->
-                <contact-form
-                  v-model="heroContact"
-                >
-                  <template #activator="{ on, attrs }" class="d-block mx-auto">
-                    <v-btn
-                      class="btn d-block"
-                      v-bind="attrs"
-                      v-on="on"
-                    >
-                      Contáctanos
-                    </v-btn>
-                  </template>
-                </contact-form>
-              </div>
-            </v-card>
+            <!-- v-animation-entering:top="{duration: 800, delay: 100}" -->
+            <appear :duration="800" :delay="200" :translate="[0, '-200px']">
+              <v-card
+                elevation="5"
+                max-width="450px"
+                min-height="320px"
+                class="hero-card rounded-lg text-center py-3"
+              >
+                <v-card-title class="mx-auto pb-0">
+                  <h1 class="fw-700 text-center mx-4">
+                    Formación con alcance eterno
+                  </h1>
+                </v-card-title>
+                <v-card-text class="my-3 mx-auto px-5 py-0">
+                  <p class="text">
+                    Disfruta la maravillosa experiencia de la formación cristiana a través de los cursos y programas de Teo Academy
+                  </p>
+                </v-card-text>
+                <div class="d-block mx-auto d-sm-flex justify-sm-center px-2">
+                  <v-btn to="/courses" class="btn">
+                    Nuestros Cursos
+                  </v-btn>
+                  <!-- Formulario de contacto -->
+                  <contact-form
+                    v-model="heroContact"
+                  >
+                    <template #activator="{ on, attrs }" class="d-block mx-auto">
+                      <v-btn
+                        class="btn d-block"
+                        v-bind="attrs"
+                        v-on="on"
+                      >
+                        Contáctanos
+                      </v-btn>
+                    </template>
+                  </contact-form>
+                </div>
+              </v-card>
+            </appear>
           </v-col>
         </v-row>
       </v-container>
@@ -58,10 +60,12 @@
 </template>
 <script>
 import ContactForm from '~/components/forms/contactForm'
+import Appear from '~/components/Appear.vue'
 
 export default {
   components: {
-    ContactForm
+    ContactForm,
+    Appear
   },
   data () {
     return {
@@ -80,13 +84,19 @@ export default {
   .rail {
     display: flex;
     justify-content: center;
-    // .hero-card{
-      // .btn {
-      //   display: block;
-      //   width: 80%;
-      //   overflow: unset;
-      // }
-    // }
+    .hero-card{
+      transition: all .8s ease-in-out;
+      animation: enter .8s ease-in-out;
+    }
+    @keyframes enter {
+      0% {
+        opacity: 0;
+        transform: translateY(-200px);
+      }
+      100% {
+        opacity: 1;
+      }
+    }
   }
 }
   @include tablet {

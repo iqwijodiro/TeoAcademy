@@ -149,26 +149,12 @@ export default {
           margin: 0 1rem !important;
           color: $wine;
           padding: 1rem 0 !important;
-          position: relative;
-          // &:hover {
-          //   color: rgba($ocean, .6);
-          //   border-bottom: 0.2rem solid rgba($ocean, .7);
-          //   margin-top: 0;
-          // }
-          &::after {
-            position: absolute;
-            content: '';
-            width: 0%;
-            height: 5px;
-            left: 50%;
-            bottom: -10px;
-            transition: all .5s ease-in-out;
+          &:hover {
+            color: rgba($ocean, .6);
+            // border-bottom: 0.2rem solid rgba($ocean, .7);
+            margin-top: 0;
           }
-      }
-      &:hover .link::after {
-        width: 100%;
-        left: 0;
-      }
+        }
       }
     }
   }

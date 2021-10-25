@@ -35,6 +35,6 @@ Vue.directive('animation-entering', {
     setTimeout(() => {
       el.style.opacity = 1
       el.style.transform = 'initial'
-    })
+    }, 500)
   }
 })

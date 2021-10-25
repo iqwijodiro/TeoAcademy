@@ -9,13 +9,21 @@
           cols="12"
         >
           <v-slide-group multiple arrows class="my-3 my-slider">
-            <v-slide-item v-for="course in courses" :key="course._id" class="slides">
-              <v-card elevation="5" height="100%" max-height="520px" max-width="315px" class="card rounded-lg mx-4 my-5 pb-2 d-flex flex-column justify-space-between">
+            <v-slide-item
+              v-for="course in courses"
+              :key="course._id"
+              class="slides"
+            >
+              <v-card
+                elevation="5"
+                max-width="315px"
+                class="card rounded-lg mx-4 my-5 pb-2 d-flex flex-column justify-space-between"
+              >
                 <v-img
                   :src="course.imgUrl"
                   height="45%"
                   max-height="220px"
-                  class="mb-2"
+                  class="img-card mb-2"
                   :alt="course.name"
                 />
                 <v-card-title class="card-title">
@@ -72,7 +80,6 @@ export default {
   data () {
     return {
       courses: []
-
     }
   },
   mounted () {
@@ -106,20 +113,25 @@ export default {
     }
   }
   .slides{
-    .text-card {
-      font-size: $body - .15rem;
-      color: $gray-mid;
-      font-weight: 300;
-      line-height: 1.5;
-      padding: 0 1.5rem !important;
-      margin: 1.2rem 0 !important;
-    }
-    .minirow div {
-      font-size: $miniLink + .3rem !important;
-      font-weight: 400;
-      color: $gray-mid;
-      &:nth-child(1) {
-        border-right: .2rem solid $gray-light;
+    .card {
+      height: 100%;
+      max-height: 520px;
+      .text-card {
+        font-size: $body - .15rem;
+        color: $gray-mid;
+        font-weight: 300;
+        line-height: 1.5;
+        padding: 0 1.5rem !important;
+        margin: 1.2rem 0 !important;
+        opacity: 0;
+      }
+      .minirow div {
+        font-size: $miniLink + .3rem !important;
+        font-weight: 400;
+        color: $gray-mid;
+        &:nth-child(1) {
+          border-right: .2rem solid $gray-light;
+        }
       }
     }
   }

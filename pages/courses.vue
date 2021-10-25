@@ -153,7 +153,8 @@
               <v-pagination
                 v-model="page"
                 :length="pages"
-                color="#2ec4b6"
+                color="#be1e2d"
+                circle
                 next-icon="mdi-chevron-right"
                 prev-icon="mdi-chevron-left"
                 class="pagination"
@@ -242,7 +243,7 @@ export default {
     const that = this
     setTimeout(() => {
       that.getCourses(that.page)
-    }, 1000)
+    })
   },
   methods: {
     async getCourses (page) {

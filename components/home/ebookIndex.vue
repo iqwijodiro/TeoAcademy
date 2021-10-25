@@ -30,16 +30,14 @@
           </v-card>
         </v-col>
         <v-col xl="5" lg="5" md="5" sm="10" class="mx-auto">
-          <transition name="ebook" mode="out-in">
-            <v-img
-              v-animate-on-scroll
-              height="100%"
-              max-width="1000px"
-              :src="require('@/assets/img/ebookindex.webp')"
-              class="ebook__img"
-              :alt="alt"
-            />
-          </transition>
+          <v-img
+            v-animate-on-scroll
+            height="100%"
+            max-width="1000px"
+            :src="require('@/assets/img/ebookindex.webp')"
+            class="ebook__img"
+            :alt="alt"
+          />
         </v-col>
       </v-row>
     </v-container>
@@ -78,7 +76,7 @@ export default {
     color: $gray-mid;
   }
   .v-card {
-    animation: bouncing 3s ease-in-out;
+    animation: bouncing 2s ease-in-out;
     animation-iteration-count: infinite;
     position: relative;
     // box-shadow: 2px 10px 10px rgba(0, 0, 0, .14) !important;
@@ -96,11 +94,7 @@ export default {
   }
   .ebook__img {
     display: block;
-    animation: moveInRight 2s ease-out;
-
   }
- .ebook-enter-active, .ebook-leave-active { transition: opacity 1.5s; }
-  .ebook-enter, .ebook-leave-active { opacity: 0; }
 }
 .before-enter {
   opacity: 0;
@@ -122,17 +116,4 @@ export default {
     transform: translateY(-10px);
     }
 }
-// @keyframes moveInRight {
-//     0% {
-//         opacity: 0;
-//         transform: translateX(100px);
-//     }
-//     80% {
-//         transform: translateX(-10px);
-//     }
-//     100% {
-//         opacity: 1;
-//         transform: translateX(0);
-//     }
-// }
 </style>
