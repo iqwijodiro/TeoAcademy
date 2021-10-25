@@ -44,22 +44,22 @@
             <v-img
               :src="require('../assets/img/logo-red-full.webp')"
               contain
-              width="19rem"
+              width="200px"
               class="mx-auto py-4"
             />
             <h4 class="pb-3 text-center">
-              Sigue nuestras redes sociales
+              Síguenos en nuestras redes sociales
             </h4>
-            <div class="d-flex mx-auto">
+            <div class="d-flex justify-space-between mx-auto">
               <v-list
                 v-for="(icon, i) in icons"
                 :key="i"
-                class="d-inline-flex mx-auto"
+                class=""
               >
                 <a
                   :href="icons[i].link"
                 >
-                  <v-icon class="icon mx-5 mb-5">
+                  <v-icon size="45" class="mx-auto mb-5">
                     {{ icon.brand }}
                   </v-icon>
                 </a>
@@ -116,10 +116,10 @@ export default {
           text: 'Programas',
           to: '/programs'
         },
-        {
-          text: 'For Group',
-          to: '/groups'
-        },
+        // {
+        //   text: 'For Group',
+        //   to: '/groups'
+        // },
         {
           text: 'Blog',
           to: '/blogPage'
@@ -156,8 +156,21 @@ export default {
   h4 {
     color: $gray-mid !important;
   }
-  .icon {
-    font-size: 4.5rem;
+  // .rrss_icon{
+  //   font-size: 4.5rem !important;
+  // }
+  .v-icon {
+    opacity: .5;
+    transition: all .3s ease-in-out;
+    border-radius: 50%;
+    padding: 10px;
+    &:hover {
+      transform: translateY(-2px) scale(1.05);
+      opacity: 1;
+      color: $wine;
+      border: 1px solid rgba($wine,0.3);
+      box-shadow: 2px 2px 20px 5px rgba($wine,0.3);
+    }
   }
   .text {
     font-size: $body;
@@ -180,7 +193,7 @@ export default {
     padding-bottom: 0.5rem;
   }
   @include tablet {
-    .icon {
+    .rrss_icon {
       font-size: $link + 1.5rem !important;
     }
   }
