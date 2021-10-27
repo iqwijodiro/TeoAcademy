@@ -26,17 +26,18 @@
             <h3 class="mb-5">
               Recibe información acerca de nuestros eventos y contenidos
             </h3>
-            <v-form v-model="validForm" class="form-box">
+            <v-form v-model="validForm" class="form-box pa-0 d-flex align-center">
               <v-text-field
                 v-model="emailNews"
                 :rules="[validationRules.required, validationRules.emailPattern]"
                 label="E-mail"
                 required
                 clearable
-                class="input-email rounded-l-lg"
+                class="input-email rounded-l-lg py-5 ma-0"
+                solo
               >
                 <template #label>
-                  <p class="card-title pa-0 ma-0">
+                  <p class="pa-0 ma-0 blue-font">
                     Email
                   </p>
                 </template>
@@ -45,9 +46,8 @@
                     {
                       message,
                     }"
-                  class="text-white"
                 >
-                  <span :message="message" class="text--white">
+                  <span :message="message" class="text--white text-white" style="color: #fff; font-size: 14px">
                     Campo Requerido
                   </span>
                 </template>
@@ -110,62 +110,47 @@ export default {
     color: #ffffff;
   }
   .form-box {
-    height: 45px !important;
+    height: 50px !important;
     padding: 0 !important;
     width: 100%;
     display: flex !important;
     justify-content: center !important;
 
     .input-email {
-      background: rgba($color: #f0f0f0, $alpha: 1.0);
-      min-height: 100% !important;
-      font-size: $body;
-      font-family: $title-font;
-      border: none;
-      margin: 0 !important;
-      border-top-right-radius: 0 !important;
-      border-bottom-right-radius: 0 !important;
-      padding: 1rem !important;
-      max-width: 80% !important;
-
-      /* Elemento | http://localhost:3000/ */
-
-        .v-messages__message {
-          background: transparent;
-          color: $gray-light !important;
-          font-size: 1.3rem !important;
-        }
-
-        /* En línea #5 | http://localhost:3000/ */
-
-        .v-application .error--text {
-          color: $gray-light !important;
-          font-weight: 700;
-          caret-color: rgba($gray-light, $alpha: 0.60) !important;
-        }
-
-        .v-application .error--text {
-          /* color: #ff5252 !important; */
-          color: $gray-mid !important;
-        }
+      // background: rgba($color: #f0f0f0, $alpha: 1.0);
+      // min-height: 100% !important;
+      // height: 45px;
+      // font-size: $body;
+      // font-family: $title-font;
+      // border: none;
+      // margin: 0 !important;
+      // border-top-right-radius: 0 !important;
+      // border-bottom-right-radius: 0 !important;
+      // padding: 10px !important;
+      // max-width: 80% !important;
     }
     .btn-input {
-      min-height: 100% !important;
-      border-top-left-radius: 0rem !important;
-      border-bottom-left-radius: 0rem !important;
+      height: 49px !important;
+      border-top-left-radius: 0 !important;
+      border-bottom-left-radius: 0 !important;
       border: transparent !important;
       background-color: $ocean !important;
       color: #ffffff;
       text-transform: capitalize !important;
-      font-size: $link + 0.1rem;
-      padding: 1.2rem 1.5rem !important;
+      font-size: $link;
+      padding: 12px 15px !important;
       font-family: $title-font !important;
-      margin-left: -.5rem !important;
-      &:hover {
-        color: $wine;
-        font-weight: 700;
-        background: #ffffff !important;
-    }
+      margin: -35% 0 0 -5px !important;
+       &:hover {
+        color: #fff;
+        font-weight: 400;
+        background: rgba( $wine, .75) !important;
+        transition: .5s;
+      }
+      &:active {
+        transform: translateY(2px);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+      }
     }
   }
 }

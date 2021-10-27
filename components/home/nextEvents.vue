@@ -35,7 +35,7 @@
               <h3 class="event-title gray-m-font">
                 {{ event.title }}
               </h3>
-              <p class="text-start text evento-text">
+              <p class="text-start text-mid evento-text mb-3">
                 {{ event.text }}
               </p>
               <div class="centrar">
@@ -110,26 +110,27 @@ export default {
     color: $wine;
   }
   .rail {
-    border-bottom: .2rem solid $gray-light;
+    border-bottom: 2px solid $gray-light;
     &:last-child {
       border-bottom: none;
     }
     .date-box {
+      margin-top: -8px;
       span.date {
         font-family: $title-font;
         color: $ocean;
-        font-size: 9rem;
+        font-size: 90px;
         font-weight: 400;
       }
       .month {
         font-family: $title-font;
-        font-size: 2.8rem;
+        font-size: 28px;
         color: $gray-mid;
         align-self: center !important;
       }
       .day  {
         color: $gray-mid;
-        font-size: 2.2rem;
+        font-size: 22px;
         font-family: $title-font;
         text-align: center;
       }
@@ -142,13 +143,7 @@ export default {
     .event-center {
       max-width: 650px;
       width: 100%;
-      padding: .5rem;
-      .evento-text.text {
-        font-size: $link + .2rem !important;
-        margin: 1rem 0 !important;
-        line-height: 1.5;
-        color: $gray-mid;
-      }
+      padding: 5px;
     }
   }
 }

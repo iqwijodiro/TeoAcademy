@@ -117,11 +117,11 @@
 
 <style lang="scss" scoped>
 h4 {
-  margin: 1rem 0;
+  margin: 10px 0;
   color: $gray-mid;
 }
 p , ul, li {
-  font-size: $body + .2rem;
+  font-size: $body;
   color: $gray-mid;
   font-weight: 300;
   line-height: 1.7;

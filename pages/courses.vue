@@ -66,7 +66,7 @@
                     clearable
                     prepend-inner-icon="mdi-magnify"
                     autofocus
-                    class="my-1"
+                    class="mt-2"
                     @keyup.enter.stop="searchData"
                   />
                   <!-- </v-col> -->
@@ -93,56 +93,32 @@
         :page.sync="page"
         hide-default-footer
         :loading="spinner"
-        no-data-text=""
+        no-data-text="No hay datos para mostrar"
       >
         <template #default="props">
           <v-container>
-            <v-row id="container" justify="center">
+            <v-row
+              id="container"
+              justify="center"
+            >
               <v-col
                 v-for="course in props.items"
                 :key="course._id"
+                xl="4"
+                lg="4"
+                md="6"
+                sm="6"
               >
-                <v-card elevation="5" height="100%" max-height="500px" max-width="325px" class="card rounded-lg mx-3 my-5 pb-2 d-flex flex-column justify-space-between">
-                  <v-img
-                    :src="course.imgUrl"
-                    height="45%"
-                    max-height="230px"
-                    class="mb-2"
-                  />
-                  <v-card-title class="card-title">
-                    {{ course.name }}
-                  </v-card-title>
-                  <v-card-text class="text-card">
-                    {{ course.subName }}
-                  </v-card-text>
-                  <v-row class="minirow d-flex justify-center align-center py-1 px-2">
-                    <div v-if="course.structure && course.structure.sections" class="my-2 mr-2">
-                      <p class="mx-3 my-0 px-3">
-                        {{ course.structure.sections.length }} <br>
-                        Módulos
-                      </p>
-                    </div>
-                    <div v-if="course.features && course.features.resources" class="my-2 mr-2">
-                      <p class="mx-3 my-0 px-3">
-                        {{ course.features.resources.length }} <br>
-                        Recursos
-                      </p>
-                    </div>
-                    <div>
-                      <span class="priceOld mx-2">
-                        ${{ parseInt(course.features.priceInfo.price) }}
-                      </span>
-                      <span class="priceNew mr-2">
-                        ${{ parseInt(course.features.priceInfo.finalPrice) }}
-                      </span>
-                    </div>
-                  </v-row>
-                  <div class="centrar mt-2">
-                    <v-btn class="minibtn mt-3" @click="setCourse(course)">
-                      Ver Curso
-                    </v-btn>
-                  </div>
-                </v-card>
+                <course-card
+                  :img-link="course.imgUrl"
+                  :name="course.name"
+                  :sub-name="course.subName"
+                  :sections="course.structure.sections.length"
+                  :resources="course.features.resources.length"
+                  :price="course.features.priceInfo.price"
+                  :final-price="course.features.priceInfo.finalPrice"
+                  @select-course="setCourse(course)"
+                />
               </v-col>
             </v-row>
           </v-container>
@@ -168,8 +144,10 @@
 </template>
 
 <script>
+import courseCard from '~/components/genericComponents/courseCard.vue'
 
 export default {
+  components: { courseCard },
   data () {
     return {
       title: 'Cursos de formación cristiana y temas teológicos a tu alcance - Teo Academy',
@@ -204,24 +182,6 @@ export default {
   head () {
     return {
       title: this.title
-    }
-  },
-  computed: {
-    numberOfPages () {
-      return Math.ceil(this.courses.length / 9)
-    },
-    rowsPerPage () {
-      return this.rpp
-    },
-    itemsPerRow () {
-      switch (this.$vuetify.breakpoint.name) {
-        case 'xs': return 1
-        case 'sm': return 1
-        case 'md': return 3
-        case 'lg': return 3
-        case 'xl': return 3
-        default: return 9
-      }
     }
   },
   watch: {
@@ -263,22 +223,13 @@ export default {
     setCourse (course) {
       this.$store.commit('setCourse', course)
       this.$router.push('/course/' + course._id)
-    },
-    calcRowsPerPage () {
-      const container = document.getElementById('container')
-      const minItemHeight = 300
-      if (container) {
-        const containerHeight = parseInt(container.clientHeight, 0)
-        this.rpp = Math.floor(Math.max(containerHeight, minItemHeight) / minItemHeight)
-      } else {
-        this.rpp = 3
-      }
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+$pagination-item-font-size: 35px;
 .hero {
     background-image: url(https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80);
     height: 600px;
@@ -312,25 +263,31 @@ export default {
     }
   }
 .gallery {
-    .mh-100 {
-        min-height: 100vh;
-        max-height: 100vh;
-        height: 100vh;
-    }
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  // display: grid;
+  // grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
+  // gap: 10px;
+    // .mh-100 {
+    //     min-height: 100vh;
+    //     max-height: 100vh;
+    //     height: 100vh;
+    // }
   .text-card {
-      font-size: $body - .15rem;
+      font-size: $body;
       color: $gray-mid;
       font-weight: 300;
       line-height: 1.5;
-      padding: 0 1.5rem !important;
-      margin: 1.2rem 0 !important;
+      padding: 0 15px !important;
+      margin: 12px 0 !important;
     }
     .minirow div {
-      font-size: $miniLink + .3rem !important;
+      font-size: $miniLink !important;
       font-weight: 400;
       color: $gray-mid;
       &:nth-child(1) {
-        border-right: .2rem solid $gray-light;
+        border-right: 2px solid $gray-light;
       }
       .priceOld {
         color: $wine;
@@ -340,7 +297,7 @@ export default {
       }
       .priceNew {
         color: $gray-mid;
-        font-size: 2.5rem;
+        font-size: 25px;
         font-family: $title-font;
         font-weight: 400;
       }
@@ -354,8 +311,15 @@ export default {
   border-bottom: 3px;
   border-bottom-style: solid;
   border-bottom-color: $gray-light;
-  .pagination{
-    font-size: 2rem;
+  nav.pagination{
+    .v-pagination__item.v-pagination__item--active {
+      font-family: $title-font;
+    }
+    .v-pagination.v-pagination--circle.theme--light {
+      button.v-pagination__item {
+        font-size: $pagination-item-font-size !important;
+      }
+    }
   }
 }
 

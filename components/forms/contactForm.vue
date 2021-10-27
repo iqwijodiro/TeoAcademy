@@ -252,13 +252,13 @@ export default {
 <style lang="scss" scoped>
 .btn {
   height: 50px !important;
-  border-radius: 0.9rem !important;
+  border-radius: 9px !important;
   background-color: $ocean !important;
   color: #ffffff;
   text-transform: capitalize !important;
-  font-size: $link + .2rem;
+  font-size: $link;
   padding: 12px 20px !important;
-  margin: 0.7rem;
+  margin: 7px;
   font-family: $title-font !important;
   &:hover {
     color: #fff;
@@ -273,7 +273,7 @@ export default {
     display: inline-block;
     height: 100%;
     width: 100%;
-    border-radius: 0.9rem !important;
+    border-radius: 9px !important;
     position: absolute;
     top: 0;
     left: 0;

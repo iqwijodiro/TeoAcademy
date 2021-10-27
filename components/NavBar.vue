@@ -16,7 +16,7 @@
                 <v-img
                   :src="require('../assets/img/logo-red-full.webp')"
                   contain
-                  width="15rem"
+                  width="150px"
                 />
               </nuxt-link>
             </v-toolbar-title>
@@ -135,7 +135,7 @@ export default {
 <style lang="scss" scoped>
 #navbar {
   .appbar {
-    height: 85px !important;
+    height: 90px !important;
     width: 100vw;
   }
   .appbar,
@@ -143,15 +143,15 @@ export default {
     .nav {
       .tab__block {
         .link {
-          font-size: $link + .3rem;
+          font-size: $link;
           font-weight: 400;
           text-align: center !important;
-          margin: 0 1rem !important;
+          margin: 0 10px !important;
           color: $wine;
-          padding: 1rem 0 !important;
+          padding: 10px 0 !important;
           &:hover {
             color: rgba($ocean, .6);
-            // border-bottom: 0.2rem solid rgba($ocean, .7);
+            // border-bottom: 2px solid rgba($ocean, .7);
             margin-top: 0;
           }
         }

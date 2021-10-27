@@ -1,8 +1,8 @@
 <template>
   <footer>
     <div id="footer">
-      <v-container class="py-4">
-        <v-row>
+      <v-container class="pt-3">
+        <v-row class="mt-5">
           <v-col
             md="5"
             lg="5"
@@ -13,7 +13,7 @@
                 <v-icon class="icon">
                   {{ FootItem.icon }}
                 </v-icon>
-                <v-list-item-title class="text ma-3" v-text="FootItem.text" />
+                <v-list-item-title class="text-mid ma-3" v-text="FootItem.text" />
               </v-list-item>
             </v-list>
           </v-col>
@@ -45,21 +45,21 @@
               :src="require('../assets/img/logo-red-full.webp')"
               contain
               width="200px"
-              class="mx-auto py-4"
+              class="mx-auto mb-4"
             />
-            <h4 class="pb-3 text-center">
+            <h4 class="mb-3 text-center">
               Síguenos en nuestras redes sociales
             </h4>
-            <div class="d-flex justify-space-between mx-auto">
+            <div class="d-flex justify-space-between mx-auto pt-2">
               <v-list
                 v-for="(icon, i) in icons"
                 :key="i"
-                class=""
+                class="pa-0 ma-0"
               >
                 <a
                   :href="icons[i].link"
                 >
-                  <v-icon size="45" class="mx-auto mb-5">
+                  <v-icon size="45" class="mx-auto">
                     {{ icon.brand }}
                   </v-icon>
                 </a>
@@ -67,11 +67,11 @@
             </div>
           </v-col>
         </v-row>
-        <v-container class="text-center mt-2">
+        <v-container class="text-center my-5">
           <v-row class="d-flex justify-center row-foot py-4">
-            <span>Created by SEGO Technology</span>
+            <span class="text-small">Created by SEGO Technology</span>
           </v-row>
-          <v-row class="d-flex justify-center py-5">
+          <v-row class="d-flex justify-center py-5 text-mid">
             <span>Todos los derechos reservados para Teo Academy &copy; </span>
           </v-row>
         </v-container>
@@ -156,9 +156,6 @@ export default {
   h4 {
     color: $gray-mid !important;
   }
-  // .rrss_icon{
-  //   font-size: 4.5rem !important;
-  // }
   .v-icon {
     opacity: .5;
     transition: all .3s ease-in-out;
@@ -168,33 +165,26 @@ export default {
       transform: translateY(-2px) scale(1.05);
       opacity: 1;
       color: $wine;
-      border: 1px solid rgba($wine,0.3);
-      box-shadow: 2px 2px 20px 5px rgba($wine,0.3);
+      border: 1px solid rgba($wine, 0.3);
+      box-shadow: 2px 2px 12px 5px rgba($wine,0.3);
     }
   }
-  .text {
-    font-size: $body;
-    white-space: normal !important;
-    color: $gray-mid;
-    line-height: 1.8;
-  }
   .item {
-    min-height: 3.5rem !important;
+    min-height: 35px !important;
     padding: 0;
   }
   span {
     font-family: $title-font;
-    font-size: $miniLink + 0.5rem;
     color: $gray-mid;
   }
 
   .row-foot {
-    border-bottom: 0.2rem solid $gray-light;
-    padding-bottom: 0.5rem;
+    border-bottom: 2px solid $gray-light;
+    padding-bottom: 15px;
   }
   @include tablet {
     .rrss_icon {
-      font-size: $link + 1.5rem !important;
+      font-size: $link!important;
     }
   }
 }

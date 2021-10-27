@@ -10,52 +10,16 @@
         >
           <v-slide-group multiple arrows class="my-3 my-slider">
             <v-slide-item v-for="course in courses" :key="course._id" class="slides course__card">
-              <v-card
-                max-height="520px"
-                max-width="315px"
-                class="course__card rounded-lg mx-4 my-5 pb-2 d-flex flex-column justify-space-between"
-              >
-                <v-img
-                  :src="course.imgUrl"
-                  height="45%"
-                  max-height="220px"
-                  class="mb-2 img-course"
-                  :alt="course.name"
-                />
-                <v-card-title class="card-title">
-                  {{ course.name }}
-                </v-card-title>
-                <v-card-text class="text-card">
-                  {{ course.subName }}
-                </v-card-text>
-                <v-row class="minirow d-flex justify-center align-center py-1">
-                  <div v-if="course.structure && course.structure.sections" class="my-2 mr-2">
-                    <p class="ma-0 px-3">
-                      {{ course.structure.sections.length }} <br>
-                      Módulos
-                    </p>
-                  </div>
-                  <div v-if="course.features && course.features.resources" class="my-2 mr-2">
-                    <p class="ma-0 px-3">
-                      {{ course.features.resources.length }} <br>
-                      Recursos
-                    </p>
-                  </div>
-                  <div>
-                    <span class="priceOld mr-2">
-                      ${{ parseInt(course.features.priceInfo.price) }}
-                    </span>
-                    <span class="priceNew mr-2">
-                      ${{ parseInt(course.features.priceInfo.finalPrice) }}
-                    </span>
-                  </div>
-                </v-row>
-                <div class="centrar mt-2">
-                  <v-btn class="minibtn mt-3" @click="setCourse(course)">
-                    Ver Curso
-                  </v-btn>
-                </div>
-              </v-card>
+              <course-card
+                :img-link="course.imgUrl"
+                :name="course.name"
+                :sub-name="course.subName"
+                :sections="course.structure.sections.length"
+                :resources="course.features.resources.length"
+                :price="course.features.priceInfo.price"
+                :final-price="course.features.priceInfo.finalPrice"
+                @select-course="setCourse(course)"
+              />
             </v-slide-item>
           </v-slide-group>
         </v-col>
@@ -68,10 +32,12 @@
 </template>
 <script>
 // import ebookForm from '~/components/forms/ebookForm'
+import courseCard from '~/components/genericComponents/courseCard'
 
 export default {
   components: {
     // ebookForm
+    courseCard
   },
   data () {
     return {
@@ -104,7 +70,7 @@ export default {
     }
   @include miniDesktop {
     h2 {
-      margin-left: 7rem !important;
+      margin-left: 70px !important;
       text-align: left;
     }
   }
@@ -126,20 +92,20 @@ export default {
     }
 
     .text-card {
-      font-size: $body - .15rem;
+      font-size: $subtitle;
       color: $gray-mid;
       font-weight: 300;
       line-height: 1.5;
-      padding: 0 1.5rem !important;
-      margin: 1.2rem 0 !important;
+      padding: 0 15px !important;
+      margin: 12px 0 !important;
       opacity: 1;
     }
     .minirow div {
-      font-size: $miniLink + .3rem !important;
+      font-size: $miniLink !important;
       font-weight: 400;
       color: $gray-mid;
       &:nth-child(1) {
-        border-right: .2rem solid $gray-light;
+        border-right: 2px solid $gray-light;
       }
     }
 

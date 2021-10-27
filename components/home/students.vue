@@ -88,7 +88,7 @@ export default {
 .students{
   background: rgb(149,149,149);
   background: linear-gradient(0deg, rgba(149,149,149,1) 0%, rgba(193,193,193,1) 25%, rgba(211,211,211,1) 50%, rgba(231,231,231,1) 75%, rgba(250,250,250,1) 100%);
-  padding: 5rem 2rem;
+  padding: 50px 20px;
   min-height: 600px;
   height: 120vh;
   max-height: 900px;
@@ -99,7 +99,7 @@ export default {
     h2 {
       color: $wine;
       line-height: 1.4;
-      font-size: 2.2rem;
+      font-size: 22px;
     }
     .quote-slider {
       .card-quote {
@@ -108,15 +108,15 @@ export default {
       }
       .quote {
         color: $gray-mid;
-        font-size: $link + .2rem;
+        font-size: $link;
         line-height: 1.7;
-        margin-bottom: 3rem;
+        margin-bottom: 30px;
       }
     }
     .name, .job {
       font-family: $title-font;
-      font-size: $link +.5rem;
-      padding: 0 1rem !important;
+      font-size: $link;
+      padding: 0 10px !important;
       color: $gray-mid;
       font-weight: 300;
       line-height: 1.4;
@@ -132,7 +132,7 @@ export default {
       }
     }
     .quote {
-        font-size: $link + .6rem;
+        font-size: $link;
       }
   }
   @include tablet {
@@ -151,7 +151,7 @@ export default {
   }
   @include lgdesktop {
       .quote {
-        font-size: $link + .4rem;
+        font-size: $link;
       }
       .bg-sheet {
         height: 75%;

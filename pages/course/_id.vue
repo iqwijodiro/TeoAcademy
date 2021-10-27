@@ -26,7 +26,7 @@
               max-width="1000px"
             >
               <template #activator="{ on, attrs }">
-                <div class="box">
+                <div class="box-img">
                   <v-img
                     v-bind="attrs"
                     :src="singleCourse.imgUrl"
@@ -278,7 +278,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.box {
+.box-img {
   .relative {
     position: relative;
   }

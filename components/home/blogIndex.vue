@@ -85,16 +85,16 @@ export default {
         height: 47.5%;
         position: absolute;
         width: 100%;
-        border-bottom-left-radius: 2.4rem;
+        border-bottom-left-radius: 24px;
         .card-title,
         .date {
           color: #fff !important;
         }
         .card-title {
-          font-size: 2rem !important;
+          font-size: 20px !important;
         }
         .author {
-          font-size: 1.5rem;
+          font-size: 15px;
           color: #fff;
         }
         .date {
@@ -108,8 +108,8 @@ export default {
           text-transform: capitalize !important;
           font-size: $link;
           .eye-i {
-            font-size: 2.5rem;
-            margin-right: 0.6rem;
+            font-size: 25px;
+            margin-right: 6px;
           }
         }
       }

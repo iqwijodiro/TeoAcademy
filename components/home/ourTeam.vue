@@ -102,8 +102,8 @@ export default {
   .team-slider {
       .name, .job {
         font-family: $title-font;
-        font-size: $link + .8rem;
-        padding: 0 1rem !important;
+        font-size: $link;
+        padding: 0 10px !important;
         color: $gray-mid;
         font-weight: 300 !important;
         line-height: 1.4;
@@ -113,7 +113,7 @@ export default {
         font-weight: 400 !important;
       }
       .member {
-        font-size: $link + .4rem;
+        font-size: $link;
         text-align: center;
         line-height: 1.6;
         margin: 1rem;
@@ -128,7 +128,7 @@ export default {
         height: 80%;
         max-height: 580px;
         .card-quote {
-            font-size: $link + .6rem;
+            font-size: $link;
         }
       }
     }
@@ -151,7 +151,7 @@ export default {
       .bg-sheet {
           height: 75%;
           .card-quote {
-            font-size: $link + .4rem;
+            font-size: $link;
           }
       }
   }

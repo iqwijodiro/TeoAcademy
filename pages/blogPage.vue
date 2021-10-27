@@ -16,11 +16,15 @@
                 v-for="(post, i) in posts"
                 :key="i"
               >
-                <v-card height="500px" class="blog-card d-flex align-end rounded-lg pa-0 my-5">
+                <v-card
+                  min-height="550px"
+                  class="blog-card d-flex align-end rounded-lg pa-0 my-5"
+                  @click="setPost(post)"
+                >
                   <v-img
                     :src="post.img"
                     height="100%"
-                    class="rounded-lg"
+                    class="rounded-lg img-post"
                   />
                   <div class="card-overlay pa-0 rounded-b-lg">
                     <h4 class="card-title text-center red-font my-4">
@@ -61,24 +65,27 @@
           <h3 class="gray-m-font font-weight-medium text-center mb-5">
             Lo más leído
           </h3>
-          <!-- <aside class="sidebar ml-10">
+          <aside class="sidebar ml-10">
             <v-row
-              v-for="(topPost, i) in topPosts"
+              v-for="(post, i) in posts"
               :key="i"
             >
-              <v-card class="d-flex my-3">
-                <v-img width="40%" :src="topPost.img" />
+              <v-card
+                class="d-flex my-3 rounded top__post"
+                @click="setPost(post)"
+              >
+                <v-img width="45%" height="130px" :src="post.img" class="img-post rounded" />
                 <div class="d-flex flex-column">
                   <h4 class="card-title">
-                    {{ topPost.title }}
+                    {{ post.title }}
                   </h4>
                   <p class="text-small text-center">
-                    {{ topPost.date }}
+                    {{ post.date }}
                   </p>
                 </div>
               </v-card>
             </v-row>
-          </aside> -->
+          </aside>
         </v-col>
       </v-row>
     </v-container>
@@ -110,36 +117,52 @@ export default {
   h2 {
     color: $wine;
   }
-    .blog-card{
+    .blog-card, .top__post{
+        .img-post {
+          filter: grayscale(70%);
+          opacity: 0.75;
+        }
+        box-shadow: 10px 5px 10px -5px rgba(0, 0, 0, 0.4) !important;
         position: relative;
-    }
-    .card-overlay{
+        &:hover {
+          transform: translateY(-5px);
+          transition: all 0.4s ease-in-out;
+          box-shadow: 15px 8px 15px -5px rgba(0, 0, 0, 0.4) !important;
+          .img-post {
+            filter: none;
+            transition: all 0.4s ease-in-out;
+            opacity: 1;
+          }
+        }
+        .card-overlay{
         background-color: rgba(#ffffff, $alpha: 0.90);
-    height: 30%;
-    position: absolute;
-    width: 100%;
-    h4.card-title {
-        font-size: 2.4rem;
-        color: $wine;
-    }
-    .author {
-        font-size: 1.8rem;
-        color: $gray-mid;
-    }
-    .date {
-        font-size: $subtitle;
-        color: $gray-mid;
-    }
-    .btn-leer {
-        width: 85px;
-        height: 50px;
-        color: white;
-        background-color: rgba($gray-dark, $alpha: 0.50);
-        text-transform: capitalize !important;
-        font-size: $link;
-        .eye-i{
-            font-size: 2.5rem;
-            margin-right: .6rem;
+        max-height: 180px;
+        height: 35%;
+        position: absolute;
+        width: 100%;
+        h4.card-title {
+            font-size: $section-title;
+            color: $wine;
+        }
+        .author {
+            font-size: $body;
+            color: $gray-mid;
+        }
+        .date {
+            font-size: $subtitle;
+            color: $gray-mid;
+        }
+        .btn-leer {
+            width: 85px;
+            height: 50px;
+            color: white;
+            background-color: rgba($gray-dark, $alpha: 0.50);
+            text-transform: capitalize !important;
+            font-size: $link;
+            .eye-i{
+                font-size: 25px;
+                margin-right: 6px;
+            }
         }
     }
     }

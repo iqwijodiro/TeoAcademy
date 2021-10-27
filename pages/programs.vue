@@ -246,18 +246,19 @@ export default {
 <style lang="scss" scoped>
 @include miniDesktop() {
   .gutter-p {
-    padding-top: 12rem !important;
+    padding-top: 120px !important;
   }
 }
 .hero {
-  background-image: url(https://images.unsplash.com/photo-1507692049790-de58290a4334?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);
-  height: 600px;
-  background-position: 25% 25%;
+  background-image:
+  url(https://images.unsplash.com/photo-1587325474165-d49e05df3a76?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1173&q=80);
+  height: 70vh;
+  background-position: bottom;
     .hero-card {
       max-height: 500px;
       .text {
         line-height: 1.5;
-        font-size: 1.8rem;
+        font-size: 18px;
       }
     }
 }
@@ -266,7 +267,7 @@ main {
         font-size: $body;
     }
     .text-sm {
-        font-size: $body - .3rem;
+        font-size: $body;
         color: $gray-mid;
         font-weight: 300;
         line-height: 1.7;
@@ -276,13 +277,13 @@ main {
     .minirow {
       .priceOld {
         color: $wine;
-        font-size: $link + .2rem;
+        font-size: $link;
         font-family: $title-font;
         text-decoration: line-through;
       }
       .priceNew {
         color: $gray-mid;
-        font-size: 2.9rem;
+        font-size: 29px;
         font-family: $title-font;
         font-weight: 400;
       }
@@ -314,7 +315,7 @@ main {
   border-bottom-style: solid;
   border-bottom-color: $gray-light;
   .pagination{
-    font-size: 2rem;
+    font-size: 20px;
   }
 }
 .mdi-chevron-left,

@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 <template>
-  <v-app class="app">
+  <v-app id="app" class="app">
     <div ref="point" style="visibility: hidden;">
       {{ routeIn }}
     </div>
@@ -10,10 +10,10 @@
       class="box overflow-y-auto overflow-x-hidden"
     >
       <nav-bar ref="navbar" :offset-top="offsetTop" />
-      <v-main v-scroll:#scrollapp="onScroll" class="ma-0">
+      <!-- Main -->
+      <v-main v-scroll:#scrollapp="onScroll" class="ma-0 pa-0">
         <nuxt />
       </v-main>
-      <!-- Main -->
       <page-footer />
     </div>
     <v-fab-transition>
@@ -109,11 +109,12 @@ export default {
   height: 100vh;
 }
 html {
-  font-size: 62.5%;
+  overflow: hidden !important;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  overflow-x: none;
+  overflow: hidden;
+  width: 100vw;
 }
 
 *,
@@ -129,10 +130,11 @@ body {
   width: 100vw !important;
   min-width: 100% !important;
   margin: 0 !important;
+  overflow-x: hidden !important;
 }
 .app {
   font-family: $body-font;
-  padding-top: 2rem;
+  padding-top: 20px;
   width: 100vw !important;
   min-width: 100% !important;
 }

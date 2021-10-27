@@ -14,12 +14,13 @@ $body-font: "Nunito", sans-serif;
 $title-font: "Prompt", sans-serif;
 
 /** Tamaños de Fuente **/
-$main-title: 3rem;
-$section-title: 2.5rem;
-$subtitle: 1.4rem;
-$link: 1.5rem;
-$miniLink: 1rem;
-$body: 1.6rem;
+$main-title: 35px;
+$section-title: 28px;
+$subtitle: 16px;
+$link: 19px;
+$miniLink: 10px;
+$body: 18px;
+$body-sm: 14px;
 
 /** Breakpoints **/ 
 $miniTelefono: 320px;
@@ -98,19 +99,19 @@ h1 {
   // text-align: center;
 }
 h2 {
-    font-size: $section-title + .5rem;
+    font-size: $section-title;
     font-weight: 400;
     line-height: 1.7;
-    margin-bottom: 1rem;
+    margin-bottom: 10px;
   }
 h3 {
-    font-size: $section-title - .3rem;
+    font-size: $section-title - 5px;
     font-weight: 400;
     line-height: 1.5;
-    margin-bottom: 1rem;
+    margin-bottom: 10px;
   }
 h4 {
-  font-size: $link + 0.5rem;
+  font-size: $link;
   font-family: $title-font;
   font-weight: 400;
 }
@@ -135,13 +136,13 @@ h4 {
 /*** Botones ***/ 
 .btn {
   height: 50px !important;
-  border-radius: 0.9rem !important;
+  border-radius: 9px !important;
   background-color: $ocean !important;
   color: #ffffff;
   text-transform: capitalize !important;
-  font-size: $link + .2rem;
-  padding: 12px 20px !important;
-  margin: 0.7rem;
+  font-size: $link;
+  padding: 10px 20px !important;
+  margin: 7px;
   font-family: $title-font !important;
   &:hover {
     color: #fff;
@@ -156,7 +157,7 @@ h4 {
     display: inline-block;
     height: 100%;
     width: 100%;
-    border-radius: 0.9rem !important;
+    border-radius: 9px !important;
     position: absolute;
     top: 0;
     left: 0;
@@ -170,13 +171,13 @@ h4 {
 }
 .minibtn {
   height: 40px !important;
-  border-radius: 0.9rem;
+  border-radius: 9px;
   background-color: $ocean !important;
   color: #ffffff;
   text-transform: capitalize !important;
-  font-size: $link + 0.1rem;
+  font-size: $link;
   padding: 12px !important;
-  margin: 0.5rem !important;
+  margin: 5px !important;
   font-family: $title-font !important;
   &:hover {
     color: #fff;
@@ -191,7 +192,7 @@ h4 {
     display: inline-block;
     height: 100%;
     width: 100%;
-    border-radius: 0.9rem !important;
+    border-radius: 9px !important;
     position: absolute;
     top: 0;
     left: 0;
@@ -212,12 +213,12 @@ h4 {
 }
 
 .gutter-p {
-    padding-top: 2rem !important;
+    padding-top: 20px !important;
 }
 
 section {
-  padding: 2rem 0 !important;
-  margin-bottom: 2rem !important;
+  padding: 20px 0 !important;
+  margin-bottom: 20px !important;
 }
 .fw-300 {
   font-weight: 300 !important;
@@ -231,35 +232,35 @@ section {
   font-weight: 900 !important;
 }
 .link {
-  font-size: $link + 0.2rem;
+  font-size: $link;
   color: $gray-mid;
   &:hover {
     color: $ocean;
-    border-bottom: 0.2rem solid $ocean;
+    border-bottom: 2px solid $ocean;
     margin-top: 0;
   }
 }
 .text {
-  font-size: $body + .4rem;
+  font-size: $body;
   color: $gray-mid;
   font-weight: 300;
-  line-height: 1.7;
+  line-height: 1.7 !important;
   margin: 0;
   padding: 0;
 }
 .text-mid {
-  font-size: $body + .2rem;
+  font-size: $body - 2px !important;
   color: $gray-mid;
   font-weight: 300;
-  line-height: 1.7;
+  line-height: 1.6;
   margin: 0;
   padding: 0;
 }
 .text-small {
-  font-size: $body;
+  font-size: $body-sm;
   color: $gray-mid;
   font-weight: 300;
-  line-height: 1.7;
+  line-height: 1.5;
   margin: 0;
   padding: 0;
 }
@@ -270,9 +271,9 @@ section {
 }
 .card-title {
   font-family: $title-font;
-  font-size: $link + .4rem;
-  padding: 0 .5rem;
-  margin: 1rem;
+  font-size: $body;
+  padding: 0 5px;
+  margin: 10px;
   color: $gray-mid;
 }
 /** Banners - heros **/
@@ -304,7 +305,7 @@ section {
 }
 .priceNew {
   color: $gray-mid;
-  font-size: 2.5rem;
+  font-size: 25px;
   font-family: $title-font;
   font-weight: 400;
 }
