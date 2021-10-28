@@ -28,6 +28,11 @@
       </v-row>
     </div>
     <main>
+      <div v-if="spinner" class="spinner">
+        <div class="bounce1" />
+        <div class="bounce2" />
+        <div class="bounce3" />
+      </div>
       <v-data-iterator
         :items="programs"
         :items-per-page="3"
@@ -57,7 +62,7 @@
                     sm="6"
                     class="pa-0"
                   >
-                    <v-img :src="program.imgUrl" class="rounded-l-lg pa-0 ma-0 fill-height" />
+                    <v-img :src="program.imgUrl" class="rounded-l-lg pa-0 ma-0 fill-height img-course" />
                   </v-col>
                   <v-col
                     xl="6"
@@ -192,6 +197,7 @@ export default {
       programs: [],
       page: 1,
       pages: 1,
+      spinner: false,
       pagination: {
         rowsPerPage: 3
       },
@@ -213,13 +219,18 @@ export default {
     }
   },
   mounted () {
-    this.getPrograms(this.page)
+    this.spinner = true
+    const that = this
+    setTimeout(() => {
+      that.getPrograms(that.page)
+    })
   },
   methods: {
     async getPrograms () {
       const data = await this.$axios.$get(`${this.$store.state.urlAPI}/divisions/client6049278bc32f0d0015e108e9`)
       this.pages = data.pages
       this.programs = data.divisions
+      this.spinner = false
     },
     setProgram (program) {
       this.$store.commit('setProgram', program)
@@ -249,10 +260,11 @@ export default {
     padding-top: 120px !important;
   }
 }
+#programs {
 .hero {
   background-image:
   url(https://images.unsplash.com/photo-1587325474165-d49e05df3a76?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1173&q=80);
-  height: 70vh;
+  height: 65vh;
   background-position: bottom;
     .hero-card {
       max-height: 500px;
@@ -263,6 +275,21 @@ export default {
     }
 }
 main {
+  .program-card {
+    opacity: 0.75;
+    box-shadow: 10px 5px 10px -5px rgba(0, 0, 0, 0.4) !important;
+    .img-course {
+      filter: grayscale(50%);
+    }
+    &:hover {
+      opacity: 1;
+      transition: all 0.4s ease-in-out;
+      transform: translateY(-5px);
+      box-shadow: 15px 8px 15px -5px rgba(0, 0, 0, 0.4) !important;
+      .img-course {
+        filter: none;
+      }
+    }
     .text {
         font-size: $body;
     }
@@ -291,11 +318,7 @@ main {
     .btn {
         width: 100%;
     }
-    // @include miniDesktop {
-    //     .program-card {
-    //         flex-direction: row;
-    //     }
-    // }
+  }
 }
 .register {
   display: flex;
@@ -311,9 +334,7 @@ main {
   }
 }
 .paginator-rail {
-  border-bottom: 3px;
-  border-bottom-style: solid;
-  border-bottom-color: $gray-light;
+  border-bottom: 3px solid $gray-light;
   .pagination{
     font-size: 20px;
   }
@@ -321,5 +342,6 @@ main {
 .mdi-chevron-left,
 .mdi-chevron-right {
   border: none;
+}
 }
 </style>

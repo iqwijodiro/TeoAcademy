@@ -111,7 +111,7 @@ export default {
 
 <style lang="scss" scoped>
 .course__card {
-  opacity: 0.65;
+  opacity: 0.75;
   box-shadow: 10px 5px 10px -5px rgba(0, 0, 0, 0.4) !important;
   .img-course {
     filter: grayscale(50%);

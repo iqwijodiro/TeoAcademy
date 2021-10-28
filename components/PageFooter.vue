@@ -8,14 +8,16 @@
             lg="5"
             xl="5"
           >
-            <v-list>
-              <v-list-item v-for="(FootItem, i) in FootItems" :key="i">
-                <v-icon class="icon">
+            <ul>
+              <li v-for="(FootItem, i) in FootItems" :key="i" class="d-flex">
+                <v-icon size="30" class="icon">
                   {{ FootItem.icon }}
                 </v-icon>
-                <v-list-item-title class="text-mid ma-3" v-text="FootItem.text" />
-              </v-list-item>
-            </v-list>
+                <p class="text-mid ma-3">
+                  {{ FootItem.text }}
+                </p>
+              </li>
+            </ul>
           </v-col>
           <v-col
             cols="12"

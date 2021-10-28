@@ -8,7 +8,7 @@
         <v-col>
           <v-slide-group arrows class="my-3 my-slider mx-auto">
             <v-slide-item v-for="(post, i) in posts" :key="i" class="slide ma-5">
-              <v-card elevation="5" max-width="310px" height="310px" max-height="400px" class="post-card d-flex align-end rounded-xl">
+              <v-card elevation="5" max-width="320px" height="320px" max-height="400px" class="post-card d-flex align-end rounded-xl">
                 <v-img
                   :src="post.img"
                   height="100%"

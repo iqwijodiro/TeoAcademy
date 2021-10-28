@@ -23,11 +23,34 @@
           sm="10"
         >
           <div class="container mx-auto">
-            <h3 class="mb-5">
+            <h3 class="mb-5 text-center">
               Recibe información acerca de nuestros eventos y contenidos
             </h3>
-            <v-form v-model="validForm" class="form-box pa-0 d-flex align-center">
-              <v-text-field
+            <!-- <v-form v-model="validForm" class="form-box pa-0 d-flex align-center">
+              <h2 class="text-capitalize text-center">
+                Suscribete a nuestro Newsletter
+              </h2> -->
+            <!-- <v-card elevation="5" class="pa-5 rounded-xl"> -->
+            <!-- Formulario de Ebook / Descarga -->
+            <news-form
+              v-model="newsContact"
+              title="Suscríbete y recibe contenido teológico gratis"
+            >
+              <template #activator="{ on, attrs}" class="mx-auto d-block">
+                <v-btn
+                  class="btn d-block"
+                  v-bind="attrs"
+                  v-on="on"
+                >
+                  Suscribirse
+                </v-btn>
+              </template>
+            </news-form>
+            <p class="text text-center mt-5">
+              Compartiremos contenido periódicamente para fortalecer nuestra comunidad
+            </p>
+            <!-- </v-card> -->
+            <!-- <v-text-field
                 v-model="emailNews"
                 :rules="[validationRules.required, validationRules.emailPattern]"
                 label="E-mail"
@@ -65,8 +88,8 @@
               </dialog-success>
               <dialog-error
                 v-model="dialogError"
-              />
-            </v-form>
+              /> -->
+            <!-- </v-form> -->
           </div>
         </v-col>
       </v-row>
@@ -74,16 +97,19 @@
   </section>
 </template>
 <script>
-import dialogSuccess from '~/components/dialogSuccess'
-import dialogError from '~/components/dialogError'
+import newsForm from '~/components/forms/newsForm'
+// import dialogSuccess from '~/components/dialogSuccess'
+// import dialogError from '~/components/dialogError'
 export default {
   components: {
-    dialogSuccess,
-    dialogError
+    newsForm
+    // dialogSuccess,
+    // dialogError
   },
   data () {
     return {
       emailNews: '',
+      newsContact: false,
       validForm: false,
       dialogError: false,
       dialogSuccess: false,
@@ -106,7 +132,7 @@ export default {
   min-height: 50vh !important;
   background: rgb(190,30,45);
   background: linear-gradient(90deg, #be1e2d 0%, rgba(142,22,34,1) 50%, rgba(95,15,23,1) 100%);
-  h3 {
+  h3, .text {
     color: #ffffff;
   }
   .form-box {
@@ -116,7 +142,7 @@ export default {
     display: flex !important;
     justify-content: center !important;
 
-    .input-email {
+    // .input-email {
       // background: rgba($color: #f0f0f0, $alpha: 1.0);
       // min-height: 100% !important;
       // height: 45px;
@@ -128,7 +154,7 @@ export default {
       // border-bottom-right-radius: 0 !important;
       // padding: 10px !important;
       // max-width: 80% !important;
-    }
+    // }
     .btn-input {
       height: 49px !important;
       border-top-left-radius: 0 !important;

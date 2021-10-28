@@ -1,6 +1,6 @@
 <template>
-  <div id="courses">
-    <div class="hero d-flex justify-center align-center">
+  <div id="courses my-5">
+    <div class="hero d-flex justify-center align-center mt-10">
       <div class="mask" />
       <v-row justify="center" class="rail">
         <v-col
@@ -125,6 +125,18 @@
         </template>
         <template #footer>
           <v-container>
+            <v-row justify="center" class="my-2">
+              <v-btn
+                class="btn text-uppercase mt-3"
+                @click="couponContact = true"
+              >
+                descarga cupón 75% descuento
+              </v-btn>
+              <discount-form
+                v-model="couponContact"
+                title="Obtén un descuento especial en el curso que más te gusta"
+              />
+            </v-row>
             <v-row justify="center" class="mt-5 py-10 paginator-rail">
               <v-pagination
                 v-model="page"
@@ -145,9 +157,10 @@
 
 <script>
 import courseCard from '~/components/genericComponents/courseCard.vue'
+import discountForm from '~/components/forms/discountForm.vue'
 
 export default {
-  components: { courseCard },
+  components: { courseCard, discountForm },
   data () {
     return {
       title: 'Cursos de formación cristiana y temas teológicos a tu alcance - Teo Academy',
@@ -160,6 +173,7 @@ export default {
       pages: 1,
       rpp: 3,
       ipp: 6,
+      couponContact: false,
       rowsPerPageArray: [6, 9, 12, 15],
       pagination: {
         rowsPerPage: 3
@@ -229,11 +243,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$pagination-item-font-size: 35px;
 .hero {
-    background-image: url(https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80);
-    height: 600px;
-    background-position: 25% 25%;
+    background-image:
+    url(https://images.unsplash.com/photo-1485548125564-21b2276a644a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1116&q=80);
+    height: 100%;
+    min-height: 50vh;
+    background-position: bottom;
     .hero-card {
       max-height: 500px;
     }
@@ -266,14 +281,11 @@ $pagination-item-font-size: 35px;
   width: 100%;
   max-width: 1600px;
   margin: 0 auto;
-  // display: grid;
-  // grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
-  // gap: 10px;
-    // .mh-100 {
-    //     min-height: 100vh;
-    //     max-height: 100vh;
-    //     height: 100vh;
-    // }
+    .mh-100 {
+        min-height: 100vh;
+        max-height: 100vh;
+        height: 100vh;
+    }
   .text-card {
       font-size: $body;
       color: $gray-mid;
@@ -308,16 +320,15 @@ $pagination-item-font-size: 35px;
   border: none;
 }
 .paginator-rail {
-  border-bottom: 3px;
-  border-bottom-style: solid;
-  border-bottom-color: $gray-light;
+  border-bottom: 3px solid $gray-light;
   nav.pagination{
     .v-pagination__item.v-pagination__item--active {
       font-family: $title-font;
     }
     .v-pagination.v-pagination--circle.theme--light {
       button.v-pagination__item {
-        font-size: $pagination-item-font-size !important;
+        font-size: 20px !important;
+        font-weight: 700;
       }
     }
   }

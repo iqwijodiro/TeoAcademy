@@ -1,6 +1,6 @@
 <template>
   <div id="blog">
-    <v-container class="mt-10">
+    <v-container class="mt-10 pb-10 v-container">
       <h2 class="my-5">
         Nuestro Blog:
       </h2>
@@ -117,8 +117,13 @@ export default {
   h2 {
     color: $wine;
   }
+  .v-container{
+    border-bottom: 3px solid $gray-light;
+  }
+  main {
+
     .blog-card, .top__post{
-        .img-post {
+      .img-post {
           filter: grayscale(70%);
           opacity: 0.75;
         }
@@ -135,21 +140,21 @@ export default {
           }
         }
         .card-overlay{
-        background-color: rgba(#ffffff, $alpha: 0.90);
+          background-color: rgba(#ffffff, $alpha: 0.90);
         max-height: 180px;
         height: 35%;
         position: absolute;
         width: 100%;
         h4.card-title {
-            font-size: $section-title;
+          font-size: $section-title;
             color: $wine;
         }
         .author {
-            font-size: $body;
+          font-size: $body;
             color: $gray-mid;
         }
         .date {
-            font-size: $subtitle;
+          font-size: $subtitle;
             color: $gray-mid;
         }
         .btn-leer {
@@ -160,11 +165,12 @@ export default {
             text-transform: capitalize !important;
             font-size: $link;
             .eye-i{
-                font-size: 25px;
+              font-size: 25px;
                 margin-right: 6px;
             }
         }
     }
     }
     }
+  }
 </style>
