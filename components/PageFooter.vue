@@ -44,7 +44,7 @@
             xl="4"
           >
             <v-img
-              :src="require('../assets/img/logo-red-full.webp')"
+              :src="require('../assets/img/logo.webp')"
               contain
               width="200px"
               class="mx-auto mb-4"

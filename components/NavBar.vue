@@ -14,9 +14,9 @@
             <v-toolbar-title>
               <nuxt-link to="/">
                 <v-img
-                  :src="require('../assets/img/logo-red-full.webp')"
+                  :src="require('../assets/img/logo.webp')"
                   contain
-                  width="150px"
+                  width="130px"
                 />
               </nuxt-link>
             </v-toolbar-title>
@@ -64,7 +64,7 @@
         fixed
       >
         <v-img
-          :src="require('../assets/img/logo-red-full.webp')"
+          :src="require('../assets/img/logo.webp')"
           contain
           width="13rem"
           class="mx-auto py-5"

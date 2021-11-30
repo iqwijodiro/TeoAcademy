@@ -1,86 +1,6 @@
 <template>
-  <div id="courses my-5">
-    <div class="hero d-flex justify-center align-center mt-10">
-      <div class="mask" />
-      <v-row justify="center" class="rail">
-        <v-col
-          lg="8"
-          md="10"
-          class="mx-auto px-5"
-        >
-          <v-card elevation="5" max-width="900px" class="hero-card rounded-lg text-center mx-auto pa-5 mt-8">
-            <v-card-title class="centrar mx-auto pa-0 mb-4">
-              <h1 class="fw-300 text-center">
-                Conoce todos nuestros cursos
-              </h1>
-            </v-card-title>
-            <v-form>
-              <v-container>
-                <v-row justify="center">
-                  <!-- <v-col
-                    cols="12"
-                    lg="4"
-                    xl="4"
-                    md="4"
-                    class="py-0 my-1"
-                  >
-                    <v-select
-                      id="category"
-                      v-model="select"
-                      :items="options"
-                      :rules="[v => !!v || 'Campo Requerido']"
-                      label="Categoría"
-                      required
-                      solo
-                    />
-                  </v-col>
-                  <v-col
-                    cols="12"
-                    lg="4"
-                    xl="4"
-                    md="4"
-                    class="py-0 my-1"
-                  >
-                    <v-select
-                      id="price"
-                      v-model="select"
-                      :items="prices"
-                      :rules="[v => !!v || 'Campo Requerido']"
-                      label="Costo"
-                      required
-                      solo
-                    />
-                  </v-col> -->
-                  <!-- <v-col
-                    cols="12"
-                    lg="8"
-                    xl="8"
-                    md="8"
-                    class="py-0 my-1"
-                  > -->
-                  <input type="text" style="display: none; visibility: hidden">
-                  <v-text-field
-                    v-model="search"
-                    placeholder="Buscar curso..."
-                    solo
-                    clearable
-                    prepend-inner-icon="mdi-magnify"
-                    autofocus
-                    class="mt-2"
-                    @keyup.enter.stop="searchData"
-                  />
-                  <!-- </v-col> -->
-                  <v-btn width="100%" max-width="200px" class="btn d-block" @click="searchData">
-                    Buscar
-                  </v-btn>
-                </v-row>
-              </v-container>
-            </v-form>
-          </v-card>
-        </v-col>
-      </v-row>
-    </div>
-    <main class="gallery gutter-p">
+  <div id="courses my-5 pa-0">
+    <main class="gallery gutter-p ma-0">
       <div v-if="spinner" class="spinner">
         <div class="bounce1" />
         <div class="bounce2" />
@@ -91,10 +11,94 @@
         :items="courses"
         :items-per-page="ipp"
         :page.sync="page"
-        hide-default-footer
+        :search="search"
         :loading="spinner"
+        :sort-by="sortBy"
+        :sort-desc="sortDesc"
+        class="pa-0 ma-0"
         no-data-text="No hay datos para mostrar"
+        hide-default-footer
       >
+        <template #header>
+          <div class="hero d-flex justify-center align-center">
+            <div class="mask" />
+            <v-row justify="center" class="rail">
+              <v-col
+                lg="8"
+                md="10"
+                class="mx-auto px-5"
+              >
+                <v-card elevation="5" max-width="900px" class="hero-card rounded-lg text-center mx-auto pa-5 mt-8">
+                  <v-card-title class="centrar mx-auto pa-0 mb-4">
+                    <h1 class="fw-300 text-center">
+                      Conoce todos nuestros cursos
+                    </h1>
+                  </v-card-title>
+                  <v-form>
+                    <v-container>
+                      <v-row justify="center">
+                        <input type="text" style="display: none; visibility: hidden">
+                        <v-text-field
+                          v-model="search"
+                          placeholder="Buscar curso..."
+                          solo
+                          clearable
+                          prepend-inner-icon="mdi-magnify"
+                          autofocus
+                          class="mt-2"
+                          @keyup.enter.stop="searchData"
+                        />
+                        <v-btn
+                          width="100%"
+                          max-width="200px"
+                          class="btn d-block"
+                          @click="searchData"
+                        >
+                          Buscar
+                        </v-btn>
+                      </v-row>
+                      <v-row class="ma-0 pa-0">
+                        <v-col cols="12" md="auto" class="px-0">
+                          <v-select
+                            v-model="sortBy"
+                            dense
+                            :items="keys"
+                            label="Categoría"
+                            hide-details
+                            solo
+                          />
+                        </v-col>
+                        <v-col cols="12" md="auto">
+                          <v-btn-toggle
+                            v-model="sortDesc"
+                            mandatory
+                            borderless
+                            class="mt-1"
+                          >
+                            <v-btn
+                              small
+                              depressed
+                              :value="false"
+                            >
+                              <v-icon>mdi-chevron-up</v-icon>
+                            </v-btn>
+                            <v-btn
+                              small
+                              depressed
+                              :value="true"
+                            >
+                              <v-icon>mdi-chevron-down</v-icon>
+                            </v-btn>
+                          </v-btn-toggle>
+                        </v-col>
+                      </v-row>
+                    </v-container>
+                  </v-form>
+                </v-card>
+              </v-col>
+            </v-row>
+          </div>
+        </template>
         <template #default="props">
           <v-container>
             <v-row
@@ -168,6 +172,9 @@ export default {
       search: '',
       valid: true,
       select: null,
+      sortBy: this.keys,
+      sortDesc: false,
+      filter: {},
       spinner: false,
       page: 1,
       pages: 1,
@@ -179,12 +186,12 @@ export default {
         rowsPerPage: 3
       },
       busy: false,
-      options: [
-        'Categoría 1',
-        'Categoría 2',
-        'Categoría 3',
-        'Categoría 4'
+      keys: [
+        'Nombre',
+        'Nro de Recursos',
+        'Nro de módulos'
       ],
+      keys2: [],
       prices: [
         'Precio 1 - Precio 2',
         'Precio 2 - Precio 3',
@@ -210,6 +217,15 @@ export default {
       } else {
         this.searchData()
       }
+    },
+    sortBy () {
+      if (this.sortBy === 'Nombre') {
+        this.sortBy = 'name'
+      } else if (this.sortBy === 'Nro de Recursos') {
+        this.sortResources(this.courses)
+      } else {
+        this.sortModules(this.courses)
+      }
     }
   },
   mounted () {
@@ -218,6 +234,7 @@ export default {
     setTimeout(() => {
       that.getCourses(that.page)
     })
+    // console.log(this.filteredkeys)
   },
   methods: {
     async getCourses (page) {
@@ -225,6 +242,7 @@ export default {
       this.pages = data.pages
       this.courses = data.courses
       this.spinner = false
+      // console.log(this.courses)
     },
     async searchData () {
       this.search.trim()
@@ -237,6 +255,14 @@ export default {
     setCourse (course) {
       this.$store.commit('setCourse', course)
       this.$router.push('/course/' + course._id)
+    },
+    sortResources (courses) {
+      courses.sort((a, b) => a.features.resources.length - b.features.resources.length)
+      // console.log('Ejecutando SortResources', courses)
+    },
+    sortModules (courses) {
+      courses.sort((a, b) => b.structure.sections.length - a.structure.sections.length)
+      // console.log('Ejecutando SortModules', courses)
     }
   }
 }
@@ -279,7 +305,7 @@ export default {
   }
 .gallery {
   width: 100%;
-  max-width: 1600px;
+  // max-width: 1600px;
   margin: 0 auto;
     .mh-100 {
         min-height: 100vh;

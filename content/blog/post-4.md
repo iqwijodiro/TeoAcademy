@@ -7,7 +7,9 @@ avatar: https://randomuser.me/api/portraits/men/81.jpg
 img: https://images.unsplash.com/photo-1482920387559-08269818bcfc?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80
 slug: post-4
 ---
-# Este es mi 4to post
+
+## Este es mi 4to post
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer maximus sit amet velit at facilisis. Quisque porttitor sit amet quam vitae malesuada. Donec bibendum facilisis erat, sed hendrerit ligula dictum in. Praesent dignissim ante at sapien aliquam, quis fringilla odio tincidunt. Sed quam turpis, egestas ut libero sit amet, fermentum tristique sem. Donec at vehicula quam. Pellentesque pharetra egestas ligula, eu laoreet orci euismod non. Suspendisse egestas velit nulla, eget rutrum tellus consequat vitae.
 
 ## Nunc tristique, dui eget elementum imperdiet, leo lacus aliquet diam, id cursus urna ante ut risus.
