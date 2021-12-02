@@ -7,20 +7,28 @@ avatar: https://randomuser.me/api/portraits/men/82.jpg
 img: https://images.unsplash.com/photo-1593784991188-c899ca07263b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80
 slug: ver-novelas
 ---
-# Este es mi 3er post
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer maximus sit amet velit at facilisis. Quisque porttitor sit amet quam vitae malesuada. Donec bibendum facilisis erat, sed hendrerit ligula dictum in. Praesent dignissim ante at sapien aliquam, quis fringilla odio tincidunt. Sed quam turpis, egestas ut libero sit amet, fermentum tristique sem. Donec at vehicula quam. Pellentesque pharetra egestas ligula, eu laoreet orci euismod non. Suspendisse egestas velit nulla, eget rutrum tellus consequat vitae.
 
-## Nunc tristique, dui eget elementum imperdiet, leo lacus aliquet diam, id cursus urna ante ut risus.
-Pellentesque nunc turpis, fringilla ut odio sed, scelerisque porta urna. Cras vehicula fermentum nulla, non porta velit tincidunt quis. Fusce mi ante, volutpat quis hendrerit quis, venenatis nec ligula. Phasellus odio neque, pharetra eu magna nec, semper lobortis ligula. Curabitur eu urna commodo, lacinia lacus vel, luctus purus. Suspendisse luctus fringilla lorem convallis sollicitudin. Integer ultrices, magna sit amet molestie convallis, ex metus placerat velit, eu vulputate neque dolor in turpis. Aenean turpis eros, fermentum eu euismod in, convallis in lectus. Sed quam velit, pretium at enim non, rhoncus maximus neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec auctor mollis auctor. Fusce vehicula ipsum a urna imperdiet condimentum eu sed nulla. Vivamus non vulputate elit, ut tempus sapien. Vestibulum vestibulum nulla quis dolor laoreet, in placerat sem ultricies. Donec egestas vulputate felis vel ultricies.
+El cerebro también se alimenta, tu mente recibe diferente tipos de alimentos, algunos son dañinos y otros son positivos.  Cada vez que ves, escuchas o platicas algo que trae consigo drama, chisme o estrés, tu cuerpo no distingue si eso que estás escuchando es real o no, tampoco si tú lo estás viviendo o no, simplemente reacciona en consecuencia segregando adrenalina, cortisol y demás hormonas que en exceso dañan a tu cuerpo y te generan ansiedad.
 
-*Nulla varius, neque quis **faucibus lobortis, diam mi lacinia ipsum, at eleifend purus massa a enim.** Aenean nisi nulla, consequat non tempus vel, ultricies id nisl. Vivamus bibendum ligula at nisl feugiat viverra. Morbi convallis orci turpis, non ornare mauris ultricies et. Duis pretium eleifend rutrum. In efficitur augue sed dictum molestie. Duis feugiat nulla et mollis vulputate. Sed semper quis velit ac imperdiet. Proin id orci tellus.*
+Aclaro algo: no significa que TODAS LAS TELENOVELAS SON DAÑINAS PARA TU MENTE, significa que las telenovelas que están llenas de dramas, estereotipos exagerados, juicios de “el bueno y el malo” y que no te hacen reír, sí te hacen daño a tu cerebro.  Así es que si vas a ver telenovelas, ve las que te hagan reír.
 
-Nullam ut turpis sem. Donec sed gravida nisl. Pellentesque non enim pharetra, tincidunt nisi ac, elementum nunc. Fusce id sem velit. Nunc nec efficitur est, ut interdum neque. Aliquam laoreet ante vitae neque varius varius. Mauris justo massa, lobortis eu commodo consequat, mollis quis velit. Nullam posuere hendrerit eleifend. Donec malesuada metus id dignissim commodo. Donec lorem ligula, faucibus eu quam vestibulum, hendrerit dignissim augue. Sed congue orci pulvinar porta mattis. Fusce pretium ante sit amet lacinia luctus. Nullam ac faucibus urna, ut euismod elit. Duis nec iaculis velit, sed tincidunt eros. Integer eros leo, condimentum sed [pellentesque rhoncus](https://www.silocreativo.com/que-es-markdown-por-que-deberias-empezar-a-usarlo/), congue a diam.
+> “De lo que alimentas tu mente hoy, será el contenido de lo que piensas y sientes mañana”
 
-- Nulla egestas ullamcorper lectus, eu lacinia neque fermentum id. 
-- Sed sed nunc eget ipsum dictum luctus ut at nisl. 
-- Donec molestie mauris purus, nec tempor odio aliquam sit amet. 
-- Aliquam auctor, tortor vel maximus sagittis, sem elit imperdiet elit, et tincidunt diam diam id tortor. - Curabitur bibendum in massa nec egestas. 
-- Mauris mollis nisl in erat aliquet, sed imperdiet turpis accumsan. Duis viverra et tortor vel tincidunt. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras eget ullamcorper eros, non cursus nisl. 
+## ¿Por qué nos emboban las novelas?
 
-Nam a lectus leo. Proin ac auctor risus, id laoreet nibh. Curabitur in elit a nulla tincidunt viverra. Maecenas quis sapien interdum lacus bibendum ultricies at condimentum massa.
+Por las famosas neuronas espejo, conocido también como empatía.  No somos objetos viendo a otros objetos hablar.  Somos personas viendo a otras personas que emiten ciertas emociones actuar.  Y dejamos de distinguir que es una actuación, nuestro cerebro se engancha con las emociones que está viviendo el de la pantalla, y simplemente te sumerges en ese mundo de manera inmediata.
+
+Es como si un cable de tu cuerpo se conectara inmediatamente con el cable de los personajes de la tele, y dejas de distinguir si eres tú o el otro el que lo está viviendo, simplemente lo empiezas a vivir.
+
+## Los principales daños que generan las telenovelas dramáticas
+
+1. -Te privan de llegar a tus propias conclusiones sobre lo que está pasando, simplemente lo que ves, ES.
+2. -Aumentan tus estereotipos y juicios sobre ciertas conductas en los demás.
+3. -Mientras las ves, tu cuerpo vive el estrés como si fuera suyo (y después te pasará la factura).
+4. -Mientras las ves, tu cerebro deja de hacer sinapsis, entras en un estado que yo lo definiría como “babeo”.
+5. -Pueden aumentar inseguridades que tienes en ti mismo al compararte con lo que ves en la tele, al aspirar una vida que no tienes.
+6. -Aumentan el drama que sí puedas estar viviendo en tu vida.
+7. -Te hacen creer que tu presente no es tan importante, que lo que importa es qué va a pasar hoy en la novela.
+8. -Te desconectan de tu propia realidad, de tu propio cuerpo.
+
+

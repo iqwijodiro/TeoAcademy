@@ -6,9 +6,8 @@
       </h2>
       <v-row>
         <v-col
-          xl="7"
-          lg="7"
-          md="8"
+          cols="12"
+          md="7"
         >
           <main>
             <v-container>
@@ -17,7 +16,7 @@
                 :key="i"
               >
                 <v-card
-                  min-height="550px"
+                  :min-height="$vuetify.breakpoint.mdAndDown ? '700px' : '550px'"
                   class="blog-card d-flex align-end rounded-lg pa-0 my-5"
                   @click="setPost(post)"
                 >
@@ -31,11 +30,11 @@
                       {{ post.title }}
                     </h4>
                     <div class="d-flex justify-center align-center px-2">
-                      <v-avatar size="65" class="my-0 mx-3">
+                      <v-avatar size="65" class="my-0 mx-2">
                         <v-img :src="post.avatar" />
                       </v-avatar>
-                      <div class="px-2 mx-5">
-                        <h4 class="author mb-2">
+                      <div class="px-1 mx-5">
+                        <h4 class="author">
                           {{ post.author }}
                         </h4>
                         <span class="date text-center">
@@ -120,7 +119,6 @@ export default {
     border-bottom: 3px solid $gray-light;
   }
   main {
-
     .blog-card, .top__post{
       .img-post {
           filter: grayscale(70%);
@@ -140,24 +138,23 @@ export default {
         }
         .card-overlay{
           background-color: rgba(#ffffff, $alpha: 0.90);
-        max-height: 180px;
-        height: 35%;
-        position: absolute;
-        width: 100%;
+          height: 40%;
+          position: absolute;
+          width: 100%;
         h4.card-title {
           font-size: $section-title;
             color: $wine;
         }
         .author {
-          font-size: $body;
+          font-size: $body + 5px;
             color: $gray-mid;
         }
         .date {
-          font-size: $subtitle;
+          font-size: $subtitle + 5px;
             color: $gray-mid;
         }
         .btn-leer {
-            width: 85px;
+          width: 85px;
             height: 50px;
             color: white;
             background-color: rgba($gray-dark, $alpha: 0.50);
@@ -171,5 +168,18 @@ export default {
     }
     }
     }
+              @include tablet {
+                .card-overlay {
+                  height: 35% !important;
+                  .author {
+                      font-size: $body;
+                        color: $gray-mid;
+                    }
+                    .date {
+                      font-size: $subtitle;
+                        color: $gray-mid;
+                    }
+                }
+              }
   }
 </style>

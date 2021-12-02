@@ -8,36 +8,43 @@
         <v-col>
           <v-slide-group arrows class="my-3 my-slider mx-auto">
             <v-slide-item v-for="(post, i) in posts" :key="i" class="slide ma-5">
-              <v-card elevation="5" max-width="350px" height="320px" max-height="400px" class="post-card d-flex align-end rounded-xl">
+              <v-card
+                elevation="5"
+                max-width="350px"
+                height="350px"
+                max-height="400px"
+                class="post-card d-flex align-end rounded-xl"
+                @click="setPost(post)"
+              >
                 <v-img
                   :src="post.img"
                   height="100%"
                   class="rounded-xl"
                 />
-                <div class="card-overlay">
-                  <v-card-title class="card-title text-center mb-4">
+                <div class="card-overlay d-flex flex-column justify-space-around">
+                  <h3 class="card-title text-center mb-3">
                     {{ post.title }}
-                  </v-card-title>
-                  <div class="d-flex justify-start align-start px-2">
+                  </h3>
+                  <div class="d-flex justify-center align-start px-2">
                     <v-avatar size="45" class="mb-4 mx-2">
                       <v-img :src="post.avatar" />
                     </v-avatar>
                     <div class="px-2 mr-3">
-                      <h4 class="author mb-2">
+                      <h4 class="author">
                         {{ post.author }}
                       </h4>
-                      <span class="date">
+                      <span class="date my-0">
                         {{ post.date }}
                       </span>
                     </div>
-                    <div>
-                      <v-btn class="btn-leer" @click="setPost(post)">
-                        <v-icon class="eye-i">
-                          mdi-eye
-                        </v-icon> <br>
-                        <span>Leer</span>
-                      </v-btn>
-                    </div>
+                  </div>
+                  <div class="d-flex justify-center">
+                    <v-btn class="btn-leer" @click="setPost(post)">
+                      <v-icon class="eye-i">
+                        mdi-eye
+                      </v-icon> <br>
+                      <span>Leer</span>
+                    </v-btn>
                   </div>
                 </div>
               </v-card>
@@ -61,7 +68,7 @@ export default {
   },
   methods: {
     setPost (post) {
-      this.$router.push('/blog/' + 'post-1')
+      this.$router.push('/blog/' + post.slug)
     }
   }
 }
@@ -82,7 +89,7 @@ export default {
       }
       .card-overlay {
         background-color: rgba($gray-dark, $alpha: 0.6);
-        height: 55%;
+        height: 65%;
         position: absolute;
         width: 100%;
         border-bottom-left-radius: 24px;

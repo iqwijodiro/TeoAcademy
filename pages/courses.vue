@@ -58,16 +58,6 @@
                         </v-btn>
                       </v-row>
                       <v-row class="ma-0 pa-0">
-                        <!-- <v-col cols="12" md="auto" class="px-0">
-                          <v-select
-                            v-model="sortBy"
-                            dense
-                            :items="keys"
-                            label="Ordenar por..."
-                            hide-details
-                            solo
-                          />
-                        </v-col> -->
                         <v-col cols="12" md="auto" class="px-0 mx-auto">
                           <v-select
                             v-model="sortBy"
@@ -78,29 +68,6 @@
                             solo
                           />
                         </v-col>
-                        <!-- <v-col cols="12" md="auto">
-                          <v-btn-toggle
-                            v-model="sortDesc"
-                            mandatory
-                            borderless
-                            class="mt-1"
-                          >
-                            <v-btn
-                              small
-                              depressed
-                              :value="false"
-                            >
-                              <v-icon>mdi-chevron-up</v-icon>
-                            </v-btn>
-                            <v-btn
-                              small
-                              depressed
-                              :value="true"
-                            >
-                              <v-icon>mdi-chevron-down</v-icon>
-                            </v-btn>
-                          </v-btn-toggle>
-                        </v-col> -->
                       </v-row>
                     </v-container>
                   </v-form>
@@ -118,10 +85,8 @@
               <v-col
                 v-for="course in props.items"
                 :key="course._id"
-                xl="4"
-                lg="4"
-                md="6"
-                sm="6"
+                cols="12"
+                md="4"
               >
                 <course-card
                   :img-link="course.imgUrl"
@@ -131,6 +96,7 @@
                   :resources="course.features.resources.length"
                   :price="course.features.priceInfo.price"
                   :final-price="course.features.priceInfo.finalPrice"
+                  class="mx-auto"
                   @select-course="setCourse(course)"
                 />
               </v-col>
@@ -283,7 +249,7 @@ export default {
     background-image:
     url(https://images.unsplash.com/photo-1485548125564-21b2276a644a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1116&q=80);
     height: 100%;
-    min-height: 50vh;
+    min-height: 80vh;
     background-position: bottom;
     .hero-card {
       max-height: 500px;
@@ -298,6 +264,9 @@ export default {
 
 }
   @include tablet {
+    .hero{
+      min-height: 50vh;
+    }
     .text {
       line-height: 2;
     }

@@ -1,7 +1,7 @@
 <template>
   <v-card
     max-height="525px"
-    max-width="315px"
+    max-width="320px"
     height="95%"
     class="
       course__card

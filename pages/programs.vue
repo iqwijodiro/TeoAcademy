@@ -24,16 +24,6 @@
               </p>
             </v-card-text>
             <v-row class="ma-0 pa-0" justify="center">
-              <!-- <v-col cols="12" md="auto" class="px-0">
-                          <v-select
-                            v-model="sortBy"
-                            dense
-                            :items="keys"
-                            label="Ordenar por..."
-                            hide-details
-                            solo
-                          />
-                        </v-col> -->
               <v-col cols="12" md="5" class="px-0 ml-2">
                 <v-select
                   v-model="sortBy"
@@ -244,12 +234,12 @@ export default {
     padding-top: 120px !important;
   }
 }
-#programs {
-.hero {
-  background-image:
-  url(https://images.unsplash.com/photo-1587325474165-d49e05df3a76?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1173&q=80);
-  height: 65vh;
-  background-position: bottom;
+
+  .hero {
+    background-image:
+    url(https://images.unsplash.com/photo-1587325474165-d49e05df3a76?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1173&q=80);
+    height: 100vh;
+    background-position: bottom;
     .hero-card {
       max-height: 500px;
       .text {
@@ -257,7 +247,12 @@ export default {
         font-size: 18px;
       }
     }
-}
+  }
+  @include tablet {
+    .hero{
+      height: 65vh;
+    }
+  }
 main {
   .program-card {
     opacity: 0.75;
@@ -327,5 +322,5 @@ main {
 .mdi-chevron-right {
   border: none;
 }
-}
+
 </style>
