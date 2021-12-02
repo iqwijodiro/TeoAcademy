@@ -20,9 +20,31 @@
                 diseñados y desarrollado por lideres con el Don de la Enseñanza y amplia
                 experiencia ministerial, disponible para personas con el anhelo de desarrollar su fe y
                 experimentar la maravillosa experiencia de la formación cristiana. <br>
-                <span class="fw-700">¡Matriculate y disfruta la experiencia!</span>
+                <!-- <span class="fw-700">¡Matriculate y disfruta la experiencia!</span> -->
               </p>
             </v-card-text>
+            <v-row class="ma-0 pa-0" justify="center">
+              <!-- <v-col cols="12" md="auto" class="px-0">
+                          <v-select
+                            v-model="sortBy"
+                            dense
+                            :items="keys"
+                            label="Ordenar por..."
+                            hide-details
+                            solo
+                          />
+                        </v-col> -->
+              <v-col cols="12" md="5" class="px-0 ml-2">
+                <v-select
+                  v-model="sortBy"
+                  dense
+                  :items="keys"
+                  label="Busqueda por tipo de programa"
+                  hide-details
+                  solo
+                />
+              </v-col>
+            </v-row>
           </v-card>
         </v-col>
       </v-row>
@@ -42,7 +64,10 @@
         loading-text=""
       >
         <template #default="props">
-          <v-container class="gutter-p">
+          <v-container class="gutte mt-5">
+            <h2 class="fw-300 text-center mt-10 red-font">
+              ¡Matriculate y disfruta la experiencia!
+            </h2>
             <v-row
               v-for="program in props.items"
               :key="program._id"
@@ -114,23 +139,8 @@
                             hasta <br> DD-MM-AAAA
                           </p>
                         </div>
-                      </v-col><v-spacer />
-                      <!-- <v-col
-                        cols="12"
-                        lg="4"
-                        xl="4"
-                        md="4"
-                        class="px-2"
-                      >
-                        <div class="text-center px-2">
-                          <v-icon>
-                            mdi-earth
-                          </v-icon>
-                          <p class="text-sm mt-2">
-                            Descuentos aplican segun tu país
-                          </p>
-                        </div>
-                      </v-col> -->
+                      </v-col>
+                      <v-spacer />
                       <v-col
                         cols="12"
                         lg="4"
@@ -149,43 +159,9 @@
             </v-row>
           </v-container>
         </template>
-        <template #footer>
-          <v-container>
-            <v-row justify="center" class="mt-5 py-10 paginator-rail">
-              <!-- <v-pagination
-                v-model="page"
-                :length="pages"
-                color="#2ec4b6"
-                next-icon="mdi-chevron-right"
-                prev-icon="mdi-chevron-left"
-                class="pagination"
-              /> -->
-            </v-row>
-          </v-container>
-        </template>
       </v-data-iterator>
     </main>
-    <!-- <section class="register">
-      <v-container>
-        <v-row justify="center">
-          <v-col
-            lg="6"
-            xl="6"
-            md="6"
-            sm="8"
-          >
-            <h2 class="text-center">
-              Registrate gratis y solicita tu cupón de descuento
-            </h2>
-            <div class="centrar">
-              <v-btn class="btn">
-                Registrarse
-              </v-btn>
-            </div>
-          </v-col>
-        </v-row>
-      </v-container>
-    </section> -->
+    <v-divider />
   </div>
 </template>
 
@@ -198,11 +174,19 @@ export default {
       page: 1,
       pages: 1,
       spinner: false,
+      sortBy: false,
       pagination: {
         rowsPerPage: 3
       },
       ipp: 2,
-      rpp: 2
+      rpp: 2,
+      keys: [
+        'Diplomado',
+        'Licenciatura',
+        'Maestría',
+        'Doctorado',
+        'Todos'
+      ]
     }
   },
   head () {

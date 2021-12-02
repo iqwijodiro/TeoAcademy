@@ -1,5 +1,5 @@
 <template>
-  <div class="post pt-8 mt-5">
+  <div class="post pt-8 mt-10">
     <v-container>
       <v-row>
         <v-col>
@@ -10,17 +10,45 @@
                 :src="post.img"
                 class="mx-auto my-5 rounded"
                 width="100%"
-                max-width="1000px"
+                max-width="800px"
                 :alt="post.title"
               />
-              <nuxt-content :document="post" class="text my-10" />
+              <div class="d-flex justify-center">
+                <v-chip
+                  class="ma-2"
+                  label
+                  color="#0b83bf"
+                  text-color="#fff"
+                >
+                  <v-icon left>
+                    mdi-account-circle-outline
+                  </v-icon>
+                  {{ post.author }}
+                </v-chip>
+                <v-chip
+                  class="ma-2"
+                  label
+                >
+                  <v-icon left>
+                    mdi-calendar
+                  </v-icon>
+                  {{ post.date }}
+                </v-chip>
+              </div>
+              <nuxt-content :document="post" class="text my-10 " />
             </div>
           </article>
         </v-col>
       </v-row>
-      <div class="centrar">
+      <div class="d-flex justify-center align-center">
         <v-btn class="minibtn" to="/blogPage">
-          Ver otros articulos
+          Ver otros artículos
+        </v-btn>
+        <v-btn class="minibtn" to="/courses">
+          Ver Cursos
+        </v-btn>
+        <v-btn class="minibtn" to="/programs">
+          Ver programas
         </v-btn>
       </div>
     </v-container>
@@ -47,11 +75,6 @@ export default {
       .content-box {
         border-top: 2px solid $gray-light;
         border-bottom: 1px solid $gray-light;
-        .text{
-          p {
-            line-height: 1.7 !important;
-          }
-        }
       }
     }
   }

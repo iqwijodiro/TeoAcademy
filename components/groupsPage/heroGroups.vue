@@ -4,10 +4,8 @@
       <div class="mask" />
       <v-row justify="center" class="rail">
         <v-col
-          xl="8"
-          lg="8"
-          sm="10"
-          md="10"
+          cols="12"
+          md="8"
           class="px-5"
         >
           <v-card
@@ -67,8 +65,13 @@ export default {
   }
 }
 .hero {
-    background-image: url(https://images.unsplash.com/photo-1543702404-38c2035462ad?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);
-  min-height: 650px;
+    background-image: url(https://images.unsplash.com/photo-1541629308-915eec71b441?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80);
+    height: 100%;
+    min-height: 80vh;
+    background-position: bottom;
+    h1 {
+      font-size: 35px;
+    }
   .text {
       display: none;
   }
@@ -77,22 +80,25 @@ export default {
   }
 }
 @include tablet {
-.text {
+  .hero {
+    min-height: 70vh;
+  .text {
     line-height: 2;
-}
-.btn {
+  }
+  .btn {
     display: inline-block !important;
-}
-.rail {
+  }
+  .rail {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    .hero-card {
-    min-height: 350px !important;
-    width: 90%;
-    max-width: 1000px;
-    }
-}
+      justify-content: center;
+      align-items: center;
+      .hero-card {
+        min-height: 350px !important;
+      width: 90%;
+      max-width: 1000px;
+      }
+  }
+  }
 }
 
 @include miniDesktop {

@@ -6,7 +6,7 @@
           lg="10"
           class="mx-auto"
         >
-          <h2 class="text-center mb-5">
+          <h2 class="text-center mb-8 red-font">
             <v-icon class="icon">
               mdi-bullseye-arrow
             </v-icon>
@@ -19,7 +19,7 @@
               </v-icon>{{ goal }}
             </li>
           </ul>
-          <h2 class="text-center mt-15 mb-5">
+          <h2 class="text-center mt-15 mb-5 red-font">
             <v-icon class="icon">
               mdi-medal
             </v-icon>

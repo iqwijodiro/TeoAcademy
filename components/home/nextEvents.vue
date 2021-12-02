@@ -7,10 +7,9 @@
       <v-container>
         <v-row v-for="(event, i) in events" :key="i" justify="center" class="rail py-3">
           <v-col
-            xl="2"
-            lg="2"
-            md="2"
-            class="order-1 order-lg-1"
+            cols="12"
+            sm="2"
+            class="order-1 order-lg-1 mr-2"
           >
             <div class="date-box d-flex justify-center align-start">
               <span class="date mr-4 d-block"> {{ event.date }} </span>
@@ -25,19 +24,41 @@
             </div>
           </v-col>
           <v-col
-            xl="4"
-            lg="6"
+            cols="12"
             md="6"
-            sm="12"
             class="order-3 order-lg-2 mx-auto"
           >
-            <div class="event-center mx-auto">
+            <div class="event-center mx-auto mb-0">
               <h3 class="event-title gray-m-font">
                 {{ event.title }}
               </h3>
               <p class="text-start text-mid evento-text mb-3">
                 {{ event.text }}
               </p>
+              <!-- <div class="d-flex">
+                <v-chip
+                  small
+                  class="ma-2"
+                  label
+                  color="#e9e9e9"
+                  text-color="#be1e2d"
+                >
+                  <v-icon left>
+                    mdi-account-circle-outline
+                  </v-icon>
+                  {{ event.author }}
+                </v-chip>
+                <v-chip
+                  small
+                  class="ma-2"
+                  label
+                >
+                  <v-icon left>
+                    mdi-label
+                  </v-icon>
+                  {{ event.category }}
+                </v-chip>
+              </div> -->
               <div class="centrar">
                 <event-form
                   v-model="eventContact"
@@ -52,9 +73,8 @@
             </div>
           </v-col>
           <v-col
-            xl="4"
-            lg="4"
-            md="4"
+            cols="12"
+            md="3"
             class="order-2 order-lg-3"
           >
             <v-img :src="event.img" class="rounded fill-height" min-height="200px" :alt="event.title" />
@@ -76,28 +96,34 @@ export default {
       eventContact: false,
       events: [
         {
-          title: 'Importancia de la formación bíblica para el desarrollo del cristiano',
-          text: 'Para las personas que desean conocer y comprender la importancia del estudio metódico y sistemático de las sagradas escrituras.',
-          date: 1,
-          month: 'Abril',
-          day: 'Jueves',
-          img: 'https://images.unsplash.com/photo-1510590337019-5ef8d3d32116?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
+          title: 'Inicio Programa: Licenciatura en Consejería Familiar Cristiana',
+          text: 'Para las personas que desean ser instrumentos de bendición en las manos de Dios y desarrollarse profesionalmente en la maravillosa labor de aconsejar a otros.',
+          date: 9,
+          month: 'Diciembre',
+          day: 'Domingo',
+          author: 'Natanael Valenzuela',
+          category: 'Consejería',
+          img: 'https://images.unsplash.com/photo-1577897113292-3b95936e5206?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1090&q=80'
         },
         {
-          title: 'El proceso de la iniciación cristiana',
-          text: 'En esta conferencia abordaremos los aspectos básicos de la fe cristiana, esenciales para un sano proceso de cambio y sanidad en él ser interior y para establecer una adecuada relación espiritual (no religiosa) con Dios (Padre, Hijo y Espíritu Santo).',
-          date: 6,
-          month: 'Mayo',
-          day: 'Jueves',
-          img: 'https://images.unsplash.com/photo-1502101872923-d48509bff386?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80'
+          title: 'Conferencia: Fundamentos de la Consejería Familiar Cristiana',
+          text: 'En esta conferencia abordaremos los fundamentos de la Consejería Familiar Cristiana, su importancia, relevancia y aspectos a considerar para realizarla eficazmente.',
+          date: 14,
+          month: 'Diciembre',
+          day: 'Martes',
+          author: 'Natanael Valenzuela',
+          category: 'Liderazgo',
+          img: 'https://images.unsplash.com/photo-1529180979161-06b8b6d6f2be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80'
         },
         {
-          title: 'Importancia de la formación bíblica para el desarrollo del cristiano',
-          text: 'En esta conferencia abordaremos los principios y fundamentos bíblicos sobre la paternidad de Dios y como esta interviene en la vida de quienes han decidido creer en Su poder y anhelan experimentar una relación personal e intima con el autor de la vida.',
-          date: 3,
-          month: 'Junio',
+          title: 'Conferencia: Liderazgo Cristiano ¿Qué es y porqué es importante?',
+          text: 'En esta conferencia abordaremos aspectos esenciales para comprender que es el liderazgo, su importancia e implicaciones en tiempos actuales, desde una perspectiva bíblica y cristocentrica.',
+          date: 27,
+          month: 'Enero',
           day: 'Jueves',
-          img: 'https://images.unsplash.com/photo-1516733725897-1aa73b87c8e8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
+          author: 'Gustavo Campos',
+          category: 'Liderazgo',
+          img: 'https://images.unsplash.com/photo-1513759565286-20e9c5fad06b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
         }
       ]
     }
@@ -124,13 +150,13 @@ export default {
       }
       .month {
         font-family: $title-font;
-        font-size: 28px;
+        font-size: 24px;
         color: $gray-mid;
         align-self: center !important;
       }
       .day  {
         color: $gray-mid;
-        font-size: 22px;
+        font-size: 20px;
         font-family: $title-font;
         text-align: center;
       }

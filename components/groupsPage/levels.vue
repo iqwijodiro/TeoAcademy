@@ -9,18 +9,19 @@
           Biblioteca de Cursos
         </h3>
         <v-container class="d-flex justify-center align-center">
-          <v-row>
+          <v-row justify="center">
             <v-col
               v-for="level in levels"
               :key="level.id"
-              lg="4"
-              xl="4"
+              cols="12"
               md="4"
             >
               <v-card
                 elevation="5"
-                width="320"
+                width="100%"
+                max-width="350"
                 height="320"
+                :to="level.to"
                 class="level-card rounded-xl mx-auto d-flex align-end"
               >
                 <v-img
@@ -33,7 +34,7 @@
                     {{ level.mod }}
                   </h4>
                   <div class="centrar px-2">
-                    <v-btn to="/" class="btn-leer rounded-lg">
+                    <v-btn :to="level.to" class="btn-leer rounded-lg">
                       <v-icon class="eye-i">
                         mdi-eye
                       </v-icon> <br>
@@ -72,16 +73,14 @@ export default {
     return {
       levels: [
         {
-          mod: 'Básico',
+          mod: 'Cursos',
+          to: '/courses',
           img: 'https://images.unsplash.com/photo-1492052722242-2554d0e99e3a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1867&q=80'
         },
         {
-          mod: 'Intermedio',
+          mod: 'Programas',
+          to: '/programs',
           img: 'https://images.unsplash.com/photo-1472905981516-5ac09f35b7f4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1053&q=80'
-        },
-        {
-          mod: 'Avanzado',
-          img: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80'
         }
       ],
       sources: [
@@ -113,7 +112,7 @@ export default {
 <style lang="scss" scoped>
 .levels {
   h3 {
-    font-size: 2.5rem;
+    font-size: 26px;
     font-weight: 400;
   }
   .level-card {
@@ -124,7 +123,7 @@ export default {
       position: absolute;
       width: 100%;
       .card-title {
-        font-size: 2.3rem !important;
+        font-size: 26px !important;
         color: #fff;
       }
       .btn-leer {
@@ -135,17 +134,17 @@ export default {
         text-transform: capitalize !important;
         font-size: $link;
         .eye-i{
-          font-size: 2.5rem;
-          margin-right: .6rem;
+          font-size: 26px;
+          margin-right: 6px;
         }
       }
     }
   }
   .list-item {
     display: inline-block;
-    font-size: 2.5rem;
+    font-size: 25px;
     .icon {
-      font-size: 4.8rem;
+      font-size: 35px;
     }
   }
 

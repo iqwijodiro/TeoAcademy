@@ -93,7 +93,7 @@ a {
 }
 
 h1 {
-  font-size: 40px;
+  font-size: 48px;
   color: $wine;
   line-height: 1.2;
   // text-align: center;
@@ -116,7 +116,7 @@ h4 {
   font-weight: 400;
 }
 .red-font {
-  color: $wine;
+  color: $wine !important;
 }
 .blue-font {
   color: $ocean;
@@ -170,12 +170,12 @@ h4 {
   }
 }
 .minibtn {
-  height: 40px !important;
+  height: 45px !important;
   border-radius: 9px;
   background-color: $ocean !important;
   color: #ffffff;
   text-transform: capitalize !important;
-  font-size: $link;
+  font-size: $link - 3px;
   padding: 12px !important;
   margin: 5px !important;
   font-family: $title-font !important;

@@ -58,9 +58,8 @@
           </main>
         </v-col>
         <v-col
-          xl="4"
-          lg="4"
-          md="4"
+          cols="12"
+          md="5"
         >
           <h3 class="gray-m-font font-weight-medium text-center mb-5">
             Lo más leído
@@ -96,7 +95,7 @@ export default {
   async asyncData ({ $content }) {
     const posts = await $content('/blog', {})
       .without(['body'])
-      .sortBy('createdAt', 'asc')
+      .sortBy('createdAt', 'desc')
       .fetch()
     return { posts }
   },

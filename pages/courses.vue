@@ -24,8 +24,8 @@
             <div class="mask" />
             <v-row justify="center" class="rail">
               <v-col
-                lg="8"
-                md="10"
+                cols="12"
+                md="8"
                 class="mx-auto px-5"
               >
                 <v-card elevation="5" max-width="900px" class="hero-card rounded-lg text-center mx-auto pa-5 mt-8">
@@ -58,17 +58,27 @@
                         </v-btn>
                       </v-row>
                       <v-row class="ma-0 pa-0">
-                        <v-col cols="12" md="auto" class="px-0">
+                        <!-- <v-col cols="12" md="auto" class="px-0">
                           <v-select
                             v-model="sortBy"
                             dense
                             :items="keys"
-                            label="Categoría"
+                            label="Ordenar por..."
+                            hide-details
+                            solo
+                          />
+                        </v-col> -->
+                        <v-col cols="12" md="auto" class="px-0 mx-auto">
+                          <v-select
+                            v-model="sortBy"
+                            dense
+                            :items="keys"
+                            label="Filtrar por..."
                             hide-details
                             solo
                           />
                         </v-col>
-                        <v-col cols="12" md="auto">
+                        <!-- <v-col cols="12" md="auto">
                           <v-btn-toggle
                             v-model="sortDesc"
                             mandatory
@@ -90,7 +100,7 @@
                               <v-icon>mdi-chevron-down</v-icon>
                             </v-btn>
                           </v-btn-toggle>
-                        </v-col>
+                        </v-col> -->
                       </v-row>
                     </v-container>
                   </v-form>
@@ -131,10 +141,10 @@
           <v-container>
             <v-row justify="center" class="my-2">
               <v-btn
-                class="btn text-uppercase mt-3"
+                class="btn mt-3"
                 @click="couponContact = true"
               >
-                descarga cupón 75% descuento
+                Descargar Cupón de descuento
               </v-btn>
               <discount-form
                 v-model="couponContact"
@@ -187,9 +197,9 @@ export default {
       },
       busy: false,
       keys: [
-        'Nombre',
-        'Nro de Recursos',
-        'Nro de módulos'
+        'Etiqueta 1',
+        'Etiqueta 2',
+        'Etiqueta 3'
       ],
       keys2: [],
       prices: [

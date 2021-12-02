@@ -3,9 +3,9 @@
     <!--Seccion del Hero-->
     <hero-groups />
     <!--Seccion del Ebook-->
-    <ebook-groups />
+    <!-- <ebook-groups /> -->
     <!--Seccion de Objetivos y Beneficios-->
-    <goals-benefits />
+    <goals-benefits class="mt-10" />
     <!--Seccion de Dirigido a:-->
     <adressed-to />
     <!--Seccion de Biblioteca de cursos / niveles-->
@@ -22,7 +22,7 @@
 </template>
 <script>
 import heroGroups from '~/components/groupsPage/heroGroups'
-import ebookGroups from '~/components/groupsPage/ebookGroups'
+// import ebookGroups from '~/components/groupsPage/ebookGroups'
 import goalsBenefits from '~/components/groupsPage/goalsBenefits'
 import adressedTo from '~/components/groupsPage/adressedTo'
 import levels from '~/components/groupsPage/levels'
@@ -33,7 +33,7 @@ import faq from '~/components/groupsPage/faq'
 export default {
   components: {
     heroGroups,
-    ebookGroups,
+    // ebookGroups,
     goalsBenefits,
     adressedTo,
     levels,

@@ -85,11 +85,11 @@ export default {
       width: 100%;
     }
     h3 {
-      font-size: 3.2rem;
+      font-size: 28px;
       font-weight: 700;
     }
     .text {
-      font-size: 2.2rem;
+      font-size: 22px;
       color: $gray-dark;
       font-weight: 700;
       text-align: center;

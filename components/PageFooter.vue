@@ -43,11 +43,24 @@
             lg="4"
             xl="4"
           >
+            <!-- Formulario de contacto -->
+            <contact-form v-model="heroContact">
+              <template #activator="{ on, attrs }" class="d-block mx-auto">
+                <v-btn
+                  block
+                  class="btn mb-5"
+                  v-bind="attrs"
+                  v-on="on"
+                >
+                  Contáctanos
+                </v-btn>
+              </template>
+            </contact-form>
             <v-img
               :src="require('../assets/img/logo.webp')"
               contain
               width="200px"
-              class="mx-auto mb-4"
+              class="mx-auto my-4"
             />
             <h4 class="mb-3 text-center">
               Síguenos en nuestras redes sociales
@@ -56,7 +69,7 @@
               <v-list
                 v-for="(icon, i) in icons"
                 :key="i"
-                class="pa-0 ma-0"
+                class="pa-0 ma-0 list_rrss"
               >
                 <a
                   :href="icons[i].link"
@@ -71,10 +84,10 @@
         </v-row>
         <v-container class="text-center my-5">
           <v-row class="d-flex justify-center row-foot py-4">
-            <span class="text-small">Created by SEGO Technology</span>
+            <span class="text-small">Created by SEGO Technology in Partnership with Theo Academy </span>
           </v-row>
           <v-row class="d-flex justify-center py-5 text-mid">
-            <span>Todos los derechos reservados para Teo Academy &copy; </span>
+            <span>Todos los derechos reservados para Universidad Teológica Interamericana &copy; </span>
           </v-row>
         </v-container>
       </v-container>
@@ -83,26 +96,38 @@
 </template>
 
 <script>
+import ContactForm from '~/components/forms/contactForm'
+
 export default {
+  components: { ContactForm },
   data () {
     return {
+      heroContact: false,
       FootItems: [
+        // {
+        //   icon: 'mdi-map-marker',
+        //   text:
+        //     'Costa Rica, San José, Sabana Norte, Edificio Gran Campo, Oficina No. 6.'
+        // },
         {
           icon: 'mdi-map-marker',
-          text:
-            'Costa Rica, San José, Sabana Norte, Edificio Gran Campo, Oficina No. 6.'
-        },
-        {
-          icon: 'mdi-map-marker',
-          text: 'EEUU, Pensilvania, Alburtis, 1548 Pinewind, PA 18011'
+          text: 'EEUU, 4150 Raleigh Road Pkwy. NW Wilson NC 27896'
         },
         {
           icon: 'mdi-email-outline',
-          text: 'servicios@teo-academy.com'
+          text: 'info@utiuniversity.org'
         },
         {
           icon: 'mdi-whatsapp',
-          text: '+506 70176705 y +1 484 9255978'
+          text: 'EEUU: +1-2524225252'
+        },
+        {
+          icon: 'mdi-whatsapp',
+          text: 'Venezuela y Suramérica: +58-4244409819'
+        },
+        {
+          icon: 'mdi-whatsapp',
+          text: 'Costa Rica y Centroamérica: +506-70176705'
         }
       ],
       items: [
@@ -158,17 +183,19 @@ export default {
   h4 {
     color: $gray-mid !important;
   }
-  .v-icon {
-    opacity: .5;
-    transition: all .3s ease-in-out;
-    border-radius: 50%;
-    padding: 10px;
-    &:hover {
-      transform: translateY(-2px) scale(1.05);
-      opacity: 1;
-      color: $wine;
-      border: 1px solid rgba($wine, 0.3);
-      box-shadow: 2px 2px 12px 5px rgba($wine,0.3);
+  .list_rrss {
+    .v-icon {
+      opacity: .5;
+      transition: all .3s ease-in-out;
+      border-radius: 50%;
+      padding: 10px;
+      &:hover {
+        transform: translateY(-2px) scale(1.05);
+        opacity: 1;
+        color: $wine;
+        border: 1px solid rgba($wine, 0.3);
+        box-shadow: 2px 2px 12px 5px rgba($wine,0.3);
+      }
     }
   }
   .item {

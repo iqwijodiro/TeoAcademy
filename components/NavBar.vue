@@ -114,11 +114,11 @@ export default {
           title: 'Programas',
           to: '/programs'
         },
-        // {
-        //   icon: 'mdi-account-group',
-        //   title: 'For Group',
-        //   to: '/groups'
-        // },
+        {
+          icon: 'mdi-account-group',
+          title: 'Asesoría',
+          to: '/groups'
+        },
         {
           icon: 'fas fa-blog',
           title: 'Blog',

@@ -8,7 +8,7 @@
         <v-col>
           <v-slide-group arrows class="my-3 my-slider mx-auto">
             <v-slide-item v-for="(post, i) in posts" :key="i" class="slide ma-5">
-              <v-card elevation="5" max-width="320px" height="320px" max-height="400px" class="post-card d-flex align-end rounded-xl">
+              <v-card elevation="5" max-width="350px" height="320px" max-height="400px" class="post-card d-flex align-end rounded-xl">
                 <v-img
                   :src="post.img"
                   height="100%"
@@ -45,7 +45,7 @@
           </v-slide-group>
         </v-col>
         <v-btn to="/blogPage" class="btn my-5">
-          Ver todos los articulos
+          Ver todos los artículos
         </v-btn>
       </v-row>
     </v-container>
@@ -82,7 +82,7 @@ export default {
       }
       .card-overlay {
         background-color: rgba($gray-dark, $alpha: 0.6);
-        height: 47.5%;
+        height: 55%;
         position: absolute;
         width: 100%;
         border-bottom-left-radius: 24px;
