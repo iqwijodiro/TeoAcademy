@@ -1,6 +1,7 @@
 ---
 title: El pecado sexual ¿Qué es? y ¿Cómo evitarlo? 
 description: Las personas seculares suelen hablar como si su punto de vista sobre el sexo es libre y liberador. Se suele decir que la visión cristiana es represiva, rígida, y que niega el gozo. Pero es exactamente lo contrario.
+topic: 'Consejería'
 date: 01-02-2019
 author: Dr. Natanael Valenzuela
 avatar: https://randomuser.me/api/portraits/men/81.jpg

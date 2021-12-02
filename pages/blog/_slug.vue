@@ -35,7 +35,7 @@
                   {{ post.date }}
                 </v-chip>
               </div>
-              <nuxt-content :document="post" class="text my-10 " />
+              <nuxt-content :document="post" class="text-blog my-10" />
             </div>
           </article>
         </v-col>

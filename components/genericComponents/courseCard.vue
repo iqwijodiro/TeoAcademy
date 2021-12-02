@@ -13,6 +13,7 @@
       flex-column
       justify-space-between
     "
+    @click="selectCourse(course)"
   >
     <v-img
       :src="imgLink"

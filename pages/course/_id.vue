@@ -6,8 +6,7 @@
       </h1>
       <v-row>
         <v-col
-          xl="8"
-          lg="8"
+          cols="12"
           md="8"
           class="col-container"
         >
@@ -37,9 +36,6 @@
                       mdi-play-circle-outline
                     </v-icon>
                   </v-img>
-                  <!-- <v-icon size="50" class="icon gray-font absolute">
-                    mdi-play-circle-outline
-                  </v-icon> -->
                 </div>
               </template>
               <v-card width="100%">
@@ -66,13 +62,6 @@
                   </h4>
                 </v-expansion-panel-header>
                 <v-expansion-panel-content>
-                  <!-- <v-expansion-panels
-                    v-for="(lesson, n) in module.lessons"
-                    :key="n"
-                    flat
-                  >
-                    <v-expansion-panel>
-                      <v-expansion-panel-header> -->
                   <ul
                     v-for="(lesson, n) in module.lessons"
                     :key="n"
@@ -83,14 +72,6 @@
                       </p>
                     </li>
                   </ul>
-                  <!-- </v-expansion-panel-header>
-                      <v-expansion-panel-content>
-                        <p class="text-mid text-center">
-                          'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae assumenda alias labore unde, quia nulla dolor blanditiis. Tempore ratione cupiditate nisi, distinctio quis explicabo quae perferendis, ad corrupti, ipsa corporis?'
-                        </p>
-                      </v-expansion-panel-content>
-                    </v-expansion-panel>
-                  </v-expansion-panels> -->
                 </v-expansion-panel-content>
               </v-expansion-panel>
             </v-expansion-panels>

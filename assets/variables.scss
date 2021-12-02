@@ -248,6 +248,14 @@ section {
   margin: 0;
   padding: 0;
 }
+.text-blog {
+  font-size: $body + 2px;
+  color: $gray-mid;
+  font-weight: 300;
+  line-height: 1.8 !important;
+  margin: 0;
+  padding: 0;
+}
 .text-mid {
   font-size: $body - 2px !important;
   color: $gray-mid;

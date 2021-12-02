@@ -11,6 +11,18 @@
         >
           <main>
             <v-container>
+              <v-row class="ma-0 pa-0" justify="start">
+                <v-col cols="12" md="auto" class="px-0">
+                  <v-select
+                    v-model="sortPost"
+                    dense
+                    :items="keyPost"
+                    label="Filtrar por..."
+                    hide-details
+                    solo
+                  />
+                </v-col>
+              </v-row>
               <v-row
                 v-for="(post, i) in posts"
                 :key="i"
@@ -38,6 +50,9 @@
                           {{ post.author }}
                         </h4>
                         <span class="date text-center">
+                          <v-icon>
+                            mdi-calendar
+                          </v-icon>
                           {{ post.date }}
                         </span>
                       </div>
@@ -78,6 +93,9 @@
                     {{ post.title }}
                   </h4>
                   <p class="text-small text-center">
+                    <v-icon>
+                      mdi-calendar
+                    </v-icon>
                     {{ post.date }}
                   </p>
                 </div>
@@ -92,15 +110,53 @@
 <script>
 export default {
   async asyncData ({ $content }) {
+    const keyPost = [
+      'Consejería',
+      'Eclesiología',
+      'Evangelismo',
+      'Hermenéutica',
+      'Homilética',
+      'Liderazgo Cristiano',
+      'Teología',
+      'Enseñanza',
+      'Evangelismo',
+      'Historia del Cristianismo',
+      'Exégesis'
+    ]
     const posts = await $content('/blog', {})
       .without(['body'])
-      .sortBy('createdAt', 'desc')
+      .sortBy('title', 'asc')
       .fetch()
+      .where({ topic: keyPost })
+    // console.info(posts)
     return { posts }
+  },
+  data () {
+    return {
+      sortPost: false,
+      keyPost: [
+        'Consejería',
+        'Eclesiología',
+        'Evangelismo',
+        'Hermenéutica',
+        'Homilética',
+        'Liderazgo Cristiano',
+        'Teología',
+        'Enseñanza',
+        'Evangelismo',
+        'Historia del Cristianismo',
+        'Exégesis'
+      ]
+    }
   },
   head () {
     return {
       title: 'Contenido de temas cristiano y teologico a tu alcance - Teo Academy '
+    }
+  },
+  watch: {
+    async sortPost () {
+      await this.posts.filter(post => console.info(post.topic === this.keyPost))
     }
   },
   methods: {
@@ -146,11 +202,11 @@ export default {
             color: $wine;
         }
         .author {
-          font-size: $body + 5px;
+          font-size: $body + 2px;
             color: $gray-mid;
         }
         .date {
-          font-size: $subtitle + 5px;
+          font-size: $subtitle;
             color: $gray-mid;
         }
         .btn-leer {
