@@ -1,7 +1,9 @@
 ---
 title: Condiciones esenciales para iniciar una sana relación sentimental. 
 description: Para iniciar una relación, primero tienes que conocerte y estar muy a gusto contigo mismo para que puedas y tengas ganas de compartir tu felicidad con otra persona, puedas amar libremente y que te amen de la misma manera.
-topic: 'Liderazgo Cristiano'
+topics: 
+    - 'Liderazgo Cristiano'
+    - 'Consejería'
 date: 01-02-2019
 author: Dr. Natanael Valenzuela
 avatar: https://randomuser.me/api/portraits/men/72.jpg

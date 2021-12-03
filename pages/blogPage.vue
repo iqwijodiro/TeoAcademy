@@ -1,18 +1,31 @@
 <template>
   <div id="blog">
-    <v-container class="mt-10 pb-10 v-container">
+    <v-container class="mt-10 pb-10 v-container ">
       <h2 class="my-5">
         Nuestro Blog:
       </h2>
       <v-row>
         <v-col
           cols="12"
-          md="7"
+          md="8"
+          lg="7"
         >
           <main>
             <v-container>
               <v-row class="ma-0 pa-0" justify="start">
-                <v-col cols="12" md="auto" class="px-0">
+                <v-col cols="12" md="7" class="ml-3">
+                  <input type="text" style="display: none; visibility: hidden">
+                  <v-text-field
+                    v-model="query"
+                    placeholder="Buscar artículo..."
+                    solo
+                    dense
+                    clearable
+                    prepend-inner-icon="mdi-magnify"
+                    autofocus
+                  />
+                </v-col>
+                <v-col cols="12" md="4" class="mr-3">
                   <v-select
                     v-model="sortPost"
                     dense
@@ -20,6 +33,7 @@
                     label="Filtrar por..."
                     hide-details
                     solo
+                    clearable
                   />
                 </v-col>
               </v-row>
@@ -37,26 +51,46 @@
                     height="100%"
                     class="rounded-lg img-post"
                   />
-                  <div class="card-overlay pa-0 rounded-b-lg">
+                  <div class="card-overlay pa-2 rounded-b-lg">
                     <h4 class="card-title text-center red-font my-4">
                       {{ post.title }}
                     </h4>
-                    <div class="d-flex justify-center align-center px-2">
-                      <v-avatar size="65" class="my-0 mx-2">
-                        <v-img :src="post.avatar" />
-                      </v-avatar>
-                      <div class="px-1 mx-5">
-                        <h4 class="author">
-                          {{ post.author }}
-                        </h4>
-                        <span class="date text-center">
-                          <v-icon>
-                            mdi-calendar
-                          </v-icon>
-                          {{ post.date }}
-                        </span>
+                    <div class="d-flex justify-space-around flex-sm-row align-center px-2">
+                      <div class="d-flex justify-center flex-column flex-md-row align-center">
+                        <v-avatar size="65" class="my-0 mx-2">
+                          <v-img :src="post.avatar" />
+                        </v-avatar>
+                        <div class="px-1 mx-sm-5">
+                          <h4 class="author">
+                            {{ post.author }}
+                          </h4>
+                          <span class="date text-center">
+                            <v-icon>
+                              mdi-calendar
+                            </v-icon>
+                            {{ post.date }}
+                          </span>
+                        </div>
                       </div>
-                      <div>
+                      <div class="d-flex flex-column">
+                        <v-row
+                          v-for="(topic, j) in post.topics"
+                          :key="j"
+                          class="ma-0 pa-0 mini-row"
+                        >
+                          <v-chip
+                            small
+                            label
+                            class="ma-2"
+                          >
+                            <v-icon left>
+                              mdi-label
+                            </v-icon>
+                            {{ topic }}
+                          </v-chip>
+                        </v-row>
+                      </div>
+                      <div class="align-self-end mt-3">
                         <v-btn class="btn-leer" @click="setPost(post)">
                           <v-icon class="eye-i">
                             mdi-eye
@@ -73,14 +107,14 @@
         </v-col>
         <v-col
           cols="12"
-          md="5"
+          lg="5"
         >
           <h3 class="gray-m-font font-weight-medium text-center mb-5">
             Lo más leído
           </h3>
           <aside class="sidebar ml-10">
             <v-row
-              v-for="(post, i) in posts"
+              v-for="(post, i) in latestPosts"
               :key="i"
             >
               <v-card
@@ -110,30 +144,17 @@
 <script>
 export default {
   async asyncData ({ $content }) {
-    const keyPost = [
-      'Consejería',
-      'Eclesiología',
-      'Evangelismo',
-      'Hermenéutica',
-      'Homilética',
-      'Liderazgo Cristiano',
-      'Teología',
-      'Enseñanza',
-      'Evangelismo',
-      'Historia del Cristianismo',
-      'Exégesis'
-    ]
     const posts = await $content('/blog', {})
       .without(['body'])
       .sortBy('title', 'asc')
       .fetch()
-      .where({ topic: keyPost })
-    // console.info(posts)
-    return { posts }
+    const latestPosts = JSON.parse(JSON.stringify(posts))
+    return { posts, latestPosts }
   },
   data () {
     return {
-      sortPost: false,
+      sortPost: null,
+      query: '',
       keyPost: [
         'Consejería',
         'Eclesiología',
@@ -155,13 +176,30 @@ export default {
     }
   },
   watch: {
+    async query (query) {
+      this.posts = await this.$content('/blog', {})
+        .search(query)
+        .fetch()
+    },
     async sortPost () {
-      await this.posts.filter(post => console.info(post.topic === this.keyPost))
+      if (this.sortPost) {
+        this.posts = await this.$content('/blog', {})
+          .where({ topics: { $contains: this.sortPost } })
+          .fetch()
+      } else {
+        await this.getPosts()
+      }
     }
   },
   methods: {
     setPost (post) {
       this.$router.push('/blog/' + post.slug)
+    },
+    async getPosts () {
+      this.posts = await this.$content('/blog', {})
+        .without(['body'])
+        .sortBy('title', 'asc')
+        .fetch()
     }
   }
 }
@@ -194,7 +232,7 @@ export default {
         }
         .card-overlay{
           background-color: rgba(#ffffff, $alpha: 0.90);
-          height: 40%;
+          height: auto;
           position: absolute;
           width: 100%;
         h4.card-title {
@@ -226,7 +264,7 @@ export default {
     }
               @include tablet {
                 .card-overlay {
-                  height: 35% !important;
+                  height: 40% !important;
                   .author {
                       font-size: $body;
                         color: $gray-mid;

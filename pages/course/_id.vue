@@ -106,7 +106,7 @@
               </div>
             </v-card>
             <!-- <div class="centrar d-flex flex-column"> -->
-            <v-btn width="95%" class="btn">
+            <v-btn width="95%" class="btn" @click="heroContact = true">
               Matricular
             </v-btn>
             <v-btn width="95%" class="btn">
@@ -115,6 +115,7 @@
               </v-icon>
               Regalar Curso
             </v-btn>
+            <purchase-form v-model="heroContact" title="Formulario de Matrícula" />
             <section class="my-5 d-flex justify-center align-center">
               <v-icon size="40" class="mr-6 gray-m-font">
                 mdi-account-group
@@ -172,20 +173,6 @@
                 </div>
               </div>
             </section>
-            <!-- <section class="text-center">
-              <div>
-                <v-icon size="35" class="mr-3">
-                  mdi-medal
-                </v-icon>
-                <h4 class="d-inline gray-m-font">
-                  Competencias
-                </h4>
-              </div>
-              <p class="text-mid mt-3">
-                Identifica y experimenta el proceso de transformación cristiana y establece una sana relación con Dios Padre, Hijo y Espíritu Santo.
-              </p>
-            </section> -->
-            <!-- </div> -->
           </aside>
         </v-col>
       </v-row>
@@ -227,11 +214,16 @@
   </div>
 </template>
 <script>
+import purchaseForm from '~/components/forms/purchaseForm.vue'
 export default {
+  components: {
+    purchaseForm
+  },
   data () {
     return {
       courseId: null,
-      dialogVideo: false
+      dialogVideo: false,
+      heroContact: false
     }
   },
   head () {
