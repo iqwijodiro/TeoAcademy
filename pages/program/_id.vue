@@ -27,7 +27,7 @@
               max-width="1000px"
             >
               <template #activator="{ on, attrs }">
-                <div class="box">
+                <div class="box-video">
                   <v-img
                     v-bind="attrs"
                     :src="singleProgram.imgUrl"
@@ -51,7 +51,7 @@
               {{ singleProgram.description }}
             </p>
             <h2 class="gray-m-font my-5">
-              Cursos
+              Módulos
             </h2>
             <v-expansion-panels v-if="courses" class="mb-8 mt-4" accordion>
               <v-expansion-panel
@@ -70,11 +70,11 @@
                   <p class="text-mid">
                     {{ course.description }}
                   </p>
-                  <v-row justify="center" class="py-2 mt-2">
+                  <!-- <v-row justify="center" class="py-2 mt-2">
                     <v-btn class="minibtn" @click="setCourse(course)">
                       Ver Curso
                     </v-btn>
-                  </v-row>
+                  </v-row> -->
                 </v-expansion-panel-content>
               </v-expansion-panel>
             </v-expansion-panels>
@@ -127,13 +127,13 @@
             </v-card>
             <!-- <div class="centrar d-flex flex-column"> -->
             <v-btn width="95%" class="btn">
-              Comprar
+              Matricular
             </v-btn>
             <v-btn width="95%" class="btn">
               <v-icon size="30" class="mr-3">
                 mdi-gift
               </v-icon>
-              Regalar Curso
+              Regalar Programa
             </v-btn>
             <section class="my-5 d-flex justify-center align-center pa-0">
               <v-icon size="40" class="mr-6 gray-m-font">

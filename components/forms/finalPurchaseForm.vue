@@ -1,6 +1,6 @@
 <template>
   <v-card
-    class="py-3 px-3 rounded-xl mx-auto"
+    class="pa-3 mb-14 rounded-xl mx-auto"
     max-width="1000"
   >
     <h2 class="text-center red-font mb-0">
@@ -63,22 +63,22 @@
               :rules="[validationRules.required]"
               solo
               clearable
-              label="Pais Natal"
+              label="País Natal"
               required
             />
             <v-text-field
-              v-model="lead.secondLastName"
+              v-model="lead.second"
               :rules="[validationRules.required]"
               solo
               clearable
-              label="Pais de Residencia Actual"
+              label="País de Residencia Actual"
               required
             />
             <v-text-field
-              v-model="lead.contactInfo.phoneNumber"
+              v-model="lead.contactInfo.code"
               solo
               clearable
-              label="Codigo Postal"
+              label="Código Postal"
               type="number"
               min="0"
             />
@@ -92,16 +92,21 @@
               hide-details
               solo
               clearable
-              class="my-5"
               :rules="[validationRules.required]"
             />
-            <v-text-field
-              v-model="lead.contactInfo.phoneNumber"
+            <!-- <v-text-field
+              v-model="lead.contactInfo.Profesion"
               solo
               clearable
               label="Profesión u oficio"
               :rules="[validationRules.required]"
-            />
+            /> -->
+            <p class="text-blog font-weight-bold blue-font text-start mt-10">
+              Usted se está matriculando en: "nombre de Estudio"
+            </p>
+            <p class="text text-start">
+              ¿Tiene conocimientos y/o estudios previos en la materia?
+            </p>
             <v-checkbox
               v-model="positive"
               hide-details
@@ -178,9 +183,9 @@
         />
         <v-btn
           class="btn"
-          @click="heroContact = false"
+          @click="resetForm"
         >
-          Cerrar
+          Limpiar
         </v-btn>
       </v-row>
     </v-container>

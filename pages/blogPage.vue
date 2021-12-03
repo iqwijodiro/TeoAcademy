@@ -12,31 +12,6 @@
         >
           <main>
             <v-container>
-              <v-row class="ma-0 pa-0" justify="start">
-                <v-col cols="12" md="7" class="ml-3">
-                  <input type="text" style="display: none; visibility: hidden">
-                  <v-text-field
-                    v-model="query"
-                    placeholder="Buscar artículo..."
-                    solo
-                    dense
-                    clearable
-                    prepend-inner-icon="mdi-magnify"
-                    autofocus
-                  />
-                </v-col>
-                <v-col cols="12" md="4" class="mr-3">
-                  <v-select
-                    v-model="sortPost"
-                    dense
-                    :items="keyPost"
-                    label="Filtrar por..."
-                    hide-details
-                    solo
-                    clearable
-                  />
-                </v-col>
-              </v-row>
               <v-row
                 v-for="(post, i) in posts"
                 :key="i"
@@ -108,8 +83,42 @@
         <v-col
           cols="12"
           lg="5"
+          class="mb-10"
         >
-          <h3 class="gray-m-font font-weight-medium text-center mb-5">
+          <v-row class="mb-5 pa-5 mt-5" justify="center">
+            <!-- <v-col cols="12" md="auto" class="pa-0 ma-0"> -->
+            <div class="">
+              <v-row justify="center" no-gutters>
+                <v-col cols="12" md="10">
+                  <input type="text" style="display: none; visibility: hidden">
+                  <v-text-field
+                    v-model="query"
+                    placeholder="Buscar artículo..."
+                    solo
+                    clearable
+                    prepend-inner-icon="mdi-magnify"
+                    autofocus
+                  />
+                </v-col>
+              <!-- </v-row> -->
+              <!-- </v-col> -->
+              <!-- <v-col cols="12" md="auto" class="pa-0 ma-0"> -->
+              <!-- <v-row> -->
+                <v-col cols="12" md="10">
+                  <v-select
+                    v-model="sortPost"
+                    :items="keyPost"
+                    label="Filtrar por..."
+                    hide-details
+                    solo
+                    clearable
+                  />
+                </v-col>
+              </v-row>
+            </div>
+          <!-- </v-col> -->
+          </v-row>
+          <h3 class="gray-m-font font-weight-medium text-center mb-10">
             Lo más leído
           </h3>
           <aside class="sidebar ml-10">
