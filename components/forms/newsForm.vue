@@ -40,13 +40,6 @@
                   label="Email"
                   required
                 />
-                <!-- <v-text-field
-                              :rules="[validationRules.required]"
-                              solo
-                              clearable
-                              label="País"
-                              required
-                            /> -->
               </v-col>
             </v-row>
             <v-container>
@@ -178,12 +171,10 @@ export default {
         } else {
           // Mensaje de error
           this.dialogError = true
-          // this.$emit('error', 'Esto es un parametro')
         }
       } else {
         // Mensaje de error
         this.dialogError = true
-        // this.$emit('error', 'Esto es un parametro')
       }
     },
     resetForm () {

@@ -44,7 +44,7 @@
                   required
                 />
                 <v-text-field
-                  v-model="lead.firstName"
+                  v-model="lead.secondName"
                   :rules="[validationRules.required]"
                   solo
                   clearable
@@ -253,6 +253,9 @@ export default {
         this.dialogError = true
         // this.$emit('error', 'Esto es un parametro')
       }
+      setTimeout(() => {
+        this.$router.push('/purchasePage')
+      }, 3500)
     },
     resetForm () {
       this.$refs.formHero.reset()
