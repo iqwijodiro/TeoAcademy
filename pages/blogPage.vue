@@ -181,7 +181,7 @@ export default {
   },
   head () {
     return {
-      title: 'Contenido de temas cristiano y teologico a tu alcance - Teo Academy '
+      title: 'Contenido de temas cristiano y teologico a tu alcance - Universidad Teológica Interamericana'
     }
   },
   watch: {

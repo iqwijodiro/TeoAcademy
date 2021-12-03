@@ -159,7 +159,7 @@
 export default {
   data () {
     return {
-      title: 'Programas de cursos teológicos y de formación cristiana a tu alcance - Teo Academy',
+      title: 'Programas de cursos teológicos y de formación cristiana - Universidad Teológica Interamericana',
       programs: [],
       page: 1,
       pages: 1,

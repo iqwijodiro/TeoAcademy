@@ -143,7 +143,7 @@ export default {
   components: { courseCard, discountForm },
   data () {
     return {
-      title: 'Cursos de formación cristiana y temas teológicos a tu alcance - Teo Academy',
+      title: 'Cursos de formación cristiana y temas teológicos a tu alcance - Universidad Teológica Interamericana',
       courses: [],
       search: '',
       valid: true,

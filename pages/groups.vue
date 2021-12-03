@@ -44,7 +44,7 @@ export default {
   },
   data () {
     return {
-      title: 'Formación cristiana y teológica para grupos y congregaciones - Teo Academy'
+      title: 'Formación cristiana y teológica para grupos y congregaciones - Universidad Teológica Interamericana'
     }
   },
   head () {
