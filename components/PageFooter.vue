@@ -4,9 +4,9 @@
       <v-container class="pt-3">
         <v-row class="mt-5">
           <v-col
+            cols="12"
             md="5"
-            lg="5"
-            xl="5"
+            class="order-2 order-md-0"
           >
             <ul>
               <li v-for="(FootItem, i) in FootItems" :key="i" class="d-flex">
@@ -22,8 +22,7 @@
           <v-col
             cols="12"
             md="3"
-            lg="3"
-            xl="3"
+            class="order-1 order-md-1"
           >
             <v-list
               class="d-flex flex-column align-md-start align-center pa-0"
@@ -39,9 +38,9 @@
             </v-list>
           </v-col>
           <v-col
+            cols="12"
             md="4"
-            lg="4"
-            xl="4"
+            class="order-0 order-md-2"
           >
             <!-- Formulario de contacto -->
             <contact-form v-model="heroContact">
@@ -65,7 +64,7 @@
             <h4 class="mb-3 text-center">
               Síguenos en nuestras redes sociales
             </h4>
-            <div class="d-flex justify-space-between mx-auto pt-2">
+            <div class="d-flex justify-space-around justify-md-space-between mx-auto pt-2">
               <v-list
                 v-for="(icon, i) in icons"
                 :key="i"

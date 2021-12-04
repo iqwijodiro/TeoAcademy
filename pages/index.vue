@@ -40,9 +40,9 @@ export default {
     newsletter
   },
   async asyncData ({ $content }) {
-    const posts = await $content('/blog')
+    const posts = await $content('/blog', {})
       .without(['body'])
-      .sortBy('createdAt', 'asc')
+      .sortBy('title', 'asc')
       .fetch()
     return { posts }
   },

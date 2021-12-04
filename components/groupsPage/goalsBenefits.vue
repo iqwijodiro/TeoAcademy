@@ -1,39 +1,49 @@
 <template>
   <section class="goals gutter-p px-5">
     <v-container class="px-5">
-      <v-row>
-        <v-col
-          lg="10"
-          class="mx-auto"
-        >
-          <h2 class="text-center mb-8 red-font">
-            <v-icon class="icon">
-              mdi-bullseye-arrow
+      <!-- <v-row justify="center"> -->
+      <v-col
+        cols="12"
+        md="10"
+        class="mx-auto"
+      >
+        <h2 class="text-center mb-8 red-font">
+          <v-icon class="icon">
+            mdi-bullseye-arrow
+          </v-icon>
+          Objetivos
+        </h2>
+        <ul class=" ml-3">
+          <li
+            v-for="goal in goals"
+            :key="goal.id"
+            class="text"
+          >
+            <v-icon class="icon mr-3">
+              mdi-check-circle
             </v-icon>
-            Objetivos
-          </h2>
-          <ul v-for="goal in goals" :key="goal.id">
-            <li class="text ml-3">
-              <v-icon class="icon mr-3">
-                mdi-check-circle
-              </v-icon>{{ goal }}
-            </li>
-          </ul>
-          <h2 class="text-center mt-15 mb-5 red-font">
-            <v-icon class="icon">
-              mdi-medal
-            </v-icon>
-            Beneficios
-          </h2>
-          <ul v-for="(benefit, i) in benefits" :key="i">
-            <li class="text ml-3">
-              <v-icon class="icon mr-3">
-                mdi-seal
-              </v-icon>{{ benefit }}
-            </li>
-          </ul>
-        </v-col>
-      </v-row>
+            {{ goal }}
+          </li>
+        </ul>
+        <h2 class="text-center mt-15 mb-5 red-font">
+          <v-icon class="icon">
+            mdi-medal
+          </v-icon>
+          Beneficios
+        </h2>
+        <ul class="ml-3">
+          <li
+            v-for="(benefit, i) in benefits"
+            :key="i"
+            class="text"
+          >
+            <v-icon class="icon mr-3">
+              mdi-seal
+            </v-icon>{{ benefit }}
+          </li>
+        </ul>
+      </v-col>
+      <!-- </v-row> -->
     </v-container>
   </section>
 </template>

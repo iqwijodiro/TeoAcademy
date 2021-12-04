@@ -1,6 +1,6 @@
 <template>
   <v-card
-    max-height="525px"
+    max-height="545px"
     max-width="320px"
     height="95%"
     class="
@@ -8,7 +8,7 @@
       rounded-lg
       mx-4
       my-5
-      pb-2
+      pb-3
       d-flex
       flex-column
       justify-space-between

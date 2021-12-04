@@ -100,7 +100,7 @@ export default {
 }
 @include miniDesktop() {
     .gutter-p {
-        padding-top: 12rem !important;
+        padding-top: 120px !important;
   }
 }
 </style>

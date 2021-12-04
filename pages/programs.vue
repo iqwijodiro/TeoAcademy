@@ -69,6 +69,7 @@
                 <v-card
                   elevation="5"
                   class="d-flex flex-column flex-sm-row program-card pa-0 rounded-lg mb-10"
+                  @click="setProgram(program)"
                 >
                   <v-col
                     xl="6"

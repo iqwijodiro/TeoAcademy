@@ -26,13 +26,13 @@
                     height="100%"
                     class="rounded-lg img-post"
                   />
-                  <div class="card-overlay pa-2 rounded-b-lg">
+                  <div class="card-overlay py-4 px-3 rounded-b-lg">
                     <h4 class="card-title text-center red-font my-4">
                       {{ post.title }}
                     </h4>
-                    <div class="d-flex justify-space-around flex-sm-row align-center px-2">
+                    <div class="d-flex justify-space-between flex-sm-row align-center">
                       <div class="d-flex justify-center flex-column flex-md-row align-center">
-                        <v-avatar size="65" class="my-0 mx-2">
+                        <v-avatar size="65" class="my-0 mx-2 align-self-start align-self-md-center">
                           <v-img :src="post.avatar" />
                         </v-avatar>
                         <div class="px-1 mx-sm-5">
@@ -47,31 +47,37 @@
                           </span>
                         </div>
                       </div>
-                      <div class="d-flex flex-column">
-                        <v-row
-                          v-for="(topic, j) in post.topics"
-                          :key="j"
-                          class="ma-0 pa-0 mini-row"
-                        >
-                          <v-chip
-                            small
-                            label
-                            class="ma-2"
+                      <div class="d-flex flex-column flex-sm-row ml-4">
+                        <div class="px-3">
+                          <v-row
+                            v-for="(topic, j) in post.topics"
+                            :key="j"
+                            class="ma-0 pa-0 mini-row"
                           >
-                            <v-icon left>
-                              mdi-label
-                            </v-icon>
-                            {{ topic }}
-                          </v-chip>
-                        </v-row>
-                      </div>
-                      <div class="align-self-end mt-3">
-                        <v-btn class="btn-leer" @click="setPost(post)">
-                          <v-icon class="eye-i">
-                            mdi-eye
-                          </v-icon> <br>
-                          <span>Leer</span>
-                        </v-btn>
+                            <v-chip
+                              small
+                              label
+                              class="my-1"
+                            >
+                              <v-icon left>
+                                mdi-label
+                              </v-icon>
+                              {{ topic }}
+                            </v-chip>
+                          </v-row>
+                        </div>
+                        <div class="mx-3 mt-3">
+                          <v-btn
+                            class="btn-leer"
+                            width="100%"
+                            @click="setPost(post)"
+                          >
+                            <v-icon class="eye-i">
+                              mdi-eye
+                            </v-icon> <br>
+                            <span>Leer</span>
+                          </v-btn>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -82,12 +88,13 @@
         </v-col>
         <v-col
           cols="12"
+          md
           lg="5"
           class="mb-10"
         >
           <v-row class="mb-5 pa-5 mt-5" justify="center">
-            <!-- <v-col cols="12" md="auto" class="pa-0 ma-0"> -->
-            <div class="">
+            <!-- Search Section -->
+            <div>
               <v-row justify="center" no-gutters>
                 <v-col cols="12" md="10">
                   <input type="text" style="display: none; visibility: hidden">
@@ -100,10 +107,6 @@
                     autofocus
                   />
                 </v-col>
-              <!-- </v-row> -->
-              <!-- </v-col> -->
-              <!-- <v-col cols="12" md="auto" class="pa-0 ma-0"> -->
-              <!-- <v-row> -->
                 <v-col cols="12" md="10">
                   <v-select
                     v-model="sortPost"
@@ -116,7 +119,6 @@
                 </v-col>
               </v-row>
             </div>
-          <!-- </v-col> -->
           </v-row>
           <h3 class="gray-m-font font-weight-medium text-center mb-10">
             Lo más leído
@@ -240,7 +242,7 @@ export default {
           }
         }
         .card-overlay{
-          background-color: rgba(#ffffff, $alpha: 0.90);
+          background-color: rgba(#ffffff, $alpha: 0.80);
           height: auto;
           position: absolute;
           width: 100%;
@@ -273,7 +275,7 @@ export default {
     }
               @include tablet {
                 .card-overlay {
-                  height: 40% !important;
+                  // height: 40% !important;
                   .author {
                       font-size: $body;
                         color: $gray-mid;

@@ -37,25 +37,36 @@
                   <v-form>
                     <v-container>
                       <v-row justify="center">
-                        <input type="text" style="display: none; visibility: hidden">
-                        <v-text-field
-                          v-model="search"
-                          placeholder="Buscar curso..."
-                          solo
-                          clearable
-                          prepend-inner-icon="mdi-magnify"
-                          autofocus
-                          class="mt-2"
-                          @keyup.enter.stop="searchData"
-                        />
-                        <v-btn
-                          width="100%"
-                          max-width="200px"
-                          class="btn d-block"
-                          @click="searchData"
+                        <v-col
+                          cols="12"
+                          md="8"
+                          class="mb-0 pb-0"
                         >
-                          Buscar
-                        </v-btn>
+                          <input type="text" style="display: none; visibility: hidden">
+                          <v-text-field
+                            v-model="search"
+                            placeholder="Buscar curso..."
+                            solo
+                            clearable
+                            prepend-inner-icon="mdi-magnify"
+                            autofocus
+                            class="mt-2"
+                            @keyup.enter.stop="searchData"
+                          />
+                        </v-col>
+                        <v-col
+                          cols="12"
+                          md="4"
+                          class="mt-n5"
+                        >
+                          <v-btn
+                            class="btn mb-5 mx-auto"
+                            width="100%"
+                            @click="searchData"
+                          >
+                            Buscar
+                          </v-btn>
+                        </v-col>
                       </v-row>
                       <v-row class="ma-0 pa-0">
                         <v-col cols="12" md="auto" class="px-0 mx-auto">

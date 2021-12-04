@@ -11,9 +11,11 @@
             sm="2"
             class="order-1 order-lg-1 mr-2"
           >
-            <div class="date-box d-flex justify-center align-start">
-              <span class="date mr-4 d-block"> {{ event.date }} </span>
-              <div class="d-block pt-4">
+            <div class="date-box">
+              <div class="date mr-5">
+                {{ event.date }}
+              </div>
+              <div class="pt-2">
                 <p class="month ma-0 pa-0">
                   {{ event.month }}
                 </p>
@@ -141,8 +143,13 @@ export default {
       border-bottom: none;
     }
     .date-box {
-      margin-top: -8px;
-      span.date {
+      // margin-top: -8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-content: flex-start;
+      height: 90px;
+      .date {
         font-family: $title-font;
         color: $ocean;
         font-size: 90px;

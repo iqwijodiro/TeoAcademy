@@ -3,16 +3,14 @@
     <v-container>
       <v-row class="d-flex justify-center align-center">
         <v-col
-          cols="12"
-          xl="4"
-          lg="4"
-          md="6"
-          sm="6"
+          cols="8"
+          sm="3"
           class="mr-5"
         >
           <v-img
             :src="require('@/assets/img/logo-white-full.webp')"
             contain
+            max-width="100%"
           />
         </v-col>
         <v-col

@@ -4,7 +4,9 @@
       <v-row>
         <v-col>
           <article class="mx-auto">
-            <h1>{{ post.title }}</h1>
+            <h1 class="fw-300">
+              {{ post.title }}
+            </h1>
             <div class="content-box my-5">
               <v-img
                 :src="post.img"
@@ -40,16 +42,31 @@
           </article>
         </v-col>
       </v-row>
-      <div class="d-flex justify-center align-center">
-        <v-btn class="minibtn" to="/blogPage">
-          Ver otros artículos
-        </v-btn>
-        <v-btn class="minibtn" to="/courses">
-          Ver Cursos
-        </v-btn>
-        <v-btn class="minibtn" to="/programs">
-          Ver programas
-        </v-btn>
+      <div class="d-flex flex-column flex-sm-row justify-center align-center">
+        <v-col
+          cols="12"
+          md="3"
+        >
+          <v-btn width="100%" class="minibtn mx-3" to="/blogPage">
+            Ver otros artículos
+          </v-btn>
+        </v-col>
+        <v-col
+          cols="12"
+          md="3"
+        >
+          <v-btn width="100%" class="minibtn mx-3" to="/courses">
+            Ver Cursos
+          </v-btn>
+        </v-col>
+        <v-col
+          cols="12"
+          md="3"
+        >
+          <v-btn width="100%" class="minibtn mx-3" to="/programs">
+            Ver programas
+          </v-btn>
+        </v-col>
       </div>
     </v-container>
   </div>

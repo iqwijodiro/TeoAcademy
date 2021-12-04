@@ -78,26 +78,6 @@
                 </v-expansion-panel-content>
               </v-expansion-panel>
             </v-expansion-panels>
-            <div class="centrar">
-              <dialog-success
-                v-model="dialogSuccess"
-                header="¡Gracias por Descargar la ficha del programa!"
-                message="En tu bandeja de correo electrónico recibirás el link de descarga del Ebook. Esperamos sea de gran utilidad."
-              >
-                <template
-                  #activator="{ on, attrs }"
-                >
-                  <v-btn
-                    :attrs="attrs"
-                    class="btn"
-                    @on="on"
-                    @click="dialogSuccess = true"
-                  >
-                    Descargar ficha del programa
-                  </v-btn>
-                </template>
-              </dialog-success>
-            </div>
           </main>
         </v-col>
         <v-col
@@ -251,6 +231,26 @@
         </div>
       </v-container>
     </section> -->
+    <div class="centrar mt-10">
+      <dialog-success
+        v-model="dialogSuccess"
+        header="¡Gracias por Descargar la ficha del programa!"
+        message="En tu bandeja de correo electrónico recibirás el link de descarga del Ebook. Esperamos sea de gran utilidad."
+      >
+        <template
+          #activator="{ on, attrs }"
+        >
+          <v-btn
+            :attrs="attrs"
+            class="btn"
+            @on="on"
+            @click="dialogSuccess = true"
+          >
+            Descargar ficha del programa
+          </v-btn>
+        </template>
+      </dialog-success>
+    </div>
   </div>
 </template>
 

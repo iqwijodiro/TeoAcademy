@@ -1,11 +1,11 @@
 <template>
   <!--Seccion de Hero-->
   <section class="ma-0 pa-0">
-    <div class="hero d-flex flex-column justify-center align-center pt-5">
+    <div class="hero d-flex flex-column justify-center align-center">
       <div class="mask" />
       <appear :duration="800" :delay="100" :translate="[0, '-200px']">
         <v-card flat class="main-title text-center">
-          <h1 class="text-center">
+          <h1 class="text-center font-weight-regular">
             Universidad Teológica Interamericana
           </h1>
           <h2 class="text-2 my-0 gray-font">
@@ -71,6 +71,9 @@ export default {
   background-image: url(https://images.unsplash.com/photo-1594142117505-c70dcd31087c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
   min-height: 650px;
   background-color: rgba($color: $gray-mid, $alpha: 0.37);
+  h1 {
+    text-shadow: 3px 3px 5px rgba(149,149,149,0.75);
+  }
   .main-title {
     margin-top: 70px;
     background-color: rgba($color: #e9e9e9, $alpha: 0);
@@ -140,7 +143,7 @@ export default {
     }
   }
   .gutter-p {
-    padding-top: 12rem !important;
+    padding-top: 120px !important;
   }
 }
 </style>

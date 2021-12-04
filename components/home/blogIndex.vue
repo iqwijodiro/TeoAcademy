@@ -6,11 +6,18 @@
       </h2>
       <v-row justify="center" class="mb-5">
         <v-col>
-          <v-slide-group arrows class="my-3 my-slider mx-auto">
-            <v-slide-item v-for="(post, i) in posts" :key="i" class="slide ma-5">
+          <v-slide-group
+            show-arrows="desktop"
+            center-active
+            class="my-3 my-slider mx-auto">
+            <v-slide-item
+              v-for="(post, i) in posts"
+              :key="i"
+              class="slide ma-5"
+            >
               <v-card
                 elevation="5"
-                max-width="350px"
+                max-width="315px"
                 height="350px"
                 max-height="400px"
                 class="post-card d-flex align-end rounded-xl"
@@ -39,7 +46,7 @@
                     </div>
                   </div>
                   <div class="d-flex justify-center">
-                    <v-btn class="btn-leer" @click="setPost(post)">
+                    <v-btn class="btn-leer" :width=" $vuetify.breakpoint.mdAndUp ? '50%' : '80%'" @click="setPost(post)">
                       <v-icon class="eye-i">
                         mdi-eye
                       </v-icon> <br>
@@ -66,6 +73,13 @@ export default {
       default: () => []
     }
   },
+  // async asyncData ({ $content }) {
+  //   const posts = await $content('/blog', {})
+  //     .without(['body'])
+  //     .sortBy('title', 'asc')
+  //     .fetch()
+  //   return { posts }
+  // },
   methods: {
     setPost (post) {
       this.$router.push('/blog/' + post.slug)
@@ -82,6 +96,8 @@ export default {
     border-top: 0.2rem solid $gray-light;
     border-bottom: 0.2rem solid $gray-light;
     max-height: 450px;
+    width: 100%;
+    max-width: 1500px;
     .slide {
       max-height: 400px;
       .blog-card {
@@ -93,6 +109,7 @@ export default {
         position: absolute;
         width: 100%;
         border-bottom-left-radius: 24px;
+        padding: 10px;
         .card-title,
         .date {
           color: #fff !important;

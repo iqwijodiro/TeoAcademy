@@ -7,7 +7,7 @@ topics:
 date: 01-02-2019
 author: Dr. Natanael Valenzuela
 avatar: https://randomuser.me/api/portraits/men/72.jpg
-img: https://images.unsplash.com/photo-1474552226712-ac0f0961a954?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80
+img: https://images.unsplash.com/photo-1511405889574-b01de1da5441?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80
 slug: condiciones-relacion-sana
 ---
 

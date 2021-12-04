@@ -4,7 +4,6 @@ description: El cerebro también se alimenta, tu mente recibe diferente tipos de
 topics:
     - 'Enseñanza'
     - 'Liderazgo'
-    - 'Tag 1'
 date: 01-02-2019
 author: Dr. Natanael Valenzuela
 avatar: https://randomuser.me/api/portraits/men/82.jpg
