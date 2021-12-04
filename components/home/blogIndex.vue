@@ -5,18 +5,13 @@
         Nuestro Blog
       </h2>
       <v-row
-        v-touch="{
-          left: () => swipe('Left'),
-          right: () => swipe('Right'),
-          up: () => swipe('Up'),
-          down: () => swipe('Down')
-        }"
         justify="center"
         class="mb-5"
       >
-        {{ swipeDirection }}
         <v-col>
           <v-slide-group
+            arrows
+            multiple
             class="my-3 my-slider mx-auto"
           >
             <v-slide-item
@@ -82,9 +77,11 @@ export default {
       default: () => []
     }
   },
-  data: () => ({
-    swipeDirection: 'None'
-  }),
+  data () {
+    return {
+      swipeDirection: 'None'
+    }
+  },
   methods: {
     swipe (direction) {
       this.swipeDirection = direction
@@ -147,5 +144,10 @@ export default {
       }
     }
   }
+}
+</style>
+<style scoped>
+.v-slide-group__wrapper {
+    touch-action: auto !important;
 }
 </style>

@@ -111,3 +111,8 @@ export default {
 
 }
 </style>
+<style scoped>
+.v-slide-group__wrapper {
+    touch-action: auto !important;
+}
+</style>
