@@ -160,7 +160,7 @@
 export default {
   data () {
     return {
-      title: 'Programas de cursos teológicos y de formación cristiana - Universidad Teológica Interamericana',
+      title: 'Programas de cursos teológicos y de formación cristiana',
       programs: [],
       page: 1,
       pages: 1,

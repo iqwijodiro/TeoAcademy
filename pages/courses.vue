@@ -154,7 +154,7 @@ export default {
   components: { courseCard, discountForm },
   data () {
     return {
-      title: 'Cursos de formación cristiana y temas teológicos a tu alcance - Universidad Teológica Interamericana',
+      title: 'Cursos de formación cristiana y temas teológicos a tu alcance',
       courses: [],
       search: '',
       valid: true,

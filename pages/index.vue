@@ -48,7 +48,7 @@ export default {
   },
   head () {
     return {
-      title: 'Formación cristiana y teológica online - Universidad Teológica Interamericana'
+      title: 'Formación cristiana y teológica online'
     }
   }
 }

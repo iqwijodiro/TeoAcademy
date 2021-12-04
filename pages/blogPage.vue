@@ -177,7 +177,7 @@ export default {
   },
   head () {
     return {
-      title: 'Contenido de temas cristiano y teologico a tu alcance - Universidad Teológica Interamericana'
+      title: 'Contenido de temas cristiano y teologico a tu alcance'
     }
   },
   watch: {
