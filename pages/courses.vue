@@ -57,10 +57,10 @@
                         <v-col
                           cols="12"
                           md="4"
-                          class="mt-n5"
+                          class="mt-n5 mt-md-0"
                         >
                           <v-btn
-                            class="btn mb-5 mx-auto"
+                            class="btn mb-5 mb-md-0 mx-auto"
                             width="100%"
                             @click="searchData"
                           >
@@ -199,7 +199,9 @@ export default {
       }
     },
     page () {
+      // this.spinner = true
       if (this.search === null || this.search === '') {
+        this.spinner = true
         this.getCourses(this.page)
       } else {
         this.searchData()
