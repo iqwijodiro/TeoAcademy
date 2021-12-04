@@ -109,7 +109,7 @@
             <v-btn width="95%" class="btn" @click="heroContact = true">
               Matricular
             </v-btn>
-            <v-btn width="95%" class="btn">
+            <v-btn width="95%" class="btn" disabled>
               <v-icon size="30" class="mr-3">
                 mdi-gift
               </v-icon>

@@ -126,40 +126,28 @@
               </v-row>
             </v-row>
           </div>
-          <h3 class="gray-m-font font-weight-medium text-center mb-10">
-            Lo más leído
-          </h3>
-          <aside class="sidebar">
-            <v-row
-              v-for="(post, i) in latestPosts"
-              :key="i"
-            >
-              <v-card
-                class="d-flex my-3 rounded top__post"
-                @click="setPost(post)"
-              >
-                <v-img width="45%" height="auto" min-height="100%" :src="post.img" class="img-post rounded" />
-                <div class="d-flex flex-column">
-                  <h4 class="card-title">
-                    {{ post.title }}
-                  </h4>
-                  <p class="text-small text-center">
-                    <v-icon>
-                      mdi-calendar
-                    </v-icon>
-                    {{ post.date }}
-                  </p>
-                </div>
-              </v-card>
-            </v-row>
+          <aside v-if="$vuetify.breakpoint.mdAndUp && latestPosts.length > 0" class="sidebar">
+            <latest-posts
+              :latest-posts="latestPosts"
+              @set-post="setPost"
+            />
           </aside>
         </v-col>
       </div>
+      <v-row v-if="$vuetify.breakpoint.smAndDown">
+        <latest-posts
+          :latest-posts="latestPosts"
+          @set-post="setPost"
+        />
+      </v-row>
     </v-container>
   </div>
 </template>
 <script>
+import LatestPosts from '~/components/blog/latestPosts.vue'
+
 export default {
+  components: { LatestPosts },
   async asyncData ({ $content }) {
     const posts = await $content('/blog', {})
       .without(['body'])
@@ -253,7 +241,7 @@ export default {
             height: auto;
             position: absolute;
             display: block;
-            // width: 99.5%;
+            width: 100%;
               h4.card-title {
                 font-size: $section-title - 5px;
                   color: $wine;

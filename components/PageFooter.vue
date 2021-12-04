@@ -43,22 +43,19 @@
             class="order-0 order-md-2"
           >
             <!-- Formulario de contacto -->
-            <contact-form v-model="heroContact">
-              <template #activator="{ on, attrs }" class="d-block mx-auto">
-                <v-btn
-                  block
-                  class="btn mb-5"
-                  v-bind="attrs"
-                  v-on="on"
-                >
-                  Contáctanos
-                </v-btn>
-              </template>
-            </contact-form>
+            <contact-form v-model="dialogContact" />
+            <v-btn
+              block
+              class="btn mb-5"
+              @click="dialogContact = true"
+            >
+              Contáctanos
+            </v-btn>
             <v-img
               :src="require('../assets/img/logo.webp')"
               contain
               width="200px"
+              max-width="100%"
               class="mx-auto my-4"
             />
             <h4 class="mb-3 text-center">
@@ -101,7 +98,7 @@ export default {
   components: { ContactForm },
   data () {
     return {
-      heroContact: false,
+      dialogContact: false,
       FootItems: [
         // {
         //   icon: 'mdi-map-marker',

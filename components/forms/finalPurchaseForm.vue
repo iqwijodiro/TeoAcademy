@@ -1,112 +1,151 @@
 <template>
-  <v-card
-    class="pa-3 mb-14 rounded-xl mx-auto"
-    max-width="1000"
+  <web-form-card
+    ref="webFormCard"
+    title=""
+    :loading="loading"
+    text-action-button="Enviar"
+    max-width="900px"
+    class="mx-auto"
+    @recaptchaUpdate="recaptchaUpdate"
   >
-    <h2 class="text-center red-font mb-0">
-      {{ title }}
-    </h2>
-    <v-form
-      ref="formHero"
-      v-model="validForm"
-    >
-      <v-container>
-        <v-row justify="center">
-          <v-col
-            xl="10"
-            lg="10"
-          >
-            <v-select
-              v-model="gender"
-              :items="['Masculino', 'Femenino']"
-              label="Sexo"
-              hide-details
-              solo
-              clearable
-              class="my-5"
-              :rules="[validationRules.required, validationRules.emailPattern]"
-            />
-            <v-menu
-              ref="menu"
-              v-model="menu"
-              :close-on-content-click="false"
-              transition="scale-transition"
-              offset-y
-              min-width="auto"
+    <template #body>
+      <v-form
+        ref="form"
+        v-model="validForm"
+      >
+        <v-container>
+          <v-row justify="center">
+            <v-col
+              cols="12"
+              md="6"
             >
-              <template #activator="{ on, attrs }">
-                <v-text-field
-                  v-model="date"
-                  label="Fecha de Nacimiento"
-                  prepend-icon="mdi-calendar"
-                  v-bind="attrs"
-                  v-on="on"
-                />
-              </template>
-              <v-date-picker
-                v-model="date"
-                locale="es"
-                @change="save"
+              <v-select
+                v-model="gender"
+                :items="['Masculino', 'Femenino']"
+                label="Sexo"
+                hide-details
+                solo
+                clearable
+                class="my-5"
+                :rules="[validationRules.required, validationRules.emailPattern]"
               />
-            </v-menu>
-            <v-text-field
-              v-model="lead.contactInfo.email"
-              :rules="[validationRules.required]"
-              solo
-              clearable
-              label="Edad"
-              type="number"
-              min="0"
-            />
-            <v-text-field
-              v-model="lead.secondLastName"
-              :rules="[validationRules.required]"
-              solo
-              clearable
-              label="País Natal"
-              required
-            />
-            <v-text-field
-              v-model="lead.second"
-              :rules="[validationRules.required]"
-              solo
-              clearable
-              label="País de Residencia Actual"
-              required
-            />
-            <v-text-field
-              v-model="lead.contactInfo.code"
-              solo
-              clearable
-              label="Código Postal"
-              type="number"
-              min="0"
-            />
-            <v-select
-              v-model="level"
-              :items="[
-                'Primaria y/o secundaria',
-                'Universitaria',
-                'Maestría']"
-              label="Último grado académico cursado"
-              hide-details
-              solo
-              clearable
-              :rules="[validationRules.required]"
-            />
-            <!-- <v-text-field
-              v-model="lead.contactInfo.Profesion"
-              solo
-              clearable
-              label="Profesión u oficio"
-              :rules="[validationRules.required]"
-            /> -->
-            <p class="text-blog font-weight-bold blue-font text-start mt-10">
+            </v-col>
+            <v-col
+              cols="12"
+              md="6"
+            >
+              <v-menu
+                ref="menu"
+                v-model="menu"
+                :close-on-content-click="false"
+                transition="scale-transition"
+                offset-y
+                min-width="auto"
+              >
+                <template #activator="{ on, attrs }">
+                  <v-text-field
+                    v-model="date"
+                    label="Fecha de Nacimiento"
+                    append-icon="mdi-calendar"
+                    solo
+                    v-bind="attrs"
+                    class="mt-5"
+                    v-on="on"
+                  />
+                </template>
+                <v-date-picker
+                  v-model="date"
+                  locale="es"
+                  @change="save"
+                />
+              </v-menu>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col
+              cols="12"
+              md="6"
+            >
+              <v-text-field
+                v-model="lead.contactInfo.email"
+                :rules="[validationRules.required]"
+                solo
+                clearable
+                label="Edad"
+                type="number"
+                min="0"
+              />
+            </v-col>
+            <v-col
+              cols="12"
+              md="6"
+            >
+              <v-text-field
+                v-model="lead.secondLastName"
+                :rules="[validationRules.required]"
+                solo
+                clearable
+                label="País Natal"
+                required
+              />
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col
+              cols="12"
+              md="6"
+            >
+              <v-text-field
+                v-model="lead.second"
+                :rules="[validationRules.required]"
+                solo
+                clearable
+                label="País de Residencia Actual"
+                required
+              />
+            </v-col>
+            <v-col
+              cols="12"
+              md="6"
+            >
+              <v-text-field
+                v-model="lead.contactInfo.code"
+                solo
+                clearable
+                label="Código Postal"
+                type="number"
+                min="0"
+              />
+            </v-col>
+          </v-row>
+          <v-row justify="center">
+            <v-col
+              cols="12"
+              md="6"
+            >
+              <v-select
+                v-model="level"
+                :items="[
+                  'Primaria y/o secundaria',
+                  'Universitaria',
+                  'Maestría']"
+                label="Último grado académico cursado"
+                hide-details
+                solo
+                clearable
+                :rules="[validationRules.required]"
+              />
+            </v-col>
+          </v-row>
+          <v-row justify="center" class="my-5">
+            <p class="text-blog font-weight-bold blue-font text-start">
               Usted se está matriculando en: "nombre de Estudio"
             </p>
             <p class="text text-start">
               ¿Tiene conocimientos y/o estudios previos en la materia?
             </p>
+          </v-row>
+          <v-row justify="center">
             <v-checkbox
               v-model="positive"
               hide-details
@@ -121,86 +160,62 @@
               label="No"
               :disabled="positive"
             />
-            <v-text-field
-              :disabled="!positive"
-              label="Describa brevemente:"
-              solo
-              class="mt-5"
-            />
-          </v-col>
-        </v-row>
-        <v-container class="pa-0 ma-0">
-          <v-dialog
-            v-model="privacy"
-          >
-            <template #activator="{ on, attrs }">
-              <p class="text-small">
-                Al hacer click en <span class="blue-font font-weight-bold">Enviar</span> usted está confirmando que acepta los términos de nuestras
-                <a v-bind="attrs" class="text-decoration-underline red-font" v-on="on"> políticas y condiciones</a>
-              </p>
-            </template>
-            <v-card>
-              <v-toolbar
-                flat
-                dense
-                app
-                color="transparent"
-              >
-                <v-spacer />
-                <v-btn
-                  icon
-                  @click="privacy = false"
-                >
-                  <v-icon size="30" class="icon gray-light-font">
-                    mdi-close-circle-outline
-                  </v-icon>
-                </v-btn>
-              </v-toolbar>
-              <privacy />
-            </v-card>
-          </v-dialog>
-        </v-container>
-      </v-container>
-    </v-form>
-    <v-container class="pa-0 ma-0">
-      <v-row justify="center" class="pa-0 ma-0">
-        <dialog-success
-          v-model="dialogSuccess"
-          header="¡Gracias por Matricularte!"
-          message="Un miembro de nuestro equipo le estará contactando para formalizar sus solicitud de inscripción."
-        >
-          <template #activator="{ on, attrs }">
-            <v-btn
-              :attrs="attrs"
-              class="btn"
-              @on="on"
-              @click="requestForm"
+          </v-row>
+          <v-row justify="center">
+            <v-col
+              cols="12"
+              md="8"
             >
-              Enviar
-            </v-btn>
-          </template>
-        </dialog-success>
-        <dialog-error
-          v-model="dialogError"
-        />
-        <v-btn
-          class="btn"
-          @click="resetForm"
-        >
-          Limpiar
-        </v-btn>
-      </v-row>
-    </v-container>
-  </v-card>
+              <v-textarea
+                :disabled="!positive"
+                label="Describa brevemente:"
+                solo
+                class="mt-5"
+                auto-grow
+              />
+            </v-col>
+          </v-row>
+          <!-- </v-row> -->
+        </v-container>
+      </v-form>
+    </template>
+    <template #actions>
+      <v-btn
+        class="btn mx-2"
+        :disabled="!reCaptchaSuccess || !validForm"
+        @click="sendLead"
+      >
+        Enviar
+        <v-icon right color="white">
+          mdi-send
+        </v-icon>
+      </v-btn>
+      <v-btn
+        class="btn mx-2"
+        @click="dialogContact = false"
+      >
+        Cerrar
+      </v-btn>
+
+      <dialog-success
+        v-model="dialogSuccess"
+        header="¡Gracias por contactarnos!"
+        message="Un miembro de nuestro equipo le estará contactando a la brevedad posible para ampliar información y/o atender cualquiera de sus solicitudes."
+      />
+      <dialog-error
+        v-model="dialogError"
+      />
+    </template>
+  </web-form-card>
 </template>
 
 <script>
-import Privacy from '~/components/Privacy'
 import dialogSuccess from '~/components/dialogSuccess'
 import dialogError from '~/components/dialogError'
+import webFormCard from '~/components/forms/webFormCard.vue'
 
 export default {
-  components: { Privacy, dialogSuccess, dialogError },
+  components: { dialogSuccess, dialogError, webFormCard },
   props: {
     value: {
       type: Boolean,
@@ -213,7 +228,7 @@ export default {
   },
   data () {
     return {
-      heroContact: this.value,
+      dialogContact: this.value,
       gender: false,
       positive: false,
       negative: false,
@@ -227,51 +242,19 @@ export default {
       date: null,
       menu: false,
       lead: {
-        name: '',
-        request: '',
+        name: null,
+        email: null,
         contactInfo: {
-          masterPhone: {
-            phoneType: 'Principal',
-            code: '',
-            number: '',
-            ext: ''
-          },
-          masterLocation: {
-            _id: 'Principal',
-            name: 'Principal',
-            building: {
-              typeBuilding: 'Casa',
-              name: 'Principal',
-              floor: null,
-              number: null
-            },
-            route1: {
-              typeRoute: 'CL',
-              name: null
-            },
-            route2: {
-              typeRoute: 'AV',
-              name: null
-            },
-            neighborhood: null,
-            adminArea1: null,
-            city: null,
-            adminArea2: null,
-            country: '',
-            postalCode: null,
-            formatted: null,
-            location: {
-              lat: null,
-              lng: null
-            }
-          },
-          email: null,
-          aditional: {
-            phones: [],
-            infoWeb: [],
-            locations: []
-          }
-        }
+          country: null,
+          phone: null
+        },
+        origin: 'UTI',
+        typeLead: 'Contact', // ['Services File Product', 'eBook', 'Contact', 'Services File Institution', 'Services File Representative', 'Services File Tutor', 'Services File Student']
+        description: null,
+        numberOfStudents: null,
+        numberOfTutors: null,
+        leadComment: null,
+        recaptchaToken: null
       },
       validationRules: {
         required: v => !!v || 'Campo Requerido',
@@ -284,10 +267,10 @@ export default {
   },
   watch: {
     value () {
-      this.heroContact = this.value
+      this.dialogContact = this.value
     },
-    heroContact () {
-      this.$emit('input', this.heroContact)
+    dialogContact () {
+      this.$emit('input', this.dialogContact)
     },
     menu (val) {
       val && setTimeout(() => (this.activePicker = 'Año'))
@@ -302,7 +285,7 @@ export default {
         if (this.apiResponse) {
           // Mensaje de éxito
           this.resetForm()
-          this.heroContact = false
+          this.dialogContact = false
           this.dialogSuccess = true
         } else {
           // Mensaje de error

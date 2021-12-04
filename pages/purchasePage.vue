@@ -29,7 +29,7 @@ export default {
 
 <style lang="scss" scoped>
 .bg-main {
-    min-height: 100%;
+    // min-height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;

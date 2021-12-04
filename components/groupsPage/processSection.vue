@@ -14,15 +14,12 @@
         </v-col>
       </v-row>
       <div class="centrar mt-5">
+        <v-btn class="btn mt-2" @click="dialogContact = true">
+          Descargar ficha de servicio
+        </v-btn>
         <process-form
-          v-model="process"
-        >
-          <template #activator="{ on, attrs}" class="mx-auto d-block">
-            <v-btn v-bind="attrs" class="btn mt-2" v-on="on">
-              Descargar ficha de servicio
-            </v-btn>
-          </template>
-        </process-form>
+          v-model="dialogContact"
+        />
       </div>
     </v-container>
   </section>
@@ -36,7 +33,7 @@ export default {
   },
   data () {
     return {
-      process: false
+      dialogContact: false
     }
   }
 }

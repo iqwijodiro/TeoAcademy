@@ -13,20 +13,18 @@
             <h2 class="text-capitalize text-center">
               Descarga gratis nuestro ebook
             </h2>
+            <div class="centrar">
+              <v-btn
+                class="btn d-block"
+                @click="dialogContact = true"
+              >
+                Descargar
+              </v-btn>
+            </div>
             <!-- Formulario de Ebook / Descarga -->
             <ebook-form
-              v-model="ebookContact"
-            >
-              <template #activator="{ on, attrs}" class="mx-auto d-block">
-                <v-btn
-                  class="btn d-block"
-                  v-bind="attrs"
-                  v-on="on"
-                >
-                  Descargar
-                </v-btn>
-              </template>
-            </ebook-form>
+              v-model="dialogContact"
+            />
           </v-card>
         </v-col>
         <v-col xl="5" lg="5" md="5" sm="10" class="mx-auto">
@@ -56,7 +54,7 @@ export default {
   },
   data () {
     return {
-      ebookContact: false,
+      dialogContact: false,
       ebookAnim: false,
       alt: 'Libro digital: Relevancia de la formación bíblica para el cuerpo de Cristo'
     }

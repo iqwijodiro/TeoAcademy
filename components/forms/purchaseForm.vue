@@ -1,219 +1,144 @@
 <template>
-  <div class="centrar">
-    <v-dialog
-      v-model="heroContact"
-      transition="dialog-top-transition"
-      persistent
-      max-width="600px"
-      max-height="80%"
-    >
-      <template #activator="{ on, attrs }" class="d-block mx-auto">
-        <slot name="activator" :on="on" :attrs="attrs" />
-      </template>
-      <v-card
-        class="py-3 px-3 rounded-xl"
-        max-height="80%"
+  <web-form-dialog
+    v-if="dialogContact"
+    ref="webFormDialog"
+    v-model="dialogContact"
+    title="Contáctanos"
+    :loading="loading"
+    text-action-button="Enviar"
+    max-width="500px"
+    @recaptchaUpdate="recaptchaUpdate"
+  >
+    <template #body>
+      <v-form
+        ref="form"
+        v-model="validForm"
       >
-        <h2 class="text-center red-font mb-0">
-          {{ title }}
-        </h2>
-        <v-form
-          ref="formHero"
-          v-model="validForm"
-        >
-          <v-container>
-            <v-row justify="center">
-              <v-col
-                xl="10"
-                lg="10"
-              >
-                <v-text-field
-                  v-model="lead.contactInfo.email"
-                  :rules="[validationRules.required, validationRules.emailPattern]"
-                  solo
-                  clearable
-                  label="Email"
-                  required
-                />
-                <v-text-field
-                  v-model="lead.firstName"
-                  :rules="[validationRules.required]"
-                  solo
-                  clearable
-                  label="Primer Nombre"
-                  required
-                />
-                <v-text-field
-                  v-model="lead.secondName"
-                  :rules="[validationRules.required]"
-                  solo
-                  clearable
-                  label="Segundo Nombre"
-                  required
-                />
-                <v-text-field
-                  v-model="lead.firstLastName"
-                  :rules="[validationRules.required]"
-                  solo
-                  clearable
-                  label="Primer Apellido"
-                  required
-                />
-                <v-text-field
-                  v-model="lead.secondLastName"
-                  :rules="[validationRules.required]"
-                  solo
-                  clearable
-                  label="Segundo Apellido"
-                  required
-                />
-                <v-text-field
-                  v-model="lead.contactInfo.phoneNumber"
-                  solo
-                  clearable
-                  label="Teléfono de Contacto"
-                  type="number"
-                />
-              </v-col>
-            </v-row>
-            <v-container class="pa-0 ma-0">
-              <v-dialog
-                v-model="privacy"
-              >
-                <template #activator="{ on, attrs }">
-                  <p class="text-small">
-                    Al hacer click en <span class="blue-font font-weight-bold">Enviar</span> usted está confirmando que acepta los términos de nuestras
-                    <a v-bind="attrs" class="text-decoration-underline red-font" v-on="on"> políticas y condiciones</a>
-                  </p>
-                </template>
-                <v-card>
-                  <v-toolbar
-                    flat
-                    dense
-                    app
-                    color="transparent"
-                  >
-                    <v-spacer />
-                    <v-btn
-                      icon
-                      @click="privacy = false"
-                    >
-                      <v-icon size="30" class="icon gray-light-font">
-                        mdi-close-circle-outline
-                      </v-icon>
-                    </v-btn>
-                  </v-toolbar>
-                  <privacy />
-                </v-card>
-              </v-dialog>
-            </v-container>
-          </v-container>
-        </v-form>
-        <v-container class="pa-0 ma-0">
-          <v-row justify="center" class="pa-0 ma-0">
-            <dialog-success
-              v-model="dialogSuccess"
-              header="¡Gracias por Matricularte!"
-              message="Un miembro de nuestro equipo le estará contactando para formalizar sus solicitud de inscripción."
+        <v-container>
+          <v-row justify="center" dense>
+            <v-col
+              cols="12"
+              class="py-2"
             >
-              <template #activator="{ on, attrs }">
-                <v-btn
-                  :attrs="attrs"
-                  class="btn"
-                  @on="on"
-                  @click="requestForm"
-                >
-                  Enviar
-                </v-btn>
-              </template>
-            </dialog-success>
-            <dialog-error
-              v-model="dialogError"
-            />
-            <v-btn
-              class="btn"
-              @click="heroContact = false"
-            >
-              Cerrar
-            </v-btn>
+              <v-text-field
+                v-model="lead.contactInfo.email"
+                :rules="[validationRules.required, validationRules.emailPattern]"
+                solo
+                clearable
+                label="Email"
+                required
+              />
+              <v-text-field
+                v-model="lead.firstName"
+                :rules="[validationRules.required]"
+                solo
+                clearable
+                label="Primer Nombre"
+                required
+              />
+              <v-text-field
+                v-model="lead.secondName"
+                :rules="[validationRules.required]"
+                solo
+                clearable
+                label="Segundo Nombre"
+                required
+              />
+              <v-text-field
+                v-model="lead.firstLastName"
+                :rules="[validationRules.required]"
+                solo
+                clearable
+                label="Primer Apellido"
+                required
+              />
+              <v-text-field
+                v-model="lead.secondLastName"
+                :rules="[validationRules.required]"
+                solo
+                clearable
+                label="Segundo Apellido"
+                required
+              />
+              <v-text-field
+                v-model="lead.contactInfo.phoneNumber"
+                solo
+                clearable
+                label="Teléfono de Contacto"
+                type="number"
+              />
+            </v-col>
           </v-row>
         </v-container>
-      </v-card>
-    </v-dialog>
-  </div>
+      </v-form>
+    </template>
+    <template #actions>
+      <v-btn
+        class="btn mx-2"
+        :disabled="!reCaptchaSuccess || !validForm"
+        @click="sendLead"
+      >
+        Enviar
+        <v-icon right color="white">
+          mdi-send
+        </v-icon>
+      </v-btn>
+      <v-btn
+        class="btn mx-2"
+        @click="dialogContact = false"
+      >
+        Cerrar
+      </v-btn>
+
+      <dialog-success
+        v-model="dialogSuccess"
+        header="¡Gracias por Matricularte!"
+        message="Un miembro de nuestro equipo le estará contactando para formalizar sus solicitud de inscripción."
+      />
+      <dialog-error
+        v-model="dialogError"
+      />
+    </template>
+  </web-form-dialog>
 </template>
 
 <script>
-import Privacy from '~/components/Privacy'
+// import Privacy from '~/components/Privacy'
 import dialogSuccess from '~/components/dialogSuccess'
 import dialogError from '~/components/dialogError'
+import webFormDialog from '~/components/forms/webFormDialog.vue'
 
 export default {
-  components: { Privacy, dialogSuccess, dialogError },
+  components: { dialogSuccess, dialogError, webFormDialog },
   props: {
     value: {
       type: Boolean,
       default: false
-    },
-    title: {
-      type: String,
-      default: ''
     }
   },
   data () {
     return {
-      heroContact: this.value,
+      dialogContact: this.value,
       privacy: false,
       apiResponse: false,
       validForm: false,
-      // dialogSuccess: false,
+      dialogSuccess: false,
       dialogError: false,
+      reCaptchaSuccess: false,
       lead: {
-        name: '',
-        request: '',
+        name: null,
+        email: null,
         contactInfo: {
-          masterPhone: {
-            phoneType: 'Principal',
-            code: '',
-            number: '',
-            ext: ''
-          },
-          masterLocation: {
-            _id: 'Principal',
-            name: 'Principal',
-            building: {
-              typeBuilding: 'Casa',
-              name: 'Principal',
-              floor: null,
-              number: null
-            },
-            route1: {
-              typeRoute: 'CL',
-              name: null
-            },
-            route2: {
-              typeRoute: 'AV',
-              name: null
-            },
-            neighborhood: null,
-            adminArea1: null,
-            city: null,
-            adminArea2: null,
-            country: '',
-            postalCode: null,
-            formatted: null,
-            location: {
-              lat: null,
-              lng: null
-            }
-          },
-          email: null,
-          aditional: {
-            phones: [],
-            infoWeb: [],
-            locations: []
-          }
-        }
+          country: null,
+          phone: null
+        },
+        origin: 'UTI',
+        typeLead: 'Services File Product', // ['Services File Product', 'eBook', 'Contact', 'Services File Institution', 'Services File Representative', 'Services File Tutor', 'Services File Student']
+        description: null,
+        numberOfStudents: null,
+        numberOfTutors: null,
+        leadComment: null,
+        recaptchaToken: null
       },
       validationRules: {
         required: v => !!v || 'Campo Requerido',
@@ -226,40 +151,46 @@ export default {
   },
   watch: {
     value () {
-      this.heroContact = this.value
+      this.dialogContact = this.value
     },
-    heroContact () {
-      this.$emit('input', this.heroContact)
+    dialogContact () {
+      this.$emit('input', this.dialogContact)
     }
   },
   methods: {
-    requestForm () {
-      if (this.validForm) {
-        // Se realiza el post a la api
-        // Se recibe respuesta de la api
-        this.apiResponse = true
-        if (this.apiResponse) {
-          // Mensaje de éxito
+    async sendLead () {
+      try {
+        this.loading = true
+        // this.lead.recaptchaToken = await this.$recaptcha.getResponse()
+        this.lead.recaptchaToken = await this.$refs.webFormDialog.getRecaptchaResponse()
+
+        if (this.lead.recaptchaToken.length > 0) {
+          // await axios.post(
+          //   `${this.$store.state.urlPublicAPI}/segoschool/lead`,
+          //   this.lead
+          // )
+
+          this.loading = false
+          this.dialogSuccess = true
+          await this.$refs.webFormDialog.recaptchaReset()
           this.resetForm()
-          this.heroContact = false
-          this.$router.push('/purchasePage')
-          // this.dialogSuccess = true
-        } else {
-          // Mensaje de error
-          this.dialogError = true
-          // this.$emit('error', 'Esto es un parametro')
         }
-      } else {
-        // Mensaje de error
+      } catch (err) {
+        this.loading = false
         this.dialogError = true
-        // this.$emit('error', 'Esto es un parametro')
       }
-      // setTimeout(() => {
-      // }, 3500)
     },
     resetForm () {
       this.$refs.formHero.reset()
       this.$refs.formHero.resetValidation()
+    },
+    recaptchaUpdate (recaptcha) {
+      this.lead.recaptchaToken = recaptcha
+      if (!recaptcha) {
+        this.reCaptchaSuccess = false
+      } else {
+        this.reCaptchaSuccess = true
+      }
     }
   }
 }

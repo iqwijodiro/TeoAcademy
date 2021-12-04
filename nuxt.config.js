@@ -61,8 +61,15 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     'nuxt-fontawesome',
-    '@nuxt/content'
+    '@nuxt/content',
+    '@nuxtjs/recaptcha'
   ],
+
+  recaptcha: {
+    language: 'es',
+    siteKey: process.env.RECAPTCHA_SITE_KEY,
+    version: 2
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
@@ -74,6 +81,16 @@ export default {
     theme: {
       light: false,
       dark: false,
+      breakpoint: {
+        scrollBarWidth: 8,
+        thresholds: {
+          xs: 340,
+          sm: 600,
+          md: 960,
+          lg: 1264,
+          xl: 1440
+        }
+      },
       themes: {
         dark: {
           primary: colors.blue.darken2,

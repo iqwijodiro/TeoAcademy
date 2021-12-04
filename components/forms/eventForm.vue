@@ -1,132 +1,92 @@
 <template>
-  <div class="centrar">
-    <v-dialog
-      v-model="eventContact"
-      transition="dialog-top-transition"
-      persistent
-      max-width="400px"
-    >
-      <template #activator="{ on, attrs }" class="d-block mx-auto">
-        <slot name="activator" :on="on" :attrs="attrs" />
-      </template>
-      <v-card class="pa-5">
-        <h2 class="text-center red-font">
-          Registrate para nuestros próximos eventos gratuitos
-        </h2>
-        <v-form
-          ref="eventContact"
-          v-model="validForm"
-        >
-          <v-container>
-            <v-row justify="center">
-              <v-col
-                xl="10"
-                lg="10"
-                class="pa-0"
-              >
-                <v-text-field
-                  v-model="event.name"
-                  :rules="[validationRules.required]"
-                  solo
-                  clearable
-                  label="Nombre"
-                  required
-                />
-                <v-text-field
-                  v-model="event.email"
-                  :rules="[validationRules.required, validationRules.emailPattern]"
-                  solo
-                  clearable
-                  label="Email"
-                  required
-                />
-                <v-text-field
-                  v-model="event.country"
-                  :rules="[validationRules.required]"
-                  solo
-                  clearable
-                  label="País"
-                  required
-                />
-                <!-- <v-text-field
-                  v-model="lead.contactInfo.phoneNumber"
-                  solo
-                  clearable
-                  label="Teléfono (opcional)"
-                  type="number"
-                /> -->
-              </v-col>
-            </v-row>
-            <v-container>
-              <v-dialog
-                v-model="privacy"
-              >
-                <template #activator="{ on, attrs }">
-                  <p class="text-small" style="line-height: 1.5">
-                    Al hacer click en <span class="blue-font font-weight-bold">Enviar</span> usted está confirmando que acepta los términos de nuestras
-                    <a v-bind="attrs" class="text-decoration-underline red-font" v-on="on"> políticas y condiciones</a>
-                  </p>
-                </template>
-                <v-card>
-                  <v-toolbar
-                    flat
-                    dense
-                    app
-                    color="transparent"
-                  >
-                    <v-spacer />
-                    <v-btn
-                      icon
-                      @click="privacy = false"
-                    >
-                      <v-icon size="30" class="icon gray-light-font">
-                        mdi-close-circle-outline
-                      </v-icon>
-                    </v-btn>
-                  </v-toolbar>
-                  <privacy />
-                </v-card>
-              </v-dialog>
-            </v-container>
-          </v-container>
-        </v-form>
-        <v-card-actions class="d-flex justify-center">
-          <div class="centrar">
-            <dialog-success
-              v-model="dialogSuccess"
-              header="¡Gracias por registrarte en nuestro evento!"
-              message="En tu bandeja de correo electrónico recibirás las indicaciones y recomendaciones para unirte al evento y disfrutar de la experiencia."
+  <web-form-dialog
+    v-if="dialogContact"
+    ref="webFormDialog"
+    v-model="dialogContact"
+    title="Registrate para nuestros próximos eventos gratuitos"
+    :loading="loading"
+    text-action-button="Enviar"
+    max-width="500px"
+    @recaptchaUpdate="recaptchaUpdate"
+  >
+    <template #body>
+      <v-form
+        ref="form"
+        v-model="validForm"
+      >
+        <v-container>
+          <v-row justify="center" dense>
+            <v-col
+              cols="12"
+              class="py-2"
             >
-              <template
-                #activator="{ on, attrs }"
-              >
-                <v-btn
-                  :attrs="attrs"
-                  class="btn"
-                  @on="on"
-                  @click="requestForm"
-                >
-                  Enviar
-                </v-btn>
-              </template>
-            </dialog-success>
-            <dialog-error
-              v-model="dialogError"
-            />
-            <v-btn
-              class="btn"
-              @click="eventContact = false"
-            >
-              Cerrar
-            </v-btn>
-          </div>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
-  </div>
+              <v-text-field
+                v-model="lead.name"
+                :rules="[validationRules.required]"
+                solo
+                clearable
+                label="Nombre"
+                required
+              />
+              <v-text-field
+                v-model="lead.email"
+                :rules="[validationRules.required, validationRules.emailPattern]"
+                solo
+                clearable
+                label="Email"
+                required
+              />
+              <v-text-field
+                v-model="lead.contactInfo.country"
+                :rules="[validationRules.required]"
+                solo
+                clearable
+                label="País"
+                required
+              />
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-form>
+    </template>
+    <template #actions>
+      <v-btn
+        class="btn mx-2"
+        :disabled="!reCaptchaSuccess || !validForm"
+        @click="sendLead"
+      >
+        Enviar
+        <v-icon right color="white">
+          mdi-send
+        </v-icon>
+      </v-btn>
+      <v-btn
+        class="btn mx-2"
+        @click="dialogContact = false"
+      >
+        Cerrar
+      </v-btn>
+
+      <dialog-success
+        v-model="dialogSuccess"
+        header="¡Gracias por registrarte en nuestro evento!"
+        message="En tu bandeja de correo electrónico recibirás las indicaciones y recomendaciones para unirte al evento y disfrutar de la experiencia."
+      />
+      <dialog-error
+        v-model="dialogError"
+      />
+    </template>
+  </web-form-dialog>
 </template>
+
 <script>
+// import Privacy from '~/components/Privacy'
+import dialogSuccess from '~/components/dialogSuccess'
+import dialogError from '~/components/dialogError'
+import webFormDialog from '~/components/forms/webFormDialog.vue'
+
 export default {
+  components: { dialogSuccess, dialogError, webFormDialog },
   props: {
     value: {
       type: Boolean,
@@ -135,16 +95,27 @@ export default {
   },
   data () {
     return {
-      eventContact: this.value,
+      dialogContact: this.value,
       privacy: false,
       apiResponse: false,
       validForm: false,
       dialogSuccess: false,
       dialogError: false,
-      event: {
-        name: '',
-        email: '',
-        country: ''
+      reCaptchaSuccess: false,
+      lead: {
+        name: null,
+        email: null,
+        contactInfo: {
+          country: null,
+          phone: null
+        },
+        origin: 'UTI',
+        typeLead: 'Contact', // ['Services File Product', 'eBook', 'Contact', 'Services File Institution', 'Services File Representative', 'Services File Tutor', 'Services File Student']
+        description: null,
+        numberOfStudents: null,
+        numberOfTutors: null,
+        leadComment: null,
+        recaptchaToken: null
       },
       validationRules: {
         required: v => !!v || 'Campo Requerido',
@@ -157,37 +128,46 @@ export default {
   },
   watch: {
     value () {
-      this.eventContact = this.value
+      this.dialogContact = this.value
     },
-    eventContact () {
-      this.$emit('input', this.eventContact)
+    dialogContact () {
+      this.$emit('input', this.dialogContact)
     }
   },
   methods: {
-    requestForm () {
-      if (this.validForm) {
-        // Se realiza el post a la api
-        // Se recibe respuesta de la api
-        this.apiResponse = true
-        if (this.apiResponse) {
-          // Mensaje de éxito
-          this.resetForm()
-          this.eventContact = false
+    async sendLead () {
+      try {
+        this.loading = true
+        // this.lead.recaptchaToken = await this.$recaptcha.getResponse()
+        this.lead.recaptchaToken = await this.$refs.webFormDialog.getRecaptchaResponse()
+
+        if (this.lead.recaptchaToken.length > 0) {
+          // await axios.post(
+          //   `${this.$store.state.urlPublicAPI}/segoschool/lead`,
+          //   this.lead
+          // )
+
+          this.loading = false
           this.dialogSuccess = true
-        } else {
-          // Mensaje de error
-          this.dialogError = true
-          // this.$emit('error', 'Esto es un parametro')
+          await this.$refs.webFormDialog.recaptchaReset()
+          this.resetForm()
         }
-      } else {
-        // Mensaje de error
+      } catch (err) {
+        this.loading = false
         this.dialogError = true
-        // this.$emit('error', 'Esto es un parametro')
       }
     },
     resetForm () {
-      this.$refs.eventContact.reset()
-      this.$refs.eventContact.resetValidation()
+      this.$refs.formHero.reset()
+      this.$refs.formHero.resetValidation()
+    },
+    recaptchaUpdate (recaptcha) {
+      this.lead.recaptchaToken = recaptcha
+      if (!recaptcha) {
+        this.reCaptchaSuccess = false
+      } else {
+        this.reCaptchaSuccess = true
+      }
     }
   }
 }

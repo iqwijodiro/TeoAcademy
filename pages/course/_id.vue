@@ -106,16 +106,16 @@
               </div>
             </v-card>
             <!-- <div class="centrar d-flex flex-column"> -->
-            <v-btn width="95%" class="btn" @click="heroContact = true">
+            <v-btn width="95%" class="btn" @click="dialogContact = true">
               Matricular
             </v-btn>
-            <v-btn width="95%" class="btn">
+            <v-btn width="95%" class="btn" disabled>
               <v-icon size="30" class="mr-3">
                 mdi-gift
               </v-icon>
               Regalar Curso
             </v-btn>
-            <purchase-form v-model="heroContact" title="Formulario de Matrícula" />
+            <purchase-form v-model="dialogContact" title="Formulario de Matrícula" />
             <section class="my-5 d-flex justify-center align-center">
               <v-icon size="40" class="mr-6 gray-m-font">
                 mdi-account-group
@@ -238,7 +238,7 @@ export default {
     return {
       courseId: null,
       dialogVideo: false,
-      heroContact: false
+      dialogContact: false
     }
   },
   head () {
