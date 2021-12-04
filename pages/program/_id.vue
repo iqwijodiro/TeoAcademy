@@ -106,7 +106,7 @@
               </div>
             </v-card>
             <!-- <div class="centrar d-flex flex-column"> -->
-            <v-btn width="95%" class="btn">
+            <v-btn width="95%" class="btn" @click="heroContact = true">
               Matricular
             </v-btn>
             <v-btn width="95%" class="btn">
@@ -115,6 +115,8 @@
               </v-icon>
               Regalar Programa
             </v-btn>
+            <purchase-form v-model="heroContact" title="Formulario de Matrícula" />
+
             <section class="my-5 d-flex justify-center align-center pa-0">
               <v-icon size="40" class="mr-6 gray-m-font">
                 mdi-account-group
@@ -197,45 +199,11 @@
         </v-col>
       </v-row>
     </v-container>
-    <!-- <section class="indicators">
-      <v-container>
-        <h2 class="sect-title gray-m-font">
-          Competencias
-        </h2>
-        <v-row no-gutters>
-          <v-col
-            class="px-5"
-          >
-            <section class="wrapper-col">
-              <ul
-                v-for="(ind, j) in indicators"
-                :key="j"
-                class="pa-0"
-              >
-                <li class="d-flex align-start">
-                  <v-icon size="25" class="flex-grow-0 gray-m-font mr-3 mt-2">
-                    mdi-check-circle
-                  </v-icon>
-                  <p class="text mt-0">
-                    {{ ind }}
-                  </p>
-                </li>
-              </ul>
-            </section>
-          </v-col>
-        </v-row>
-        <div class="centrar">
-          <v-btn class="btn">
-            Descargar ficha del programa
-          </v-btn>
-        </div>
-      </v-container>
-    </section> -->
     <div class="centrar mt-10">
       <dialog-success
         v-model="dialogSuccess"
         header="¡Gracias por Descargar la ficha del programa!"
-        message="En tu bandeja de correo electrónico recibirás el link de descarga del Ebook. Esperamos sea de gran utilidad."
+        message="En tu bandeja de correo electrónico recibirás el link de descarga. Esperamos sea de gran utilidad."
       >
         <template
           #activator="{ on, attrs }"
@@ -256,14 +224,16 @@
 
 <script>
 import dialogSuccess from '~/components/dialogSuccess'
+import purchaseForm from '~/components/forms/purchaseForm.vue'
 
 export default {
-  components: { dialogSuccess },
+  components: { dialogSuccess, purchaseForm },
   data () {
     return {
       programId: null,
       dialogSuccess: false,
       dialogVideo: false,
+      heroContact: false,
       courses: [],
       // indicators: [
       //   'Identifica y comprende las llaves de la vida espiritual, importantes para tomar la voluntaria decisión de recibir a Cristo en el corazón.',

@@ -166,7 +166,7 @@ export default {
       privacy: false,
       apiResponse: false,
       validForm: false,
-      dialogSuccess: false,
+      // dialogSuccess: false,
       dialogError: false,
       lead: {
         name: '',
@@ -242,7 +242,8 @@ export default {
           // Mensaje de éxito
           this.resetForm()
           this.heroContact = false
-          this.dialogSuccess = true
+          this.$router.push('/purchasePage')
+          // this.dialogSuccess = true
         } else {
           // Mensaje de error
           this.dialogError = true
@@ -253,9 +254,8 @@ export default {
         this.dialogError = true
         // this.$emit('error', 'Esto es un parametro')
       }
-      setTimeout(() => {
-        this.$router.push('/purchasePage')
-      }, 3500)
+      // setTimeout(() => {
+      // }, 3500)
     },
     resetForm () {
       this.$refs.formHero.reset()

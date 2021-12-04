@@ -112,12 +112,14 @@
               hide-details
               class="shrink mr-2 mt-0"
               label="Si"
+              :disabled="negative"
             />
             <v-checkbox
               v-model="negative"
               hide-details
               class="shrink mr-2 mt-0"
               label="No"
+              :disabled="positive"
             />
             <v-text-field
               :disabled="!positive"

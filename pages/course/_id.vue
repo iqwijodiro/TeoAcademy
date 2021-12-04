@@ -204,10 +204,25 @@
             </section>
           </v-col>
         </v-row>
-        <div class="centrar">
-          <v-btn class="btn">
-            Descargar ficha del curso
-          </v-btn>
+        <div class="centrar mt-10">
+          <dialog-success
+            v-model="dialogSuccess"
+            header="¡Gracias por Descargar la ficha del curso!"
+            message="En tu bandeja de correo electrónico recibirás el link de descarga. Esperamos sea de gran utilidad."
+          >
+            <template
+              #activator="{ on, attrs }"
+            >
+              <v-btn
+                :attrs="attrs"
+                class="btn"
+                @on="on"
+                @click="dialogSuccess = true"
+              >
+                Descargar ficha del curso
+              </v-btn>
+            </template>
+          </dialog-success>
         </div>
       </v-container>
     </section>
