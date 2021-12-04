@@ -34,7 +34,7 @@
                     {{ level.mod }}
                   </h4>
                   <div class="centrar px-2">
-                    <v-btn :to="level.to" class="btn-leer rounded-lg">
+                    <v-btn :to="level.to" width="75%" class="btn-leer rounded-lg px-5">
                       <v-icon class="eye-i">
                         mdi-eye
                       </v-icon> <br>
