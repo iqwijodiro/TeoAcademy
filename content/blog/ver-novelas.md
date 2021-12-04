@@ -3,7 +3,7 @@ title: Ver novelas ¿Es bueno para un cristiano(a)?
 description: El cerebro también se alimenta, tu mente recibe diferente tipos de alimentos, algunos son dañinos y otros son positivos.
 topics:
     - 'Enseñanza'
-    - 'Liderazgo'
+    - 'Liderazgo Cristiano'
 date: 01-02-2019
 author: Dr. Natanael Valenzuela
 avatar: https://randomuser.me/api/portraits/men/82.jpg

@@ -11,7 +11,7 @@
           cols="12"
           md="8"
           lg="7"
-          class="main-container"
+          class="main-container pa-0 ma-0"
         >
           <main>
             <v-container>
@@ -27,10 +27,11 @@
                   <v-img
                     :src="post.img"
                     height="100%"
+                    max-width="100%"
                     class="rounded-lg img-post"
                   />
-                  <div class="card-overlay py-4 pl-2 rounded-b-lg">
-                    <h4 class="card-title text-center red-font my-4">
+                  <div class="card-overlay py-4 px-sm-10 pl-2 rounded-b-lg">
+                    <h4 class="post-title text-center red-font my-4">
                       {{ post.title }}
                     </h4>
                     <div class="d-flex justify-space-between flex-sm-row align-center">
@@ -93,8 +94,8 @@
         <!-- Aside container -->
         <v-col
           cols="12"
-          md
-          lg="5"
+          md="4"
+          lg="4"
           class="mb-10 aside-container ml-0 ml-md-10"
         >
           <!-- Search container -->
@@ -137,7 +138,7 @@
                 class="d-flex my-3 rounded top__post"
                 @click="setPost(post)"
               >
-                <v-img width="45%" height="130px" :src="post.img" class="img-post rounded" />
+                <v-img width="45%" height="auto" min-height="100%" :src="post.img" class="img-post rounded" />
                 <div class="d-flex flex-column">
                   <h4 class="card-title">
                     {{ post.title }}
@@ -252,7 +253,7 @@ export default {
             height: auto;
             position: absolute;
             display: block;
-            width: 100%;
+            // width: 99.5%;
               h4.card-title {
                 font-size: $section-title - 5px;
                   color: $wine;
@@ -282,7 +283,7 @@ export default {
       }
     }
     .top__post {
-      .card-title {
+      .post-title {
         font-size: 14px;
       }
     }
@@ -294,7 +295,7 @@ export default {
                   .blog-card {
                     .card-overlay {
                     // height: 40% !important;
-                    h4.card-title {
+                    h4.post-title {
                       font-size: $section-title !important;
                         color: $wine;
                     }
