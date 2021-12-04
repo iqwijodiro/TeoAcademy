@@ -7,8 +7,7 @@
       <v-row justify="center" class="mb-5">
         <v-col>
           <v-slide-group
-            show-arrows="desktop"
-            center-active
+            show-arrows
             class="my-3 my-slider mx-auto">
             <v-slide-item
               v-for="(post, i) in posts"

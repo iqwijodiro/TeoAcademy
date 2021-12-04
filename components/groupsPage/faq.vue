@@ -6,7 +6,7 @@
     <v-container class="pb-15 mb-5">
       <v-row justify="center">
         <v-col
-          lg="10"
+          cols="12"
           md="10"
         >
           <v-expansion-panels accordion focusable>
