@@ -4,11 +4,21 @@
       <h2 class="text-start ml-3">
         Nuestro Blog
       </h2>
-      <v-row justify="center" class="mb-5">
+      <v-row
+        v-touch="{
+          left: () => swipe('Left'),
+          right: () => swipe('Right'),
+          up: () => swipe('Up'),
+          down: () => swipe('Down')
+        }"
+        justify="center"
+        class="mb-5"
+      >
+        {{ swipeDirection }}
         <v-col>
           <v-slide-group
-            show-arrows
-            class="my-3 my-slider mx-auto">
+            class="my-3 my-slider mx-auto"
+          >
             <v-slide-item
               v-for="(post, i) in posts"
               :key="i"
@@ -72,14 +82,13 @@ export default {
       default: () => []
     }
   },
-  // async asyncData ({ $content }) {
-  //   const posts = await $content('/blog', {})
-  //     .without(['body'])
-  //     .sortBy('title', 'asc')
-  //     .fetch()
-  //   return { posts }
-  // },
+  data: () => ({
+    swipeDirection: 'None'
+  }),
   methods: {
+    swipe (direction) {
+      this.swipeDirection = direction
+    },
     setPost (post) {
       this.$router.push('/blog/' + post.slug)
     }
