@@ -15,79 +15,26 @@
         </v-col>
         <v-col
           cols="12"
-          xl="5"
           lg="5"
           md="6"
-          sm="10"
         >
-          <div class="container mx-auto">
-            <h3 class="mb-5 text-center">
+          <div class="container mx-auto text-center">
+            <h3 class="mb-5">
               Recibe información acerca de nuestros eventos y contenidos
             </h3>
-            <!-- <v-form v-model="validForm" class="form-box pa-0 d-flex align-center">
-              <h2 class="text-capitalize text-center">
-                Suscribete a nuestro Newsletter
-              </h2> -->
-            <!-- <v-card elevation="5" class="pa-5 rounded-xl"> -->
-            <!-- Formulario de Ebook / Descarga -->
-            <news-form
-              v-model="newsContact"
-              title="Suscríbete y recibe contenido teológico gratis"
+            <v-btn
+              class="btn"
+              @click="dialogContact = true"
             >
-              <template #activator="{ on, attrs}" class="mx-auto d-block">
-                <v-btn
-                  class="btn d-block"
-                  v-bind="attrs"
-                  v-on="on"
-                >
-                  Suscribirse
-                </v-btn>
-              </template>
-            </news-form>
-            <p class="text text-center mt-5">
+              Suscribirse
+            </v-btn>
+            <news-form
+              v-model="dialogContact"
+              title="Suscríbete y recibe contenido teológico gratis"
+            />
+            <p class="text mt-5">
               Compartiremos contenido periódicamente para fortalecer nuestra comunidad
             </p>
-            <!-- </v-card> -->
-            <!-- <v-text-field
-                v-model="emailNews"
-                :rules="[validationRules.required, validationRules.emailPattern]"
-                label="E-mail"
-                required
-                clearable
-                class="input-email rounded-l-lg py-5 ma-0"
-                solo
-              >
-                <template #label>
-                  <p class="pa-0 ma-0 blue-font">
-                    Email
-                  </p>
-                </template>
-                <template
-                  #message="
-                    {
-                      message,
-                    }"
-                >
-                  <span :message="message" class="text--white text-white" style="color: #fff; font-size: 14px">
-                    Campo Requerido
-                  </span>
-                </template>
-              </v-text-field>
-              <dialog-success
-                v-model="dialogSuccess"
-                header="¡Gracias por suscribirte al Newsletter de Teo Academy!"
-                message="A partir de este momento recibirás en tu bandeja de correo electrónico contenidos de muy alto valor para el desarrollo de tu fe."
-              >
-                <template #activator="{ on, attrs }">
-                  <v-btn :attrs="attrs" class="btn-input rounded-lg" @on="on" @click="validForm === true ? dialogNews = true : dialogError === true">
-                    Enviar
-                  </v-btn>
-                </template>
-              </dialog-success>
-              <dialog-error
-                v-model="dialogError"
-              /> -->
-            <!-- </v-form> -->
           </div>
         </v-col>
       </v-row>
@@ -96,18 +43,14 @@
 </template>
 <script>
 import newsForm from '~/components/forms/newsForm'
-// import dialogSuccess from '~/components/dialogSuccess'
-// import dialogError from '~/components/dialogError'
 export default {
   components: {
     newsForm
-    // dialogSuccess,
-    // dialogError
   },
   data () {
     return {
       emailNews: '',
-      newsContact: false,
+      dialogContact: false,
       validForm: false,
       dialogError: false,
       dialogSuccess: false,
