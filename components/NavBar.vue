@@ -123,6 +123,11 @@ export default {
           icon: 'fas fa-blog',
           title: 'Blog',
           to: '/blogPage'
+        },
+        {
+          icon: 'mdi-badge-account-horizontal-outline',
+          title: 'Nosotros',
+          to: '/aboutUs'
         }
       ],
       right: true,

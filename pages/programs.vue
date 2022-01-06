@@ -54,7 +54,7 @@
         loading-text=""
       >
         <template #default="props">
-          <v-container class="gutte mt-5">
+          <v-container class="mt-5">
             <h2 class="fw-300 text-center mt-10 red-font">
               ¡Matriculate y disfruta la experiencia!
             </h2>
