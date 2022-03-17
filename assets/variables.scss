@@ -10,8 +10,8 @@ $gray-mid: #959595;
 $gray-dark: #453f3c;
 
 /***---Fuentes---***/
-$body-font: "Nunito", sans-serif;
-$title-font: "Prompt", sans-serif;
+$body-font: "Poppins", sans-serif;
+$title-font: "Poppins", sans-serif;
 
 /** Tamaños de Fuente **/
 $main-title: 35px;
@@ -274,9 +274,9 @@ section {
 }
 
   //** Tarjetas **/
-.hero-card {
-  background-color: rgba($color: #fff, $alpha: .8) !important;
-}
+// .hero-card {
+//   background-color: rgba($color: #fff, $alpha: .8) !important;
+// }
 .card-title {
   font-family: $title-font;
   font-size: $body;
@@ -292,10 +292,10 @@ section {
   width: 100%;
   background-size: cover;
   background-attachment: fixed;
-  background-position: 25% 25%;
+  // background-position: 25% 25%;
   .mask {
     position: absolute;
-    background-color: rgba($color: #ffffff, $alpha: 0.55);
+    background-color: rgba($color: $wine, $alpha: 0.1);
     min-height: 100%;
     width: 100%;
   }

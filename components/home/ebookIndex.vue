@@ -67,7 +67,7 @@ export default {
 <style lang="scss" scoped>
 
 .ebook {
-  background-image: url(@/assets/img/wave.svg);
+  // background-image: url(@/assets/img/wave.svg);
   background-size: cover;
   min-height: 80vh;
   h2 {

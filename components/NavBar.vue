@@ -14,9 +14,9 @@
             <v-toolbar-title>
               <nuxt-link to="/">
                 <v-img
-                  :src="require('../assets/img/logo.webp')"
+                  :src="require('../assets/img/logo_full.jpg')"
                   contain
-                  width="130px"
+                  width="140px"
                 />
               </nuxt-link>
             </v-toolbar-title>
@@ -42,7 +42,7 @@
                   </v-tabs>
                 </v-col>
                 <v-btn to="/login" class="btn rounded my-2">
-                  Iniciar Sesión
+                  Ingresar
                 </v-btn>
               </v-row>
             </nav>
@@ -64,7 +64,7 @@
         fixed
       >
         <v-img
-          :src="require('../assets/img/logo.webp')"
+          :src="require('../assets/img/logo_full.jpg')"
           contain
           width="13rem"
           class="mx-auto py-5"
@@ -80,7 +80,7 @@
               </nuxt-link>
             </v-list-item>
             <v-btn to="#" class="btn text-capitalize text-center my-2">
-              Iniciar Sesión
+              Ingresar
             </v-btn>
           </v-list-item-group>
         </v-list>
@@ -114,11 +114,11 @@ export default {
           title: 'Programas',
           to: '/programs'
         },
-        // {
-        //   icon: 'mdi-account-group',
-        //   title: 'Asesoría',
-        //   to: '/groups'
-        // },
+        {
+          icon: 'mdi-account-group',
+          title: 'Asesoría',
+          to: '/groups'
+        },
         {
           icon: 'fas fa-blog',
           title: 'Blog',
@@ -144,15 +144,12 @@ export default {
       .tab__block {
         .link {
           font-size: $link;
-          font-weight: 400;
           text-align: center !important;
           margin: 0 10px !important;
-          color: $wine;
+          color: rgba($gray-mid, .8);
           padding: 10px 0 !important;
           &:hover {
-            color: rgba($ocean, .6);
-            // border-bottom: 2px solid rgba($ocean, .7);
-            margin-top: 0;
+            color: rgba($wine, .8);
           }
         }
       }
