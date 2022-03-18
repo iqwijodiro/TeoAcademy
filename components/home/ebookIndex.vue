@@ -2,6 +2,16 @@
   <section class="ebook gutter-p">
     <v-container>
       <v-row class="justify-space-around align-center pt-5 mt-5 mx-auto">
+        <v-col xl="5" lg="5" md="5" sm="10" class="mx-auto">
+          <v-img
+            v-animate-on-scroll
+            height="100%"
+            max-width="1000px"
+            :src="require('@/assets/img/ebookindex.webp')"
+            class="ebook__img"
+            :alt="alt"
+          />
+        </v-col>
         <v-col
           xl="4"
           lg="4"
@@ -26,16 +36,6 @@
               v-model="dialogContact"
             />
           </v-card>
-        </v-col>
-        <v-col xl="5" lg="5" md="5" sm="10" class="mx-auto">
-          <v-img
-            v-animate-on-scroll
-            height="100%"
-            max-width="1000px"
-            :src="require('@/assets/img/ebookindex.webp')"
-            class="ebook__img"
-            :alt="alt"
-          />
         </v-col>
       </v-row>
     </v-container>
@@ -68,7 +68,10 @@ export default {
 
 .ebook {
   // background-image: url(@/assets/img/wave.svg);
-  background-size: cover;
+  // background-size: cover;
+  background: rgb(255,255,255);
+background: rgb(11,131,191);
+background: linear-gradient(0deg, rgba(11,131,191,0) 0%, rgba(11,131,191,0.32816876750700286) 33%, rgba(11,131,191,0.6671043417366946) 66%, rgba(11,131,191,1) 100%);
   min-height: 80vh;
   h2 {
     color: $gray-mid;

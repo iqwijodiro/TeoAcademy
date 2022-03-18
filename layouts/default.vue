@@ -11,7 +11,7 @@
     >
       <nav-bar ref="navbar" :offset-top="offsetTop" />
       <!-- Main -->
-      <v-main v-scroll:#scrollapp="onScroll" class="ma-0 pa-0">
+      <v-main v-scroll:#scrollapp="onScroll" class="ma-0 px-0 pt-5">
         <nuxt />
       </v-main>
       <page-footer />
@@ -25,11 +25,11 @@
         fixed
         bottom
         right
-        color="#0b83bf"
+        color="#be1e2d"
         class="mr-2"
         @click="scrollTop"
       >
-        <v-icon>fas fa-angle-up</v-icon>
+        <v-icon>mdi-arrow-up-bold</v-icon>
       </v-btn>
     </v-fab-transition>
   </v-app>
@@ -134,7 +134,7 @@ body {
 }
 .app {
   font-family: $body-font;
-  padding-top: 20px;
+  // padding-top: 20px;
   width: 100vw !important;
   min-width: 100% !important;
 }

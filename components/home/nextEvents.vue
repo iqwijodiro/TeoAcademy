@@ -151,7 +151,7 @@ export default {
       height: 90px;
       .date {
         font-family: $title-font;
-        color: $ocean;
+        color: $wine;
         font-size: 90px;
         font-weight: 400;
       }

@@ -8,7 +8,7 @@
           class="mr-5"
         >
           <v-img
-            :src="require('@/assets/img/logo-white-full.webp')"
+            :src="require('@/assets/img/logo_full.jpg')"
             contain
             max-width="100%"
           />
@@ -71,10 +71,10 @@ export default {
   display: flex;
   align-items: center !important;
   min-height: 50vh !important;
-  background: rgb(190,30,45);
-  background: linear-gradient(90deg, #be1e2d 0%, rgba(142,22,34,1) 50%, rgba(95,15,23,1) 100%);
+  // background: rgb(190,30,45);
+  // background: linear-gradient(90deg, #be1e2d 0%, rgba(142,22,34,1) 50%, rgba(95,15,23,1) 100%);
   h3, .text {
-    color: #ffffff;
+    // color: #ffffff;
   }
   .form-box {
     height: 50px !important;

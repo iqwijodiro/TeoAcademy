@@ -2,30 +2,28 @@
   <header>
     <div id="navbar">
       <v-app-bar
-        :clipped-left="clipped"
-        elevate-on-scroll
-        fixed
         app
+        elevate-on-scroll
         color="white"
-        class="appbar py-1"
+        class="appbar pt-3"
       >
-        <v-container>
-          <v-row class="d-flex justify-space-between align-items-center mt-2">
+        <v-container class="mt-5">
+          <v-row class="d-flex justify-space-between align-center">
             <v-toolbar-title>
               <nuxt-link to="/">
                 <v-img
                   :src="require('../assets/img/logo_full.jpg')"
                   contain
-                  width="140px"
+                  width="160px"
                 />
               </nuxt-link>
             </v-toolbar-title>
             <nav class="nav transparent hidden-sm-and-down">
-              <v-row justify="center" class="ma-0 pa-0">
+              <v-row class="ma-0 pa-0">
                 <v-col>
                   <v-tabs
                     v-model="tabs"
-                    color="#0b83bf"
+                    color="#be1e2d"
                     active-class="link_item link-active"
                     class="px-0 link_item d-flex align-center justify-center"
                   >
@@ -135,8 +133,8 @@ export default {
 <style lang="scss" scoped>
 #navbar {
   .appbar {
-    height: 90px !important;
-    width: 100vw;
+    height: 110px !important;
+    // width: 100vw;
   }
   .appbar,
   .drawer {
@@ -157,10 +155,10 @@ export default {
   }
 }
 .link-active.link_item {
-    border-bottom: 2px solid $ocean;
+    border-bottom: 2.5px solid $wine;
     color: #fff;
     .icon, .link {
-      color: $ocean !important;
+      color: $wine !important;
     }
 }
 </style>

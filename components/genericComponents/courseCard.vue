@@ -1,6 +1,6 @@
 <template>
   <v-card
-    max-height="545px"
+    max-height="460px"
     max-width="320px"
     height="95%"
     class="
@@ -15,16 +15,19 @@
     "
     @click="selectCourse(course)"
   >
-    <v-img
-      :src="imgLink"
-      height="45%"
-      max-height="220px"
-      class="mb-2 img-course"
-      :alt="name"
-    />
-    <v-card-title class="card-title my-0 pt-2">
-      {{ name }}
-    </v-card-title>
+    <figure class=" overflow-hidden">
+      <v-img
+        :src="imgLink"
+        height="100%"
+        max-height="250px"
+        class="mb-2 img-course white--text align-end pb-3"
+        :alt="name"
+      >
+        <v-card-title class="card-title my-2">
+          {{ name }}
+        </v-card-title>
+      </v-img>
+    </figure>
     <v-card-text class="text-card">
       {{ subName }}
     </v-card-text>
@@ -112,13 +115,16 @@ export default {
 
 <style lang="scss" scoped>
 .course__card {
-  opacity: 0.75;
+  // opacity: 0.75;
   box-shadow: 10px 5px 10px -5px rgba(0, 0, 0, 0.4) !important;
   .img-course {
+    width: 100%;
+    height: 100%;
     filter: grayscale(50%);
+    transition: all 0.4s ease-in-out;
   }
   &:hover {
-    opacity: 1;
+    // opacity: 1;
     transition: all 0.4s ease-in-out;
     transform: translateY(-5px);
     box-shadow: 15px 8px 15px -5px rgba(0, 0, 0, 0.4) !important;
@@ -133,11 +139,11 @@ export default {
         line-height: 1.4 !important;
         padding: 0 15px !important;
         margin: 10px 0 !important;
-        opacity: 1;
+        // opacity: 1;
     }
     .minirow div {
         font-size: $miniLink !important;
-        font-weight: 400;
+        // font-weight: 400;
         color: $gray-mid;
         &:nth-child(1) {
             border-right: 2px solid $gray-light;
