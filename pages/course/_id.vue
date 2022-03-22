@@ -230,14 +230,17 @@
 </template>
 <script>
 import purchaseForm from '~/components/forms/purchaseForm.vue'
+import dialogSuccess from '~/components/dialogSuccess.vue'
 export default {
   components: {
-    purchaseForm
+    purchaseForm,
+    dialogSuccess
   },
   data () {
     return {
       courseId: null,
       dialogVideo: false,
+      dialogSuccess: false,
       dialogContact: false
     }
   },
