@@ -66,7 +66,7 @@
                     {{ course.name }}
                   </h4>
                 </v-expansion-panel-header>
-                <v-expansion-panel-content>
+                <v-expansion-panel-content class="d-none">
                   <p class="text-mid">
                     {{ course.description }}
                   </p>

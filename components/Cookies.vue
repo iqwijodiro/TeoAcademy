@@ -11,26 +11,26 @@
             Información general sobre cookies
           </h4>
           <p>
-            Al igual que muchas plataformas en línea, UTI y sus proveedores de análisis utilizan archivos de registro del servidor y herramientas automatizadas de recopilación de datos, como cookies de navegador, etiquetas de píxeles, scripts. Estas herramientas se utilizan con fines analíticos para permitir que UTI entienda cómo los usuarios interactúan con los servicios de UTI. UTI y sus proveedores de análisis pueden vincular la información recopilada por estos medios con la identificación de cuenta única de los usuarios.
+            Al igual que muchas plataformas en línea, Teo Academy y sus proveedores de análisis utilizan archivos de registro del servidor y herramientas automatizadas de recopilación de datos, como cookies de navegador, etiquetas de píxeles, scripts. Estas herramientas se utilizan con fines analíticos para permitir que Teo Academy entienda cómo los usuarios interactúan con los servicios de Teo Academy. Teo Academy y sus proveedores de análisis pueden vincular la información recopilada por estos medios con la identificación de cuenta única de los usuarios.
           </p> <br>
           <p>
-            Las cookies son pequeños archivos de texto colocados en una computadora o dispositivo mientras navega por Internet. Las cookies se utilizan para recopilar, almacenar y compartir fragmentos de información sobre las actividades del Usuario. UTI utiliza cookies persistentes.
+            Las cookies son pequeños archivos de texto colocados en una computadora o dispositivo mientras navega por Internet. Las cookies se utilizan para recopilar, almacenar y compartir fragmentos de información sobre las actividades del Usuario. Teo Academy utiliza cookies persistentes.
           </p> <br>
           <p>
-            Una cookie persistente permanecerá en el dispositivo del Usuario durante un período de tiempo especificado en la cookie. UTI utiliza estas cookies para identificar y reconocer a un Usuario específico durante un período de tiempo más largo. Permiten a UTI:
+            Una cookie persistente permanecerá en el dispositivo del Usuario durante un período de tiempo especificado en la cookie. Teo Academy utiliza estas cookies para identificar y reconocer a un Usuario específico durante un período de tiempo más largo. Permiten a Teo Academy:
           </p> <br>
           <ul>
             <li>
-              Analizar el uso de los servicios (por ejemplo, en qué enlaces hacen clic los usuarios) para mejorar nuestra oferta de UTI.
+              Analizar el uso de los servicios (por ejemplo, en qué enlaces hacen clic los usuarios) para mejorar nuestra oferta de Teo Academy.
             </li>
             <li>
-              Pruebe diferentes versiones de los servicios UTI para ver qué características o contenidos particulares prefieren los usuarios para optimizar los servicios UTI.
+              Pruebe diferentes versiones de los servicios Teo Academy para ver qué características o contenidos particulares prefieren los usuarios para optimizar los servicios Teo Academy.
             </li>
             <li>
               Proporcionar una experiencia más personalizada a los usuarios con contenido más relevante y mejores recomendaciones.
             </li>
             <li>
-              Permitir a los usuarios iniciar sesión más fácilmente para usar los servicios UTI.
+              Permitir a los usuarios iniciar sesión más fácilmente para usar los servicios Teo Academy.
             </li>
           </ul>
           <p>
@@ -41,14 +41,14 @@
               Cookies de preferencias para recordar información sobre el navegador de un Usuario y las preferencias de configuración, como paleta de colores preferidas, otros. Las cookies de preferencia hacen que la experiencia del usuario sea más funcional y personalizada.
             </li>
             <li>
-              Cookies de autenticación y seguridad para permitir que un Usuario inicie sesión o permanezca conectado y acceda al servicio UTI, para proteger las cuentas de Usuario contra inicios de sesión fraudulentos por parte de otros, y ayudar a detectar, combatir y proteger contra el abuso o el uso no autorizado de las cuentas de Usuario.
+              Cookies de autenticación y seguridad para permitir que un Usuario inicie sesión o permanezca conectado y acceda al servicio Teo Academy, para proteger las cuentas de Usuario contra inicios de sesión fraudulentos por parte de otros, y ayudar a detectar, combatir y proteger contra el abuso o el uso no autorizado de las cuentas de Usuario.
             </li>
             <li>
-              Cookies funcionales para mejorar la experiencia de uso del servicio UTI, como recordar el nivel de volumen de sonido seleccionado por el Usuario.
+              Cookies funcionales para mejorar la experiencia de uso del servicio Teo Academy, como recordar el nivel de volumen de sonido seleccionado por el Usuario.
             </li>
           </ul>
           <p>
-            UTI utiliza tecnología de seguimiento para: (i) determinar si se visitó cierta página (por ejemplo, la página de inicio de un anuncio de servicios UTI que se muestra en sitios de terceros) o si un usuario abrió o hizo clic en un correo electrónico enviado por UTI; y (ii) personalizar la experiencia de aprendizaje de los Usuarios.
+            Teo Academy utiliza tecnología de seguimiento para: (i) determinar si se visitó cierta página (por ejemplo, la página de inicio de un anuncio de servicios Teo Academy que se muestra en sitios de terceros) o si un usuario abrió o hizo clic en un correo electrónico enviado por Teo Academy; y (ii) personalizar la experiencia de aprendizaje de los Usuarios.
           </p> <br>
           <h4>
             Cookies que se utilizan en este sitio Web

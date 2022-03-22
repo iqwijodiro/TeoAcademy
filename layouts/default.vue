@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 <template>
   <v-app id="app" class="app">
     <div ref="point" style="visibility: hidden;">

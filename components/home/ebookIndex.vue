@@ -69,9 +69,9 @@ export default {
 .ebook {
   // background-image: url(@/assets/img/wave.svg);
   // background-size: cover;
-  background: rgb(255,255,255);
+  // background: rgb(255,255,255);
 background: rgb(11,131,191);
-background: linear-gradient(0deg, rgba(11,131,191,0) 0%, rgba(11,131,191,0.32816876750700286) 33%, rgba(11,131,191,0.6671043417366946) 66%, rgba(11,131,191,1) 100%);
+background: linear-gradient(180deg, rgba(11,131,191,0) 0%, rgba(11,131,191,0.32816876750700286) 33%, rgba(11,131,191,0.6671043417366946) 66%, rgba(11,131,191,1) 100%);
   min-height: 80vh;
   h2 {
     color: $gray-mid;

@@ -19,73 +19,17 @@
                 v-for="(post, i) in posts"
                 :key="i"
               >
-                <v-card
-                  :min-height="$vuetify.breakpoint.mdAndDown ? '700px' : '550px'"
-                  class="blog-card d-flex align-end rounded-lg pa-0 my-5"
-                  @click="setPost(post)"
-                >
-                  <v-img
-                    :src="post.img"
-                    height="100%"
-                    max-width="100%"
-                    class="rounded-lg img-post"
+                <v-col>
+                  <blog-card
+                    :img="post.img"
+                    :title="post.title"
+                    :avatar="post.avatar"
+                    :author="post.author"
+                    :date="post.date"
+                    :topics="post.topics"
+                    @select-post="setPost(post)"
                   />
-                  <div class="card-overlay py-4 px-sm-10 pl-2 rounded-b-lg">
-                    <h4 class="post-title text-center red-font my-4">
-                      {{ post.title }}
-                    </h4>
-                    <div class="d-flex justify-space-between flex-sm-row align-center">
-                      <div class="d-flex justify-center flex-column flex-md-row align-center">
-                        <v-avatar size="65" class="my-1 mx-2 align-self-start align-self-md-center">
-                          <v-img :src="post.avatar" />
-                        </v-avatar>
-                        <div class="px-1 mx-sm-5">
-                          <h4 class="author">
-                            {{ post.author }}
-                          </h4>
-                          <span class="date text-center">
-                            <v-icon>
-                              mdi-calendar
-                            </v-icon>
-                            {{ post.date }}
-                          </span>
-                        </div>
-                      </div>
-                      <div class="d-flex flex-column flex-sm-row ml-4">
-                        <div class="px-3">
-                          <v-row
-                            v-for="(topic, j) in post.topics"
-                            :key="j"
-                            class="ma-0 pa-0 mini-row"
-                          >
-                            <v-chip
-                              small
-                              label
-                              class="my-1"
-                            >
-                              <v-icon left>
-                                mdi-label
-                              </v-icon>
-                              {{ topic }}
-                            </v-chip>
-                          </v-row>
-                        </div>
-                        <div class="mx-3 mt-3">
-                          <v-btn
-                            class="btn-leer"
-                            width="100%"
-                            @click="setPost(post)"
-                          >
-                            <v-icon class="eye-i">
-                              mdi-eye
-                            </v-icon> <br>
-                            <span>Leer</span>
-                          </v-btn>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </v-card>
+                </v-col>
               </v-row>
             </v-container>
           </main>
@@ -145,9 +89,9 @@
 </template>
 <script>
 import LatestPosts from '~/components/blog/latestPosts.vue'
-
+import blogCard from '~/components/genericComponents/blogCard.vue'
 export default {
-  components: { LatestPosts },
+  components: { LatestPosts, blogCard },
   async asyncData ({ $content }) {
     const posts = await $content('/blog', {})
       .without(['body'])
@@ -268,7 +212,6 @@ export default {
               }
           }
       }
-      }
     }
     .top__post {
       .post-title {
@@ -314,5 +257,5 @@ export default {
                   }
                 }
               }
-  }
+  }}
 </style>

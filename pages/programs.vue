@@ -76,9 +76,11 @@
                     lg="6"
                     md="6"
                     sm="6"
-                    class="pa-0"
+                    class="pa-0 bg-b"
                   >
-                    <v-img :src="program.imgUrl" class="rounded-l-lg pa-0 ma-0 fill-height img-course" />
+                    <v-img :src="program.imgUrl" class="rounded-l-lg pa-0 ma-0 fill-height img-course white--text align-end pb-3">
+                      <div class="mask"></div>
+                    </v-img>
                   </v-col>
                   <v-col
                     xl="6"
@@ -86,31 +88,31 @@
                     md="6"
                     class="px-8 py-5"
                   >
-                    <v-card-title class="pa-0">
-                      <h2 class="fw-300 gray-m-font">
-                        {{ program.name }}
-                      </h2>
-                    </v-card-title>
-                    <v-card-text class="pa-0 mb-5">
+                      <v-card-title class="card-title my-2 ml-5 red-font">
+                        <h2 class="fw-300">
+                          {{ program.name }}
+                        </h2>
+                      </v-card-title>
+                    <v-card-text class="pa-1">
                       <p class="text">
                         {{ program.description }}
                       </p>
                     </v-card-text>
-                    <div v-if="program.features && program.features.resources" class="d-flex mb-5">
-                      <v-icon class="icon mr-5">
+                    <!-- <div v-if="program.features && program.features.resources" class="d-flex mb-5"> -->
+                      <!-- <v-icon class="icon mr-5">
                         mdi-book-open-page-variant-outline
                       </v-icon>
                       <p class="text">
                         {{ program.features.resources.length }} recursos descargables
-                      </p>
-                    </div>
+                      </p> -->
+                    <!-- </div> -->
                     <div class="d-flex mb-5">
-                      <v-icon class="icon mr-5">
+                      <!-- <v-icon class="icon mr-5">
                         mdi-school
                       </v-icon>
                       <p class="text">
                         Dirigido a quienes inician en estudios teologicos
-                      </p>
+                      </p> -->
                     </div>
                     <v-row class="minirow d-flex justify-start align-center ma-0">
                       <v-col
@@ -126,9 +128,9 @@
                           <span class="priceNew mr-2">
                             ${{ program.features.priceInfo.finalPrice }}
                           </span>
-                          <p class="text-sm">
+                          <!-- <p class="text-sm">
                             hasta <br> DD-MM-AAAA
-                          </p>
+                          </p> -->
                         </div>
                       </v-col>
                       <v-spacer />
@@ -238,9 +240,9 @@ export default {
 
   .hero {
     background-image:
-    url(https://images.unsplash.com/photo-1587325474165-d49e05df3a76?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1173&q=80);
+    url(https://images.unsplash.com/photo-1486525546686-3cd5484691f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1131&q=80);
     height: 100vh;
-    background-position: bottom;
+    background-position: center;
     .hero-card {
       max-height: 500px;
       .text {
@@ -251,25 +253,30 @@ export default {
   }
   @include tablet {
     .hero{
-      height: 65vh;
+      height: 70vh;
     }
   }
 main {
   .program-card {
-    opacity: 0.75;
+    // opacity: 0.75;
     box-shadow: 10px 5px 10px -5px rgba(0, 0, 0, 0.4) !important;
-    .img-course {
-      filter: grayscale(50%);
-    }
-    &:hover {
-      opacity: 1;
-      transition: all 0.4s ease-in-out;
-      transform: translateY(-5px);
-      box-shadow: 15px 8px 15px -5px rgba(0, 0, 0, 0.4) !important;
+    .bg-b {
+      background: rgb(0,0,0);
+      background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,.8) 20%, rgba(0,0,0,.6) 50%, rgba(0,0,0,0.2) 75%, rgba(0,0,0,0) 100%);
       .img-course {
-        filter: none;
+        filter: grayscale(60%);
+        opacity: .9;
       }
     }
+      &:hover {
+        opacity: 1;
+        transition: all 0.4s ease-in-out;
+        transform: translateY(-5px);
+        box-shadow: 15px 8px 15px -5px rgba(0, 0, 0, 0.4) !important;
+        .img-course {
+          filter: none;
+        }
+      }
     .text {
         font-size: $body;
     }

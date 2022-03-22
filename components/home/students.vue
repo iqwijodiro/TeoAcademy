@@ -1,5 +1,5 @@
 <template>
-  <section class="students mt-5 py-5 px-2 d-flex justify-center align-center">
+  <section class="students py-5 px-2 d-flex justify-center align-center">
     <v-container class="d-flex justify-center align-center">
       <v-row justify="center" class="fill-height">
         <v-col
@@ -86,15 +86,15 @@ export default {
 </script>
 <style lang="scss" scoped>
 .students{
-  background: rgb(149,149,149);
-  background: linear-gradient(0deg, rgba(149,149,149,1) 0%, rgba(193,193,193,1) 25%, rgba(211,211,211,1) 50%, rgba(231,231,231,1) 75%, rgba(250,250,250,1) 100%);
+  background: rgb(189,189,189);
+  background: linear-gradient(180deg, rgba(149,149,149,1) 0%, rgba(193,193,193,1) 25%, rgba(211,211,211,1) 50%, rgba(231,231,231,1) 75%, rgba(250,250,250,1) 100%);
   padding: 50px 20px;
-  min-height: 600px;
+  min-height: 650px;
   height: 120vh;
   max-height: 900px;
   .bg-sheet {
     height: 95%;
-    min-height: 300px;
+    min-height: 330px;
     max-height: 1000px;
     h2 {
       color: $wine;
@@ -103,7 +103,7 @@ export default {
     }
     .quote-slider {
       .card-quote {
-        width: 90%;
+        width: 95%;
         max-width: 500px;
       }
       .quote {
@@ -128,7 +128,7 @@ export default {
     .students{
       .bg-sheet {
         height: 85%;
-        max-height: 600px;
+        max-height: 650px;
       }
     }
     .quote {
@@ -139,7 +139,7 @@ export default {
     .students {
       height: 70vh;
       .bg-sheet {
-        max-height: 600px;
+        max-height: 650px;
         height: 80%;
       }
     }

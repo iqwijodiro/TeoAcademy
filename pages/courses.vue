@@ -31,7 +31,7 @@
                 <v-card elevation="5" max-width="900px" class="hero-card rounded-lg text-center mx-auto pa-5 mt-8">
                   <v-card-title class="centrar mx-auto pa-0 mb-4">
                     <h1 class="fw-300 text-center">
-                      Conoce todos nuestros cursos
+                      Cursos teológicos a tu alcance
                     </h1>
                   </v-card-title>
                   <v-form>
@@ -231,7 +231,7 @@ export default {
       this.pages = data.pages
       this.courses = data.courses
       this.spinner = false
-      // console.log(this.courses)
+      console.info(this.courses)
     },
     async searchData () {
       this.search.trim()
@@ -260,10 +260,10 @@ export default {
 <style lang="scss" scoped>
 .hero {
     background-image:
-    url(https://images.unsplash.com/photo-1485548125564-21b2276a644a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1116&q=80);
+    url(https://images.unsplash.com/photo-1581447109217-19026003eba5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
     height: 100%;
     min-height: 80vh;
-    background-position: bottom;
+    background-position: center;
     .hero-card {
       max-height: 500px;
     }

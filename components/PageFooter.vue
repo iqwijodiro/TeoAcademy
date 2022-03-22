@@ -5,59 +5,16 @@
         <v-row class="mt-5">
           <v-col
             cols="12"
-            md="5"
-            class="order-2 order-md-0"
-          >
-            <ul>
-              <li v-for="(FootItem, i) in FootItems" :key="i" class="d-flex">
-                <v-icon size="30" class="icon">
-                  {{ FootItem.icon }}
-                </v-icon>
-                <p class="text-mid ma-3">
-                  {{ FootItem.text }}
-                </p>
-              </li>
-            </ul>
-          </v-col>
-          <v-col
-            cols="12"
-            md="3"
-            class="order-1 order-md-1"
-          >
-            <v-list
-              class="d-flex flex-column align-md-start align-center pa-0"
-            >
-              <h4 class="pt-4 mb-3">
-                Acceso Rápido
-              </h4>
-              <v-list-item v-for="(item, i) in items" :key="i" class="item">
-                <nuxt-link :to="item.to">
-                  <v-list-item-title class="link px-0" v-text="item.text" />
-                </nuxt-link>
-              </v-list-item>
-            </v-list>
-          </v-col>
-          <v-col
-            cols="12"
             md="4"
-            class="order-0 order-md-2"
+            class=""
           >
-            <!-- Formulario de contacto -->
-            <contact-form v-model="dialogContact" />
-            <v-btn
-              block
-              class="btn mb-5"
-              @click="dialogContact = true"
-            >
-              Contáctanos
-            </v-btn>
-            <v-img
-              :src="require('../assets/img/logo.webp')"
+            <!-- <v-img
+              :src="require('../assets/img/logo_full.jpg')"
               contain
               width="200px"
               max-width="100%"
               class="mx-auto my-4"
-            />
+            /> -->
             <h4 class="mb-3 text-center">
               Síguenos en nuestras redes sociales
             </h4>
@@ -76,6 +33,51 @@
                 </a>
               </v-list>
             </div>
+            <div class="centrar">
+
+            <!-- Formulario de contacto -->
+            <contact-form v-model="dialogContact" />
+            <v-btn
+              class="btn mb-5 d-none"
+              @click="dialogContact = true"
+            >
+              Contáctanos
+            </v-btn>
+          </div>
+          </v-col>
+          <v-col
+            cols="12"
+            md="5"
+            class=""
+          >
+            <ul>
+              <li v-for="(FootItem, i) in FootItems" :key="i" class="d-flex">
+                <v-icon size="30" class="icon">
+                  {{ FootItem.icon }}
+                </v-icon>
+                <p class="text-mid ma-3">
+                  {{ FootItem.text }}
+                </p>
+              </li>
+            </ul>
+          </v-col>
+          <v-col
+            cols="12"
+            md="3"
+            class=""
+          >
+            <v-list
+              class="d-flex flex-column align-md-start align-center pa-0"
+            >
+              <h4 class="pt-4 mb-3">
+                Acceso Rápido
+              </h4>
+              <v-list-item v-for="(item, i) in items" :key="i" class="item">
+                <nuxt-link :to="item.to">
+                  <v-list-item-title class="link px-0" v-text="item.text" />
+                </nuxt-link>
+              </v-list-item>
+            </v-list>
           </v-col>
         </v-row>
         <v-container class="text-center my-5">

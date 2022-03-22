@@ -31,14 +31,14 @@
     <v-card-text class="text-card">
       {{ subName }}
     </v-card-text>
-    <v-row class="minirow d-flex justify-center align-center py-1">
+    <v-row class="minirow d-flex justify-center align-center py-1 d-none">
       <!-- v-if="course.structure && course.structure.sections" -->
       <div
         class="my-2 mr-2"
       >
         <p class="ma-0 px-3 text-small">
           {{ sections }} <br>
-          Módulos
+          Unidades
         </p>
       </div>
       <!-- v-if="course.features && course.features.resources" -->
