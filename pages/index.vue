@@ -2,7 +2,7 @@
   <div id="index">
     <!--Seccion de Hero-->
     <hero />
-    <students />
+    <!-- <students /> -->
     <!--Seccion de los mejores cursos-->
     <top-courses />
     <!-- ProximosEventos -->
@@ -21,9 +21,8 @@
 import hero from '~/components/home/hero'
 import ebookIndex from '~/components/home/ebookIndex'
 import topCourses from '~/components/home/topCourses'
-import students from '~/components/home/students'
+// import students from '~/components/home/students'
 import nextEvents from '~/components/home/nextEvents'
-import ourTeam from '~/components/home/ourTeam'
 import blogIndex from '~/components/home/blogIndex'
 import newsletter from '~/components/home/newsletter'
 
@@ -32,9 +31,8 @@ export default {
     hero,
     ebookIndex,
     topCourses,
-    students,
+    // students,
     nextEvents,
-    ourTeam,
     blogIndex,
     newsletter
   },

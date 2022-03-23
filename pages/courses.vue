@@ -22,69 +22,76 @@
         <template #header>
           <div class="hero d-flex justify-center align-center">
             <div class="mask" />
-            <v-row justify="center" class="rail">
-              <v-col
-                cols="12"
-                md="8"
-                class="mx-auto px-5"
-              >
-                <v-card elevation="5" max-width="900px" class="hero-card rounded-lg text-center mx-auto pa-5 mt-8">
-                  <v-card-title class="centrar mx-auto pa-0 mb-4">
-                    <h1 class="fw-300 text-center">
-                      Cursos teológicos a tu alcance
-                    </h1>
-                  </v-card-title>
-                  <v-form>
-                    <v-container>
-                      <v-row justify="center">
-                        <v-col
-                          cols="12"
-                          md="8"
-                          class="mb-0 pb-0"
-                        >
-                          <input type="text" style="display: none; visibility: hidden">
-                          <v-text-field
-                            v-model="search"
-                            placeholder="Buscar curso..."
-                            solo
-                            clearable
-                            prepend-inner-icon="mdi-magnify"
-                            autofocus
-                            class="mt-2"
-                            @keyup.enter.stop="searchData"
-                          />
-                        </v-col>
-                        <v-col
-                          cols="12"
-                          md="4"
-                          class="mt-n5 mt-md-0"
-                        >
-                          <v-btn
-                            class="btn mb-5 mb-md-0 mx-auto"
-                            width="100%"
-                            @click="searchData"
+            <v-container>
+              <v-row justify="center" class="rail">
+                <v-col
+                  cols="12"
+                  md="8"
+                  class="mx-auto px-5"
+                >
+                  <v-card
+                    elevation="5"
+                    min-height="300px"
+                    max-width="900"
+                    class="hero-card rounded-lg text-center mx-auto pa-5 mt-8"
+                  >
+                    <v-card-title class="centrar mx-auto pa-0 mb-4">
+                      <h1 class="fw-300 text-center">
+                        Cursos teológicos a tu alcance
+                      </h1>
+                    </v-card-title>
+                    <v-form>
+                      <v-container>
+                        <v-row justify="center">
+                          <v-col
+                            cols="12"
+                            md="8"
+                            class="mb-0 pb-0"
                           >
-                            Buscar
-                          </v-btn>
-                        </v-col>
-                      </v-row>
-                      <v-row class="ma-0 pa-0">
-                        <v-col cols="12" md="auto" class="px-0 mx-auto">
-                          <v-select
-                            v-model="sortBy"
-                            dense
-                            :items="keys"
-                            label="Filtrar por..."
-                            hide-details
-                            solo
-                          />
-                        </v-col>
-                      </v-row>
-                    </v-container>
-                  </v-form>
-                </v-card>
-              </v-col>
-            </v-row>
+                            <input type="text" style="display: none; visibility: hidden">
+                            <v-text-field
+                              v-model="search"
+                              placeholder="Buscar curso..."
+                              solo
+                              clearable
+                              prepend-inner-icon="mdi-magnify"
+                              autofocus
+                              class="mt-2"
+                              @keyup.enter.stop="searchData"
+                            />
+                          </v-col>
+                          <v-col
+                            cols="12"
+                            md="4"
+                            class="mt-n5 mt-md-0"
+                          >
+                            <v-btn
+                              class="btn mb-5 mb-md-0 mx-auto"
+                              width="100%"
+                              @click="searchData"
+                            >
+                              Buscar
+                            </v-btn>
+                          </v-col>
+                        </v-row>
+                        <v-row class="ma-0 pa-0">
+                          <v-col cols="12" md="auto" class="px-0 mx-auto">
+                            <v-select
+                              v-model="sortBy"
+                              dense
+                              :items="keys"
+                              label="Filtrar por..."
+                              hide-details
+                              solo
+                            />
+                          </v-col>
+                        </v-row>
+                      </v-container>
+                    </v-form>
+                  </v-card>
+                </v-col>
+              </v-row>
+            </v-container>
           </div>
         </template>
         <template #default="props">

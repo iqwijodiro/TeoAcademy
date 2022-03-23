@@ -7,6 +7,7 @@
     <!--Seccion de Objetivos y Beneficios-->
     <goals-benefits class="mt-10" />
     <!--Seccion de Dirigido a:-->
+    <our-team />
     <adressed-to />
     <!--Seccion de Biblioteca de cursos / niveles-->
     <levels />
@@ -30,6 +31,8 @@ import linkToSego from '~/components/groupsPage/linkToSego'
 import consulting from '~/components/groupsPage/consulting'
 import processSection from '~/components/groupsPage/processSection'
 import faq from '~/components/groupsPage/faq'
+import ourTeam from '~/components/groupsPage/ourTeam'
+
 export default {
   components: {
     heroGroups,
@@ -40,6 +43,7 @@ export default {
     linkToSego,
     consulting,
     faq,
+    ourTeam,
     processSection
   },
   data () {

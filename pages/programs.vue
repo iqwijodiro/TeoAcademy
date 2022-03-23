@@ -2,42 +2,48 @@
   <div id="programs">
     <div class="hero d-flex justify-center align-center">
       <div class="mask" />
-      <v-row justify="center" class="rail">
-        <v-col
-          lg="8"
-          md="10"
-          class="mx-auto px-5"
-        >
-          <v-card elevation="5" max-width="900px" class="hero-card rounded-lg text-center mx-auto pa-5 mt-8">
-            <v-card-title class="centrar mx-auto pa-0 mb-4">
-              <h1 class="fw-300">
-                Nuestros Programas
-              </h1>
-            </v-card-title>
-            <v-card-text class="my-3 mx-auto px-5 py-0">
-              <p class="text">
-                Ponemos a su disposición programas de enseñanza bíblica de amplio alcance
-                diseñados y desarrollado por lideres con el Don de la Enseñanza y amplia
-                experiencia ministerial, disponible para personas con el anhelo de desarrollar su fe y
-                experimentar la maravillosa experiencia de la formación cristiana. <br>
-                <!-- <span class="fw-700">¡Matriculate y disfruta la experiencia!</span> -->
-              </p>
-            </v-card-text>
-            <v-row class="ma-0 pa-0" justify="center">
-              <v-col cols="12" md="5" class="px-0 ml-2">
-                <v-select
-                  v-model="sortBy"
-                  dense
-                  :items="keys"
-                  label="Busqueda por tipo de programa"
-                  hide-details
-                  solo
-                />
-              </v-col>
-            </v-row>
-          </v-card>
-        </v-col>
-      </v-row>
+      <v-container>
+        <v-row justify="center" class="rail">
+          <v-col
+            cols="12"
+            md="8"
+            class="mx-auto px-5"
+          >
+            <v-card
+              elevation="5"
+              min-height="300px"
+              max-width="900"
+              class="hero-card rounded-lg text-center mx-auto pa-5 mt-8">
+              <v-card-title class="centrar mx-auto pa-0 mb-4">
+                <h1 class="fw-300">
+                  Nuestros Programas
+                </h1>
+              </v-card-title>
+              <v-card-text class="my-3 mx-auto px-5 py-0">
+                <p class="text">
+                  Ponemos a su disposición programas de enseñanza bíblica de amplio alcance
+                  diseñados y desarrollado por lideres con el Don de la Enseñanza y amplia
+                  experiencia ministerial, disponible para personas con el anhelo de desarrollar su fe y
+                  experimentar la maravillosa experiencia de la formación cristiana. <br>
+                  <!-- <span class="fw-700">¡Matriculate y disfruta la experiencia!</span> -->
+                </p>
+              </v-card-text>
+              <v-row class="ma-0 pa-0" justify="center">
+                <v-col cols="12" md="5" class="px-0 ml-2">
+                  <v-select
+                    v-model="sortBy"
+                    dense
+                    :items="keys"
+                    label="Busqueda por tipo de programa"
+                    hide-details
+                    solo
+                  />
+                </v-col>
+              </v-row>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
     </div>
     <main>
       <div v-if="spinner" class="spinner">

@@ -1,49 +1,59 @@
 <template>
-  <section class="goals gutter-p px-5">
+  <section class="goals gutter-p px-5 mb-10 pb-5">
     <v-container class="px-5">
-      <!-- <v-row justify="center"> -->
-      <v-col
-        cols="12"
-        md="10"
-        class="mx-auto"
-      >
-        <h2 class="text-center mb-8 red-font">
-          <v-icon class="icon">
-            mdi-bullseye-arrow
-          </v-icon>
-          Objetivos
-        </h2>
-        <ul class=" ml-3">
-          <li
-            v-for="goal in goals"
-            :key="goal.id"
-            class="text"
-          >
-            <v-icon class="icon mr-3">
-              mdi-check-circle
-            </v-icon>
-            {{ goal }}
-          </li>
-        </ul>
-        <h2 class="text-center mt-15 mb-5 red-font">
-          <v-icon class="icon">
-            mdi-medal
-          </v-icon>
-          Beneficios
-        </h2>
-        <ul class="ml-3">
-          <li
-            v-for="(benefit, i) in benefits"
-            :key="i"
-            class="text"
-          >
-            <v-icon class="icon mr-3">
-              mdi-seal
-            </v-icon>{{ benefit }}
-          </li>
-        </ul>
-      </v-col>
-      <!-- </v-row> -->
+      <v-row justify="center">
+        <v-col
+          cols="12"
+          md="6"
+          class="mx-auto"
+        >
+          <v-card min-height="100%" elevation="5" class="rounded-xl pa-10">
+            <h2 class="text-center red-font">
+              <v-icon class="icon">
+                mdi-bullseye-arrow
+              </v-icon>
+              Objetivos
+            </h2>
+            <ul class=" ml-3">
+              <li
+                v-for="goal in goals"
+                :key="goal.id"
+                class="text"
+              >
+                <v-icon class="icon mr-3">
+                  mdi-check-circle
+                </v-icon>
+                {{ goal }}
+              </li>
+            </ul>
+          </v-card>
+        </v-col>
+        <v-col
+          cols="12"
+          md="6"
+          class="mx-auto"
+        >
+          <v-card min-height="100%" elevation="5" class="rounded-xl pa-10">
+            <h2 class="text-center red-font">
+              <v-icon class="icon">
+                mdi-medal
+              </v-icon>
+              Beneficios
+            </h2>
+            <ul class="ml-3">
+              <li
+                v-for="(benefit, i) in benefits"
+                :key="i"
+                class="text"
+              >
+                <v-icon class="icon mr-3">
+                  mdi-seal
+                </v-icon>{{ benefit }}
+              </li>
+            </ul>
+          </v-card>
+        </v-col>
+      </v-row>
     </v-container>
   </section>
 </template>
@@ -77,7 +87,7 @@ export default {
   }
   ul{
     padding: 0 !important;
-    text-indent: -4rem;
+    text-indent: -45px;
     li {
       margin: 1rem 0 0 1rem !important;
       .icon{
@@ -86,7 +96,7 @@ export default {
     }
   }
   .icon {
-    font-size: 3rem;
+    font-size: 30px;
   }
 }
 </style>

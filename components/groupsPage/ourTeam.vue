@@ -1,20 +1,18 @@
 <template>
-  <section class="our-team d-flex justify-center align-center">
+  <section class="our-team d-flex justify-center align-center ">
     <div class="mask" />
     <v-container>
       <v-row justify="center" class="fill-height">
         <v-col
-          md="9"
-          lg="7"
-          xl="5"
-          sm="10"
+          cols="12"
+          md="7"
           class="d-flex align-center"
         >
           <v-card
             rounded="xl"
             class="bg-sheet mx-auto py-5 px-3 text-center"
           >
-            <h2 class="mt-5 mb-2 text-center">
+            <h2 class="my-5 text-center">
               Nuestro Equipo
             </h2>
             <v-carousel
@@ -23,17 +21,17 @@
               class="team-slider my-slider"
             >
               <v-carousel-item v-for="(partner, i) in partners" :key="i" class="card-member mx-auto">
-                <v-card elevation="0" light class="card-quote d-flex flex-column justify-space-between align-center mx-auto">
-                  <v-avatar style="border-radius: 50%" size="125" class="mb-4">
+                <v-card width="100%" flat light class="card-quote d-flex flex-column justify-space-between align-center mx-auto px-10">
+                  <v-avatar style="border-radius: 50%" size="180" class="mb-5">
                     <v-img :src="partner.avatar" />
                   </v-avatar>
-                  <h3 class="name">
+                  <h2 class="name">
                     {{ partner.member }}
-                  </h3>
+                  </h2>
                   <h3 class="job">
                     {{ partner.role }}
                   </h3>
-                  <p class="member px-5">
+                  <p class="member px-5" style="visibility:hidden; font-size: 11px;">
                     {{ partner.text }}
                   </p>
                 </v-card>
@@ -101,8 +99,6 @@ export default {
   }
   .team-slider {
       .name, .job {
-        font-family: $title-font;
-        font-size: $link;
         padding: 0 10px !important;
         color: $gray-mid;
         font-weight: 300 !important;

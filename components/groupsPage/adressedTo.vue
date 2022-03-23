@@ -1,5 +1,5 @@
 <template>
-  <section class="whom gutter-p mt-15">
+  <section class="whom gutter-p">
     <v-container>
       <h2 class="text-center mb-5">
         Dirigido a:
