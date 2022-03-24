@@ -1,6 +1,6 @@
 <template>
   <section class="blog gutter-p mb-4 pb-5">
-    <v-container>
+    <v-container class="line-rail">
       <h2 class="text-start ml-3">
         Nuestro Blog
       </h2>
@@ -99,8 +99,8 @@ export default {
     color: $wine;
   }
   .my-slider {
-    border-top: 2px solid $gray-light;
-    border-bottom: 2px solid $gray-light;
+    // border-top: 2px solid $gray-light;
+    // border-bottom: 2px solid $gray-light;
     max-height: 450px;
     width: 100%;
     // min-width: 1200px;
