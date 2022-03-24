@@ -1,6 +1,6 @@
 <template>
   <!--Seccion de Hero-->
-  <section class="ma-0 pa-0">
+  <section class="ma-0 pa-0 mt-10 mt-sm-0">
     <div class="hero d-flex flex-column justify-center align-center">
       <!-- <div class="mask" /> -->
       <v-container>
@@ -11,6 +11,7 @@
               <v-card
                 min-height="300px"
                 max-width="900"
+                :min-width="$vuetify.breakpoint.lgAndUp ? '750' : 'auto'"
                 class="hero-card mt-n12 rounded-xl text-center pa-5"
               >
                 <v-card-title class="mx-auto pb-0">
@@ -64,28 +65,28 @@ export default {
   min-height: 100vh;
   // background-position: bottom center;
   // background-attachment: scroll;
-.lay-bottom {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 110%;
-    overflow: hidden;
-    line-height: 0;
-    transform: rotate(0deg);
-}
+    .lay-bottom {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 110%;
+        overflow: hidden;
+        line-height: 0;
+        transform: rotate(0deg);
+    }
 
-.lay-bottom svg {
-    position: relative;
-    display: block;
-    width: calc(100% + 1.3px);
-    height: 30%;
-}
+    .lay-bottom svg {
+        position: relative;
+        display: block;
+        width: calc(100% + 1.3px);
+        height: 20%;
+    }
 
-.lay-bottom .shape-fill {
-    fill: #fff;
-}
-background: rgb(240,38,58);
-background: linear-gradient(135deg, rgba(240,38,58,1) 0%, rgba(240,38,58,1) 15%, rgba(240,38,58,0.9780287114845938) 30%, rgba(190,30,46,1) 70%, rgba(190,30,46,1) 85%, rgba(190,30,46,1) 100%);
+    .lay-bottom .shape-fill {
+        fill: #fff;
+    }
+    background: rgb(240,38,58);
+    background: linear-gradient(135deg, rgba(240,38,58,1) 0%, rgba(240,38,58,1) 15%, rgba(240,38,58,0.9780287114845938) 30%, rgba(190,30,46,1) 70%, rgba(190,30,46,1) 85%, rgba(190,30,46,1) 100%);
   .hero-card {
     background-color: rgba($color: #fff, $alpha: 0.95);
     border: 6px solid rgba($color: $wine, $alpha: 0.55);
@@ -97,14 +98,5 @@ background: linear-gradient(135deg, rgba(240,38,58,1) 0%, rgba(240,38,58,1) 15%,
       // font-weight: 700;
     }
   }
-  // @keyframes enter {
-  //   0% {
-  //     opacity: 0;
-  //     transform: translateY(-200px);
-  //   }
-  //   100% {
-  //     opacity: 1;
-  //   }
-  // }
 }
 </style>

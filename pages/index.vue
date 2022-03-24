@@ -8,7 +8,7 @@
     <!-- ProximosEventos -->
     <next-events />
     <!-- Nuestro Equipo de trabajo -->
-    <our-team />
+    <!-- <our-team /> -->
     <!-- Nuestro Blog -->
     <blog-index :posts="posts" />
     <!--Seccion del Ebook-->

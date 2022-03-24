@@ -12,7 +12,8 @@
           <v-slide-group
             arrows
             multiple
-            class="my-3 my-slider mx-auto"
+            :style="$vuetify.breakpoint.mdAndUp ? 'min-width: 1200px' : 'auto'"
+            class="my-3 my-slider mx-auto v-slide-group__wrapper"
           >
             <v-slide-item
               v-for="(post, i) in posts"
@@ -21,7 +22,7 @@
             >
               <v-card
                 elevation="5"
-                max-width="315px"
+                max-width="330px"
                 height="350px"
                 max-height="400px"
                 class="post-card d-flex align-end rounded-xl"
@@ -98,10 +99,11 @@ export default {
     color: $wine;
   }
   .my-slider {
-    border-top: 0.2rem solid $gray-light;
-    border-bottom: 0.2rem solid $gray-light;
+    border-top: 2px solid $gray-light;
+    border-bottom: 2px solid $gray-light;
     max-height: 450px;
     width: 100%;
+    // min-width: 1200px;
     max-width: 1500px;
     .slide {
       max-height: 400px;
@@ -109,8 +111,8 @@ export default {
         position: relative;
       }
       .card-overlay {
-        background-color: rgba($gray-dark, $alpha: 0.6);
-        height: 65%;
+        background: linear-gradient(0deg, rgba(#000,.8) 0%, rgba(#000,.65) 43%, rgba(#000,.55) 86%, rgba(#000,.00) 100%);
+        height: auto;
         position: absolute;
         width: 100%;
         border-bottom-left-radius: 24px;
@@ -133,7 +135,7 @@ export default {
           width: 85px;
           height: 50px;
           color: white;
-          background-color: rgba($gray-dark, $alpha: 0.5);
+          background-color: rgba($gray-mid, $alpha: 0.5);
           text-transform: capitalize !important;
           font-size: $link;
           .eye-i {

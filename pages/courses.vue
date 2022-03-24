@@ -33,7 +33,8 @@
                     elevation="5"
                     min-height="300px"
                     max-width="900"
-                    class="hero-card rounded-lg text-center mx-auto pa-5 mt-8"
+                    :min-width="$vuetify.breakpoint.lgAndUp ? '750' : 'auto'"
+                    class="hero-card rounded-xl text-center mx-auto pa-5 mt-8"
                   >
                     <v-card-title class="centrar mx-auto pa-0 mb-4">
                       <h1 class="fw-300 text-center">
@@ -125,7 +126,7 @@
           <v-container>
             <v-row justify="center" class="my-2">
               <v-btn
-                class="btn mt-3"
+                class="minibtn mt-3"
                 @click="couponContact = true"
               >
                 Descargar Cupón de descuento

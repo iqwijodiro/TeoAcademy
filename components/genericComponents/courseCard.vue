@@ -31,9 +31,10 @@
     <v-card-text class="text-card">
       {{ subName }}
     </v-card-text>
-    <v-row class="minirow d-flex justify-center align-center py-1 d-none">
+    <v-row class="minirow d-flex justify-center align-center py-1">
       <!-- v-if="course.structure && course.structure.sections" -->
-      <div
+      <!-- v-if="course.features && course.features.resources" -->
+      <!-- <div
         class="my-2 mr-2"
       >
         <p class="ma-0 px-3 text-small">
@@ -41,7 +42,6 @@
           Unidades
         </p>
       </div>
-      <!-- v-if="course.features && course.features.resources" -->
       <div
         class="my-2 mr-2"
       >
@@ -49,7 +49,7 @@
           {{ resources }} <br>
           Recursos
         </p>
-      </div>
+      </div> -->
       <div>
         <span class="priceOld mr-2">
           ${{ parseInt(price) }}
@@ -145,9 +145,9 @@ export default {
         font-size: $miniLink !important;
         // font-weight: 400;
         color: $gray-mid;
-        &:nth-child(1) {
-            border-right: 2px solid $gray-light;
-        }
+        // &:nth-child(1) {
+        //     border-right: 2px solid $gray-light;
+        // }
     }
 }
 

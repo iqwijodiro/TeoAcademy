@@ -1,20 +1,23 @@
 <template>
   <div>
     <v-card
-      :min-height="$vuetify.breakpoint.mdAndDown ? '700px' : '550px'"
-      class="blog-card d-flex flex-column align-end rounded-lg pa-0 my-5"
+      elevation="5"
+      :min-height="$vuetify.breakpoint.mdAndDown ? '500px' : '450px'"
+      class="blog-card d-flex flex-column align-end rounded-xl pa-0 my-5"
       @click="selectPost(post)"
     >
       <v-img
         :src="img"
         height="100%"
         max-width="100%"
-        class="rounded-lg img-post white--text align-end"
+        class="rounded-tr-xl img-post white--text align-end"
       >
         <div class="card-overlay pa-3">
-          <h2 class="post-title text-center my-4">
-            {{ title }}
-          </h2>
+          <v-card-title>
+            <h2 class="post-title text-center my-4">
+              {{ title }}
+            </h2>
+          </v-card-title>
         </div>
       </v-img>
       <div class="py-4 px-sm-10 pl-2 rounded-b-lg">
@@ -24,9 +27,9 @@
               <v-img :src="avatar" />
             </v-avatar>
             <div class="px-1 mx-sm-5">
-              <h4 class="author gray-m-font">
+              <h3 class="author gray-m-font text-mid">
                 {{ author }}
-              </h4>
+              </h3>
               <span class="date text-center blue-font">
                 <v-icon>
                   mdi-calendar
@@ -47,7 +50,7 @@
                   label
                   class="my-1"
                 >
-                  <v-icon left>
+                  <v-icon small left>
                     mdi-label
                   </v-icon>
                   {{ topic }}
@@ -127,9 +130,13 @@ export default {
                 background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.7) 20%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.3) 75%, rgba(0,0,0,0) 100%);
                 width: 100%;
                 // border-bottom-left-radius: 24px;
-                padding: 10px;}
+                padding: 10px;
+                h2 {
+                  font-size: $section-subtitle;
+                }
+            }
           }
-          box-shadow: 10px 5px 10px -5px rgba(0, 0, 0, 0.4) !important;
+          // box-shadow: 10px 5px 10px -5px rgba(0, 0, 0, 0.4) !important;
           &:hover {
             transform: translateY(-5px);
             transition: all 0.4s ease-in-out;
@@ -139,6 +146,9 @@ export default {
               transition: all 0.4s ease-in-out;
               opacity: 1;
             }
+          }
+          .date {
+            font-size: 13px;
           }
             .btn-leer {
         //   width: 70px;

@@ -13,7 +13,8 @@
               elevation="5"
               min-height="300px"
               max-width="900"
-              class="hero-card rounded-lg    text-center pa-5 mx-auto"
+              min-width="750"
+              class="hero-card rounded-xl   text-center pa-5 mx-auto"
             >
               <v-card-title class="mx-auto pb-0 mb-4">
                 <h1 class="fw-300 mb-4">

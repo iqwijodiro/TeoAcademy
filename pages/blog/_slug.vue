@@ -3,8 +3,8 @@
     <v-container>
       <v-row>
         <v-col>
-          <article class="mx-auto">
-            <h1 class="fw-300">
+          <article class="mx-auto px-3">
+            <h1 class="fw-300 text-center text-md-left">
               {{ post.title }}
             </h1>
             <div class="content-box my-5">

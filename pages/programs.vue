@@ -13,17 +13,25 @@
               elevation="5"
               min-height="300px"
               max-width="900"
-              class="hero-card rounded-lg text-center mx-auto pa-5 mt-8">
+              :min-width="$vuetify.breakpoint.lgAndUp ? '750' : 'auto'"
+              class="hero-card rounded-xl text-center mx-auto pa-5 mt-8"
+            >
               <v-card-title class="centrar mx-auto pa-0 mb-4">
                 <h1 class="fw-300">
                   Nuestros Programas
                 </h1>
               </v-card-title>
               <v-card-text class="my-3 mx-auto px-5 py-0">
-                <p class="text">
+                <p v-if="$vuetify.breakpoint.smAndUp" class="text">
                   Ponemos a su disposición programas de enseñanza bíblica de amplio alcance
                   diseñados y desarrollado por lideres con el Don de la Enseñanza y amplia
                   experiencia ministerial, disponible para personas con el anhelo de desarrollar su fe y
+                  experimentar la maravillosa experiencia de la formación cristiana. <br>
+                  <!-- <span class="fw-700">¡Matriculate y disfruta la experiencia!</span> -->
+                </p>
+                <p v-if="$vuetify.breakpoint.smAndDown" class="text">
+                  Ponemos a su disposición programas de enseñanza bíblica de amplio alcance
+                  diseñados y desarrollado para personas con el anhelo de desarrollar su fe y
                   experimentar la maravillosa experiencia de la formación cristiana. <br>
                   <!-- <span class="fw-700">¡Matriculate y disfruta la experiencia!</span> -->
                 </p>
@@ -45,7 +53,7 @@
         </v-row>
       </v-container>
     </div>
-    <main>
+    <main class="px-2">
       <div v-if="spinner" class="spinner">
         <div class="bounce1" />
         <div class="bounce2" />
@@ -60,7 +68,7 @@
         loading-text=""
       >
         <template #default="props">
-          <v-container class="gutte mt-5">
+          <v-container class="mt-5">
             <h2 class="fw-300 text-center mt-10 red-font">
               ¡Matriculate y disfruta la experiencia!
             </h2>
@@ -71,10 +79,13 @@
               justify="center"
               class="pt-5 mt-5"
             >
-              <v-col>
+              <v-col
+                cols="12"
+                md="10"
+              >
                 <v-card
                   elevation="5"
-                  class="d-flex flex-column flex-sm-row program-card pa-0 rounded-lg mb-10"
+                  class="d-flex flex-column flex-sm-row program-card pa-0 rounded-xl mb-10"
                   @click="setProgram(program)"
                 >
                   <v-col
@@ -82,30 +93,28 @@
                     lg="6"
                     md="6"
                     sm="6"
-                    class="pa-0 bg-b"
+                    class="pa-0"
                   >
-                    <v-img :src="program.imgUrl" class="rounded-l-lg pa-0 ma-0 fill-height img-course white--text align-end pb-3">
-                      <div class="mask"></div>
-                    </v-img>
+                    <v-img :src="program.imgUrl" class="rounded-l-xl pa-0 ma-0 fill-height img-course white--text align-end pb-3" />
                   </v-col>
                   <v-col
                     xl="6"
                     lg="6"
                     md="6"
-                    class="px-8 py-5"
+                    class="px-sm-8 px-3 py-5"
                   >
-                      <v-card-title class="card-title my-2 ml-5 red-font">
-                        <h2 class="fw-300">
-                          {{ program.name }}
-                        </h2>
-                      </v-card-title>
+                    <v-card-title class="card-title my-2 ml-5 red-font">
+                      <h2 class="fw-300">
+                        {{ program.name }}
+                      </h2>
+                    </v-card-title>
                     <v-card-text class="pa-1">
                       <p class="text">
                         {{ program.description }}
                       </p>
                     </v-card-text>
                     <!-- <div v-if="program.features && program.features.resources" class="d-flex mb-5"> -->
-                      <!-- <v-icon class="icon mr-5">
+                    <!-- <v-icon class="icon mr-5">
                         mdi-book-open-page-variant-outline
                       </v-icon>
                       <p class="text">
@@ -265,15 +274,11 @@ export default {
 main {
   .program-card {
     // opacity: 0.75;
-    box-shadow: 10px 5px 10px -5px rgba(0, 0, 0, 0.4) !important;
-    .bg-b {
-      background: rgb(0,0,0);
-      background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,.8) 20%, rgba(0,0,0,.6) 50%, rgba(0,0,0,0.2) 75%, rgba(0,0,0,0) 100%);
+    // box-shadow: 10px 5px 10px -5px rgba(0, 0, 0, 0.4) !important;
       .img-course {
         filter: grayscale(60%);
         opacity: .9;
       }
-    }
       &:hover {
         opacity: 1;
         transition: all 0.4s ease-in-out;

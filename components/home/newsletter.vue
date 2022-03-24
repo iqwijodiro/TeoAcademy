@@ -18,7 +18,7 @@
           lg="5"
           md="6"
         >
-          <div class="container mx-auto text-center">
+          <div class="container mx-auto text-center red-font">
             <h3 class="mb-5">
               Recibe información acerca de nuestros eventos y contenidos
             </h3>

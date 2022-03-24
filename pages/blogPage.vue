@@ -11,7 +11,7 @@
           cols="12"
           md="8"
           lg="7"
-          class="main-container pa-0 ma-0"
+          class="main-container pa-0 ma-0 order-1 order-md-0"
         >
           <main>
             <v-container>
@@ -43,7 +43,7 @@
           class="mb-10 aside-container ml-0 ml-md-10"
         >
           <!-- Search container -->
-          <div class="search-container">
+          <div class="search-container ">
             <v-row class="mb-5 pa-5 mt-5 " justify="center">
               <v-row justify="center" no-gutters>
                 <v-col cols="12" md="10">
@@ -79,10 +79,12 @@
         </v-col>
       </div>
       <v-row v-if="$vuetify.breakpoint.smAndDown">
-        <latest-posts
-          :latest-posts="latestPosts"
-          @set-post="setPost"
-        />
+        <v-col>
+          <latest-posts
+            :latest-posts="latestPosts"
+            @set-post="setPost"
+          />
+        </v-col>
       </v-row>
     </v-container>
   </div>
@@ -219,43 +221,19 @@ export default {
       }
     }
   }
-              @include tablet {
-                .main-container {
-                  order: 0 !important;
-                  // flex: 0 1 60%
-                  .blog-card {
-                    .card-overlay {
-                    // height: 40% !important;
-                    h4.post-title {
-                      font-size: $section-title !important;
-                        color: $wine;
-                    }
-                    .author {
-                        font-size: $body;
-                          color: $gray-mid;
-                      }
-                      .date {
-                        font-size: $subtitle;
-                          color: $gray-mid;
-                      }
-                     }
-                  }
-                }
-                .search-container {
-                  // flex: 1 1 40% !important;
-                  // height: 300px;
-                  order: 1 !important;
-                }
-                .aside-container {
-                  order: 2 !important;
-                  // flex: 0 1 40%;
-                  // height: 300px;
-                  .top__post {
-                    .card-title {
-                      font-size: 18px;
-                    }
-                  }
-                }
-              }
+              // @include tablet {
+              //   .main-container {
+              //     order: 0 !important;
+              //   .search-container {
+              //     // flex: 1 1 40% !important;
+              //     // height: 300px;
+              //     // order: 1 !important;
+              //   }
+              //   .aside-container {
+              //     // order: 2 !important;
+              //     // flex: 0 1 40%;
+              //   }
+              //   }
+              // }
   }}
 </style>
