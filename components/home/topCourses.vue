@@ -18,7 +18,7 @@
                 v-for="course in courses"
                 :key="course._id"
                 width="100%"
-                maxWidth="350"
+                max-width="350"
                 :img-link="course.imgUrl"
                 :name="course.name"
                 :sub-name="course.subName"
