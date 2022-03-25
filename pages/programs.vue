@@ -33,7 +33,7 @@
                   experimentar la maravillosa experiencia de la formación cristiana. <br>
                   <!-- <span class="fw-700">¡Matriculate y disfruta la experiencia!</span> -->
                 </p>
-                <p v-if="$vuetify.breakpoint.mdAndDown" class="text">
+                <p v-if="$vuetify.breakpoint.mdAndDown" class="text-small">
                   Ponemos a su disposición programas de enseñanza bíblica de amplio alcance
                   diseñados y desarrollado para personas con el anhelo de desarrollar su fe y
                   experimentar la maravillosa experiencia de la formación cristiana. <br>
