@@ -1,7 +1,10 @@
 <template>
   <section class="process">
     <v-container>
-      <h2 class="text-center red-font mb-5">
+      <h2
+        :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 25px' : ''"
+        class="text-center red-font mb-5"
+      >
         Proceso de implementación
       </h2>
       <p class="text-center text px-3">

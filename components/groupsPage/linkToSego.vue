@@ -3,7 +3,10 @@
     <v-container>
       <v-row>
         <v-col>
-          <h2 class="text-center red-font mb-5">
+          <h2
+            :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 25px' : ''"
+            class="text-center red-font mb-5"
+          >
             Software para gestión de procesos formativos
           </h2>
           <p class="text-center text px-2">

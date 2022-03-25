@@ -1,9 +1,9 @@
 <template>
-  <div id="programs">
+  <div id="programs my-5">
     <div class="hero d-flex justify-center align-center">
       <div class="mask" />
       <v-container>
-        <v-row justify="center" class="">
+        <v-row justify="center" class="rail">
           <v-col
             cols="12"
             md="8"
@@ -18,7 +18,10 @@
               class="hero-card rounded-xl text-center mx-auto pa-5 mt-10"
             >
               <v-card-title class="centrar mx-auto pa-0 mb-4">
-                <h1 class="fw-300">
+                <h1
+                  :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 30px' : ''"
+                  class="fw-300 text-center"
+                >
                   Nuestros Programas
                 </h1>
               </v-card-title>
@@ -70,7 +73,10 @@
       >
         <template #default="props">
           <v-container class="mt-5">
-            <h2 class="fw-300 text-center mt-10 red-font">
+            <h2
+              :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 25px' : ''"
+              class="fw-300 text-center mt-10 red-font"
+            >
               ¡Matriculate y disfruta la experiencia!
             </h2>
             <v-row
@@ -111,7 +117,9 @@
                     class="px-sm-5 px-3 py-5"
                   >
                     <v-card-title class="card-title my-2 ml-5 red-font">
-                      <h2 class="fw-300">
+                      <h2
+                        :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 25px' : ''"
+                        class="fw-300">
                         {{ program.name }}
                       </h2>
                     </v-card-title>

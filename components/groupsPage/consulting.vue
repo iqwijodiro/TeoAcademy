@@ -1,7 +1,10 @@
 <template>
   <section class="asesoria">
     <v-container>
-      <h2 class="text-center red-font mb-5">
+      <h2
+        :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 25px' : ''"
+        class="text-center red-font mb-5"
+      >
         Asesoría para la implementación de procesos formativos
       </h2>
       <ul class="px-5">

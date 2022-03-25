@@ -36,7 +36,7 @@
                     </v-btn>
                   </v-col>
                   <v-col cols="12" md="5" class="pa-0 mr-3">
-                    <v-btn to="/program" block class="btn">
+                    <v-btn to="/programs" block class="btn">
                       Programas
                     </v-btn>
                   </v-col>

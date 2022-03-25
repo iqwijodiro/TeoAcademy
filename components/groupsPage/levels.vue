@@ -159,7 +159,7 @@ export default {
       //   width: 100%;
       // }
   .list-item {
-    display: inline;
+    display: inline-block;
     font-size: 25px;
     .icon {
       font-size: 35px;
