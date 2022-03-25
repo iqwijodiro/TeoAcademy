@@ -1,37 +1,44 @@
 <template>
   <section class="whom gutter-p">
     <v-container>
-      <h2 class="text-center mb-5">
+      <h2
+        :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 25px' : ''"
+        class="text-center mb-5"
+      >
         Dirigido a:
       </h2>
       <v-row justify="center">
         <v-col
-          lg="8"
+          cols="12"
+          md="8"
           sm="10"
         >
           <v-card class="sheet-slider rounded-lg mt-5" height="85%">
             <div class="mask rounded-lg" />
             <v-row justify="center" class="mb-5">
-              <v-col
-                cols="12"
-              >
+              <v-col>
                 <v-carousel hide-delimiters cycle>
                   <v-carousel-item
                     v-for="(who, i) in whos"
                     :key="i"
                     class="ma-5 rounded-lg"
                   >
-                    <!-- <v-img
-                    :src="who.img"
-                    contain
-                    class="rounded-lg"
-                    gradient="to top right, rgba(255,255,255,.3), rgba(240,240,240,.7)"
-                  /> -->
-                    <v-card elevation="0" color="transparent" class="d-flex flex-column justify-center rounded-lg" height="85%">
-                      <h3 class="text-center mb-10">
+                    <v-card
+                      flat
+                      color="transparent"
+                      class="d-flex flex-column justify-center rounded-lg"
+                      height="85%"
+                    >
+                      <h3
+                        :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 21px' : ''"
+                        class="text-center mb-10"
+                      >
                         Quienes {{ who.slide }}
                       </h3>
-                      <p class="text text-center mx-auto">
+                      <p
+                        :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 18px' : ''"
+                        class="text text-center mx-auto"
+                      >
                         {{ who.text }}
                       </p>
                     </v-card>

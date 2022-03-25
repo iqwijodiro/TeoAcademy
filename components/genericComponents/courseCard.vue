@@ -1,8 +1,11 @@
 <template>
   <v-card
-    max-height="460px"
-    max-width="320px"
-    height="95%"
+    :max-height="maxHeight"
+    :max-width="maxWidth"
+    :min-height="minHeight"
+    :min-width="minWidth"
+    :width="width"
+    :height="height"
     class="
       course__card
       rounded-lg
@@ -69,6 +72,30 @@
 <script>
 export default {
   props: {
+    width: {
+      type: String,
+      default: ''
+    },
+    height: {
+      type: String,
+      default: ''
+    },
+    minWidth: {
+      type: String,
+      default: ''
+    },
+    minHeight: {
+      type: String,
+      default: ''
+    },
+    maxWidth: {
+      type: String,
+      default: ''
+    },
+    maxHeight: {
+      type: String,
+      default: ''
+    },
     imgLink: {
       type: String,
       default: '',

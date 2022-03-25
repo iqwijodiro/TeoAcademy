@@ -3,18 +3,19 @@
     <div class="hero d-flex justify-center align-center">
       <div class="mask" />
       <v-container>
-        <v-row justify="center" class="rail">
+        <v-row justify="center" class="">
           <v-col
             cols="12"
             md="8"
+            sm="10"
             class="mx-auto px-5"
           >
             <v-card
               elevation="5"
-              min-height="300px"
+              :min-height="$vuetify.breakpoint.lgAndUp ? '300' : 'auto'"
               max-width="900"
               :min-width="$vuetify.breakpoint.lgAndUp ? '750' : 'auto'"
-              class="hero-card rounded-xl text-center mx-auto pa-5 mt-8"
+              class="hero-card rounded-xl text-center mx-auto pa-5 mt-10"
             >
               <v-card-title class="centrar mx-auto pa-0 mb-4">
                 <h1 class="fw-300">
@@ -22,14 +23,14 @@
                 </h1>
               </v-card-title>
               <v-card-text class="my-3 mx-auto px-5 py-0">
-                <p v-if="$vuetify.breakpoint.smAndUp" class="text">
+                <p v-if="$vuetify.breakpoint.lgAndUp" class="text">
                   Ponemos a su disposición programas de enseñanza bíblica de amplio alcance
                   diseñados y desarrollado por lideres con el Don de la Enseñanza y amplia
                   experiencia ministerial, disponible para personas con el anhelo de desarrollar su fe y
                   experimentar la maravillosa experiencia de la formación cristiana. <br>
                   <!-- <span class="fw-700">¡Matriculate y disfruta la experiencia!</span> -->
                 </p>
-                <p v-if="$vuetify.breakpoint.smAndDown" class="text">
+                <p v-if="$vuetify.breakpoint.mdAndDown" class="text">
                   Ponemos a su disposición programas de enseñanza bíblica de amplio alcance
                   diseñados y desarrollado para personas con el anhelo de desarrollar su fe y
                   experimentar la maravillosa experiencia de la formación cristiana. <br>
@@ -81,27 +82,33 @@
             >
               <v-col
                 cols="12"
-                md="10"
+                xl="8"
+                lg="10"
+                md="12"
+                sm="10"
               >
                 <v-card
                   elevation="5"
-                  class="d-flex flex-column flex-sm-row program-card pa-0 rounded-xl mb-10"
+                  class="d-flex flex-column flex-md-row program-card pa-0 rounded-xl mb-10"
                   @click="setProgram(program)"
                 >
+                  <!-- <v-row> -->
                   <v-col
-                    xl="6"
-                    lg="6"
+                    cols="12"
                     md="6"
-                    sm="6"
                     class="pa-0"
                   >
-                    <v-img :src="program.imgUrl" class="rounded-l-xl pa-0 ma-0 fill-height img-course white--text align-end pb-3" />
+                    <v-img
+                      height="100%"
+                      min-width="100%"
+                      :src="program.imgUrl"
+                      :class="$vuetify.breakpoint.smAndDown ? 'rounded-t-xl' : 'rounded-l-xl'"
+                    />
                   </v-col>
                   <v-col
-                    xl="6"
-                    lg="6"
+                    cols="12"
                     md="6"
-                    class="px-sm-8 px-3 py-5"
+                    class="px-sm-5 px-3 py-5"
                   >
                     <v-card-title class="card-title my-2 ml-5 red-font">
                       <h2 class="fw-300">
@@ -115,19 +122,19 @@
                     </v-card-text>
                     <!-- <div v-if="program.features && program.features.resources" class="d-flex mb-5"> -->
                     <!-- <v-icon class="icon mr-5">
-                        mdi-book-open-page-variant-outline
-                      </v-icon>
-                      <p class="text">
-                        {{ program.features.resources.length }} recursos descargables
-                      </p> -->
+                          mdi-book-open-page-variant-outline
+                        </v-icon>
+                        <p class="text">
+                          {{ program.features.resources.length }} recursos descargables
+                        </p> -->
                     <!-- </div> -->
                     <div class="d-flex mb-5">
                       <!-- <v-icon class="icon mr-5">
-                        mdi-school
-                      </v-icon>
-                      <p class="text">
-                        Dirigido a quienes inician en estudios teologicos
-                      </p> -->
+                          mdi-school
+                        </v-icon>
+                        <p class="text">
+                          Dirigido a quienes inician en estudios teologicos
+                        </p> -->
                     </div>
                     <v-row class="minirow d-flex justify-start align-center ma-0">
                       <v-col
@@ -144,8 +151,8 @@
                             ${{ program.features.priceInfo.finalPrice }}
                           </span>
                           <!-- <p class="text-sm">
-                            hasta <br> DD-MM-AAAA
-                          </p> -->
+                              hasta <br> DD-MM-AAAA
+                            </p> -->
                         </div>
                       </v-col>
                       <v-spacer />
@@ -162,6 +169,7 @@
                       </v-col>
                     </v-row>
                   </v-col>
+                  <!-- </v-row> -->
                 </v-card>
               </v-col>
             </v-row>
@@ -247,16 +255,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@include miniDesktop() {
-  .gutter-p {
-    padding-top: 120px !important;
-  }
-}
-
   .hero {
     background-image:
     url(https://images.unsplash.com/photo-1486525546686-3cd5484691f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1131&q=80);
-    height: 100vh;
+    height: 100%;
+    min-height: 85vh;
     background-position: center;
     .hero-card {
       max-height: 500px;
@@ -268,7 +271,7 @@ export default {
   }
   @include tablet {
     .hero{
-      height: 70vh;
+      height: 60vh;
     }
   }
 main {
@@ -317,29 +320,6 @@ main {
         width: 100%;
     }
   }
-}
-.register {
-  display: flex;
-  align-items: center;
-  min-height: 30vh !important;
-  background: rgb(190,30,45);
-  background: linear-gradient(90deg, rgba(190,30,45,1) 0%, rgba(142,22,34,1) 50%, rgba(95,15,23,1) 100%);
-  h2 {
-    color: #ffffff;
-  }
-  .btn {
-      max-width: 200px;
-  }
-}
-.paginator-rail {
-  border-bottom: 3px solid $gray-light;
-  .pagination{
-    font-size: 20px;
-  }
-}
-.mdi-chevron-left,
-.mdi-chevron-right {
-  border: none;
 }
 
 </style>

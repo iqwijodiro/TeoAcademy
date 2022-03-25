@@ -1,5 +1,5 @@
 <template>
-  <section class="goals gutter-p px-5 mb-10 pb-5">
+  <section class="goals gutter-p px-md-5 mb-10 pb-5">
     <v-container class="px-5">
       <v-row justify="center">
         <v-col
@@ -8,7 +8,10 @@
           class="mx-auto"
         >
           <v-card min-height="100%" elevation="5" class="rounded-xl pa-10">
-            <h2 class="text-center red-font">
+            <h2
+              :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 25px' : ''"
+              class="text-center red-font"
+            >
               <v-icon class="icon">
                 mdi-bullseye-arrow
               </v-icon>
@@ -18,9 +21,12 @@
               <li
                 v-for="goal in goals"
                 :key="goal.id"
-                class="text"
+                :class="$vuetify.breakpoint.mdAndDown ? 'text-mid' : 'text'"
               >
-                <v-icon class="icon mr-3">
+                <v-icon
+                  :size="$vuetify.breakpoint.mdAndDown ? '20' : '25'"
+                  class="icon mr-3"
+                >
                   mdi-check-circle
                 </v-icon>
                 {{ goal }}
@@ -34,7 +40,10 @@
           class="mx-auto"
         >
           <v-card min-height="100%" elevation="5" class="rounded-xl pa-10">
-            <h2 class="text-center red-font">
+            <h2
+              :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 25px' : ''"
+              class="text-center red-font"
+            >
               <v-icon class="icon">
                 mdi-medal
               </v-icon>
@@ -44,9 +53,12 @@
               <li
                 v-for="(benefit, i) in benefits"
                 :key="i"
-                class="text"
+                :class="$vuetify.breakpoint.mdAndDown ? 'text-mid' : 'text'"
               >
-                <v-icon class="icon mr-3">
+                <v-icon
+                  :size="$vuetify.breakpoint.mdAndDown ? '20' : '25'"
+                  class="icon mr-3"
+                >
                   mdi-seal
                 </v-icon>{{ benefit }}
               </li>

@@ -43,7 +43,8 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '~/plugins/animateOnScroll.client.js',
-    '~/plugins/animationEntering.client.js'
+    '~/plugins/animationEntering.client.js',
+    '~/plugins/vueHorizontal.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -108,6 +109,21 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    // Babel config
+    // analyze: true,
+    // extend (config, ctx) {},
+    // babel: {
+    //   presets: [
+    //     [
+    //       '@babel/preset-env',
+    //       {
+    //         useBuiltIns: 'entry',
+    //         corejs: 3
+    //       }
+    //     ]
+    //   ],
+    //   plugins: ['@babel/transform-runtime']
+    // }
     /*
       You can extend webpack config here
     */

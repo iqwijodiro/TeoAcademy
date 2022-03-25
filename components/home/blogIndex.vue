@@ -7,25 +7,18 @@
       >
         Nuestro Blog
       </h2>
-      <v-row
-        justify="center"
-        class="mb-5"
-      >
-        <v-col>
-          <v-slide-group
-            arrows
-            multiple
-            :style="$vuetify.breakpoint.mdAndUp ? 'min-width: 1200px' : 'auto'"
-            class="my-3 my-slider mx-auto v-slide-group__wrapper"
-          >
-            <v-slide-item
-              v-for="(post, i) in posts"
-              :key="i"
-              class="slide ma-5"
+      <v-container>
+        <v-row>
+          <v-col>
+            <vue-horizontal
+              responsive
+              scroll
             >
               <v-card
+                v-for="(post, i) in posts"
+                :key="i"
+                :width="$vuetify.breakpoint.smAndUp ? '330px' : '100%'"
                 elevation="5"
-                max-width="330px"
                 height="350px"
                 max-height="400px"
                 class="post-card d-flex align-end rounded-xl"
@@ -63,18 +56,26 @@
                   </div>
                 </div>
               </v-card>
-            </v-slide-item>
-          </v-slide-group>
-        </v-col>
-        <v-btn to="/blogPage" class="btn my-5">
-          Ver todos los artículos
-        </v-btn>
-      </v-row>
+            </vue-horizontal>
+          </v-col>
+        </v-row>
+      </v-container>
+      <v-container class="mt-5">
+        <v-row justify="center">
+          <v-btn to="/blogPage" class="btn my-5">
+            Ver todos los artículos
+          </v-btn>
+        </v-row>
+      </v-container>
     </v-container>
   </section>
 </template>
 <script>
+import VueHorizontal from 'vue-horizontal'
 export default {
+  components: {
+    VueHorizontal
+  },
   props: {
     posts: {
       type: Array,
@@ -101,16 +102,7 @@ export default {
   h2 {
     color: $wine;
   }
-  .my-slider {
-    // border-top: 2px solid $gray-light;
-    // border-bottom: 2px solid $gray-light;
-    max-height: 450px;
-    width: 100%;
-    // min-width: 1200px;
-    max-width: 1500px;
-    .slide {
-      max-height: 400px;
-      .blog-card {
+  .post-card {
         position: relative;
       }
       .card-overlay {
@@ -147,6 +139,15 @@ export default {
           }
         }
       }
+  .my-slider {
+    // border-top: 2px solid $gray-light;
+    // border-bottom: 2px solid $gray-light;
+    max-height: 450px;
+    width: 100%;
+    // min-width: 1200px;
+    max-width: 1500px;
+    .slide {
+      max-height: 400px;
     }
   }
 }

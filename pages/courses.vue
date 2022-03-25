@@ -1,20 +1,21 @@
 <template>
   <div id="courses my-5 pa-0">
-    <div class="hero d-flex justify-center align-center mt-10">
+    <div class="hero d-flex justify-center align-center">
       <div class="mask" />
       <v-container>
         <v-row justify="center" class="rail">
           <v-col
             cols="12"
             md="8"
+            sm="10"
             class="mx-auto px-5"
           >
             <v-card
               elevation="5"
-              min-height="300px"
+              :min-height="$vuetify.breakpoint.lgAndUp ? '300' : 'auto'"
               max-width="900"
               :min-width="$vuetify.breakpoint.lgAndUp ? '750' : 'auto'"
-              class="hero-card rounded-xl text-center mx-auto pa-5 mt-10 d-flex flex-column justify-space-around"
+              class="hero-card rounded-xl text-center mx-auto mt-10 d-flex pa-3 flex-column justify-space-around"
             >
               <v-card-title class="centrar">
                 <h1
@@ -274,15 +275,11 @@ export default {
     background-image:
     url(https://images.unsplash.com/photo-1581447109217-19026003eba5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
     height: 100%;
-    min-height: 80vh;
+    min-height: 85vh;
     background-position: center;
     .hero-card {
       max-height: 500px;
     }
-
-  .text {
-    display: none;
-  }
   .btn {
     display: block;
   }
@@ -290,20 +287,9 @@ export default {
 }
   @include tablet {
     .hero{
-      min-height: 50vh;
-    }
-    .text {
-      line-height: 2;
+      min-height: 60vh;
     }
     .btn {
-      display: block !important;
-    }
-  }
-  @include miniDesktop {
-    .hero {
-      max-height: 40vh;
-    }
-    .text {
       display: block !important;
     }
   }
@@ -311,39 +297,39 @@ export default {
   width: 100%;
   // max-width: 1600px;
   margin: 0 auto;
-    .mh-100 {
-        min-height: 100vh;
-        max-height: 100vh;
-        height: 100vh;
-    }
-  .text-card {
-      font-size: $body;
-      color: $gray-mid;
-      font-weight: 300;
-      line-height: 1.5;
-      padding: 0 15px !important;
-      margin: 12px 0 !important;
-    }
-    .minirow div {
-      font-size: $miniLink !important;
-      font-weight: 400;
-      color: $gray-mid;
-      &:nth-child(1) {
-        border-right: 2px solid $gray-light;
-      }
-      .priceOld {
-        color: $wine;
-        font-size: $link;
-        font-family: $title-font;
-        text-decoration: line-through;
-      }
-      .priceNew {
-        color: $gray-mid;
-        font-size: 25px;
-        font-family: $title-font;
-        font-weight: 400;
-      }
-  }
+    // .mh-100 {
+    //     min-height: 100vh;
+    //     max-height: 100vh;
+    //     height: 100vh;
+    // }
+  // .text-card {
+  //     font-size: $body;
+  //     color: $gray-mid;
+  //     font-weight: 300;
+  //     line-height: 1.5;
+  //     padding: 0 15px !important;
+  //     margin: 12px 0 !important;
+  //   }
+  //   .minirow div {
+  //     font-size: $miniLink !important;
+  //     font-weight: 400;
+  //     color: $gray-mid;
+  //     &:nth-child(1) {
+  //       border-right: 2px solid $gray-light;
+  //     }
+  //     .priceOld {
+  //       color: $wine;
+  //       font-size: $link;
+  //       font-family: $title-font;
+  //       text-decoration: line-through;
+  //     }
+  //     .priceNew {
+  //       color: $gray-mid;
+  //       font-size: 25px;
+  //       font-family: $title-font;
+  //       font-weight: 400;
+  //     }
+  // }
 }
 .mdi-chevron-left,
 .mdi-chevron-right {

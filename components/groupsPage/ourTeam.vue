@@ -6,13 +6,20 @@
         <v-col
           cols="12"
           md="7"
+          sm="10"
           class="d-flex align-center"
         >
           <v-card
+            width="100%"
+            max-width="600"
+            height="70%"
             rounded="xl"
             class="bg-sheet mx-auto py-5 px-3 text-center"
           >
-            <h2 class="my-5 text-center">
+            <h2
+              :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 25px' : ''"
+              class="my-5 text-center"
+            >
               Nuestro Equipo
             </h2>
             <v-carousel
@@ -20,18 +27,34 @@
               hide-delimiters
               class="team-slider my-slider"
             >
-              <v-carousel-item v-for="(partner, i) in partners" :key="i" class="card-member mx-auto">
-                <v-card width="100%" flat light class="card-quote d-flex flex-column justify-space-between align-center mx-auto px-10">
-                  <v-avatar style="border-radius: 50%" size="180" class="mb-5">
+              <v-carousel-item
+                v-for="(partner, i) in partners"
+                :key="i"
+                class="card-member mx-auto"
+              >
+                <v-card
+                  width="100%"
+                  flat
+                  light
+                  :max-height="$vuetify.breakpoint.mdAndDown ? '400' : '500'"
+                  class="card-quote d-flex flex-column justify-space-between align-center mx-auto px-10"
+                >
+                  <v-avatar style="border-radius: 50%" size="160" class="mb-5">
                     <v-img :src="partner.avatar" />
                   </v-avatar>
-                  <h2 class="name">
+                  <h2
+                    :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 20px' : 'font-size: 30px'"
+                    class="name"
+                  >
                     {{ partner.member }}
                   </h2>
-                  <h3 class="job">
+                  <h3
+                    :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 16px' : 'font-size: 25px'"
+                    class="job"
+                  >
                     {{ partner.role }}
                   </h3>
-                  <p class="member px-5" style="visibility:hidden; font-size: 11px;">
+                  <p class="member px-5 d-none">
                     {{ partner.text }}
                   </p>
                 </v-card>
@@ -84,7 +107,7 @@ export default {
   background-size: cover;
   background-attachment: fixed;
   background-position: center center;
-  min-height: 800px;
+  // min-height: 800px;
   height: 80vh;
   max-height: 1100px;
   padding: 0 !important;
@@ -118,37 +141,37 @@ export default {
        }
   }
 }
- @include telefono {
-    .our-team{
-      .bg-sheet {
-        height: 80%;
-        max-height: 580px;
-        .card-quote {
-            font-size: $link;
-        }
-      }
-    }
-  }
-  @include tablet {
-    .our-team {
-      height: 70vh;
-      .bg-sheet {
-        max-height: 600px;
-        height: 80%;
-      }
-    }
-  }
-  @include desktop {
-    .bg-sheet {
-      height: 75%;
-    }
-  }
-  @include lgdesktop {
-      .bg-sheet {
-          height: 75%;
-          .card-quote {
-            font-size: $link;
-          }
-      }
-  }
+//  @include telefono {
+//     .our-team{
+//       .bg-sheet {
+//         // height: 80%;
+//         // max-height: 580px;
+//         .card-quote {
+//             font-size: $link;
+//         }
+//       }
+//     }
+//   }
+//   @include tablet {
+//     .our-team {
+//       // height: 70vh;
+//       .bg-sheet {
+//         // max-height: 600px;
+//         // height: 80%;
+//       }
+//     }
+//   }
+//   @include desktop {
+//     .bg-sheet {
+//       // height: 75%;
+//     }
+//   }
+//   @include lgdesktop {
+//       .bg-sheet {
+//           // height: 75%;
+//           .card-quote {
+//             font-size: $link;
+//           }
+//       }
+//   }
 </style>

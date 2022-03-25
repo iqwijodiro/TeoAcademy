@@ -5,7 +5,7 @@
       <!-- <div class="mask" /> -->
       <v-container>
         <v-row class="d-flex justify-center">
-          <v-col cols="12" md="8" class="px-5 mx-0">
+          <v-col cols="12" sm="8" class="px-5 mx-0">
             <!-- v-animation-entering:top="{duration: 800, delay: 100}" -->
             <appear :duration="900" :delay="300" :translate="[0, '-200px']">
               <v-card

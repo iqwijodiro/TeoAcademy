@@ -7,15 +7,18 @@
       >
         Nuestros cursos más populares
       </h2>
-      <v-row justify="center">
-        <v-col cols="12" class="py-0">
-          <v-slide-group multiple arrows class="my-slider">
-            <v-slide-item
-              v-for="course in courses"
-              :key="course._id"
-              class="slides course__card"
+      <v-container>
+        <v-row>
+          <v-col>
+            <vue-horizontal
+              responsive
+              class="horizontal"
             >
               <course-card
+                v-for="course in courses"
+                :key="course._id"
+                width="100%"
+                maxWidth="350"
                 :img-link="course.imgUrl"
                 :name="course.name"
                 :sub-name="course.subName"
@@ -25,22 +28,29 @@
                 :final-price="course.features.priceInfo.finalPrice"
                 @select-course="setCourse(course)"
               />
-            </v-slide-item>
-          </v-slide-group>
-        </v-col>
-        <v-btn to="/courses" class="btn mb-12">
-          Ver todos los cursos
-        </v-btn>
-      </v-row>
+            </vue-horizontal>
+          </v-col>
+        </v-row>
+      </v-container>
+      <v-container class="mt-5">
+        <v-row justify="center">
+          <v-btn to="/courses" class="btn mb-12">
+            Ver todos los cursos
+          </v-btn>
+        </v-row>
+      </v-container>
     </v-container>
   </section>
 </template>
 <script>
+import VueHorizontal from 'vue-horizontal'
+
 import courseCard from '~/components/genericComponents/courseCard'
 
 export default {
   components: {
-    courseCard
+    courseCard,
+    VueHorizontal
   },
   data () {
     return {

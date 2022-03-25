@@ -101,8 +101,8 @@
               <div>
                 Aporte:
                 <span class="priceOld mr-3">$19.99</span>
-                <!-- <span class="priceNew">$9.99</span> -->
-                <span class="priceNew">Voluntario</span>
+                <span class="priceNew">$9.99</span>
+                <!-- <span class="priceNew">Voluntario</span> -->
               </div>
             </v-card>
             <!-- <div class="centrar d-flex flex-column"> -->
@@ -132,7 +132,7 @@
               </div>
             </section>
             <section>
-              <h3 class="gray-m-font text-center">
+              <h3 class="gray-m-font text-center my-2">
                 Modalidad
               </h3>
               <ul v-for="(item, i) in singleCourse.features.modality" :key="i" class="text d-inline">
@@ -147,7 +147,7 @@
               </ul>
             </section>
             <section>
-              <h3 class="gray-m-font text-center">
+              <h3 class="gray-m-font text-center my-2">
                 Requerimientos
               </h3>
               <div class="d-flex justify-center flex-column">

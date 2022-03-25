@@ -117,7 +117,7 @@
             </v-btn>
             <purchase-form v-model="heroContact" title="Formulario de Matrícula" />
 
-            <section class="my-5 d-flex justify-center align-center pa-0">
+            <section class="mt-5 d-flex justify-center align-center pa-0">
               <v-icon size="40" class="mr-6 gray-m-font">
                 mdi-account-group
               </v-icon>
@@ -132,8 +132,8 @@
                 </ul>
               </div>
             </section>
-            <section class="pa-0">
-              <h3 class="gray-m-font text-center">
+            <section>
+              <h3 class="gray-m-font text-center my-2">
                 Modalidad
               </h3>
               <ul class="text d-inline">
@@ -155,8 +155,8 @@
                 </li>
               </ul>
             </section>
-            <section class="pa-0">
-              <h3 class="gray-m-font text-center">
+            <section>
+              <h3 class="gray-m-font text-center my-2">
                 Requerimientos
               </h3>
               <div class="d-flex justify-center">
@@ -181,12 +181,12 @@
                 </div>
               </div>
             </section>
-            <section class="text-center pa-0">
+            <section class="text-center">
               <div>
                 <v-icon size="35" class="mr-3">
                   mdi-medal
                 </v-icon>
-                <h3 class="d-inline gray-m-font">
+                <h3 class="d-inline gray-m-font my-2">
                   Competencias
                 </h3>
               </div>

@@ -1,20 +1,24 @@
 <template>
   <section class="levels gutter-p">
     <v-container>
-      <h2 class="text-center red-font">
+      <h2
+        :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 25px' : ''"
+        class="text-center red-font"
+      >
         De acuerdo a las necesidades y factibilidades de cada congregación, proveemos:
       </h2>
       <section class="library ">
         <h3 class="text-center red-font">
           Biblioteca de Cursos
         </h3>
-        <v-container class="d-flex justify-center align-center">
+        <v-container>
           <v-row justify="center">
             <v-col
               v-for="level in levels"
               :key="level.id"
               cols="12"
-              md="4"
+              lg="4"
+              sm="6"
             >
               <v-card
                 elevation="5"
@@ -22,19 +26,21 @@
                 max-width="350"
                 height="320"
                 :to="level.to"
+                :style="'background-image: url(' + level.img + ')'"
+                style="background-size: cover"
                 class="level-card rounded-xl mx-auto d-flex align-end"
               >
-                <v-img
+                <!-- <v-img
                   :src="level.img"
                   height="100%"
-                  class="rounded-xl"
-                />
-                <div class="card-overlay">
-                  <h4 class="text-center card-title mb-4">
+                  class="rounded-xl img-level"
+                /> -->
+                <div class="card-overlay d-flex flex-column justify-space-around">
+                  <h4 class="text-center white--text level-title">
                     {{ level.mod }}
                   </h4>
                   <div class="centrar px-2">
-                    <v-btn :to="level.to" width="75%" class="btn-leer rounded-lg px-5">
+                    <v-btn :to="level.to" width="75%" class="minibtn px-5">
                       <v-icon class="eye-i">
                         mdi-eye
                       </v-icon> <br>
@@ -116,32 +122,44 @@ export default {
     font-weight: 400;
   }
   .level-card {
-    position: relative;
-    .card-overlay{
-      background-color: rgba($gray-dark, $alpha: 0.650);
+    // position: relative;
+    .card-overlay {
+      background: linear-gradient(0deg, rgba(#000,.8) 0%, rgba(#000,.65) 43%, rgba(#000,.55) 86%, rgba(#000,.00) 100%);
       height: 40%;
-      position: absolute;
+      // position: absolute;
       width: 100%;
-      .card-title {
-        font-size: 26px !important;
-        color: #fff;
-      }
-      .btn-leer {
-        width: 85px;
-        height: 50px;
-        color: white;
-        background-color: rgba($gray-dark, $alpha: 0.75);
-        text-transform: capitalize !important;
-        font-size: $link;
-        .eye-i{
-          font-size: 26px;
-          margin-right: 6px;
-        }
+      .level-title {
+        font-size: 21px;
       }
     }
   }
+      // .card-overlay{
+      //   background: rgb(0,0,0);
+      //   background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.7) 20%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.3) 75%, rgba(0,0,0,0) 100%);
+      //   width: 100%;
+      //   .card-title {
+      //     font-size: 26px !important;
+      //     color: #fff;
+      //   }
+      //   .btn-leer {
+      //     width: 85px;
+      //     height: 50px;
+      //     color: white;
+      //     background-color: rgba($gray-dark, $alpha: 0.75);
+      //     text-transform: capitalize !important;
+      //     font-size: $link;
+      //     .eye-i{
+      //       font-size: 26px;
+      //       margin-right: 6px;
+      //     }
+      //   }
+      //   background: linear-gradient(0deg, rgba(#000,.8) 0%, rgba(#000,.65) 43%, rgba(#000,.55) 86%, rgba(#000,.00) 100%);
+      //   height: auto;
+      //   position: absolute;
+      //   width: 100%;
+      // }
   .list-item {
-    display: inline-block;
+    display: inline;
     font-size: 25px;
     .icon {
       font-size: 35px;
