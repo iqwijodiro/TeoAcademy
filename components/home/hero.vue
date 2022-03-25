@@ -1,6 +1,6 @@
 <template>
   <!--Seccion de Hero-->
-  <section class="ma-0 pa-0 mt-10 mt-sm-0">
+  <section class="ma-0 pa-0 mt-5 mt-sm-0">
     <div class="hero d-flex flex-column justify-center align-center">
       <!-- <div class="mask" /> -->
       <v-container>
@@ -12,15 +12,20 @@
                 min-height="300px"
                 max-width="900"
                 :min-width="$vuetify.breakpoint.lgAndUp ? '750' : 'auto'"
-                class="hero-card mt-n12 rounded-xl text-center pa-5"
+                class="hero-card mt-n10 mt-md-n12 rounded-xl text-center pa-5"
               >
                 <v-card-title class="mx-auto pb-0">
-                  <h1 class="fw-300 text-center">
+                  <h1
+                    class="fw-300 text-center"
+                    :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 30px' : ''"
+                  >
                     Cursos y programas de estudio cristiano
                   </h1>
                 </v-card-title>
                 <v-card-text class="my-3">
-                  <h2 class="text-1 my-0 gray-m-font text-center">
+                  <h2
+                    :class="$vuetify.breakpoint.mdAndDown ? 'my-0 text-blog text-center' : 'my-0 text-blog text-center'"
+                  >
                     ¡Contenido Teológico a tu alcance!
                   </h2>
                 </v-card-text>
@@ -92,11 +97,6 @@ export default {
     border: 6px solid rgba($color: $wine, $alpha: 0.55);
     // transition: all 0.8s ease-in-out;
     // animation: enter 0.8s ease-in-out;
-    .text-1 {
-      font-size: 25px;
-      // color: $gray-dark;
-      // font-weight: 700;
-    }
   }
 }
 </style>

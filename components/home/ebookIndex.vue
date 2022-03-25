@@ -6,8 +6,12 @@
       </svg>
     </div>
     <v-container>
-      <v-row class="justify-space-around align-center pt-5 mt-5 mx-auto">
-        <v-col xl="5" lg="5" md="5" sm="10" class="mx-auto">
+      <v-row class="justify-space-around align-center pt-10 mt-5 mx-auto">
+        <v-col
+          cols="12"
+          md="5"
+          class="mx-auto"
+        >
           <v-img
             v-animate-on-scroll
             height="100%"
@@ -18,14 +22,15 @@
           />
         </v-col>
         <v-col
-          xl="4"
-          lg="4"
-          md="6"
-          sm="10"
+          cols="12"
+          md="5"
           class="mx-auto px-5"
         >
           <v-card elevation="5" class="pa-5 rounded-xl">
-            <h2 class="text-capitalize text-center">
+            <h2
+              :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 25px' : ''"
+              class="text-center"
+            >
               Descarga gratis nuestro ebook
             </h2>
             <div class="centrar">

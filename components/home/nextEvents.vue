@@ -1,7 +1,10 @@
 <template>
   <section class="next-events gutter-p pb-5 mb-5">
-    <v-container>
-      <h2 class="d-flex align-start ml-5">
+    <v-container class="line-rail pb-5">
+      <h2
+        :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 25px' : ''"
+        class="text-md-left text-center"
+      >
         Próximos Eventos
       </h2>
       <v-container>
@@ -9,10 +12,13 @@
           <v-col
             cols="12"
             sm="2"
-            class="order-1 order-lg-1 mr-2"
+            class="order-2 order-md-1 mr-2"
           >
             <div class="date-box">
-              <div class="date mr-5">
+              <div
+                :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 70px' : ''"
+                class="date mr-5"
+              >
                 {{ event.date }}
               </div>
               <div class="pt-2">
@@ -28,39 +34,18 @@
           <v-col
             cols="12"
             md="6"
-            class="order-3 order-lg-2 mx-auto"
+            class="order-1 order-md-2 mx-auto"
           >
             <div class="event-center mx-auto mb-0">
-              <h3 class="event-title gray-m-font">
+              <h3
+                :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 21px' : ''"
+                class="event-title gray-m-font"
+              >
                 {{ event.title }}
               </h3>
               <p class="text-start text-mid evento-text mb-3">
                 {{ event.text }}
               </p>
-              <!-- <div class="d-flex">
-                <v-chip
-                  small
-                  class="ma-2"
-                  label
-                  color="#e9e9e9"
-                  text-color="#be1e2d"
-                >
-                  <v-icon left>
-                    mdi-account-circle-outline
-                  </v-icon>
-                  {{ event.author }}
-                </v-chip>
-                <v-chip
-                  small
-                  class="ma-2"
-                  label
-                >
-                  <v-icon left>
-                    mdi-label
-                  </v-icon>
-                  {{ event.category }}
-                </v-chip>
-              </div> -->
               <div class="centrar">
                 <event-form
                   v-model="eventContact"
@@ -77,7 +62,7 @@
           <v-col
             cols="12"
             md="3"
-            class="order-2 order-lg-3"
+            class="order-0 order-md-3"
           >
             <v-img :src="event.img" class="rounded fill-height" min-height="200px" :alt="event.title" />
           </v-col>

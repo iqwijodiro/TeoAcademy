@@ -51,7 +51,7 @@
             <h2 class="gray-m-font mt-8 mb-5">
               Unidades
             </h2>
-            <v-expansion-panels v-if="singleCourse.structure && singleCourse.structure.sections" accordion>
+            <v-expansion-panels v-if="singleCourse.structure && singleCourse.structure.sections" accordion disabled>
               <v-expansion-panel
                 v-for="(module, i) in singleCourse.structure.sections"
                 :key="i"

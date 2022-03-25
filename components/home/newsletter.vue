@@ -19,11 +19,14 @@
           md="6"
         >
           <div class="container mx-auto text-center red-font">
-            <h3 class="mb-5">
+            <h3
+              :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 22px' : ''"
+              class="mb-5"
+            >
               Recibe información acerca de nuestros eventos y contenidos
             </h3>
             <v-btn
-              class="btn"
+              :class="$vuetify.breakpoint.mdAndDown ? 'minibtn' : 'btn'"
               @click="dialogContact = true"
             >
               Suscribirse

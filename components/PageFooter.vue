@@ -34,16 +34,15 @@
               </v-list>
             </div>
             <div class="centrar">
-
-            <!-- Formulario de contacto -->
-            <contact-form v-model="dialogContact" />
-            <v-btn
-              class="btn mb-5 d-none"
-              @click="dialogContact = true"
-            >
-              Contáctanos
-            </v-btn>
-          </div>
+              <!-- Formulario de contacto -->
+              <contact-form v-model="dialogContact" />
+              <v-btn
+                class="btn mb-5 d-none"
+                @click="dialogContact = true"
+              >
+                Contáctanos
+              </v-btn>
+            </div>
           </v-col>
           <v-col
             cols="12"
@@ -82,10 +81,10 @@
         </v-row>
         <v-container class="text-center my-5">
           <v-row class="d-flex justify-center row-foot py-4">
-            <span class="text-small">Created by SEGO Technology in Partnership with Theo Academy </span>
+            <span class="text-small">Created by SEGO Technology</span>
           </v-row>
           <v-row class="d-flex justify-center py-5 text-mid">
-            <span>Todos los derechos reservados para Universidad Teológica Interamericana &copy; </span>
+            <span>Todos los derechos reservados para Teo Academy &copy; </span>
           </v-row>
         </v-container>
       </v-container>
@@ -102,22 +101,22 @@ export default {
     return {
       dialogContact: false,
       FootItems: [
-        // {
-        //   icon: 'mdi-map-marker',
-        //   text:
-        //     'Costa Rica, San José, Sabana Norte, Edificio Gran Campo, Oficina No. 6.'
-        // },
         {
           icon: 'mdi-map-marker',
-          text: 'EEUU, 4150 Raleigh Road Pkwy. NW Wilson NC 27896'
+          text:
+            'Costa Rica, San José, Sabana Norte, Edificio Gran Campo, Oficina No. 6.'
+        },
+        {
+          icon: 'mdi-map-marker',
+          text: 'EEUU, Pensilvania, Alburtis, 1548 Pinewind, PA 18011'
         },
         {
           icon: 'mdi-email-outline',
-          text: 'info@utiuniversity.org'
+          text: 'servicios@teo-academy.com'
         },
         {
           icon: 'mdi-whatsapp',
-          text: 'EEUU: +1-2524225252'
+          text: '+506 70176705 y +1 484 9255978'
         },
         {
           icon: 'mdi-whatsapp',
@@ -141,10 +140,10 @@ export default {
           text: 'Programas',
           to: '/programs'
         },
-        // {
-        //   text: 'For Group',
-        //   to: '/groups'
-        // },
+        {
+          text: 'Asesoria',
+          to: '/groups'
+        },
         {
           text: 'Blog',
           to: '/blogPage'

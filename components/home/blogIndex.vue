@@ -1,7 +1,10 @@
 <template>
   <section class="blog gutter-p mb-4 pb-5">
     <v-container class="line-rail">
-      <h2 class="text-start ml-3">
+      <h2
+        :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 25px' : ''"
+        class="text-md-left text-center"
+      >
         Nuestro Blog
       </h2>
       <v-row
