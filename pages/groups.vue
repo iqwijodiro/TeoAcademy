@@ -15,8 +15,11 @@
     <!--Seccion de Objetivos y Beneficios-->
     <goals-benefits class="mt-10" />
     <!--Seccion de Dirigido a:-->
-    <our-team />
     <adressed-to />
+    <!-- Nuestro Equipo de trabajo -->
+    <our-team />
+    <!-- Seccion de CTA -->
+    <call-to-actions />
     <!--Seccion preguntas frecuentes-->
     <faq />
   </div>
@@ -32,6 +35,7 @@ import consulting from '~/components/groupsPage/consulting'
 import processSection from '~/components/groupsPage/processSection'
 import faq from '~/components/groupsPage/faq'
 import ourTeam from '~/components/groupsPage/ourTeam'
+import callToActions from '~/components/groupsPage/callToActions'
 
 export default {
   components: {
@@ -44,7 +48,8 @@ export default {
     consulting,
     faq,
     ourTeam,
-    processSection
+    processSection,
+    callToActions
   },
   data () {
     return {

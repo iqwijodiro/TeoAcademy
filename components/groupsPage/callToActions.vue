@@ -1,38 +1,26 @@
 <template>
-  <section class="process">
+  <section class="cta my-10">
     <v-container>
-      <h2
-        :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 25px' : ''"
-        class="text-center red-font mb-5"
-      >
-        Proceso de implementación
-      </h2>
-      <p class="text-center text px-3">
-        Nuestro proceso de implementación para grupos y congregaciones esta diseñado para garantizar la
-        efectividad en todas sus actividades y lograr los objetivos propuestos.
-      </p>
-      <v-row justify="center">
-        <v-col>
-          <v-img :src="require('@/assets/img/infografiateo-copy.png')" max-width="1000" class="mx-auto" />
-        </v-col>
-      </v-row>
-      <!-- <div class="centrar mt-5">
-        <v-btn class="btn mt-2" @click="dialogContact = true">
+      <div class="d-flex flex-column flex-sm-row justify-center align-center">
+        <v-btn class="btn mt-2" href="@/assets/files/file.pdf">
           Descargar ficha de servicio
         </v-btn>
-        <process-form
+        <v-btn class="btn mt-2" @click="dialogContact = true">
+          Solicitar más información
+        </v-btn>
+        <contact-form
           v-model="dialogContact"
         />
-      </div> -->
+      </div>
     </v-container>
   </section>
 </template>
 <script>
-// import processForm from '~/components/forms/processForm'
+import contactForm from '~/components/forms/contactForm'
 
 export default {
   components: {
-    // processForm
+    contactForm
   },
   data () {
     return {
@@ -41,6 +29,7 @@ export default {
   }
 }
 </script>
+
 <style lang="scss" scoped>
 .btn {
   height: 50px !important;

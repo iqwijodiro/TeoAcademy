@@ -7,7 +7,6 @@
     <top-courses />
     <!-- ProximosEventos -->
     <next-events />
-    <!-- Nuestro Equipo de trabajo -->
     <!-- <our-team /> -->
     <!-- Nuestro Blog -->
     <blog-index :posts="posts" />

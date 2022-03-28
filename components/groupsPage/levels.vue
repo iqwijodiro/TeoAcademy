@@ -20,25 +20,15 @@
               lg="4"
               sm="6"
             > -->
-              <div class="d-flex flex-column flex-sm-row justify-center align-center">
-                <v-col
-                  cols="12"
-                  md="6"
-                >
-                  <v-btn width="100%" class="btn mx-3" to="/courses">
-                    Ver Cursos
-                  </v-btn>
-                </v-col>
-                <v-col
-                  cols="12"
-                  md="6"
-                >
-                  <v-btn width="100%" class="btn mx-3" to="/programs">
-                    Ver programas
-                  </v-btn>
-                </v-col>
-              </div>
-              <!-- <v-card
+            <div class="d-flex flex-column flex-sm-row justify-center align-center">
+              <v-btn width="100%" class="btn mx-3" to="/courses">
+                Ver Cursos
+              </v-btn>
+              <v-btn width="100%" class="btn mx-3" to="/programs">
+                Ver programas
+              </v-btn>
+            </div>
+            <!-- <v-card
                 elevation="5"
                 width="100%"
                 max-width="350"

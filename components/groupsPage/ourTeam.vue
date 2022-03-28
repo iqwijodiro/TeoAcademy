@@ -63,23 +63,15 @@
           </v-card>
         </v-col>
       </v-row>
-      <div class="centrar my-5">
-        <v-btn class="btn mt-2" @click="dialogContact = true">
-          Descargar ficha de servicio
-        </v-btn>
-        <process-form
-          v-model="dialogContact"
-        />
-      </div>
     </v-container>
   </section>
 </template>
 <script>
-import processForm from '~/components/forms/processForm'
+// import processForm from '~/components/forms/processForm'
 
 export default {
   components: {
-    processForm
+    // processForm
   },
   data () {
     return {

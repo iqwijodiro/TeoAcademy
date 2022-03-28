@@ -13,21 +13,25 @@
           md="8"
           sm="10"
         >
-          <v-card class="sheet-slider rounded-lg mt-5" height="85%">
-            <div class="mask rounded-lg" />
+          <v-card
+            class="sheet-slider rounded-xl mt-5 mx-auto"
+            :height="$vuetify.breakpoint.smAndDown ? '80%' : '75%'"
+            width="90%"
+          >
+            <div class="mask rounded-xl" />
             <v-row justify="center" class="mb-5">
               <v-col>
                 <v-carousel hide-delimiters cycle>
                   <v-carousel-item
                     v-for="(who, i) in whos"
                     :key="i"
-                    class="ma-5 rounded-lg"
+                    class="ma-5 rounded-xl"
                   >
                     <v-card
                       flat
                       color="transparent"
-                      class="d-flex flex-column justify-center rounded-lg"
-                      height="85%"
+                      class="d-flex flex-column justify-center rounded-xl"
+                      height="75%"
                     >
                       <h3
                         :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 21px' : ''"

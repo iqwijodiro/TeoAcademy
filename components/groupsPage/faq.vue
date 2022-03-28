@@ -1,6 +1,9 @@
 <template>
   <section class="faq gutter-p pb-10">
-    <h2 class="text-center red-font mb-3">
+    <h2
+      :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 25px' : ''"
+      class="text-center red-font my-5"
+    >
       Preguntas Frecuentes
     </h2>
     <v-container class="pb-15 mb-5">
@@ -15,13 +18,18 @@
               :key="i"
               class="px-5"
             >
-              <v-expansion-panel-header disable-icon-rotate expand-icon="mdi-plus-thick" class="card-title">
-                <h4 class="red-font mr-5">
+              <v-expansion-panel-header disable-icon-rotate expand-icon="mdi-plus-thick" class="card-title red-font mr-5">
+                <!-- class="red-font mr-5" -->
+                <h4
+                  :class="$vuetify.breakpoint.smAndDown ? 'text-mid red-font mr-5' : 'text-blog red-font mr-5'"
+                >
                   {{ question.header }}
                 </h4>
               </v-expansion-panel-header>
               <v-expansion-panel-content>
-                <p class="text">
+                <p
+                  :class="$vuetify.breakpoint.smAndDown ? 'text-mid' : 'text'"
+                >
                   {{ question.answer }}
                 </p>
               </v-expansion-panel-content>
