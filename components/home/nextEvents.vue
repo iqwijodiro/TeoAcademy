@@ -53,7 +53,7 @@
                   <!-- <template #activator="{ on, attrs}" class="mx-auto d-block">
                   </template> -->
                 </event-form>
-                <v-btn v-bind="attrs" class="minibtn mt-2" @click="eventContact = true">
+                <v-btn class="minibtn mt-2" @click="eventContact = true">
                   Registrarse
                 </v-btn>
               </div>

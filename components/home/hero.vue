@@ -5,14 +5,15 @@
       <!-- <div class="mask" /> -->
       <v-container>
         <v-row class="d-flex justify-center">
-          <v-col cols="12" sm="8" class="px-5 mx-0">
+          <v-col cols="12" md="8" sm="10" class="px-5 mx-0">
             <!-- v-animation-entering:top="{duration: 800, delay: 100}" -->
             <appear :duration="900" :delay="300" :translate="[0, '-200px']">
               <v-card
-                min-height="300px"
-                max-width="900"
-                :min-width="$vuetify.breakpoint.lgAndUp ? '750' : 'auto'"
-                class="hero-card mt-n10 mt-md-n12 rounded-xl text-center pa-5"
+                elevation="5"
+                min-height="320px"
+                max-height="400"
+                :width="$vuetify.breakpoint.lgAndUp ? '750' : 'auto'"
+                class="hero-card mt-n10 mt-md-n12 rounded-xl text-center pa-5 d-flex flex-column justify-space-around"
               >
                 <v-card-title class="mx-auto pb-0">
                   <h1
@@ -24,7 +25,8 @@
                 </v-card-title>
                 <v-card-text class="my-3">
                   <h2
-                    :class="$vuetify.breakpoint.mdAndDown ? 'my-0 text-blog text-center' : 'my-0 text-blog text-center'"
+                    class="my-0 text-center gray-m-font"
+                    :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 18px' : 'font-size: 25px'"
                   >
                     ¡Contenido Teológico a tu alcance!
                   </h2>
@@ -94,7 +96,7 @@ export default {
     background: linear-gradient(135deg, rgba(240,38,58,1) 0%, rgba(240,38,58,1) 15%, rgba(240,38,58,0.9780287114845938) 30%, rgba(190,30,46,1) 70%, rgba(190,30,46,1) 85%, rgba(190,30,46,1) 100%);
   .hero-card {
     background-color: rgba($color: #fff, $alpha: 0.95);
-    border: 6px solid rgba($color: $wine, $alpha: 0.55);
+    // border: 6px solid rgba($color: $wine, $alpha: 0.55);
     // transition: all 0.8s ease-in-out;
     // animation: enter 0.8s ease-in-out;
   }

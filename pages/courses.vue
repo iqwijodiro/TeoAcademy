@@ -12,10 +12,10 @@
           >
             <v-card
               elevation="5"
-              :min-height="$vuetify.breakpoint.lgAndUp ? '300' : 'auto'"
-              max-width="900"
-              :min-width="$vuetify.breakpoint.lgAndUp ? '750' : 'auto'"
-              class="hero-card rounded-xl text-center mx-auto mt-10 d-flex pa-3 flex-column justify-space-around"
+              min-height="320px"
+              max-height="400"
+              :width="$vuetify.breakpoint.lgAndUp ? '750' : 'auto'"
+              class="hero-card rounded-xl text-center mt-10 pa-5 d-flex flex-column justify-space-around"
             >
               <v-card-title class="centrar">
                 <h1
@@ -278,9 +278,9 @@ export default {
     height: 100%;
     min-height: 85vh;
     background-position: center;
-    .hero-card {
-      max-height: 500px;
-    }
+    // .hero-card {
+    //   max-height: 500px;
+    // }
   .btn {
     display: block;
   }
@@ -288,7 +288,7 @@ export default {
 }
   @include tablet {
     .hero{
-      min-height: 60vh;
+      min-height: 70vh;
     }
     .btn {
       display: block !important;

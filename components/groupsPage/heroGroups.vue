@@ -7,10 +7,10 @@
           <v-col cols="12" md="8" sm="10" class="mx-auto px-5">
             <v-card
               elevation="5"
-              :min-height="$vuetify.breakpoint.lgAndUp ? '300' : 'auto'"
-              max-width="900"
-              :min-width="$vuetify.breakpoint.lgAndUp ? '750' : 'auto'"
-              class="hero-card rounded-xl text-center mx-auto mt-10 d-flex pa-3 flex-column justify-center"
+              min-height="320px"
+              max-height="400"
+              :width="$vuetify.breakpoint.lgAndUp ? '750' : 'auto'"
+              class="hero-card rounded-xl text-center mt-10 pa-5 d-flex flex-column justify-space-around"
             >
               <v-card-title class="mx-auto pb-0 mb-4">
                 <h1
@@ -77,7 +77,7 @@ export default {
 }
 @include tablet {
   .hero {
-    min-height: 60vh;
+    min-height: 70vh;
     .rail {
       display: flex;
       justify-content: center;

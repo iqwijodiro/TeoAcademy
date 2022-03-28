@@ -49,7 +49,7 @@
                     {{ partner.member }}
                   </h3>
                   <h4
-                    :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 16px' : 'font-size: 22px'"
+                    :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 16px' : 'font-size: 21px'"
                     class="job"
                   >
                     {{ partner.role }}
@@ -62,15 +62,15 @@
             </v-carousel>
           </v-card>
         </v-col>
-        <div class="centrar mt-5">
-          <v-btn class="btn mt-2" @click="dialogContact = true">
-            Descargar ficha de servicio
-          </v-btn>
-            <process-form
-            v-model="dialogContact"
-            />
-      </div>
       </v-row>
+      <div class="centrar my-5">
+        <v-btn class="btn mt-2" @click="dialogContact = true">
+          Descargar ficha de servicio
+        </v-btn>
+        <process-form
+          v-model="dialogContact"
+        />
+      </div>
     </v-container>
   </section>
 </template>
@@ -83,6 +83,7 @@ export default {
   },
   data () {
     return {
+      dialogContact: false,
       partners: [
         {
           avatar: 'https://randomuser.me/api/portraits/men/82.jpg',

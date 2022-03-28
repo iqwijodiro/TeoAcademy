@@ -229,6 +229,7 @@ export default {
   data () {
     return {
       dialogContact: this.value,
+      loading: false,
       gender: false,
       positive: false,
       negative: false,

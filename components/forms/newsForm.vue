@@ -93,6 +93,7 @@ export default {
       dialogSuccess: false,
       dialogError: false,
       reCaptchaSuccess: false,
+      loading: false,
       lead: {
         name: null,
         email: null,

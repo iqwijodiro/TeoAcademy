@@ -5,14 +5,15 @@
       <v-container>
         <v-row justify="center" class="rail">
           <v-col cols="12" md="8" sm="10" class="mx-auto px-5">
+            <!-- max-width="900" -->
             <v-card
               elevation="5"
-              :min-height="$vuetify.breakpoint.lgAndUp ? '300' : 'auto'"
-              max-width="900"
-              :min-width="$vuetify.breakpoint.lgAndUp ? '750' : 'auto'"
-              class="hero-card rounded-xl text-center mx-auto pa-5 mt-10"
+              min-height="320px"
+              max-height="400"
+              :width="$vuetify.breakpoint.lgAndUp ? '750' : 'auto'"
+              class="hero-card rounded-xl text-center mt-10 pa-5 d-flex flex-column justify-space-around"
             >
-              <v-card-title class="centrar mx-auto pa-0 mb-4">
+              <v-card-title class="centrar mx-auto pa-0 my-4">
                 <h1
                   :style="
                     $vuetify.breakpoint.mdAndDown ? 'font-size: 30px' : ''
@@ -23,14 +24,7 @@
                 </h1>
               </v-card-title>
               <v-card-text class="my-3 mx-auto px-5 py-0">
-                <p v-if="$vuetify.breakpoint.lgAndUp" class="text">
-                  Ponemos a su disposición programas de enseñanza bíblica de
-                  amplio alcance disponible para personas con el anhelo de
-                  desarrollar su fe y para grupos y congregaciones comprometidos
-                  con ganar almas para Cristo y la sana edificación de la
-                  iglesia.
-                </p>
-                <p v-if="$vuetify.breakpoint.mdAndDown" class="text-small">
+                <p class="text">
                   Ponemos a su disposición programas de enseñanza bíblica de
                   amplio alcance disponible para personas con el anhelo de
                   desarrollar su fe y para grupos y congregaciones comprometidos
@@ -38,8 +32,11 @@
                   iglesia.
                 </p>
               </v-card-text>
-              <v-row class="ma-0 pa-0" justify="center">
-                <v-col cols="12" md="5" class="px-0 ml-2">
+              <div class="centrar">
+                <v-col
+                  cols="12"
+                  md="8"
+                >
                   <v-select
                     v-model="sortBy"
                     dense
@@ -49,7 +46,7 @@
                     solo
                   />
                 </v-col>
-              </v-row>
+              </div>
             </v-card>
           </v-col>
         </v-row>
@@ -268,7 +265,7 @@ export default {
 }
 @include tablet {
   .hero {
-    height: 60vh;
+      min-height: 70vh;
   }
 }
 main {
