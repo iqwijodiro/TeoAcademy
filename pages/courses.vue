@@ -120,6 +120,7 @@
                   :resources="course.features.resources.length"
                   :price="course.features.priceInfo.price"
                   :final-price="course.features.priceInfo.finalPrice"
+                  min-height="480"
                   class="mx-auto"
                   @select-course="setCourse(course)"
                 />

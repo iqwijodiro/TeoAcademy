@@ -4,12 +4,7 @@
       <div class="mask" />
       <v-container>
         <v-row justify="center" class="rail">
-          <v-col
-            cols="12"
-            md="8"
-            sm="10"
-            class="mx-auto px-5"
-          >
+          <v-col cols="12" md="8" sm="10" class="mx-auto px-5">
             <v-card
               elevation="5"
               :min-height="$vuetify.breakpoint.lgAndUp ? '300' : 'auto'"
@@ -19,7 +14,9 @@
             >
               <v-card-title class="centrar mx-auto pa-0 mb-4">
                 <h1
-                  :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 30px' : ''"
+                  :style="
+                    $vuetify.breakpoint.mdAndDown ? 'font-size: 30px' : ''
+                  "
                   class="fw-300 text-center"
                 >
                   Nuestros Programas
@@ -27,17 +24,18 @@
               </v-card-title>
               <v-card-text class="my-3 mx-auto px-5 py-0">
                 <p v-if="$vuetify.breakpoint.lgAndUp" class="text">
-                  Ponemos a su disposición programas de enseñanza bíblica de amplio alcance
-                  diseñados y desarrollado por lideres con el Don de la Enseñanza y amplia
-                  experiencia ministerial, disponible para personas con el anhelo de desarrollar su fe y
-                  experimentar la maravillosa experiencia de la formación cristiana. <br>
-                  <!-- <span class="fw-700">¡Matriculate y disfruta la experiencia!</span> -->
+                  Ponemos a su disposición programas de enseñanza bíblica de
+                  amplio alcance disponible para personas con el anhelo de
+                  desarrollar su fe y para grupos y congregaciones comprometidos
+                  con ganar almas para Cristo y la sana edificación de la
+                  iglesia.
                 </p>
                 <p v-if="$vuetify.breakpoint.mdAndDown" class="text-small">
-                  Ponemos a su disposición programas de enseñanza bíblica de amplio alcance
-                  diseñados y desarrollado para personas con el anhelo de desarrollar su fe y
-                  experimentar la maravillosa experiencia de la formación cristiana. <br>
-                  <!-- <span class="fw-700">¡Matriculate y disfruta la experiencia!</span> -->
+                  Ponemos a su disposición programas de enseñanza bíblica de
+                  amplio alcance disponible para personas con el anhelo de
+                  desarrollar su fe y para grupos y congregaciones comprometidos
+                  con ganar almas para Cristo y la sana edificación de la
+                  iglesia.
                 </p>
               </v-card-text>
               <v-row class="ma-0 pa-0" justify="center">
@@ -72,7 +70,7 @@
         loading-text=""
       >
         <template #default="props">
-          <v-container class="mt-5">
+          <v-container class="mt-5 line-rail">
             <h2
               :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 25px' : ''"
               class="fw-300 text-center mt-10 red-font"
@@ -86,40 +84,33 @@
               justify="center"
               class="pt-5 mt-5"
             >
-              <v-col
-                cols="12"
-                xl="8"
-                lg="10"
-                md="12"
-                sm="10"
-              >
+              <v-col cols="12" xl="8" lg="10" md="12" sm="10">
                 <v-card
                   elevation="5"
                   class="d-flex flex-column flex-md-row program-card pa-0 rounded-xl mb-10"
                   @click="setProgram(program)"
                 >
                   <!-- <v-row> -->
-                  <v-col
-                    cols="12"
-                    md="6"
-                    class="pa-0"
-                  >
+                  <v-col cols="12" md="6" class="pa-0">
                     <v-img
                       height="100%"
                       min-width="100%"
                       :src="program.imgUrl"
-                      :class="$vuetify.breakpoint.smAndDown ? 'rounded-t-xl' : 'rounded-l-xl'"
+                      :class="
+                        $vuetify.breakpoint.smAndDown
+                          ? 'rounded-t-xl'
+                          : 'rounded-l-xl'
+                      "
                     />
                   </v-col>
-                  <v-col
-                    cols="12"
-                    md="6"
-                    class="px-sm-5 px-3 py-5"
-                  >
+                  <v-col cols="12" md="6" class="px-sm-5 px-3 py-5">
                     <v-card-title class="card-title my-2 ml-5 red-font">
                       <h2
-                        :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 25px' : ''"
-                        class="fw-300">
+                        :style="
+                          $vuetify.breakpoint.mdAndDown ? 'font-size: 25px' : ''
+                        "
+                        class="fw-300"
+                      >
                         {{ program.name }}
                       </h2>
                     </v-card-title>
@@ -144,13 +135,10 @@
                           Dirigido a quienes inician en estudios teologicos
                         </p> -->
                     </div>
-                    <v-row class="minirow d-flex justify-start align-center ma-0">
-                      <v-col
-                        lg="4"
-                        xl="4"
-                        md="4"
-                        class="px-2"
-                      >
+                    <v-row
+                      class="minirow d-flex justify-start align-center ma-0"
+                    >
+                      <v-col lg="4" xl="4" md="4" class="px-2">
                         <div class="text-center">
                           <span class="priceOld mr-2">
                             ${{ program.features.priceInfo.price }}
@@ -164,13 +152,7 @@
                         </div>
                       </v-col>
                       <v-spacer />
-                      <v-col
-                        cols="12"
-                        lg="4"
-                        xl="4"
-                        md="4"
-                        class="px-2"
-                      >
+                      <v-col cols="12" lg="4" xl="4" md="4" class="px-2">
                         <v-btn class="btn" @click="setProgram(program)">
                           Leer más
                         </v-btn>
@@ -181,18 +163,31 @@
                 </v-card>
               </v-col>
             </v-row>
+            <v-row justify="center" class="my-2">
+              <v-btn class="minibtn mt-3" @click="couponContact = true">
+                Descargar Cupón de descuento
+              </v-btn>
+              <discount-form
+                v-model="couponContact"
+                title="Obtén un descuento especial en el programa que más te gusta"
+              />
+            </v-row>
           </v-container>
         </template>
       </v-data-iterator>
     </main>
-    <v-divider />
+    <!-- <v-divider /> -->
   </div>
 </template>
 
 <script>
+import discountForm from '~/components/forms/discountForm.vue'
+
 export default {
+  components: { discountForm },
   data () {
     return {
+      couponContact: false,
       title: 'Programas de cursos teológicos y de formación cristiana',
       programs: [],
       page: 1,
@@ -204,13 +199,7 @@ export default {
       },
       ipp: 2,
       rpp: 2,
-      keys: [
-        'Diplomado',
-        'Licenciatura',
-        'Maestría',
-        'Doctorado',
-        'Todos'
-      ]
+      keys: ['Diplomado', 'Licenciatura', 'Maestría', 'Doctorado', 'Todos']
     }
   },
   head () {
@@ -235,7 +224,9 @@ export default {
   },
   methods: {
     async getPrograms () {
-      const data = await this.$axios.$get(`${this.$store.state.urlAPI}/divisions/client6049278bc32f0d0015e108e9`)
+      const data = await this.$axios.$get(
+        `${this.$store.state.urlAPI}/divisions/client6049278bc32f0d0015e108e9`
+      )
       this.pages = data.pages
       this.programs = data.divisions
       this.spinner = false
@@ -257,58 +248,56 @@ export default {
         this.page -= 1
       }
     }
-
   }
 }
 </script>
 
 <style lang="scss" scoped>
+.hero {
+  background-image: url(https://images.unsplash.com/photo-1486525546686-3cd5484691f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1131&q=80);
+  height: 100%;
+  min-height: 85vh;
+  background-position: center;
+  .hero-card {
+    max-height: 500px;
+    .text {
+      line-height: 1.5;
+      font-size: 18px;
+    }
+  }
+}
+@include tablet {
   .hero {
-    background-image:
-    url(https://images.unsplash.com/photo-1486525546686-3cd5484691f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1131&q=80);
-    height: 100%;
-    min-height: 85vh;
-    background-position: center;
-    .hero-card {
-      max-height: 500px;
-      .text {
-        line-height: 1.5;
-        font-size: 18px;
-      }
-    }
+    height: 60vh;
   }
-  @include tablet {
-    .hero{
-      height: 60vh;
-    }
-  }
+}
 main {
   .program-card {
     // opacity: 0.75;
     // box-shadow: 10px 5px 10px -5px rgba(0, 0, 0, 0.4) !important;
+    .img-course {
+      filter: grayscale(60%);
+      opacity: 0.9;
+    }
+    &:hover {
+      opacity: 1;
+      transition: all 0.4s ease-in-out;
+      transform: translateY(-5px);
+      box-shadow: 15px 8px 15px -5px rgba(0, 0, 0, 0.4) !important;
       .img-course {
-        filter: grayscale(60%);
-        opacity: .9;
+        filter: none;
       }
-      &:hover {
-        opacity: 1;
-        transition: all 0.4s ease-in-out;
-        transform: translateY(-5px);
-        box-shadow: 15px 8px 15px -5px rgba(0, 0, 0, 0.4) !important;
-        .img-course {
-          filter: none;
-        }
-      }
+    }
     .text {
-        font-size: $body;
+      font-size: $body;
     }
     .text-sm {
-        font-size: $body;
-        color: $gray-mid;
-        font-weight: 300;
-        line-height: 1.7;
-        margin: 0;
-        padding: 0;
+      font-size: $body;
+      color: $gray-mid;
+      font-weight: 300;
+      line-height: 1.7;
+      margin: 0;
+      padding: 0;
     }
     .minirow {
       .priceOld {
@@ -325,9 +314,8 @@ main {
       }
     }
     .btn {
-        width: 100%;
+      width: 100%;
     }
   }
 }
-
 </style>

@@ -4,19 +4,19 @@
     <hero-groups />
     <!--Seccion del Ebook-->
     <!-- <ebook-groups /> -->
+    <!--Seccion de Biblioteca de cursos / niveles-->
+    <levels />
+    <!--Seccion donde se habla de asesoria-->
+    <consulting />
+    <!--Seccion proceso de implementacion-->
+    <process-section />
+    <!--Seccion donde se habla de Sego School-->
+    <link-to-sego />
     <!--Seccion de Objetivos y Beneficios-->
     <goals-benefits class="mt-10" />
     <!--Seccion de Dirigido a:-->
     <our-team />
     <adressed-to />
-    <!--Seccion de Biblioteca de cursos / niveles-->
-    <levels />
-    <!--Seccion donde se habla de Sego School-->
-    <link-to-sego />
-    <!--Seccion donde se habla de asesoria-->
-    <consulting />
-    <!--Seccion proceso de implementacion-->
-    <process-section />
     <!--Seccion preguntas frecuentes-->
     <faq />
   </div>

@@ -1,9 +1,9 @@
 <template>
   <div class="mt-10 pb-5 mb-5">
     <v-container v-if="singleProgram && singleProgram._id" class="px-5">
-      <h1 class="text-uppercase font-weight-light text-start gray-m-font mb-3">
+      <h2 class="text-uppercase fw-300 text-start gray-m-font mb-3">
         Programa:
-      </h1>
+      </h2>
       <v-row>
         <v-col
           xl="8"
@@ -12,10 +12,10 @@
           class="col-container"
         >
           <main>
-            <h2 class="red-font font-weight-light">
+            <h1 class="red-font fw-300 mb-3">
               {{ singleProgram.name }}
-            </h2>
-            <h3 class="gray-m-font">
+            </h1>
+            <h3 class="gray-m-font text-blog">
               {{ singleProgram.subName }}
             </h3>
             <!-- <v-img :src="singleProgram.imgUrl" class="rounded-lg my-5" /> -->
@@ -50,9 +50,9 @@
             <p class="text">
               {{ singleProgram.description }}
             </p>
-            <h2 class="gray-m-font my-5">
+            <h3 class="gray-m-font my-5">
               Módulos
-            </h2>
+            </h3>
             <v-expansion-panels v-if="courses" class="mb-8 mt-4" accordion>
               <v-expansion-panel
                 v-for="(course, i) in courses"
@@ -66,7 +66,7 @@
                     {{ course.name }}
                   </h4>
                 </v-expansion-panel-header>
-                <v-expansion-panel-content class="d-none">
+                <v-expansion-panel-content>
                   <p class="text-mid">
                     {{ course.description }}
                   </p>
@@ -78,6 +78,26 @@
                 </v-expansion-panel-content>
               </v-expansion-panel>
             </v-expansion-panels>
+            <div class="centrar mt-10">
+              <dialog-success
+                v-model="dialogSuccess"
+                header="¡Gracias por Descargar la ficha del programa!"
+                message="En tu bandeja de correo electrónico recibirás el link de descarga. Esperamos sea de gran utilidad."
+              >
+                <template
+                  #activator="{ on, attrs }"
+                >
+                  <v-btn
+                    :attrs="attrs"
+                    class="btn"
+                    @on="on"
+                    @click="dialogSuccess = true"
+                  >
+                    Descargar ficha del programa
+                  </v-btn>
+                </template>
+              </dialog-success>
+            </div>
           </main>
         </v-col>
         <v-col
@@ -199,26 +219,6 @@
         </v-col>
       </v-row>
     </v-container>
-    <div class="centrar mt-10">
-      <dialog-success
-        v-model="dialogSuccess"
-        header="¡Gracias por Descargar la ficha del programa!"
-        message="En tu bandeja de correo electrónico recibirás el link de descarga. Esperamos sea de gran utilidad."
-      >
-        <template
-          #activator="{ on, attrs }"
-        >
-          <v-btn
-            :attrs="attrs"
-            class="btn"
-            @on="on"
-            @click="dialogSuccess = true"
-          >
-            Descargar ficha del programa
-          </v-btn>
-        </template>
-      </dialog-success>
-    </div>
   </div>
 </template>
 

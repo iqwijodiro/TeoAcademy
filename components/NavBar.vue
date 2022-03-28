@@ -114,7 +114,7 @@ export default {
         },
         {
           icon: 'mdi-account-group',
-          title: 'Asesoría',
+          title: 'Servicios',
           to: '/groups'
         },
         {

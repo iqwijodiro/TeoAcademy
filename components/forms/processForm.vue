@@ -100,6 +100,7 @@ export default {
       validForm: false,
       dialogSuccess: false,
       dialogError: false,
+      loading: false,
       reCaptchaSuccess: false,
       lead: {
         name: null,

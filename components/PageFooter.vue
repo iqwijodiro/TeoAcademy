@@ -6,7 +6,7 @@
           <v-col
             cols="12"
             md="4"
-            class=""
+            class="d-flex flex-column justify-space-around"
           >
             <!-- <v-img
               :src="require('../assets/img/logo_full.jpg')"
@@ -15,29 +15,31 @@
               max-width="100%"
               class="mx-auto my-4"
             /> -->
-            <h4 class="mb-3 text-center">
-              Síguenos en nuestras redes sociales
-            </h4>
-            <div class="d-flex justify-space-around justify-md-space-between mx-auto pt-2">
-              <v-list
-                v-for="(icon, i) in icons"
-                :key="i"
-                class="pa-0 ma-0 list_rrss"
-              >
-                <a
-                  :href="icons[i].link"
+            <div class="d-flex flex-column justify-space-around justify-md-space-between mx-auto align-center pt-2">
+              <h4 class="mb-3 text-center">
+                Síguenos en nuestras redes sociales
+              </h4>
+              <div>
+                <v-list
+                  v-for="(icon, i) in icons"
+                  :key="i"
+                  class="pa-0 ma-0 list_rrss"
                 >
-                  <v-icon size="45" class="mx-auto">
-                    {{ icon.brand }}
-                  </v-icon>
-                </a>
-              </v-list>
+                  <a
+                    :href="icons[i].link"
+                  >
+                    <v-icon size="45" class="mx-auto">
+                      {{ icon.brand }}
+                    </v-icon>
+                  </a>
+                </v-list>
+              </div>
             </div>
             <div class="centrar">
               <!-- Formulario de contacto -->
               <contact-form v-model="dialogContact" />
               <v-btn
-                class="btn mb-5 d-none"
+                class="btn mb-5"
                 @click="dialogContact = true"
               >
                 Contáctanos
@@ -68,12 +70,12 @@
             <v-list
               class="d-flex flex-column align-md-start align-center pa-0"
             >
-              <h4 class="pt-4 mb-3">
+              <h4 class="pt-4 mb-3 fw-700">
                 Acceso Rápido
               </h4>
               <v-list-item v-for="(item, i) in items" :key="i" class="item">
                 <nuxt-link :to="item.to">
-                  <v-list-item-title class="link px-0" v-text="item.text" />
+                  <v-list-item-title class="link px-0 red-font" v-text="item.text" />
                 </nuxt-link>
               </v-list-item>
             </v-list>
@@ -102,29 +104,33 @@ export default {
       dialogContact: false,
       FootItems: [
         {
-          icon: 'mdi-map-marker',
-          text:
-            'Costa Rica, San José, Sabana Norte, Edificio Gran Campo, Oficina No. 6.'
-        },
-        {
-          icon: 'mdi-map-marker',
-          text: 'EEUU, Pensilvania, Alburtis, 1548 Pinewind, PA 18011'
-        },
-        {
           icon: 'mdi-email-outline',
           text: 'servicios@teo-academy.com'
         },
+        // {
+        //   icon: 'mdi-map-marker',
+        //   text:
+        //     'Costa Rica, San José, Sabana Norte, Edificio Gran Campo, Oficina No. 6.'
+        // },
+        // {
+        //   icon: 'mdi-map-marker',
+        //   text: 'EEUU, Pensilvania, Alburtis, 1548 Pinewind, PA 18011'
+        // },
         {
           icon: 'mdi-whatsapp',
-          text: '+506 70176705 y +1 484 9255978'
-        },
-        {
-          icon: 'mdi-whatsapp',
-          text: 'Venezuela y Suramérica: +58-4244409819'
+          text: 'EE.UU. +1 484 9255978'
         },
         {
           icon: 'mdi-whatsapp',
           text: 'Costa Rica y Centroamérica: +506-70176705'
+        },
+        {
+          icon: 'mdi-whatsapp',
+          text: 'Venezuela y Suramérica: +58 426 5758868'
+        },
+        {
+          icon: 'mdi-whatsapp',
+          text: 'Argentina + 54 911 30753752'
         }
       ],
       items: [
@@ -154,10 +160,10 @@ export default {
         }
       ],
       icons: [
-        {
-          brand: 'mdi-twitter',
-          link: 'https://twitter.com'
-        },
+        // {
+        //   brand: 'mdi-twitter',
+        //   link: 'https://twitter.com'
+        // },
         {
           brand: 'mdi-facebook',
           link: 'https://facebook.com'
@@ -165,11 +171,12 @@ export default {
         {
           brand: 'mdi-instagram',
           link: 'https://instagram.com'
-        },
-        {
-          brand: 'fab fa-telegram-plane',
-          link: 'https://telegram.com'
         }
+        // ,
+        // {
+        //   brand: 'fab fa-telegram-plane',
+        //   link: 'https://telegram.com'
+        // }
       ]
     }
   }
@@ -181,6 +188,7 @@ export default {
     color: $gray-mid !important;
   }
   .list_rrss {
+    display: inline-block;
     .v-icon {
       opacity: .5;
       transition: all .3s ease-in-out;

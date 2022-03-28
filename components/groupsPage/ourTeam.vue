@@ -11,7 +11,7 @@
         >
           <v-card
             width="100%"
-            max-width="600"
+            max-width="500"
             height="70%"
             rounded="xl"
             class="bg-sheet mx-auto py-5 px-3 text-center"
@@ -39,21 +39,21 @@
                   :max-height="$vuetify.breakpoint.mdAndDown ? '400' : '500'"
                   class="card-quote d-flex flex-column justify-space-between align-center mx-auto px-10"
                 >
-                  <v-avatar style="border-radius: 50%" size="160" class="mb-5">
+                  <v-avatar style="border-radius: 50%" size="140" class="mb-5">
                     <v-img :src="partner.avatar" />
                   </v-avatar>
-                  <h2
-                    :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 20px' : 'font-size: 30px'"
+                  <h3
+                    :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 20px' : 'font-size: 28px'"
                     class="name"
                   >
                     {{ partner.member }}
-                  </h2>
-                  <h3
-                    :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 16px' : 'font-size: 25px'"
+                  </h3>
+                  <h4
+                    :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 16px' : 'font-size: 22px'"
                     class="job"
                   >
                     {{ partner.role }}
-                  </h3>
+                  </h4>
                   <p class="member px-5 d-none">
                     {{ partner.text }}
                   </p>
@@ -62,37 +62,74 @@
             </v-carousel>
           </v-card>
         </v-col>
+        <div class="centrar mt-5">
+          <v-btn class="btn mt-2" @click="dialogContact = true">
+            Descargar ficha de servicio
+          </v-btn>
+            <process-form
+            v-model="dialogContact"
+            />
+      </div>
       </v-row>
     </v-container>
   </section>
 </template>
 <script>
+import processForm from '~/components/forms/processForm'
+
 export default {
+  components: {
+    processForm
+  },
   data () {
     return {
       partners: [
         {
           avatar: 'https://randomuser.me/api/portraits/men/82.jpg',
           member: 'Gustavo Campos',
-          role: 'Fundador - Colaborador',
+          role: 'Desarrollo de Contenidos - Instructor',
           text: 'Participar en la fundación y actividades de Teo Academy ha sido una experiencia única y enriquecedora para mi vida y la de mis allegados.'
         },
         {
-          avatar: 'https://randomuser.me/api/portraits/women/3.jpg',
-          member: 'Adriana Campos',
-          role: 'Fundador - Colaborador',
-          text: 'Participar en la fundación y actividades de Teo Academy ha sido una experiencia única y enriquecedora para mi vida y la de mis allegados.'
-        },
-        {
-          avatar: 'https://randomuser.me/api/portraits/men/13.jpg',
-          member: 'Aquiles Campos',
-          role: 'Fundador - Colaborador',
+          avatar: 'https://randomuser.me/api/portraits/men/23.jpg',
+          member: 'Fredy Ocampo',
+          role: 'Desarrollo de Contenidos - Instructor',
           text: 'Participar en la fundación y actividades de Teo Academy ha sido una experiencia única y enriquecedora para mi vida y la de mis allegados.'
         },
         {
           avatar: 'https://randomuser.me/api/portraits/men/11.jpg',
+          member: 'Alfonso Abreu',
+          role: 'Desarrollo de Contenidos',
+          text: 'Participar en la fundación y actividades de Teo Academy ha sido una experiencia única y enriquecedora para mi vida y la de mis allegados.'
+        },
+        {
+          avatar: 'https://randomuser.me/api/portraits/men/63.jpg',
+          member: 'Angel Molina',
+          role: 'Instructor',
+          text: 'Participar en la fundación y actividades de Teo Academy ha sido una experiencia única y enriquecedora para mi vida y la de mis allegados.'
+        },
+        {
+          avatar: 'https://randomuser.me/api/portraits/men/31.jpg',
           member: 'Vladimir Rueda',
-          role: 'CTO - Founder',
+          role: 'Desarrollo y Asistencia Tecnológica',
+          text: 'Participar en la fundación y actividades de Teo Academy ha sido una experiencia única y enriquecedora para mi vida y la de mis allegados.'
+        },
+        {
+          avatar: 'https://randomuser.me/api/portraits/men/29.jpg',
+          member: 'Winder Díaz',
+          role: 'Desarrollo y Asistencia Tecnológica',
+          text: 'Participar en la fundación y actividades de Teo Academy ha sido una experiencia única y enriquecedora para mi vida y la de mis allegados.'
+        },
+        {
+          avatar: 'https://randomuser.me/api/portraits/women/23.jpg',
+          member: 'Alicia Rojas',
+          role: 'Comunicación y Asistencia General',
+          text: 'Participar en la fundación y actividades de Teo Academy ha sido una experiencia única y enriquecedora para mi vida y la de mis allegados.'
+        },
+        {
+          avatar: 'https://randomuser.me/api/portraits/women/11.jpg',
+          member: 'Isabella Campos',
+          role: 'Producción Audio Visual',
           text: 'Participar en la fundación y actividades de Teo Academy ha sido una experiencia única y enriquecedora para mi vida y la de mis allegados.'
         }
       ]

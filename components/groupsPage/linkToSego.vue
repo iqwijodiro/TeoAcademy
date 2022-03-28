@@ -10,7 +10,7 @@
             Software para gestión de procesos formativos
           </h2>
           <p class="text-center text px-2">
-            Ponemos a disposición de grupos y congregaciones las mejores tecnologías al servicio de la educación,desarrolladas para satisfacer las más exigentes necesidades en materia de gestión de procesos formativos, haciendo posible el acceder metodológicamente a un universo de contenidos de alto valor y hacer de la participación de tutores y estudiantes una experiencia enriquecedora, amena y efectiva.
+            Ponemos a disposición de grupos y congregaciones las mejores tecnologías al servicio de la educación, desarrolladas para satisfacer las más exigentes necesidades en materia de gestión de procesos formativos, haciendo posible el acceder metodológicamente a un universo de contenidos de alto valor y hacer de la participación de tutores y estudiantes una experiencia enriquecedora, amena y efectiva.
           </p>
           <div class="centrar mt-5">
             <v-btn href="https://www.segoschool.com/" target="_blank" class="btn" rel="noopener noreferrer">

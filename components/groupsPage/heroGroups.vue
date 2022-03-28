@@ -4,12 +4,7 @@
       <div class="mask" />
       <v-container>
         <v-row justify="center" class="rail">
-          <v-col
-            cols="12"
-            md="8"
-            sm="10"
-            class="mx-auto px-5"
-          >
+          <v-col cols="12" md="8" sm="10" class="mx-auto px-5">
             <v-card
               elevation="5"
               :min-height="$vuetify.breakpoint.lgAndUp ? '300' : 'auto'"
@@ -19,27 +14,31 @@
             >
               <v-card-title class="mx-auto pb-0 mb-4">
                 <h1
-                  :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 30px' : ''"
+                  :style="
+                    $vuetify.breakpoint.mdAndDown ? 'font-size: 30px' : ''
+                  "
                   class="fw-300 text-center"
                 >
-                  Implemente un proceso de formación cristiana en su congregación.
+                  ¡Enseñanza cristiana con excelencia!
+                  <!-- Implemente un proceso de formación cristiana en su
+                  congregación. -->
                 </h1>
               </v-card-title>
               <v-card-text class="mb-3 mx-auto px-5 py-0">
-                <p :class="$vuetify.breakpoint.mdAndDown ? 'text-small' : 'text' ">
-                  Teo Academy pone a su disposición los recursos (tecnologías y contenidos) y la experiencia (personas y métodos), para hacer del proceso formativo una experiencia de éxito y así brindar a los miembros del cuerpo de Cristo todos los beneficios que brinda la instrucción cristiana.
+                <p
+                  :class="$vuetify.breakpoint.mdAndDown ? 'text-small' : 'text'"
+                >
+                  Teo Academy pone a su
+                  disposición los recursos (tecnologías, contenidos, personas y
+                  métodos), para hacer de la instrucción cristiana una
+                  experiencia enriquecedora, amena y efectiva para los miembros
+                  de la Congregación.
                 </p>
               </v-card-text>
               <div class="centrar">
-                <contact-form
-                  v-model="heroGroups"
-                >
+                <contact-form v-model="heroGroups">
                   <template #activator="{ on, attrs }" class="d-block mx-auto">
-                    <v-btn
-                      class="btn d-block"
-                      v-bind="attrs"
-                      v-on="on"
-                    >
+                    <v-btn class="btn d-block" v-bind="attrs" v-on="on">
                       Contáctanos
                     </v-btn>
                   </template>
@@ -67,35 +66,34 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-
 .hero {
-    background-image: url(https://images.unsplash.com/photo-1541629308-915eec71b441?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80);
-    height: 100%;
-    min-height: 85vh;
-    background-position: bottom;
+  background-image: url(https://images.unsplash.com/photo-1541629308-915eec71b441?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80);
+  height: 100%;
+  min-height: 85vh;
+  background-position: bottom;
   .btn {
-      display: block;
+    display: block;
   }
 }
 @include tablet {
   .hero {
     min-height: 60vh;
-  .rail {
-    display: flex;
+    .rail {
+      display: flex;
       justify-content: center;
       align-items: center;
       .hero-card {
         min-height: 350px !important;
-      width: 90%;
-      max-width: 1000px;
+        width: 90%;
+        max-width: 1000px;
       }
-  }
+    }
   }
 }
 
 @include miniDesktop {
-.text {
+  .text {
     display: block !important;
-}
+  }
 }
 </style>

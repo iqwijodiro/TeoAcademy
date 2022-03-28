@@ -50,12 +50,12 @@
                 <event-form
                   v-model="eventContact"
                 >
-                  <template #activator="{ on, attrs}" class="mx-auto d-block">
-                    <v-btn v-bind="attrs" class="minibtn mt-2" v-on="on">
-                      Registrarse
-                    </v-btn>
-                  </template>
+                  <!-- <template #activator="{ on, attrs}" class="mx-auto d-block">
+                  </template> -->
                 </event-form>
+                <v-btn v-bind="attrs" class="minibtn mt-2" @click="eventContact = true">
+                  Registrarse
+                </v-btn>
               </div>
             </div>
           </v-col>
@@ -82,16 +82,16 @@ export default {
     return {
       eventContact: false,
       events: [
-        {
-          title: 'Inicio Programa: Licenciatura en Consejería Familiar Cristiana',
-          text: 'Para las personas que desean ser instrumentos de bendición en las manos de Dios y desarrollarse profesionalmente en la maravillosa labor de aconsejar a otros.',
-          date: 9,
-          month: 'Diciembre',
-          day: 'Domingo',
-          author: 'Natanael Valenzuela',
-          category: 'Consejería',
-          img: 'https://images.unsplash.com/photo-1577897113292-3b95936e5206?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1090&q=80'
-        },
+        // {
+        //   title: 'Inicio Programa: Licenciatura en Consejería Familiar Cristiana',
+        //   text: 'Para las personas que desean ser instrumentos de bendición en las manos de Dios y desarrollarse profesionalmente en la maravillosa labor de aconsejar a otros.',
+        //   date: 9,
+        //   month: 'Diciembre',
+        //   day: 'Domingo',
+        //   author: 'Natanael Valenzuela',
+        //   category: 'Consejería',
+        //   img: 'https://images.unsplash.com/photo-1577897113292-3b95936e5206?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1090&q=80'
+        // },
         {
           title: 'Conferencia: Fundamentos de la Consejería Familiar Cristiana',
           text: 'En esta conferencia abordaremos los fundamentos de la Consejería Familiar Cristiana, su importancia, relevancia y aspectos a considerar para realizarla eficazmente.',

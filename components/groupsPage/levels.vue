@@ -9,18 +9,36 @@
       </h2>
       <section class="library ">
         <h3 class="text-center red-font">
-          Biblioteca de Cursos
+          Biblioteca de Recursos
         </h3>
         <v-container>
           <v-row justify="center">
-            <v-col
+            <!-- <v-col
               v-for="level in levels"
               :key="level.id"
               cols="12"
               lg="4"
               sm="6"
-            >
-              <v-card
+            > -->
+              <div class="d-flex flex-column flex-sm-row justify-center align-center">
+                <v-col
+                  cols="12"
+                  md="6"
+                >
+                  <v-btn width="100%" class="btn mx-3" to="/courses">
+                    Ver Cursos
+                  </v-btn>
+                </v-col>
+                <v-col
+                  cols="12"
+                  md="6"
+                >
+                  <v-btn width="100%" class="btn mx-3" to="/programs">
+                    Ver programas
+                  </v-btn>
+                </v-col>
+              </div>
+              <!-- <v-card
                 elevation="5"
                 width="100%"
                 max-width="350"
@@ -30,11 +48,6 @@
                 style="background-size: cover"
                 class="level-card rounded-xl mx-auto d-flex align-end"
               >
-                <!-- <v-img
-                  :src="level.img"
-                  height="100%"
-                  class="rounded-xl img-level"
-                /> -->
                 <div class="card-overlay d-flex flex-column justify-space-around">
                   <h4 class="text-center white--text level-title">
                     {{ level.mod }}
@@ -48,8 +61,8 @@
                     </v-btn>
                   </div>
                 </div>
-              </v-card>
-            </v-col>
+              </v-card> -->
+            <!-- </v-col> -->
           </v-row>
         </v-container>
       </section>

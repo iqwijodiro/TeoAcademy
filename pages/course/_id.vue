@@ -1,9 +1,9 @@
 <template>
   <div class="mt-10 ">
     <v-container v-if="singleCourse && singleCourse._id" class="px-5">
-      <h1 class="text-uppercase font-weight-light text-start gray-m-font mb-3">
+      <h2 class="text-uppercase font-weight-light text-start gray-m-font mb-3">
         Curso:
-      </h1>
+      </h2>
       <v-row>
         <v-col
           cols="12"
@@ -11,10 +11,10 @@
           class="col-container"
         >
           <main>
-            <h2 class="red-font font-weight-light">
+            <h1 class="red-font font-weight-light">
               {{ singleCourse.name }}
-            </h2>
-            <h3 class="gray-m-font">
+            </h1>
+            <h3 class="gray-m-font text-blog">
               {{ singleCourse.subName }}
             </h3>
             <v-dialog
@@ -48,9 +48,9 @@
             <p class="text">
               {{ singleCourse.description }}
             </p>
-            <h2 class="gray-m-font mt-8 mb-5">
+            <h3 class="gray-m-font mt-8 mb-5">
               Unidades
-            </h2>
+            </h3>
             <v-expansion-panels v-if="singleCourse.structure && singleCourse.structure.sections" accordion disabled>
               <v-expansion-panel
                 v-for="(module, i) in singleCourse.structure.sections"
@@ -75,6 +75,26 @@
                 </v-expansion-panel-content>
               </v-expansion-panel>
             </v-expansion-panels>
+             <div class="centrar mt-10">
+              <dialog-success
+                v-model="dialogSuccess"
+                header="¡Gracias por Descargar la ficha del curso!"
+                message="En tu bandeja de correo electrónico recibirás el link de descarga. Esperamos sea de gran utilidad."
+              >
+                <template
+                  #activator="{ on, attrs }"
+                >
+                  <v-btn
+                    :attrs="attrs"
+                    class="btn"
+                    @on="on"
+                    @click="dialogSuccess = true"
+                  >
+                    Descargar ficha del curso
+                  </v-btn>
+                </template>
+              </dialog-success>
+            </div>
           </main>
         </v-col>
         <v-col
@@ -179,9 +199,9 @@
     </v-container>
     <section class="indicators">
       <v-container>
-        <h2 class="sect-title gray-m-font">
+        <h3 class="sect-title gray-m-font text-center">
           Competencias
-        </h2>
+        </h3>
         <v-row no-gutters>
           <v-col
             class="px-5"
@@ -204,26 +224,6 @@
             </section>
           </v-col>
         </v-row>
-        <div class="centrar mt-10">
-          <dialog-success
-            v-model="dialogSuccess"
-            header="¡Gracias por Descargar la ficha del curso!"
-            message="En tu bandeja de correo electrónico recibirás el link de descarga. Esperamos sea de gran utilidad."
-          >
-            <template
-              #activator="{ on, attrs }"
-            >
-              <v-btn
-                :attrs="attrs"
-                class="btn"
-                @on="on"
-                @click="dialogSuccess = true"
-              >
-                Descargar ficha del curso
-              </v-btn>
-            </template>
-          </dialog-success>
-        </div>
       </v-container>
     </section>
   </div>

@@ -8,15 +8,15 @@
           class="mx-auto"
         >
           <v-card min-height="100%" elevation="5" class="rounded-xl pa-10">
-            <h2
-              :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 25px' : ''"
-              class="text-center red-font"
+            <h3
+              :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 21px' : ''"
+              class="text-center red-font mb-3"
             >
               <v-icon class="icon">
                 mdi-bullseye-arrow
               </v-icon>
-              Objetivos
-            </h2>
+              Con la aplicación de nuestros programas formativos la Congregación logrará:
+            </h3>
             <ul class=" ml-3">
               <li
                 v-for="goal in goals"
@@ -40,15 +40,15 @@
           class="mx-auto"
         >
           <v-card min-height="100%" elevation="5" class="rounded-xl pa-10">
-            <h2
-              :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 25px' : ''"
-              class="text-center red-font"
+            <h3
+              :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 21px' : ''"
+              class="text-center red-font mb-3"
             >
               <v-icon class="icon">
                 mdi-medal
               </v-icon>
-              Beneficios
-            </h2>
+              Con la implementación de los servicios y programas la Congregación gozará de:
+            </h3>
             <ul class="ml-3">
               <li
                 v-for="(benefit, i) in benefits"
