@@ -18,7 +18,7 @@
           <v-row justify="center" dense>
             <v-col
               cols="12"
-              class="py-2"
+              class="py-2 mx-0"
             >
               <v-text-field
                 v-model="lead.name"

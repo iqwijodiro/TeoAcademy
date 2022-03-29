@@ -2,7 +2,7 @@
   <section class="cta my-10">
     <v-container>
       <div class="d-flex flex-column flex-sm-row justify-center align-center">
-        <v-btn class="btn mt-2" href="@/assets/files/file.pdf">
+        <v-btn class="btn mt-2" href="@/assets/files/file.pdf" download="Ficha_Servicios_Teoacademy.pdf">
           Descargar ficha de servicio
         </v-btn>
         <v-btn class="btn mt-2" @click="dialogContact = true">

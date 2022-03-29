@@ -43,6 +43,7 @@ export default {
     NavBar,
     PageFooter
   },
+  scrollToTop: true,
   data () {
     return {
       clipped: false,

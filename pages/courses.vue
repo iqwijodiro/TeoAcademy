@@ -1,5 +1,5 @@
 <template>
-  <div id="courses my-5 pa-0">
+  <div id="courses" ref="topPage">
     <div class="hero d-flex justify-center align-center">
       <div class="mask" />
       <v-container>
@@ -98,19 +98,19 @@
         no-data-text="No hay datos para mostrar"
         hide-default-footer
       >
-        <!-- <template #header>
-        </template> -->
         <template #default="props">
           <v-container>
             <v-row
-              id="container"
               justify="center"
             >
               <v-col
                 v-for="course in props.items"
                 :key="course._id"
                 cols="12"
-                md="4"
+                lg="4"
+                md="5"
+                sm="8"
+                class="px-5"
               >
                 <course-card
                   :img-link="course.imgUrl"
@@ -170,6 +170,7 @@ export default {
     return {
       title: 'Cursos de formación cristiana y temas teológicos a tu alcance',
       courses: [],
+      scrollToTop: true,
       search: '',
       valid: true,
       select: null,

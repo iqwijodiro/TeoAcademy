@@ -2,7 +2,10 @@
   <v-card :max-width="maxWidth" class="rounded-xl">
     <loading-overlay :value="loading" />
     <v-card-title>
-      <h2 class="text-center f-fucsia fs-24 my-1 form-title">
+      <h2
+        class="text-center my-1 form-title"
+        :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 20px' : 'font-size: 25px'"
+      >
         {{ title }}
       </h2>
     </v-card-title>
@@ -23,8 +26,8 @@
           v-model="privacyDialog"
         >
           <template #activator="{ on, attrs }">
-            <p class="text-mid f-gray-mid fs-14 mb-n1" style="line-height: 1.5">
-              Al hacer click en <span class="font-weight-bold f-fucsia">{{ textActionButton }}</span> usted está confirmando que acepta los términos de nuestras
+            <p class="text-mid mb-n1" style="line-height: 1.5">
+              Al hacer click en <span class="fw-700">{{ textActionButton }}</span> usted está confirmando que acepta los términos de nuestras
               <a v-bind="attrs" class="text-decoration-underline" v-on="on"> políticas y condiciones</a>
             </p>
           </template>

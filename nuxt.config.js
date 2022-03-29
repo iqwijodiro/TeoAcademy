@@ -33,7 +33,11 @@ export default {
     name: 'slide-x-transition',
     mode: 'out-in'
   },
-
+  router: {
+    scrollBehavior (to, from, savedPosition) {
+      return { x: 0, y: 0 }
+    }
+  },
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     // 'scss',

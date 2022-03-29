@@ -4,7 +4,10 @@
       <v-row>
         <v-col>
           <article class="mx-auto px-3">
-            <h1 class="fw-300 text-center text-md-left">
+            <h1
+              class="fw-300 text-center text-md-left"
+              :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 30px' : ''"
+            >
               {{ post.title }}
             </h1>
             <div class="content-box my-5">
@@ -55,7 +58,7 @@
           cols="12"
           md="3"
         >
-          <v-btn width="100%" class="minibtn mx-3" to="/courses">
+          <v-btn to="/courses" width="100%" class="minibtn mx-3">
             Ver Cursos
           </v-btn>
         </v-col>
@@ -92,7 +95,15 @@ export default {
       .content-box {
         border-top: 2px solid $gray-light;
         border-bottom: 1px solid $gray-light;
+        h2 {
+          font-size: 20px;
+        }
       }
+    }
+  }
+  @include tablet {
+    h2 {
+      font-size: 30px;
     }
   }
 </style>

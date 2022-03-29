@@ -12,7 +12,10 @@
     <v-card class="rounded-xl">
       <loading-overlay :value="loading" :message="loadingMessage" />
       <v-card-title>
-        <h2 class="text-center red-font my-1 form-title">
+        <h2
+          :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 20px' : 'font-size: 25px'"
+          class="text-center red-font my-1 form-title"
+        >
           {{ title }}
         </h2>
       </v-card-title>
@@ -33,7 +36,7 @@
             v-model="privacyDialog"
           >
             <template #activator="{ on, attrs }">
-              <p class="text-small gray-font mb-n1" style="line-height: 1.5">
+              <p class="text-small mb-n1 mx-5" style="line-height: 1.5">
                 Al hacer click en <span class="font-weight-bold blue-font">{{ textActionButton }}</span> usted está confirmando que acepta los términos de nuestras
                 <a v-bind="attrs" class="red-font" v-on="on"> políticas y condiciones</a>
               </p>
