@@ -10,45 +10,43 @@
       <v-row justify="center">
         <v-col
           cols="12"
-          md="8"
-          sm="10"
+          md="7"
+          sm="8"
         >
           <v-card
-            class="sheet-slider rounded-xl mt-5 mx-auto"
-            :height="$vuetify.breakpoint.smAndDown ? '80%' : '75%'"
+            class="sheet-slider rounded-xl my-5 mx-auto d-flex flex-column"
+            :height="$vuetify.breakpoint.smAndDown ? '70%' : '65%'"
             width="90%"
           >
             <div class="mask rounded-xl" />
             <v-row justify="center" class="mb-5">
-              <v-col>
-                <v-carousel hide-delimiters cycle>
-                  <v-carousel-item
-                    v-for="(who, i) in whos"
-                    :key="i"
-                    class="ma-5 rounded-xl"
+              <v-carousel hide-delimiters cycle>
+                <v-carousel-item
+                  v-for="(who, i) in whos"
+                  :key="i"
+                  class="ma-5 rounded-xl"
+                >
+                  <v-card
+                    flat
+                    color="transparent"
+                    class="d-flex flex-column justify-center rounded-xl"
+                    height="75%"
                   >
-                    <v-card
-                      flat
-                      color="transparent"
-                      class="d-flex flex-column justify-center rounded-xl"
-                      height="75%"
+                    <h3
+                      :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 21px' : ''"
+                      class="text-center mb-10"
                     >
-                      <h3
-                        :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 21px' : ''"
-                        class="text-center mb-10"
-                      >
-                        Quienes {{ who.slide }}
-                      </h3>
-                      <p
-                        :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 18px' : ''"
-                        class="text text-center mx-auto"
-                      >
-                        {{ who.text }}
-                      </p>
-                    </v-card>
-                  </v-carousel-item>
-                </v-carousel>
-              </v-col>
+                      Quienes {{ who.slide }}
+                    </h3>
+                    <p
+                      :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 18px' : ''"
+                      class="text text-center mx-auto"
+                    >
+                      {{ who.text }}
+                    </p>
+                  </v-card>
+                </v-carousel-item>
+              </v-carousel>
             </v-row>
           </v-card>
         </v-col>
@@ -80,6 +78,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .whom {
+  height: 75vh;
   background: rgb(149,149,149);
   background: linear-gradient(0deg, rgba(149,149,149,1) 0%, rgba(149,149,149,0.5) 25%, rgba(233,233,233,1) 50%, rgba(149,149,149,0.5) 75%, rgba(149,149,149,1) 100%);
   h2, h3 {color: $wine;}
@@ -111,7 +110,7 @@ export default {
 }
 @include miniDesktop() {
     .gutter-p {
-        padding-top: 120px !important;
+        padding-top: 80px !important;
   }
 }
 </style>

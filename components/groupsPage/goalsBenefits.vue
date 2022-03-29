@@ -5,6 +5,7 @@
         <v-col
           cols="12"
           md="6"
+          sm="10"
           class="mx-auto"
         >
           <v-card min-height="100%" elevation="5" class="rounded-xl pa-10">
@@ -37,6 +38,7 @@
         <v-col
           cols="12"
           md="6"
+          sm="10"
           class="mx-auto"
         >
           <v-card min-height="100%" elevation="5" class="rounded-xl pa-10">

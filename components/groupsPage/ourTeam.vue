@@ -5,16 +5,15 @@
       <v-row justify="center" class="fill-height">
         <v-col
           cols="12"
-          md="7"
-          sm="10"
+          md="5"
+          sm="7"
           class="d-flex align-center"
         >
           <v-card
-            width="100%"
-            max-width="500"
-            height="70%"
-            rounded="xl"
-            class="bg-sheet mx-auto py-5 px-3 text-center"
+            :width="$vuetify.breakpoint.mdAndDown ? '85%' : '100%'"
+            max-width="450"
+            height="65%"
+            class="bg-sheet mx-auto py-5 px-3 text-center rounded-xl"
           >
             <h2
               :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 25px' : ''"
@@ -36,7 +35,7 @@
                   width="100%"
                   flat
                   light
-                  :max-height="$vuetify.breakpoint.mdAndDown ? '400' : '500'"
+                  :max-height="$vuetify.breakpoint.mdAndDown ? '300' : '400'"
                   class="card-quote d-flex flex-column justify-space-between align-center mx-auto px-10"
                 >
                   <v-avatar style="border-radius: 50%" size="140" class="mb-5">
@@ -138,7 +137,7 @@ export default {
   background-attachment: fixed;
   background-position: center center;
   // min-height: 800px;
-  height: 80vh;
+  height: 65vh;
   max-height: 1100px;
   padding: 0 !important;
   .mask {
@@ -171,37 +170,4 @@ export default {
        }
   }
 }
-//  @include telefono {
-//     .our-team{
-//       .bg-sheet {
-//         // height: 80%;
-//         // max-height: 580px;
-//         .card-quote {
-//             font-size: $link;
-//         }
-//       }
-//     }
-//   }
-//   @include tablet {
-//     .our-team {
-//       // height: 70vh;
-//       .bg-sheet {
-//         // max-height: 600px;
-//         // height: 80%;
-//       }
-//     }
-//   }
-//   @include desktop {
-//     .bg-sheet {
-//       // height: 75%;
-//     }
-//   }
-//   @include lgdesktop {
-//       .bg-sheet {
-//           // height: 75%;
-//           .card-quote {
-//             font-size: $link;
-//           }
-//       }
-//   }
 </style>

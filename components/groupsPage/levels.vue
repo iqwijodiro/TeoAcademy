@@ -1,12 +1,12 @@
 <template>
   <section class="levels gutter-p">
     <v-container>
-      <h2
-        :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 25px' : ''"
+      <h3
+        :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 21px' : ''"
         class="text-center red-font"
       >
         De acuerdo a las necesidades y factibilidades de cada congregación, proveemos:
-      </h2>
+      </h3>
       <section class="library ">
         <h3 class="text-center red-font">
           Biblioteca de Recursos
@@ -20,11 +20,11 @@
               lg="4"
               sm="6"
             > -->
-            <div class="d-flex flex-column flex-sm-row justify-center align-center">
-              <v-btn width="100%" class="btn mx-3" to="/courses">
+            <div class="d-flex flex-column flex-md-row justify-center align-center">
+              <v-btn block class="btn mx-3" to="/courses">
                 Ver Cursos
               </v-btn>
-              <v-btn width="100%" class="btn mx-3" to="/programs">
+              <v-btn block class="btn mx-3" to="/programs">
                 Ver programas
               </v-btn>
             </div>
