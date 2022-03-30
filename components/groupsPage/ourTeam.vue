@@ -24,15 +24,37 @@
             <v-carousel
               cycle
               hide-delimiters
-              class="team-slider my-slider"
+              class="team-slider"
+              height="500"
             >
-              <!-- style="border: 3px solid yellow !important;" -->
+              <!-- <template #prev="{ on, attrs }">
+                <v-btn
+                  color="warning"
+                  v-bind="attrs"
+                  small
+                  class="carousel-control"
+                  v-on="on"
+                >
+                  Previous
+                </v-btn>
+              </template>
+              <template #next="{ on, attrs }">
+                <v-btn
+                  color="danger"
+                  v-bind="attrs"
+                  small
+                  class="carousel-control"
+                  v-on="on"
+                >
+                  Next
+                </v-btn>
+              </template> -->
               <v-carousel-item
                 v-for="(partner, i) in partners"
                 :key="i"
                 class="card-member mx-auto slide-item"
+                style="height: 60%; width: 100%;"
               >
-                <!-- style="border: 3px solid blue !important;" -->
                 <v-card
                   width="100%"
                   flat
@@ -153,12 +175,9 @@ export default {
   h2 {
     color: $wine;
   }
-  .team-slider {
+  div.team-slider {
     // max-height: 400px;
     // .slide-item {
-      .v-window__container {
-          border: 3px solid blue !important;
-        }
         .name, .job {
           padding: 0 10px !important;
           color: $gray-mid;
@@ -180,4 +199,10 @@ export default {
     // }
   }
 }
+</style>
+<style>
+   div.team-slider div.v-window__container div.v-window__prev,
+  div.team-slider div.v-window__container div.v-window__next {
+      top: calc(20% - 20px) !important;
+    }
 </style>
