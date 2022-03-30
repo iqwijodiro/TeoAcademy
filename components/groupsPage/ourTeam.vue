@@ -1,12 +1,12 @@
 <template>
   <section class="our-team d-flex justify-center align-center ">
-    <div class="mask" />
+    <!-- <div class="mask" /> -->
     <v-container>
-      <v-row justify="center" class="fill-height">
+      <v-row justify="center">
         <v-col
           cols="12"
-          md="5"
-          sm="7"
+          md="6"
+          sm="8"
           class="d-flex align-center"
         >
           <v-card
@@ -26,11 +26,13 @@
               hide-delimiters
               class="team-slider my-slider"
             >
+              <!-- style="border: 3px solid yellow !important;" -->
               <v-carousel-item
                 v-for="(partner, i) in partners"
                 :key="i"
-                class="card-member mx-auto"
+                class="card-member mx-auto slide-item"
               >
+                <!-- style="border: 3px solid blue !important;" -->
                 <v-card
                   width="100%"
                   flat
@@ -132,11 +134,13 @@ export default {
 <style lang="scss" scoped>
 .our-team {
   position: relative !important;
-  background-image: url(https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1453&q=80);
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center center;
+  // background-image: url(https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1453&q=80);
+  // background-size: cover;
+  // background-attachment: fixed;
+  // background-position: center center;
   // min-height: 800px;
+  background: rgb(240,38,58);
+  background: linear-gradient(135deg, rgba(240,38,58,1) 0%, rgba(240,38,58,1) 15%, rgba(240,38,58,0.9780287114845938) 30%, rgba(190,30,46,1) 70%, rgba(190,30,46,1) 85%, rgba(190,30,46,1) 100%);
   height: 65vh;
   max-height: 1100px;
   padding: 0 !important;
@@ -150,24 +154,30 @@ export default {
     color: $wine;
   }
   .team-slider {
-      .name, .job {
-        padding: 0 10px !important;
-        color: $gray-mid;
-        font-weight: 300 !important;
-        line-height: 1.4;
-      }
-      .name {
-        color: $wine;
-        font-weight: 400 !important;
-      }
-      .member {
-        font-size: $link;
-        text-align: center;
-        line-height: 1.6;
-        margin: 1rem;
-        color: $gray-mid;
-        max-width: 80%;
-       }
+    // max-height: 400px;
+    // .slide-item {
+      .v-window__container {
+          border: 3px solid blue !important;
+        }
+        .name, .job {
+          padding: 0 10px !important;
+          color: $gray-mid;
+          font-weight: 300 !important;
+          line-height: 1.4;
+        }
+        .name {
+          color: $wine;
+          font-weight: 400 !important;
+        }
+        .member {
+          font-size: $link;
+          text-align: center;
+          line-height: 1.6;
+          margin: 1rem;
+          color: $gray-mid;
+          max-width: 80%;
+         }
+    // }
   }
 }
 </style>
