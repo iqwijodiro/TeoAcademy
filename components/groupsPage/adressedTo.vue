@@ -14,6 +14,7 @@
           sm="8"
         >
           <v-card
+            elevation="5"
             class="sheet-slider rounded-xl my-5 mx-auto d-flex flex-column"
             :height="$vuetify.breakpoint.smAndDown ? '70%' : '65%'"
             width="90%"
@@ -79,8 +80,8 @@ export default {
 <style lang="scss" scoped>
 .whom {
   height: 75vh;
-  background: rgb(149,149,149);
-  background: linear-gradient(0deg, rgba(149,149,149,1) 0%, rgba(149,149,149,0.5) 25%, rgba(233,233,233,1) 50%, rgba(149,149,149,0.5) 75%, rgba(149,149,149,1) 100%);
+  // background: rgb(149,149,149);
+  // background: linear-gradient(0deg, rgba(149,149,149,1) 0%, rgba(149,149,149,0.5) 25%, rgba(233,233,233,1) 50%, rgba(149,149,149,0.5) 75%, rgba(149,149,149,1) 100%);
   h2, h3 {color: $wine;}
   .sheet-slider{
     background-image: url(https://images.unsplash.com/photo-1440317539597-ad354a025165?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);
@@ -88,6 +89,9 @@ export default {
     background-position: center center;
     object-fit: cover;
     position: relative;
+    // .v-window__prev, .v-window__next {
+    //   top: calc(20% - 20px) !important;
+    // }
     .mask {
       position: absolute;
       background: rgba($color: #ffffff, $alpha: 0.55);
@@ -110,7 +114,7 @@ export default {
 }
 @include miniDesktop() {
     .gutter-p {
-        padding-top: 80px !important;
+        padding-top: 40px !important;
   }
 }
 </style>

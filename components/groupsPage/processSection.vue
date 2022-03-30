@@ -7,13 +7,13 @@
       >
         Proceso de implementación
       </h2>
-      <p class="text-center text px-3">
+      <p class="text-center text-blog px-3">
         Nuestro proceso de implementación para grupos y congregaciones esta diseñado para garantizar la
         efectividad en todas sus actividades y lograr los objetivos propuestos.
       </p>
       <v-row justify="center">
         <v-col>
-          <v-img :src="require('@/assets/img/infografiateo-copy.png')" max-width="1000" class="mx-auto" />
+          <v-img :src="require('@/assets/img/infografiateo-copy.png')" max-width="1000" class="mx-auto mt-5" />
         </v-col>
       </v-row>
       <!-- <div class="centrar mt-5">

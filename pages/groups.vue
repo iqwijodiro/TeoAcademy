@@ -18,10 +18,10 @@
     <adressed-to />
     <!-- Nuestro Equipo de trabajo -->
     <our-team />
-    <!-- Seccion de CTA -->
-    <call-to-actions />
     <!--Seccion preguntas frecuentes-->
     <faq />
+    <!-- Seccion de CTA -->
+    <call-to-actions />
   </div>
 </template>
 <script>

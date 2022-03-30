@@ -1,5 +1,5 @@
 <template>
-  <section class="levels gutter-p">
+  <section class="levels mt-10">
     <v-container>
       <h3
         :style="$vuetify.breakpoint.mdAndDown ? 'font-size: 21px' : ''"
@@ -11,7 +11,7 @@
         <h3 class="text-center red-font">
           Biblioteca de Recursos
         </h3>
-        <v-container>
+        <v-container class="mt-10">
           <v-row justify="center">
             <!-- <v-col
               v-for="level in levels"
@@ -56,9 +56,9 @@
           </v-row>
         </v-container>
       </section>
-      <v-container>
-        <h3 class="text-start gray-m-font">
-          Con recursos formativos de excepcional calidad:
+      <v-container class="mt-10">
+        <h3 class="text-center gray-m-font">
+          Con recursos formativos de excepcional calidad
         </h3>
         <ul>
           <li

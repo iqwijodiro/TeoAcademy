@@ -1,5 +1,5 @@
 <template>
-  <section class="cta my-10">
+  <section class="cta mb-5">
     <v-container>
       <div class="d-flex flex-column flex-sm-row justify-center align-center">
         <v-btn class="btn mt-2" href="@/assets/files/file.pdf" download="Ficha_Servicios_Teoacademy.pdf">
